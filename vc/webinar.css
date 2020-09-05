@@ -1,0 +1,77 @@
+body {
+  background-color: seagreen;
+}
+
+.primary--1IbqAO {
+  background-color: #FFF;
+  border: 3px solid #FFF;
+  color: #2F4F4F;
+}
+
+.primary--1IbqAO:hover {
+  color: #2F4F4F!important;
+}
+
+.speaking--Z2tUpzD button {
+  color: #fff!important;
+}
+.presentationArea--1VFCwU .primary--1IbqAO {
+  background: #45546d;
+  color: #ffffff;
+}
+
+/* Header styles */
+.navbar--Z2lHYbG {
+  background: #f5f5f7;
+  border-left: 1px solid #dddee0;
+  padding-left: 50px;
+  padding-right: 38px;
+  height: 73px;
+  padding-top: 7px;
+}
+header .ghost--Z136aiN.default--Z19H5du, header .presentationTitle--1LT79g {
+  color: #45546d;
+}
+header .default--Z19H5du:hover, header .buttonWrapper--x8uow:hover .default--Z19H5du {
+  color: #45546d !important;
+}
+.userList--Z2q1D0p {
+  background: #f5f5f7 !important;
+}
+.content--2jo8b8 {
+  margin-left: 0;
+}
+
+header .recordingControlOFF--26cqft {
+  background: #45546d;
+}
+header .recordingControlON--ZTT4Mq {
+  background-color: #2e8b57;
+  border: 2px solid #2e8b57;
+}
+.messages--Z1feno8 {
+  margin-top: 40px;
+}
+.primary--1IbqAO:focus, .buttonWrapper--x8uow:focus:not([aria-disabled="true"]) .primary--1IbqAO {
+  background: #FFF !important;
+  color: #2F4F4F !important;
+  box-shadow: none !important;
+}
+
+.presentationArea--1VFCwU .primary--1IbqAO:hover {
+  color: #FFFFFF !important;
+}
+
+.isTalkingWrapper--ZuCcDk {
+  margin-top: 0 !important;
+}
+.footer--2qrGC5 .primary--1IbqAO, .footer--2qrGC5 .primary--1IbqAO:hover {
+  background: #45546d;
+  color: #FFF !important;
+}
+header .md--Q7ug4 {
+  font-size: 14px;
+}
+.ghost--Z136aiN.default--Z19H5du:focus, .buttonWrapper--x8uow:focus .ghost--Z136aiN.default--Z19H5du {
+  box-shadow: none !important;
+}

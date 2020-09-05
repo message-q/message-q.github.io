@@ -1,0 +1,19 @@
+{
+  "@context": [
+    "https://w3id.org/openbadges/v2",
+    "https://w3id.org/blockcerts/v2"
+  ],
+  "id": "https://mongrov.com/certs/issuer.json",
+  "url": "https://mongrov.com",
+  "name": "Mongrov, Inc",
+  "email": "hello@mongrov.com",
+  "image": "https://mongrov.com/images/mongrov-logo.png",  
+  "publicKey": [
+    {
+      "id": "ecdsa-koblitz-pubkey:0x8f297b06d5367720754282dce4f65dbad3598122",
+      "created": "2018-11-05T22:54:06.736463+00:00"
+    }
+  ],
+  "revocationList": "https://mongrov.com/certs/revocation-list.json",
+  "type": "Profile"
+}
