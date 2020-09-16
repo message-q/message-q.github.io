@@ -13,9 +13,10 @@
   <!-- Keywords -->
   <meta name="description" content="Mongrov, the best team communication app & online collaboration platform, comes with group messaging, group video conference, 
   task management and other great features that improve productivity and boost speed of execution." />
-  <meta name="keywords" content="customer experience, customer retention, customer engagement, customer journey, user journey, customer experience management, customer service experience, analytical intelligence, customer retention strategies, client experience, experience management, staff retention, digital customer experience, user engagement, crystalized intelligence, sap customer experience, retention marketing, digital customer journey, nature of intelligence, company loyalty, force digital engagement, customer journey marketing, creativity and intelligence, intelligent, insight hilton honors points, multiple intelligences, bucks rewards, azar grammar, average human iq, existential intelligence, insight into, mutual understanding, cognitive intelligence, avg iq, crm experience, verbal linguistic, my understanding, the effortless experience, keen insight, to be understood, great insight, understanding the constitution, wow customer experience, beyond understanding, my understanding is that, good customer service experience, website user journey, cx and ux, customer experience case study, contact center experience, instrumental understanding, customer experience data, end to end customer journey" />
-  
-  
+  <meta name="keywords"
+    content="customer experience, customer retention, customer engagement, customer journey, user journey, customer experience management, customer service experience, analytical intelligence, customer retention strategies, client experience, experience management, staff retention, digital customer experience, user engagement, crystalized intelligence, sap customer experience, retention marketing, digital customer journey, nature of intelligence, company loyalty, force digital engagement, customer journey marketing, creativity and intelligence, intelligent, insight hilton honors points, multiple intelligences, bucks rewards, azar grammar, average human iq, existential intelligence, insight into, mutual understanding, cognitive intelligence, avg iq, crm experience, verbal linguistic, my understanding, the effortless experience, keen insight, to be understood, great insight, understanding the constitution, wow customer experience, beyond understanding, my understanding is that, good customer service experience, website user journey, cx and ux, customer experience case study, contact center experience, instrumental understanding, customer experience data, end to end customer journey" />
+
+
   <!-- Favicon -->
   <link rel="shortcut icon" href="assets/img/mong/favicon.ico">
 
@@ -28,6 +29,7 @@
   <link rel="stylesheet" href="assets/vendor/dzsparallaxer/dzsparallaxer.css">
   <link rel="stylesheet" href="assets/vendor/cubeportfolio/css/cubeportfolio.min.css">
   <link rel="stylesheet" href="assets/vendor/aos/dist/aos.css">
+  <link rel="stylesheet" href="assets/vendor/slick-carousel/slick/slick.css">
 
   <!-- CSS Front Template -->
   <link rel="stylesheet" href="assets/css/theme.css">
@@ -52,6 +54,11 @@
       margin-bottom: -3px;
       vertical-align: baseline;
       margin-right: 5px;
+    }
+
+    .slick-arrow {
+      width: 1.6875rem !important;
+      height: 1.6875rem !important;
     }
   </style>
 </head>
@@ -239,7 +246,7 @@
                                 <div class="media-body">
                                   <span class="navbar-promo-title">Communities</span>
 
-                                    <span class="navbar-promo-text">A complete community solution</span>
+                                  <span class="navbar-promo-text">A complete community solution</span>
                                 </div>
                               </div>
                             </a>
@@ -533,7 +540,7 @@
                 <img class="device-macbook-screen" src="assets/img/mong/connected-customer.webp"
                   alt="connected customer screenshot">
               </div>
-              
+
             </div>
             <!-- End Device Mockup -->
 
@@ -546,7 +553,8 @@
             <div class="device-wrapper">
               <div class="device">
                 <img class="img-fluid" src="assets/svg/components/macbook.svg" alt="macbook mockup">
-                <img class="device-macbook-screen" src="assets/img/mong/live-support.webp" alt="live support screenshot">
+                <img class="device-macbook-screen" src="assets/img/mong/live-support.webp"
+                  alt="live support screenshot">
               </div>
             </div>
             <!-- End Device Mockup -->
@@ -560,7 +568,8 @@
             <div class="device-wrapper">
               <div class="device">
                 <img class="img-fluid" src="assets/svg/components/macbook.svg" alt="macbook mockup">
-                <img class="device-macbook-screen" src="assets/img/mong/scheduling-app.webp" alt="scheduling app screenshot">
+                <img class="device-macbook-screen" src="assets/img/mong/scheduling-app.webp"
+                  alt="scheduling app screenshot">
               </div>
             </div>
             <!-- End Device Mockup -->
@@ -588,7 +597,8 @@
       <div class="mt-lg-n11 mb-7 mb-lg-0">
         <!-- SVG Illustration -->
         <figure class="ie-device-and-mobile">
-          <img class="img-fluid mr-3" src="assets/img/mong/mobile-and-lap.svg" alt="profile and chat screenshot" width="100%" height="100%">
+          <img class="img-fluid mr-3" src="assets/img/mong/mobile-and-lap.svg" alt="profile and chat screenshot"
+            width="100%" height="100%">
         </figure>
         <!-- End SVG Illustration -->
       </div>
@@ -873,7 +883,7 @@
     <!-- Section 6 -->
 
     <!-- Clients Section -->
-    <div class="container-fluid space-2">
+    <!-- <div class="container-fluid space-2">
       <div class="mx-lg-auto w-lg-85">
         <div class="text-center mb-4">
           <h2 class="divider divider-text">Trusted by the world's best</h2>
@@ -934,9 +944,80 @@
 
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- End Clients Section -->
 
+    <!-- Clients Slider Section -->
+    <div class="container space-2">
+      <div class="text-center mb-4">
+        <h2 class="divider divider-text">Trusted by the world's best</h2>
+      </div>
+      <div class="js-slick-carousel slick" data-hs-slick-carousel-options='{
+         "slidesToShow": 4,
+         "autoplay": true,
+         "autoplaySpeed": 5000,
+         "infinite": true,
+         "prevArrow": "<span class=\"fas fa-arrow-left d-none d-sm-inline-block slick-arrow slick-arrow-soft-white bg-secondary opacity slick-arrow-left slick-arrow-centered-y rounded-circle\"></span>",
+         "nextArrow": "<span class=\"fas fa-arrow-right d-none d-sm-inline-block slick-arrow slick-arrow-soft-white bg-secondary opacity slick-arrow-right slick-arrow-centered-y rounded-circle\"></span>",
+         "responsive": [{
+           "breakpoint": 1200,
+           "settings": {
+             "slidesToShow": 4,
+             "arrows": false
+           }
+         }, {
+           "breakpoint": 992,
+           "settings": {
+             "slidesToShow": 3,
+             "arrows": false
+           }
+         }, {
+           "breakpoint": 768,
+           "settings": {
+             "slidesToShow": 3,
+             "arrows": false
+           }
+         }, {
+           "breakpoint": 576,
+           "settings": {
+             "slidesToShow": 1,
+             "arrows": false
+           }
+         }]
+       }'>
+        <div class="js-slide">
+          <a href="https://monietalk.com/" target="_blank">
+            <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-1.png" alt="Monietalk">
+          </a>
+        </div>
+        <div class="js-slide">
+          <a href="https://www.kennesaw.edu/" target="_blank">
+            <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-2.png" alt="Kennesaw">
+          </a>
+        </div>
+        <div class="js-slide">
+          <a href="https://kyybainnovations.com/" target="_blank">
+            <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-3.png" alt="Kyyba">
+          </a>
+        </div>
+        <div class="js-slide">
+          <a href="http://www.srisathyasai.org/pages/" target="_blank">
+            <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-4.png" alt="Sri Sathya Sai">
+          </a>
+        </div>
+        <div class="js-slide">
+          <a href="https://focusinfotech.com/" target="_blank">
+            <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-5.png" alt="Focus Infotech">
+          </a>
+        </div>
+        <div class="js-slide">
+          <a href="https://gkf.mongrov.com/" target="_blank">
+            <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-6.png" alt="GKF">
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- End Clients Slider Section -->
 
   </main>
   <!-- ========== END MAIN CONTENT ========== -->
@@ -984,7 +1065,7 @@
           </div>
 
 
-          <div class="col-6 col-md-3 col-lg mb-5 mb-lg-0">
+          <div class="col-6 d-none d-lg-block col-md-3 col-lg mb-5 mb-lg-0">
             <!-- <h5 class="text-white">Features</h5>
 
             <ul class="nav nav-sm nav-x-0 nav-white flex-column">
@@ -1004,7 +1085,14 @@
               <li class="nav-item"><a class="nav-link" href="community.html">Communities</a></li>
               <li class="nav-item"><a class="nav-link" href="hr.html">Human Resources</a></li>
               <li class="nav-item"><a class="nav-link" href="citizen_outreach.html">Citizen Outreach</a></li>
-              <li class="nav-item"><a class="nav-link" target="_blank" href="https://mi.team/"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather mt-n-6 feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>Teamwork</a></li>
+              <li class="nav-item"><a class="nav-link" target="_blank" href="https://mi.team/"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather mt-n-6 feather-external-link">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>Teamwork</a></li>
               <!-- <li class="nav-item"><a class="nav-link" href="https://mi.care/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather mt-n-6 feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>Health</a></li> -->
             </ul>
             <!-- End Nav Link -->
@@ -1033,8 +1121,16 @@
               </li> -->
               <li class="nav-item"><a class="nav-link" href="opensource.html">Open Source</a></li>
               <!-- <li class="nav-item"><a class="nav-link" href="#">Docs</a></li> -->
-              <li class="nav-item"><a class="nav-link" href="javascript:;"><span class="text-muted">Status</span></a></li>
-              <li class="nav-item"><a class="nav-link" target="_blank" href="https://groov.one/"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather mt-n-6 feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>Platform</a></li>
+              <li class="nav-item"><a class="nav-link" href="javascript:;"><span class="text-muted">Status</span></a>
+              </li>
+              <li class="nav-item"><a class="nav-link" target="_blank" href="https://groov.one/"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather mt-n-6 feather-external-link">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>Platform</a></li>
             </ul>
             <!-- End Nav Link -->
           </div>
@@ -1046,8 +1142,22 @@
             <ul class="nav nav-sm nav-x-0 nav-white flex-column">
               <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
               <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
-              <li class="nav-item"><a class="nav-link" target="_blank" href="https://angel.co/company/mongrov/jobs"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather mt-n-6 feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>Careers <span class="badge badge-indigo ml-1">We're hiring</span></a></li>
-          <li class="nav-item"><a class="nav-link" target="_blank" href="https://medium.com/mongrov"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather mt-n-6 feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>Blog</a></li>
+              <li class="nav-item"><a class="nav-link" target="_blank" href="https://angel.co/company/mongrov/jobs"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather mt-n-6 feather-external-link">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>Careers <span class="badge badge-indigo ml-1">We're hiring</span></a></li>
+              <li class="nav-item"><a class="nav-link" target="_blank" href="https://medium.com/mongrov"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather mt-n-6 feather-external-link">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>Blog</a></li>
               <!-- <li class="nav-item"><a class="nav-link" href="#">Hire us</a></li> -->
             </ul>
             <!-- End Nav Link -->
@@ -1074,7 +1184,8 @@
               </li>
               <li class="nav-item text-white opacity mx-2">/</li>
               <li class="nav-item">
-                <a class="nav-link" href="do-not-sell-my-personal-info.html"><small>Do Not Sell My Personal Information</small></a>
+                <a class="nav-link" href="do-not-sell-my-personal-info.html"><small>Do Not Sell My Personal
+                    Information</small></a>
               </li>
             </ul>
             <!-- End Nav Link -->
@@ -1096,7 +1207,8 @@
                 </a>
               </li>
               <li class="list-inline-item">
-                <a class="btn btn-xs btn-icon btn-soft-light" href="https://www.linkedin.com/company/mongrov-inc/" target="_blank">
+                <a class="btn btn-xs btn-icon btn-soft-light" href="https://www.linkedin.com/company/mongrov-inc/"
+                  target="_blank">
                   <i class="fab fa-linkedin"></i>
                 </a>
               </li>
@@ -1117,7 +1229,7 @@
 
 
   <!-- Go to Top -->
-  <a class="js-go-to go-to position-fixed" href="javascript:;" style="visibility: hidden;" data-hs-go-to-options='{
+  <!-- <a class="js-go-to go-to position-fixed" href="javascript:;" style="visibility: hidden;" data-hs-go-to-options='{
        "offsetTop": 700,
        "position": {
          "init": {
@@ -1132,7 +1244,7 @@
        }
      }'>
     <i class="fas fa-angle-up"></i>
-  </a>
+  </a> -->
   <!-- End Go to Top -->
 
   <!-- JS Global Compulsory -->
@@ -1154,11 +1266,15 @@
   <script src="assets/vendor/dzsparallaxer/dzsparallaxer.js"></script>
   <script src="assets/vendor/typed.js/lib/typed.min.js"></script>
   <script src="assets/vendor/aos/dist/aos.js"></script>
+  <script src="assets/vendor/slick-carousel/slick/slick.js"></script>
 
   <!-- JS Front -->
   <script src="assets/js/hs.core.js"></script>
   <script src="assets/js/hs.validation.js"></script>
   <script src="assets/js/hs.cubeportfolio.js"></script>
+  <script src="assets/js/hs.slick-carousel.js"></script>
+
+
 
   <!-- JS Plugins Init. -->
   <script>
@@ -1212,8 +1328,9 @@
         var counter = new HSCounter($(this)).init();
       });
 
+
       // initialization of sticky block
-      var cbpStickyFilter = new HSStickyBlock($('#cbpStickyFilter'));
+      // var cbpStickyFilter = new HSStickyBlock($('#cbpStickyFilter'));
 
       // initialization of cubeportfolio
       $('.cbp').each(function () {
@@ -1253,6 +1370,16 @@
     });
   </script>
 
+  <!-- Client Slider Carousel - JS Plugins Init. -->
+  <script>
+    $(document).on('ready', function () {
+      // initialization of slick carousel
+      $('.js-slick-carousel').each(function () {
+        var slickCarousel = $.HSCore.components.HSSlickCarousel.init($(this));
+      });
+    });
+  </script>
+
   <!-- IE Support -->
   <script>
     if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write(
@@ -1260,13 +1387,19 @@
   </script>
 
   <!-- Start of Livechat Script -->
-<script type="text/javascript">
-  (function(w, d, s, u) {
-    w.RocketChat = function(c) { w.RocketChat._.push(c) }; w.RocketChat._ = []; w.RocketChat.url = u;
-    var h = d.getElementsByTagName(s)[0], j = d.createElement(s);
-    j.async = true; j.src = 'https://corp.mongrov.com/livechat/rocketchat-livechat.min.js?_=201903270000';
-    h.parentNode.insertBefore(j, h);
-  })(window, document, 'script', 'https://corp.mongrov.com/livechat');
+  <script type="text/javascript">
+    (function (w, d, s, u) {
+      w.RocketChat = function (c) {
+        w.RocketChat._.push(c)
+      };
+      w.RocketChat._ = [];
+      w.RocketChat.url = u;
+      var h = d.getElementsByTagName(s)[0],
+        j = d.createElement(s);
+      j.async = true;
+      j.src = 'https://corp.mongrov.com/livechat/rocketchat-livechat.min.js?_=201903270000';
+      h.parentNode.insertBefore(j, h);
+    })(window, document, 'script', 'https://corp.mongrov.com/livechat');
   </script>
   <!-- End of Livechat Script -->
 
@@ -1274,7 +1407,10 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113300163-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
 
     gtag('config', 'UA-113300163-1');
