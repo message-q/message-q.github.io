@@ -60,6 +60,23 @@
       width: 1.6875rem !important;
       height: 1.6875rem !important;
     }
+    .custom-arrow {
+      width: 350px;
+      position: absolute;
+      top: -150px;
+      left: 40%;
+    }
+    @media only screen and (max-width:1024px){
+      .custom-arrow {
+      left: 30%;
+    }
+    }
+    @media only screen and (max-width:600px){
+      .custom-arrow {
+      left: 5%;
+      top: -130px;
+    }
+    }
   </style>
 </head>
 
@@ -223,6 +240,114 @@
             <div class="navbar-body header-abs-top-inner">
               <ul class="navbar-nav">
 
+                 <!-- Products -->
+                 <li class="hs-has-mega-menu navbar-nav-item" data-hs-mega-menu-item-options="{
+                  &quot;desktop&quot;: {
+                    &quot;position&quot;: &quot;left-0&quot;,
+                    &quot;maxWidth&quot;: &quot;600px&quot;
+                  }
+                }">
+                  <a id="demosMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle" href="javascript:;"
+                    aria-haspopup="true" aria-expanded="false">Products</a>
+
+                  <div class="hs-mega-menu dropdown-menu w-100 hs-mega-menu-desktop-lg hs-position-right animated"
+                    aria-labelledby="demosMegaMenu" style="max-width: 900px; display: none; animation-duration: 300ms;">
+                    <div class="row no-gutters">
+                      <div class="col-lg-12">
+                        <div class="navbar-promo-card-deck">
+
+                          <div class="navbar-promo-card navbar-promo-item">
+                            <a class="navbar-promo-link" href="javascript:;">
+                              <div class="media align-items-center">
+                                <img class="navbar-promo-icon" src="assets/svg/icons/icon-45.svg" alt="SVG">
+                                <div class="media-body">
+                                  <span class="navbar-promo-title">Connect</span>
+                                  <span class="navbar-promo-text">Real collaboration for your team</span>
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+
+                          <div class="navbar-promo-card navbar-promo-item">
+                            <a class="navbar-promo-link" href="community.html">
+                              <div class="media align-items-center">
+                                <img class="navbar-promo-icon" src="assets/svg/icons/icon-67.svg" alt="SVG">
+                                <div class="media-body">
+                                  <span class="navbar-promo-title">Community</span>
+
+                                  <span class="navbar-promo-text">A complete community solution</span>
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+
+                        </div>
+
+                        <div class="navbar-promo-card-deck">
+
+                          <div class="navbar-promo-card navbar-promo-item">
+                            <a class="navbar-promo-link" href="javascript:;">
+                              <div class="media align-items-center">
+                                <img class="navbar-promo-icon" src="assets/svg/icons/icon-18.svg" alt="SVG">
+                                <div class="media-body">
+                                  <span class="navbar-promo-title">Care</span>
+                                  <span class="navbar-promo-text">Develop a more employee-focused culture</span>
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+
+                          <div class="navbar-promo-card navbar-promo-item">
+                            <!-- <a class="navbar-promo-link" href="citizen_outreach.html">
+                              <div class="media align-items-center">
+                                <img class="navbar-promo-icon" src="assets/svg/icons/icon-40.svg" alt="SVG">
+                                <div class="media-body">
+                                  <span class="navbar-promo-title">Citizen Outreach</span>
+                                  <span class="navbar-promo-text">Empower citizens with better access to information and
+                                    services</span>
+                                </div>
+                              </div>
+                            </a> -->
+                          </div>
+
+                        </div>
+
+                        <!-- <div class="navbar-promo-card-deck">
+                         
+                          <div class="navbar-promo-card navbar-promo-item">
+                            <a class="navbar-promo-link" href="javascript:;">
+                              <div class="media align-items-center">
+                                <img class="navbar-promo-icon" src="assets/svg/icons/icon-19.svg" alt="SVG">
+                                <div class="media-body">
+                                  <span class="navbar-promo-title">Health</span>
+                                  <span class="navbar-promo-text">A simple and secure health care platform</span>
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                         
+                          <div class="navbar-promo-card navbar-promo-item">
+                            <a class="navbar-promo-link disabled" href="javascript:;">
+                              <div class="media align-items-center">
+                                <img class="navbar-promo-icon" src="assets/svg/icons/icon-28.svg" alt="SVG">
+                                <div class="media-body">
+                                  <span class="navbar-promo-title">New demo</span>
+                                  <span class="navbar-promo-text">Coming soon...</span>
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          
+                        </div> -->
+                      </div>
+
+                    </div>
+                  </div>
+
+                </li>
+                <!-- End Products -->
+
+
                 <!-- Solutions -->
                 <li class="hs-has-mega-menu navbar-nav-item" data-hs-mega-menu-item-options="{
                   &quot;desktop&quot;: {
@@ -240,19 +365,6 @@
                         <div class="navbar-promo-card-deck">
 
                           <div class="navbar-promo-card navbar-promo-item">
-                            <a class="navbar-promo-link" href="community.html">
-                              <div class="media align-items-center">
-                                <img class="navbar-promo-icon" src="assets/svg/icons/icon-67.svg" alt="SVG">
-                                <div class="media-body">
-                                  <span class="navbar-promo-title">Communities</span>
-
-                                  <span class="navbar-promo-text">A complete community solution</span>
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-
-                          <div class="navbar-promo-card navbar-promo-item">
                             <a class="navbar-promo-link" href="https://mi.team/" target="_blank">
                               <div class="media align-items-center">
                                 <img class="navbar-promo-icon" src="assets/svg/icons/icon-45.svg" alt="SVG">
@@ -263,11 +375,6 @@
                               </div>
                             </a>
                           </div>
-
-                        </div>
-
-                        <div class="navbar-promo-card-deck">
-
                           <div class="navbar-promo-card navbar-promo-item">
                             <a class="navbar-promo-link" href="hr.html">
                               <div class="media align-items-center">
@@ -280,6 +387,11 @@
                             </a>
                           </div>
 
+                        </div>
+
+                        <div class="navbar-promo-card-deck">
+
+
                           <div class="navbar-promo-card navbar-promo-item">
                             <a class="navbar-promo-link" href="citizen_outreach.html">
                               <div class="media align-items-center">
@@ -291,6 +403,10 @@
                                 </div>
                               </div>
                             </a>
+                          </div>
+                          
+                          <div class="navbar-promo-card navbar-promo-item">
+                           
                           </div>
 
                         </div>
@@ -496,56 +612,89 @@
     </div>
     <!-- End Hero Section -->
 
-    <!-- Connect section -->
-
+    <!-- Private & Secure  -->
     <div class="bg-light">
-        <div class="container space-2">
-          <div class="row justify-content-lg-between align-items-lg-center">
-            <div class="col-lg-5 order-lg-2 mb-9 mb-lg-0">
-              <div class="mb-5">
-                <h2 class="h1">Connect</h2>
-                <p>Make it easy for your customers to connect with you and your business.</p>
-                <a href="javascript:;" class="btn btn-primary btn-sm">Find out more</a>
-              </div>
-  
-              <!-- <h4 class="mb-3">Get our mobile app</h4>
-      <a class="btn btn-icon btn-indigo rounded-circle mr-2" href="#">
-        <i class="fab fa-apple"></i>
-      </a>
-      <a class="btn btn-icon btn-indigo rounded-circle" href="#">
-        <i class="fab fa-google-play"></i>
-      </a> -->
+      <div class="container space-2">
+        <div class="row justify-content-between align-items-center ">
+          <!-- Order-2 interchanged -->
+          <div class="col-lg-6 col-md-12 order-sm-1">
+            <div class="text-center text-lg-left text-md-left">
+              <h3 class="h1">Private &amp; Secure</h3>
+              <p class="lead">All your messages, audio-video conferences, documents are private within your business and
+                at your preferred location. Feel safe to share all your work.</p>
             </div>
   
-            <div class="col-lg-7 order-lg-1">
-                <div class="position-relative max-w-50rem mx-auto aos-init aos-animate" data-aos="fade-up">
-                    <!-- Device Mockup -->
-                    <div class="device device-iphone-x w-75 mx-auto">
-                      <img class="device-iphone-x-frame" src="assets/svg/components/iphone-x.svg" alt="Image Description">
-                      <img class="device-iphone-x-screen" src="assets/img/mong/mongrov-mobile-vc.png" alt="Image Description">
-                    </div>
-                    <!-- End Device Mockup -->
-        
-                    <!-- SVG Component -->
-                    <div class="position-absolute bottom-0 right-0 max-w-50rem w-100 z-index-n1 mx-auto">
-                      <img class="img-fluid" src="assets/svg/components/abstract-shapes-2.svg" alt="Image Description">
-                    </div>
-                    <!-- End SVG Component -->
+          </div>
+          <!-- Order-2 interchanged -->
+  
+          <!-- Order-1 interchanged -->
+          <div class="col-lg-6 order-0 aos-init aos-animate" data-aos="fade-right">
+            <div class="row justify-content-center">
+              <div class="col-lg-11">
+                <img src="assets/img/mong/private-secure.svg" alt="Image">
+              </div>
+            </div>
+          </div>
+          <!-- Order-1 interchanged -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Private & Secure ENds  -->
+
+    <!-- Connect section -->
+
+    <div class="">
+      <div class="container space-2">
+        <div class="row justify-content-lg-between align-items-lg-center">
+          <div class="w-lg-60 text-center mx-lg-auto mb-3">
+            <h2 class="h1">Connect Effectively</h2>
+            <p>Your very personal profile page with connect, conference, chat & schedule options.</p>
+          </div>
+
+          <div class="col-lg-12 space-lg-2">
+            <div class="position-relative mx-auto text-center">
+              <!-- Mockup -->
+
+              <div class="position-relative text-center mx-lg-auto">
+                <div class="position-relative shadow-lg z-index-2 rounded-lg aos-init aos-animate" data-aos="fade-up" data-aos-offset="-50">
+                  <img class="img-fluid rounded-lg" src="assets/img/mong/profile_mockup_design.png" alt="web chat screen">
+                </div>
+
+                <figure class="max-w-5rem w-100 position-absolute top-0 right-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100" data-aos-offset="-50">
+                  <div class="mt-n11 mr-n11 design-dots">
+                    <img class="img-fluid" src="assets/svg/components/dots-1.svg" alt="dots_svg">
                   </div>
+                </figure>
+                <figure class="max-w-5rem w-100 position-absolute bottom-0 left-0 aos-init aos-animate" data-aos="fade-up">
+                  <div class="mb-n11 ml-n11 design-dots">
+                    <img class="img-fluid" src="assets/svg/components/dots-1.svg" alt="dots_svg">
+                  </div>
+                </figure>
+              </div>
+              <!-- End Mockup -->
+              <a href="javascript:;" class="btn btn-primary btn-sm mt-5">Find out more</a>
+              <!-- SVG Component -->
+              <!-- <div class="position-absolute bottom-0 right-0 max-w-50rem w-100 z-index-n1 mx-auto">
+              <img class="img-fluid" src="assets/svg/components/abstract-shapes-2.svg" alt="Image Description">
+            </div> -->
+              <!-- End SVG Component -->
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <!-- Connect section End -->
 
     <!-- Community section -->
-      <div class="">
+      <div class="bg-light position-relative">
+        <img src="assets/img/mong/arrow.svg" class="custom-arrow" >
         <div class="container space-2">
             <div class="row justify-content-lg-between align-items-lg-center">
               <div class="col-lg-5 mb-9 mb-lg-0">
                 <div class="mb-4">
-                  <h2 class="h1">Community</h2>
-                  <p>Always-on, on-the-go, mobile-first connected community.</p>
-                  <p>Learn how customers engage with your product and brand in real-time.</p>
+                  <h2 class="h1">Community on-the-go</h2>
+                  <p>Continue instant customer outreach wherever they are</p>
                   <a href="community.html" class="btn btn-primary btn-sm">Find out more</a>
                 </div>
       
@@ -572,41 +721,49 @@
       </div>
 
       <!-- Care section -->
-      <div class="bg-light">
+      <div class="">
         <div class="container space-2">
-            <div class="row justify-content-lg-between align-items-lg-center">
-              <div class="col-lg-5 mb-9 mb-lg-0 order-lg-2">
-                <div class="mb-4">
-                  <h2 class="h1">Care</h2>
-                  <p> Transition out of call center mindset and provide always-on virtual service & care</p>
-                  <a href="javascript:;" class="btn btn-primary btn-sm">Find out more</a>
-                </div>
-      
-      
-              </div>
-      
-              <div class="col-lg-7 order-lg-1">
-                <div class="position-relative mx-auto">
-                  <!-- Device Mockup -->
-                  <!-- <div class="device device-iphone-x w-75 mx-auto">
-                <img class="device-iphone-x-frame" src="assets/svg/components/iphone-x.svg" alt="Image Description">
-                <img class="device-iphone-x-screen" src="assets/img/mong/mobile-screen1.png"
-                  alt="Image Description">
-              </div> -->
-      
-                  <div class="device w-100 mx-auto" style="max-width: 34rem;">
-                    <img class="device-iphone-x-frame" src="assets/img/mong/care.png" alt="Chat Screenshot">
+          <div class="row justify-content-lg-between align-items-lg-center">
+            <div class="w-lg-60 text-center mx-lg-auto mb-3">
+              <h2 class="h1">Customer Care</h2>
+              <p>Customer is always one touch away from your fantatic support</p>
+            </div>
+  
+            <div class="col-lg-12 space-lg-0">
+              <div class="position-relative mx-auto text-center">
+                <!-- Mockup -->
+  
+                <div class="position-relative text-center mx-lg-auto">
+                  <div class="position-relative  z-index-2 aos-init aos-animate" data-aos="fade-up" data-aos-offset="-50">
+                    <img class="img-fluid" src="assets/img/mong/care-screen.png" alt="web chat screen">
                   </div>
-                  <!-- End SVG Component -->
+  
+                  <figure class="max-w-5rem w-100 position-absolute top-0 right-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100" data-aos-offset="-50">
+                    <div class="mt-n11 mr-n11 design-dots">
+                      <img class="img-fluid" src="assets/svg/components/dots-1.svg" alt="dots_svg">
+                    </div>
+                  </figure>
+                  <figure class="max-w-5rem w-100 position-absolute bottom-0 left-0 aos-init aos-animate" data-aos="fade-up">
+                    <div class="mb-n11 ml-n11 design-dots">
+                      <img class="img-fluid" src="assets/svg/components/dots-1.svg" alt="dots_svg">
+                    </div>
+                  </figure>
                 </div>
+                <!-- End Mockup -->
+                <a href="javascript:;" class="btn btn-primary btn-sm mt-5">Find out more</a>
+                <!-- SVG Component -->
+                <!-- <div class="position-absolute bottom-0 right-0 max-w-50rem w-100 z-index-n1 mx-auto">
+                <img class="img-fluid" src="assets/svg/components/abstract-shapes-2.svg" alt="Image Description">
+              </div> -->
+                <!-- End SVG Component -->
               </div>
             </div>
           </div>
+        </div>
       </div>
 
-
     <!-- Section 5 -->
-    <div class="space-2">
+    <div class="bg-light ">
       <div class="container space-2">
 
         <!-- Icon Blocks Section -->
@@ -774,7 +931,7 @@
     <!-- Section 5 -->
 
     <!-- Section 6 -->
-    <div class="bg-light" id="awards">
+    <div class="" id="awards">
       <div class="container space-2">
         <div class="row justify-content-between align-items-center o-hidden">
           <div class="col-md-6 text-center text-md-left aos-init aos-animate order-lg-1" data-aos="fade-right"
@@ -809,7 +966,30 @@
                 </a>
                 <!-- End Icon Block -->
               </div>
+              <div class="col-md-12 mt-3 px-2 mb-3 mb-lg-0">
+                <!-- Icon Block -->
+                <div class="card h-100">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-6 px-2 mb-3 mb-lg-0 text-center">
+                        
+                            <a href="https://www.producthunt.com/posts/mi-team?utm_source=badge-featured&amp;utm_medium=badge&amp;utm_souce=badge-mi-team" target="_blank"><img class="hover-shadow-3d" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=248798&amp;theme=dark" alt="mi.team - Collaboration app with chat, task board &amp; video conference | Product Hunt Embed" style="width: 200px; height: 54px;" width="200" height="54"></a>
+                      </div>
+        
+                      <div class="col-md-6 px-2 mb-3 mb-lg-0 text-center">
+                        <a href="https://www.producthunt.com/posts/mi-team" target="_blank">
+                          <img width="200" class="hover-shadow-3d rounded" height="54" src="assets/img/mong/sixth-award-btn.svg" alt="mi.team sixth position awards | Product Hunt Embed">
+                        </a>
+                      </div>
+                       
+                    </div>
+                  </div>
+                </div>
+                <!-- End Icon Block -->
+              </div>
+              
             </div>
+            
 
           </div>
           <div class="col-md-6 pl-md-6 pl-0 aos-init aos-animate order-lg-1" data-aos="fade-left" data-aos-delay="100">
@@ -886,72 +1066,74 @@
     <!-- End Clients Section -->
 
     <!-- Clients Slider Section -->
-    <div class="container space-2">
-      <div class="text-center mb-4">
-        <h2 class="divider divider-text">Trusted by the world's best</h2>
-      </div>
-      <div class="js-slick-carousel slick" data-hs-slick-carousel-options='{
-         "slidesToShow": 4,
-         "autoplay": true,
-         "autoplaySpeed": 5000,
-         "infinite": true,
-         "prevArrow": "<span class=\"fas fa-arrow-left d-none d-sm-inline-block slick-arrow slick-arrow-soft-white bg-secondary opacity slick-arrow-left slick-arrow-centered-y rounded-circle\"></span>",
-         "nextArrow": "<span class=\"fas fa-arrow-right d-none d-sm-inline-block slick-arrow slick-arrow-soft-white bg-secondary opacity slick-arrow-right slick-arrow-centered-y rounded-circle\"></span>",
-         "responsive": [{
-           "breakpoint": 1200,
-           "settings": {
-             "slidesToShow": 4,
-             "arrows": false
-           }
-         }, {
-           "breakpoint": 992,
-           "settings": {
-             "slidesToShow": 3,
-             "arrows": false
-           }
-         }, {
-           "breakpoint": 768,
-           "settings": {
-             "slidesToShow": 3,
-             "arrows": false
-           }
-         }, {
-           "breakpoint": 576,
-           "settings": {
-             "slidesToShow": 1,
-             "arrows": false
-           }
-         }]
-       }'>
-        <div class="js-slide">
-          <a href="https://monietalk.com/" target="_blank">
-            <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-1.png" alt="Monietalk">
-          </a>
+    <div class="bg-light">
+      <div class="container space-2">
+        <div class="text-center mb-4">
+          <h2 class="divider divider-text">Trusted by the world's best</h2>
         </div>
-        <div class="js-slide">
-          <a href="https://www.kennesaw.edu/" target="_blank">
-            <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-2.png" alt="Kennesaw">
-          </a>
-        </div>
-        <div class="js-slide">
-          <a href="https://kyybainnovations.com/" target="_blank">
-            <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-3.png" alt="Kyyba">
-          </a>
-        </div>
-        <div class="js-slide">
-          <a href="http://www.srisathyasai.org/pages/" target="_blank">
-            <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-4.png" alt="Sri Sathya Sai">
-          </a>
-        </div>
-        <div class="js-slide">
-          <a href="https://focusinfotech.com/" target="_blank">
-            <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-5.png" alt="Focus Infotech">
-          </a>
-        </div>
-        <div class="js-slide">
-          <a href="https://gkf.mongrov.com/" target="_blank">
-            <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-6.png" alt="GKF">
-          </a>
+        <div class="js-slick-carousel slick" data-hs-slick-carousel-options='{
+           "slidesToShow": 4,
+           "autoplay": true,
+           "autoplaySpeed": 5000,
+           "infinite": true,
+           "prevArrow": "<span class=\"fas fa-arrow-left d-none d-sm-inline-block slick-arrow slick-arrow-soft-white bg-secondary opacity slick-arrow-left slick-arrow-centered-y rounded-circle\"></span>",
+           "nextArrow": "<span class=\"fas fa-arrow-right d-none d-sm-inline-block slick-arrow slick-arrow-soft-white bg-secondary opacity slick-arrow-right slick-arrow-centered-y rounded-circle\"></span>",
+           "responsive": [{
+             "breakpoint": 1200,
+             "settings": {
+               "slidesToShow": 4,
+               "arrows": false
+             }
+           }, {
+             "breakpoint": 992,
+             "settings": {
+               "slidesToShow": 3,
+               "arrows": false
+             }
+           }, {
+             "breakpoint": 768,
+             "settings": {
+               "slidesToShow": 3,
+               "arrows": false
+             }
+           }, {
+             "breakpoint": 576,
+             "settings": {
+               "slidesToShow": 1,
+               "arrows": false
+             }
+           }]
+         }'>
+          <div class="js-slide">
+            <a href="https://monietalk.com/" target="_blank">
+              <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-1.png" alt="Monietalk">
+            </a>
+          </div>
+          <div class="js-slide">
+            <a href="https://www.kennesaw.edu/" target="_blank">
+              <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-2.png" alt="Kennesaw">
+            </a>
+          </div>
+          <div class="js-slide">
+            <a href="https://kyybainnovations.com/" target="_blank">
+              <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-3.png" alt="Kyyba">
+            </a>
+          </div>
+          <div class="js-slide">
+            <a href="http://www.srisathyasai.org/pages/" target="_blank">
+              <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-4.png" alt="Sri Sathya Sai">
+            </a>
+          </div>
+          <div class="js-slide">
+            <a href="https://focusinfotech.com/" target="_blank">
+              <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-5.png" alt="Focus Infotech">
+            </a>
+          </div>
+          <div class="js-slide">
+            <a href="https://gkf.mongrov.com/" target="_blank">
+              <img class="max-w-23rem max-w-md-15rem mx-auto" src="assets/img/mong/partner-6.png" alt="GKF">
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -965,7 +1147,7 @@
     <div class="container">
       <div class="space-top-2 space-bottom-1 space-bottom-lg-1">
         <div class="row justify-content-lg-between">
-          <div class="col-lg-3 ml-lg-auto mb-5 mb-lg-0">
+          <div class="col-lg-2 ml-lg-auto mb-5 mb-lg-0">
             <!-- Logo -->
             <div class="mb-4">
               <a href="index.html" aria-label="Front">
@@ -1003,7 +1185,17 @@
           </div>
 
 
-          <div class="col-6 col-md-3 col-lg mb-5 mb-lg-0">
+          <div class="col-6 col-md-2 mb-5 mb-lg-0 pl-md-7">
+            <h5 class="text-white">Products</h5>
+
+            <ul class="nav nav-sm nav-x-0 nav-white flex-column">
+              <li class="nav-item"><a class="nav-link" href="javascript:;">Connect</a></li>
+              <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+              <li class="nav-item"><a class="nav-link" href="javascript:;">Care</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-2 mb-5 mb-lg-0">
             <h5 class="text-white">Features</h5>
 
             <ul class="nav nav-sm nav-x-0 nav-white flex-column">
@@ -1012,12 +1204,11 @@
             </ul>
           </div>
 
-          <div class="col-6 col-md-3 col-lg mb-5 mb-lg-0 mb-md-0">
+          <div class="col-6 col-md-2 mb-5 mb-lg-0 mb-md-0">
             <h5 class="text-white">Solutions</h5>
 
             <!-- Nav Link -->
             <ul class="nav nav-sm nav-x-0 nav-white flex-column">
-              <li class="nav-item"><a class="nav-link" href="community.html">Communities</a></li>
               <li class="nav-item"><a class="nav-link" href="hr.html">Human Resources</a></li>
               <li class="nav-item"><a class="nav-link" href="citizen_outreach.html">Citizen Outreach</a></li>
               <li class="nav-item"><a class="nav-link" target="_blank" href="https://mi.team/"><svg
@@ -1033,7 +1224,7 @@
             <!-- End Nav Link -->
           </div>
 
-          <div class="col-6 col-md-3 col-lg">
+          <div class="col-6 col-md-2">
             <h5 class="text-white">Resources</h5>
 
             <!-- Nav Link -->
@@ -1070,7 +1261,7 @@
             <!-- End Nav Link -->
           </div>
 
-          <div class="col-6 col-md-3 col-lg mb-5 mb-lg-0">
+          <div class="col-6 col-md-2 mb-5 mb-lg-0">
             <h5 class="text-white">Company</h5>
 
             <!-- Nav Link -->
