@@ -82,12 +82,6 @@
     background-color: #8EC4DC;
 }
   </style>
-
-<!--JQUERY ACTIVATION WHICH AVOIDS $ NOT DEFINED ERROR  -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<!-- PROFILE DATA PULLING JS -->
-<script type="text/javascript" src="assets/js/data_puller_live.js"></script>
-
 </head>
 
 <body>
@@ -100,45 +94,43 @@
       <div class="container space-top-3 space-bottom-4">
         <div class="row align-items-center">
             <div class="col-md-4">
-                <h1 class="text-uppercase" id="profile_name"></h1>
-                <h3 id="profile_label"></h3>
+                <h1 class="text-uppercase">Katie <br> Symonds</h1>
+                <h3>Creative Designer</h3>
             </div>
             <div class="col-md-4">
                 <ul class="nav nav-sm nav-x-0 nav-black flex-column">
                     <li class="nav-item">
                         <span class="media">
                           <span class="fas fa-location-arrow mt-1 mr-2"></span>
-                          <span class="media-body" id="profile_location">
-                            
+                          <span class="media-body">
+                            153 Williamson Plaza, Maggieberg
                           </span>
                         </span>
                     </li>
                     <li class="nav-item mt-3">
                       <span class="media">
                           <span class="fas fa-phone-alt mt-1 mr-2"></span>
-                          <span class="media-body" id="profile_phone">
-                           
+                          <span class="media-body">
+                            +1 (062) 109-9222
                           </span>
                         </span>
                     </li>
                     <li class="nav-item mt-3">
                         <span class="media">
                             <span class="fas fa-envelope mt-1 mr-2"></span>
-                            <span class="media-body" id="profile_email">
-                              
+                            <span class="media-body">
+                              +1 (062) 109-9222
                             </span>
                           </span>
                       </li>
                   </ul>
             </div>
             <div class="col-md-4">
-                <a id="conf_id" href="#" class="btn btn-pastel-blue w-80" data-toggle="modal" data-target=".exampleModal">
+                <a href="#" class="btn btn-pastel-blue w-80">
                     <i class="fas fa-video mr-1"></i>
                    Connect
-                 </a>
-
-                 <br>
-                 <a id="schedule_id" href="#" class="btn btn-pastel-blue w-80 mt-2" data-toggle="modal" data-target=".schedulemodel">
+                 </a><br>
+                 <a href="#" class="btn btn-pastel-blue w-80 mt-2">
                     <i class="fas fa-calendar-alt mr-1"></i>
                     Schedule meeting
                  </a><br>
@@ -152,7 +144,7 @@
     </div>
     <div class="profile-img-sec">
         <div class="container text-center">
-            <img src="" id="profile_picture">
+            <img src="assets/img/mong/profile-img.jpg">
         </div>
     </div>
     <!-- End Hero Section -->
@@ -199,7 +191,7 @@
                 <h5 class="h2 heading-strip">About me</h5>
               </div>
               <div class="col-12 col-md-8 col-lg-8">
-                <p id="profile_bio_summary_data"></p>
+                <p>I am Steve Smith, having 10.9 years of experience in UI UX Designing. I have been associated with multiple organizations since the last 12+ years and have mastered various designing products and software tools like Adobe Product Suite, HTML5, Css3, jQuery, Bootstrap, cross-browser & device compatibility, and much more. Also Actively seeking knowledge on the latest tools and software to keep myself competent in this competitive world.</p>
               </div>
             </div>
         </div>
@@ -253,17 +245,17 @@
                 </div>
 
                 <div class="mt-6">
-                    <h3>User Experience Designer</h3>
-                    <h4 class="text-black-50">Grayscale Limited Hong Kong</h4>
-                    <h5 class="text-black-50">September 2014 - May 2017</h5>
-                    <p>Took part in the understanding and design phases of multiple projects, including user and competitive research, wireframing, visual design, branding, and various other communication assets.</p>
+                    <h3>Junior User Experience Designer</h3>
+                    <h4 class="text-black-50">Google – YouTube</h4>
+                    <h5 class="text-black-50">June 2012 - August 2014</h5>
+                    <p>Worked in collaboration with an engineer on the visual and interaction designs of a mobile feature, and interfacing across product teams and YouTube’s brand team.</p>
                 </div>
 
                 <div class="mt-6">
-                    <h3>Multimedia Specialist </h3>
-                    <h4 class="text-black-50">RIT Production Services</h4>
-                    <h5 class="text-black-50">June 2017 - Present</h5>
-                    <p>Participate in the brainstorming and creative direction for video production, which involves research and pre-production work, some aspects of production, asset design, and critique.</p>
+                    <h3>Junior User Experience Designer</h3>
+                    <h4 class="text-black-50">Google – YouTube</h4>
+                    <h5 class="text-black-50">June 2012 - August 2014</h5>
+                    <p>Worked in collaboration with an engineer on the visual and interaction designs of a mobile feature, and interfacing across product teams and YouTube’s brand team.</p>
                 </div>
               </div>
             </div>
@@ -349,64 +341,8 @@
 <div class="bg-pastel-blue py-3">
 
 </div>
-
   </main>
   <!-- ========== END MAIN ========== -->
-                 
-
-
- <!-- VIDEO CONFERENCE MODAL STARTS HERE -->
- <div class="container">
-  <div class="modal fade bd-example-modal-sm pl-19 pr-19 exampleModal" tabindex="-1" role="dialog"
-    aria-labelledby="mySmallModalLabel" aria-hidden="true" style="z-index: 9999;">
-    <div class="modal-dialog modal-sm" style="min-width: 100%; min-height:99%; margin: 0;
-    padding: 5px !important;">
-      <div class="modal-content rounded-0"
-        style="overflow: hidden; border: 5px solid #d4d4d4; background-clip: border-box;">
-        <div class="position-absolute" style="right: 10px; top:10px;">
-          <button type="button small"
-            style="background-color: #8EC4DC; width:30px; height: 30px;  opacity: 1; border-radius: 5px;"
-            class="close" data-dismiss="modal" aria-label="Close">
-            <span class="text-white" aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <iframe id="profile_conf" src="" style="width:100%; height: -webkit-fill-available; border:none;"
-          allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"
-          allow="geolocation; microphone *; camera *"
-          sandbox="allow-forms allow-scripts allow-modals allow-same-origin allow-popups" height="100%"
-          width="100%"></iframe>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- VIDEO CONFERENCE MODAL ENDS HERE -->
-
-
-
-
-    <!-- SCHEDULING MODAL STARTS HERE -->
-    <div class="container">
-      <div class="schedulemodel modal fade bd-example-modal-sm-schedule text-center" tabindex="-1" role="dialog"
-        aria-labelledby="mySmallModalLabel" aria-hidden="true" style="z-index: 9999; overflow:hidden;">
-        <div class="modal-dialog modal-dialog-centered modal-sm" style="min-width: 60%; min-height:30%; padding: 5px !important; ">
-          <div class="modal-content rounded-0 schedule_modal_height"
-            style="overflow: visible;  background-clip: border-box;">
-            <div class="position-absolute" style="right: 0px; top:-32px;">
-              <button type="button small"
-                style="background-color: #8EC4DC; width:50px; height: 25px; font-size:14px; opacity: 1; border-radius: 2px;"
-                class="close" data-dismiss="modal" aria-label="Close">
-                <span class="text-white font-weight-lighter" aria-hidden="true"> Close</span>
-              </button>
-            </div>
-            <iframe id="profile_schedule" src=""
-              style="width:100%; height: -webkit-fill-available; border:none;"></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- SCHEDULING MODAL ENDS HERE -->
-
-  
 
 
   <!-- JS Global Compulsory -->
