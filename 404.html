@@ -3,7 +3,7 @@
 
 <head>
   <!-- Title -->
-  <title>Mongrov - Page not found</title>
+  <title>Mongrov - Profile</title>
 
   <!-- Required Meta Tags Always Come First -->
   <meta charset="utf-8">
@@ -81,6 +81,34 @@
 .progress-bar {
     background-color: #8EC4DC;
 }
+
+.modal-backdrop {
+    background-color: rgb(0 0 0 / 68%);
+}
+.modal.show {
+    padding-right: 0px !important;
+}
+iframe#profile_schedule {
+    height: 550px !important;
+}
+.schedulemodel {
+    margin-top: 50px;
+}
+
+.header {
+  padding: 10px 16px;
+  background: #555;
+  color: #f1f1f1;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+    padding: 10px 0;
+}
+
   </style>
 
 <!--JQUERY ACTIVATION WHICH AVOIDS $ NOT DEFINED ERROR  -->
@@ -96,59 +124,62 @@
   <!-- ========== MAIN ========== -->
   <main id="content" role="main">
     <!-- Hero Section -->
-    <div class="bg-pastel-blue">
-      <div class="container space-top-3 space-bottom-4">
-        <div class="row align-items-center">
-            <div class="col-md-4">
-                <h1 class="text-uppercase" id="profile_name"></h1>
-                <h3 id="profile_label"></h3>
-            </div>
-            <div class="col-md-4">
-                <ul class="nav nav-sm nav-x-0 nav-black flex-column">
-                    <li class="nav-item">
-                        <span class="media">
-                          <span class="fas fa-location-arrow mt-1 mr-2"></span>
-                          <span class="media-body" id="profile_location">
-                            
-                          </span>
-                        </span>
-                    </li>
-                    <li class="nav-item mt-3">
-                      <span class="media">
-                          <span class="fas fa-phone-alt mt-1 mr-2"></span>
-                          <span class="media-body" id="profile_phone">
-                           
-                          </span>
-                        </span>
-                    </li>
-                    <li class="nav-item mt-3">
-                        <span class="media">
-                            <span class="fas fa-envelope mt-1 mr-2"></span>
-                            <span class="media-body" id="profile_email">
+    <div class="bg-pastel-blue space-top-3 space-bottom-4">
+      <div class="bg-pastel-blue" id="myHeader">
+        <div class="container">
+          <div class="row align-items-center">
+              <div class="col-md-4">
+                  <h1 class="text-uppercase" id="profile_name"></h1>
+                  <h3 id="profile_label"></h3>
+              </div>
+              <div class="col-md-4">
+                  <ul class="nav nav-sm nav-x-0 nav-black flex-column">
+                      <li class="nav-item">
+                          <span class="media">
+                            <span class="fas fa-location-arrow mt-1 mr-2"></span>
+                            <span class="media-body" id="profile_location">
                               
                             </span>
                           </span>
                       </li>
-                  </ul>
-            </div>
-            <div class="col-md-4">
-                <a id="conf_id" href="#" class="btn btn-pastel-blue w-80" data-toggle="modal" data-target=".exampleModal">
-                    <i class="fas fa-video mr-1"></i>
-                   Connect
-                 </a>
-
-                 <br>
-                 <a id="schedule_id" href="#" class="btn btn-pastel-blue w-80 mt-2" data-toggle="modal" data-target=".schedulemodel">
-                    <i class="fas fa-calendar-alt mr-1"></i>
-                    Schedule meeting
-                 </a><br>
-                 <a href="#" class="btn btn-pastel-blue w-80 mt-2">
-                    <i class="fas fa-file-pdf mr-1"></i>
-                    Download CV
-                 </a>
-            </div>
+                      <li class="nav-item mt-3">
+                        <span class="media">
+                            <span class="fas fa-phone-alt mt-1 mr-2"></span>
+                            <span class="media-body" id="profile_phone">
+                             
+                            </span>
+                          </span>
+                      </li>
+                      <li class="nav-item mt-3">
+                          <span class="media">
+                              <span class="fas fa-envelope mt-1 mr-2"></span>
+                              <span class="media-body" id="profile_email">
+                                
+                              </span>
+                            </span>
+                        </li>
+                    </ul>
+              </div>
+              <div class="col-md-4">
+                  <a id="conf_id" href="#" class="btn btn-pastel-blue w-80" data-toggle="modal" data-target=".exampleModal">
+                      <i class="fas fa-video mr-1"></i>
+                     Connect
+                   </a>
+  
+                   <br>
+                   <a id="schedule_id" href="#" class="btn btn-pastel-blue w-80 mt-2" data-toggle="modal" data-target=".schedulemodel">
+                      <i class="fas fa-calendar-alt mr-1"></i>
+                      Schedule meeting
+                   </a><br>
+                   <a href="#" class="btn btn-pastel-blue w-80 mt-2">
+                      <i class="fas fa-file-pdf mr-1"></i>
+                      Download CV
+                   </a>
+              </div>
+          </div>
         </div>
       </div>
+      
     </div>
     <div class="profile-img-sec">
         <div class="container text-center">
@@ -189,7 +220,7 @@
     </div>
  <!-- End Nav -->
     
-  
+ 
   <!-- Tab Content -->
   <div class="tab-content space-bottom-2">
     <div class="tab-pane fade show active" id="pills-one-code-features-example2" role="tabpanel" aria-labelledby="pills-one-code-features-example2-tab">
@@ -511,7 +542,24 @@
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://q.quora.com/_/ad/3cdce75806114148bd87722deecd707b/pixel?tag=ViewContent&noscript=1"/></noscript>
   <!-- End of Quora Pixel Code -->
-  
+
+
+  <!-- Sticky Top -->
+  <script>
+    window.onscroll = function() {myFunction()};
+    
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+    
+    function myFunction() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    }
+    </script>
+   <!-- Sticky Top Ends-->
 </body>
 
 </html>
