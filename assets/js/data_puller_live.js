@@ -49,7 +49,7 @@ var getprofileurl = instance + "/api/v1/profile/"+ urlprofilename;
             var profilecity = myJSON.basics.location.city;
             var profilepostalcode = myJSON.basics.location.postalCode;
             var profilebiosummary = myJSON.basics.summary;
-
+        
             
 
             // var data_not_found = "<span>Noo Data Found</span>";
@@ -93,6 +93,105 @@ var getprofileurl = instance + "/api/v1/profile/"+ urlprofilename;
 
             }
 
+            // ARRAY JSON VALUES ARE HANDLED USING LOOP
+            // Here Work fields handled
+            for (var k in myJSON.work) {
+              var workcompany = myJSON.work[k].company;
+              var workposition = myJSON.work[k].position;
+              var workstart = myJSON.work[k].startDate;
+              var workend = myJSON.work[k].endDate;
+              var worksummary = myJSON.work[k].summary;
+
+              // Company Name CONDITION
+              if(workcompany !== ""){
+                $('#work_company').removeClass("hide");
+                $('#work_company').html(workcompany);
+              }
+              // Position Name CONDITION
+              if(workposition !== ""){
+                $('#work_position').removeClass("hide");
+                $('#work_position').html(workposition);
+              }
+               // StartDate  CONDITION
+               if(workstart !== ""){
+                $('#work_start').removeClass("hide");
+                $('#work_start').html(workstart);
+              }
+              // EndDate CONDITION
+              if(workend !== ""){
+                $('#work_end').removeClass("hide");
+                $('#work_end').html(workend);
+              }
+              // Summary CONDITION
+              if(worksummary !== ""){
+                $('#work_summary').removeClass("hide");
+                $('#work_summary').html(worksummary);
+              }
+            }
+
+             // ARRAY JSON VALUES ARE HANDLED USING LOOP
+            // Here Education fields handled
+            for (var l in myJSON.education) {
+              var eduinstitution = myJSON.education[l].institution;
+              var edudegree = myJSON.education[l].area;
+              var edustart = myJSON.education[l].startDate;
+              var eduend = myJSON.education[l].endDate;
+
+              // Institution CONDITION
+              if(eduinstitution !== ""){
+                $('#edu_summary').removeClass("hide");
+                $('#edu_summary').html(eduinstitution);
+              }
+              // Institution CONDITION
+              if(eduinstitution !== ""){
+                $('#edu_degree').removeClass("hide");
+                $('#edu_degree').html(edudegree);
+              }
+               // StartDate  CONDITION
+               if(edustart !== ""){
+                $('#edu_start').removeClass("hide");
+                $('#edu_start').html(edustart);
+              }
+              // EndDate CONDITION
+              if(eduend !== ""){
+                $('#edu_end').removeClass("hide");
+                $('#edu_end').html(eduend);
+              }
+            }
+
+             // ARRAY JSON VALUES ARE HANDLED USING LOOP
+            // Here Skill fields handled
+            for (var m in myJSON.skills) {
+              var skillcategory = myJSON.skills[m].category;
+              var skillsummary = myJSON.skills[m].summary;
+
+              for (var n in myJSON.skills[m].softwares) {
+                var skillsname = myJSON.skills[m].softwares[n].sname;
+                var skilllevel = myJSON.skills[m].softwares[n].level;
+
+                if(skillsname !== ""){
+                  $('#skill_sname').removeClass("hide");
+                  $('#skill_sname').html(skillsname);
+                }
+                if(skilllevel !== ""){
+                  $('#skill_level').removeClass("hide");
+                  $('#skill_level').attr('style', 'width:' + skilllevel + '%');
+                }
+              }
+
+
+              // Category CONDITION
+              if(skillcategory !== ""){
+                $('#skill_category').removeClass("hide");
+                $('#skill_category').html(skillcategory);
+              }
+              // Category CONDITION
+              if(skillsummary !== ""){
+                $('#skill_summary').removeClass("hide");
+                $('#skill_summary').html(skillsummary);
+              }
+            }
+
             // SET DATA TO HTML TAGS VIA ID
             // CLICK ACTION DONE FOR CONFERENCE
             $('#conf_id').click(function(){
@@ -120,10 +219,17 @@ var getprofileurl = instance + "/api/v1/profile/"+ urlprofilename;
 
             $('#profile_name').html(profilename);
 
+            // STICKY HEADER PROFILE NAME
+            $('#profile_name_sticky').html(profilename);
+
+
             // LABEL DESIGNATION CONDITION
             if(profilelabel !== "") {
                 $('#profile_label').removeClass("hide");
                 $('#profile_label').html(profilelabel);
+
+                // STICKY HEADER PROFILE LABEL
+                $('#profile_label_sticky').html(profilelabel);
             }
             
             $('#profile_picture').attr('src', profilepicture);
@@ -140,7 +246,8 @@ var getprofileurl = instance + "/api/v1/profile/"+ urlprofilename;
               $('#profile_phone_div').removeClass("hide");
               $('#profile_phone').html(profilephone);
             }
-          
+
+     
             if(profilebiosummary !== ""){
               // SHOW BIO DIV SECTION BY REMOVING HIDE CLASS
               $('#bio_div').removeClass("hide");
