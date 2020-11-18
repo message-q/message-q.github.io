@@ -11,14 +11,14 @@ var url = window.location.pathname;
 var urlprofile = url.substring(url.lastIndexOf('/') + 1);
 
 // SPLIT HTML FROM NAME
-var urlprofilename = urlprofile.split('.')[0];
+// var urlprofilename = urlprofile.split('.')[0];
 
 // UNCOMMENT THIS LINE AND COMMENT ABOVE LINE TO WORK LOCALLY 
-// var urlprofilename="karthikeyan";
+var urlprofilename="karthikeyan";
 
 
 // Remove this code when URL is working without CORS ERROR
-console.log(urlprofilename);
+// console.log(urlprofilename);
 var getprofileurl = instance + "/api/v1/profile/"+ urlprofilename;
 
 
@@ -36,7 +36,7 @@ var getprofileurl = instance + "/api/v1/profile/"+ urlprofilename;
           success:function (myJSON) {
             // console.log(results);
             // var myJSON = JSON.parse(results);
-            console.log(myJSON);
+            // console.log(myJSON);
             if(myJSON.success === true){
              $('#profile_section').removeClass("hide");
             // DEFINE VARIABLES AND GET BASIC DATA FOR TOP PROFILE 
@@ -51,7 +51,7 @@ var getprofileurl = instance + "/api/v1/profile/"+ urlprofilename;
             var profilebiosummary = myJSON.basics.summary;
         
             
-
+            
             // var data_not_found = "<span>Noo Data Found</span>";
             
             // ARRAY JSON VALUES ARE HANDLED USING LOOP
@@ -92,7 +92,8 @@ var getprofileurl = instance + "/api/v1/profile/"+ urlprofilename;
               }
 
             }
-
+            // WORK CONTAINER VARIABLE  
+            var work_loop_content ='';
             // ARRAY JSON VALUES ARE HANDLED USING LOOP
             // Here Work fields handled
             for (var k in myJSON.work) {
@@ -102,61 +103,95 @@ var getprofileurl = instance + "/api/v1/profile/"+ urlprofilename;
               var workend = myJSON.work[k].endDate;
               var worksummary = myJSON.work[k].summary;
 
+
+              var work_content = `
+              <div class="space-bottom-2">
+                <h3>${workposition}</h3>
+                <h4 class="text-black-50">${workcompany}</h4>
+                <h5 class="text-black-50"><span>${workstart.split("-").reverse("").join("-")}</span> to 
+                <span>${workend.split("-").reverse("").join("-")}</span></h5>
+                <p>${worksummary}</p>
+              </div>`;
+              // APPENDING CURRENT LOOP DATA WITH PREVIOUS LOOP DATA
+               work_loop_content += work_content;
+
+               $('#work_container').html(work_loop_content);
+
               // Company Name CONDITION
-              if(workcompany !== ""){
-                $('#work_company').removeClass("hide");
-                $('#work_company').html(workcompany);
-              }
+              // if(workcompany !== ""){
+              //   $('#work_company').removeClass("hide");
+              //   $('#work_company').html(workcompany);
+              // }
               // Position Name CONDITION
-              if(workposition !== ""){
-                $('#work_position').removeClass("hide");
-                $('#work_position').html(workposition);
-              }
+              // if(workposition !== ""){
+              //   $('#work_position').removeClass("hide");
+              //   $('#work_position').html(workposition);
+              // }
                // StartDate  CONDITION
-               if(workstart !== ""){
-                $('#work_start').removeClass("hide");
-                $('#work_start').html(workstart);
-              }
+              //  if(workstart !== ""){
+              //   $('#work_start').removeClass("hide");
+              //   $('#work_start').html(workstart);
+              // }
               // EndDate CONDITION
-              if(workend !== ""){
-                $('#work_end').removeClass("hide");
-                $('#work_end').html(workend);
-              }
+              // if(workend !== ""){
+              //   $('#work_end').removeClass("hide");
+              //   $('#work_end').html(workend);
+              // }
               // Summary CONDITION
-              if(worksummary !== ""){
-                $('#work_summary').removeClass("hide");
-                $('#work_summary').html(worksummary);
-              }
+              // if(worksummary !== ""){
+              //   $('#work_summary').removeClass("hide");
+              //   $('#work_summary').html(worksummary);
+              // }
             }
+
+            // EDUCATION CONTAINER VARIABLE  
+            var edu_loop_content ='';
 
              // ARRAY JSON VALUES ARE HANDLED USING LOOP
             // Here Education fields handled
             for (var l in myJSON.education) {
+              if(myJSON.education !== null){
               var eduinstitution = myJSON.education[l].institution;
               var edudegree = myJSON.education[l].area;
               var edustart = myJSON.education[l].startDate;
               var eduend = myJSON.education[l].endDate;
 
+              var edu_content = `
+              <div class="space-bottom-2">
+                <h3>${edudegree}</h3>
+                <h4 class="text-black-50">${eduinstitution}</h4>
+                <h5 class="text-black-50">
+                <span>${edustart.split("-").reverse("").join("-")}</span> to 
+                <span>${eduend.split("-").reverse("").join("-")}</span></h5>
+              </div>`;
+              // APPENDING CURRENT LOOP DATA WITH PREVIOUS LOOP DATA
+               edu_loop_content += edu_content;
+
+                
               // Institution CONDITION
-              if(eduinstitution !== ""){
-                $('#edu_summary').removeClass("hide");
-                $('#edu_summary').html(eduinstitution);
-              }
+              // if(eduinstitution !== ""){
+              //   $('#edu_summary').removeClass("hide");
+              //   $('#edu_summary').html(eduinstitution);
+              // }
               // Institution CONDITION
-              if(eduinstitution !== ""){
-                $('#edu_degree').removeClass("hide");
-                $('#edu_degree').html(edudegree);
-              }
+              // if(eduinstitution !== ""){
+              //   $('#edu_degree').removeClass("hide");
+              //   $('#edu_degree').html(edudegree);
+              // }
                // StartDate  CONDITION
-               if(edustart !== ""){
-                $('#edu_start').removeClass("hide");
-                $('#edu_start').html(edustart);
-              }
+              //  if(edustart !== ""){
+              //   $('#edu_start').removeClass("hide");
+              //   $('#edu_start').html(edustart);
+              // }
               // EndDate CONDITION
-              if(eduend !== ""){
-                $('#edu_end').removeClass("hide");
-                $('#edu_end').html(eduend);
-              }
+              // if(eduend !== ""){
+              //   $('#edu_end').removeClass("hide");
+              //   $('#edu_end').html(eduend);
+              // }
+              
+              // ADDING IT TO THE CONTAINER
+              $('#edu_container').html(edu_loop_content);
+            }
             }
 
              // ARRAY JSON VALUES ARE HANDLED USING LOOP
@@ -193,8 +228,9 @@ var getprofileurl = instance + "/api/v1/profile/"+ urlprofilename;
             }
 
             // SET DATA TO HTML TAGS VIA ID
+            // SET URL FOR CONFERENCE BUTTON
             // CLICK ACTION DONE FOR CONFERENCE
-            $('#conf_id').click(function(){
+            $('.conf_id').click(function(){
               var conf_iframe = $('#profile_conf').attr('src');
               if(conf_iframe === ""){
             // SET SRC URL FOR IFRAME MODAL                
@@ -203,9 +239,10 @@ var getprofileurl = instance + "/api/v1/profile/"+ urlprofilename;
           });
 
 
+
             // SET URL FOR SCHEDULE BUTTON
-            // CLICK ACTION DONE FOR CONFERENCE            
-            $('#schedule_id').click(function(){
+            // CLICK ACTION DONE FOR SCHEDULE            
+            $('.schedule_id').click(function(){
               var schedule_iframe = $('#profile_schedule').attr('src');
               if(schedule_iframe === ""){
             // SET SRC URL FOR IFRAME MODAL
@@ -213,6 +250,7 @@ var getprofileurl = instance + "/api/v1/profile/"+ urlprofilename;
               }
   });
             
+  
             // SET SRC URL FOR IFRAME MODAL
 
             

@@ -183,13 +183,13 @@
               </ul>
             </div>
             <div class="col-md-4 text-center space-top-sm-0 space-top-2">
-              <a id="conf_id" href="#" class="btn btn-pastel-blue w-80" data-toggle="modal" data-target=".exampleModal">
+              <a href="#" class="conf_id btn btn-pastel-blue w-80" data-toggle="modal" data-target=".exampleModal">
                 <i class="fas fa-video mr-1"></i>
                 Connect
               </a>
 
               <br>
-              <a id="schedule_id" href="#" class="btn btn-pastel-blue w-80 mt-2" data-toggle="modal"
+              <a href="#" class="schedule_id btn btn-pastel-blue w-80 mt-2" data-toggle="modal"
                 data-target=".schedulemodel">
                 <i class="fas fa-calendar-alt mr-1"></i>
                 Schedule meeting
@@ -211,13 +211,13 @@
 
 
             <div class="col-md-9 d-flex" style="place-content: flex-end;">
-              <a id="conf_id_mobile" href="#" class="btn btn-pastel-blue w-25 mr-2" data-toggle="modal"
+              <a href="#" class="conf_id btn btn-pastel-blue w-25 mr-2" data-toggle="modal"
                 data-target=".exampleModal">
                 <i class="fas fa-video mr-1"></i>
                 <span>Connect</span>
               </a>
 
-              <a id="schedule_id_mobile" href="#" class="btn btn-pastel-blue w-25 mr-2" data-toggle="modal"
+              <a href="#" class="schedule_id btn btn-pastel-blue w-25 mr-2" data-toggle="modal"
                 data-target=".schedulemodel">
                 <i class="fas fa-calendar-alt mr-1"></i>
                 <span>Schedule meeting</span>
@@ -343,14 +343,14 @@
               <h5 class="h2 heading-strip">Work <br>
                 Experience</h5>
             </div>
-            <div class="col-12 col-md-8 col-lg-8">
-              <div>
+            <div id="work_container" class="col-12 col-md-8 col-lg-8">
+              <!-- <div>
                 <h3 class="hide" id="work_position"></h3>
                 <h4 class="text-black-50 hide" id="work_company"></h4>
                 <h5 class="text-black-50"><span class="hide" id="work_start"> </span> to <span class="hide"
                     id="work_end"></span></h5>
                 <p id="work_summary" class="hide"></p>
-              </div>
+              </div> -->
 
               <!-- <div class="mt-6">
                     <h3>User Experience Designer</h3>
@@ -377,19 +377,8 @@
             <div class="col-12 col-md-4 col-lg-4">
               <h5 class="h2 heading-strip">Education</h5>
             </div>
-            <div class="col-12 col-md-8 col-lg-8">
-              <div>
-                <h3 class="hide" id="edu_degree"></h3>
-                <h4 class="text-black-50 hide" id="edu_summary"></h4>
-                <h5 class="text-black-50"><span class="hide" id="edu_start"> </span> to <span class="hide"
-                    id="edu_end"></span></h5>
-              </div>
-
-              <!-- <div class="mt-6">
-                    <h3>B.S. Industrial Design</h3>
-                    <h4 class="text-black-50">KAIST, Alpharetta Georgia 30009.</h4>
-                    <h5 class="text-black-50">June 2006 - April 2009</h5>
-                </div> -->
+            <div id="edu_container" class="col-12 col-md-8 col-lg-8">
+              
 
             </div>
           </div>
@@ -652,8 +641,7 @@
     function myFunction() {
       var headerNormal = document.getElementById("header-normal");
       var headerSticky = document.getElementById("header-sticky");
-      console.log(screen.width)
-      if (window.pageYOffset > sticky) {
+        if (window.pageYOffset > sticky) {
         if (screen.width > 992) {
           header.classList.add("sticky");
           headerNormal.classList.add("hide");
