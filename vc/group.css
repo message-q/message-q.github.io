@@ -21,10 +21,14 @@ body {
   color: #ffffff;
 }
 
+.userlistPad--o5KDX {
+  background-color: #f9fbfd !important;
+}
+
 /* Header styles */
 .navbar--Z2lHYbG {
     background: #f9fbfd;
-    border-left: 1px solid #dddee0;
+    border-left: 1px solid #e3ebf6;
     padding-left: 50px;
     padding-right: 38px;
     height: 73px;
@@ -37,7 +41,7 @@ header .default--Z19H5du:hover, header .buttonWrapper--x8uow:hover .default--Z19
   color: #373B5F !important;
 }
 .userList--Z2q1D0p {
-  background: #f5f5f7 !important;
+  background: #f9fbfd !important;
 }
 .content--2jo8b8 {
   margin-left: 0;
