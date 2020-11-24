@@ -31,8 +31,9 @@ body {
   border-left: 1px solid #e3ebf6;
   padding-left: 50px;
   padding-right: 38px;
-  height: 73px;
-  padding-top: 7px;
+  height: 124px;
+  padding-top: 20px;
+  max-height: 300px;
 }
 header .ghost--Z136aiN.default--Z19H5du, header .presentationTitle--1LT79g {
   color: #12263F;
@@ -55,7 +56,7 @@ header .recordingControlON--ZTT4Mq {
   border: 2px solid #483D8B;
 }
 .messages--Z1feno8 {
-  margin-top: 40px;
+  margin-top: 68px;
 }
 .primary--1IbqAO:focus, .buttonWrapper--x8uow:focus:not([aria-disabled="true"]) .primary--1IbqAO {
   background: #FFF !important;
