@@ -27,7 +27,7 @@ body {
 
 /* Header styles */
 .navbar--Z2lHYbG {
-  background: #f9fbfd;
+  background: #483D8B;
   border-left: 1px solid #e3ebf6;
   padding-left: 50px;
   padding-right: 38px;
@@ -36,10 +36,10 @@ body {
   max-height: 300px;
 }
 header .ghost--Z136aiN.default--Z19H5du, header .presentationTitle--1LT79g {
-  color: #12263F;
+  color: #FFFFFF;
 }
 header .default--Z19H5du:hover, header .buttonWrapper--x8uow:hover .default--Z19H5du {
-  color: #12263F !important;
+  color: #FFFFFF !important;
 }
 .userList--Z2q1D0p {
   background: #f9fbfd !important;
@@ -48,9 +48,6 @@ header .default--Z19H5du:hover, header .buttonWrapper--x8uow:hover .default--Z19
   margin-left: 0;
 }
 
-header .recordingControlOFF--26cqft {
-  background: #2c7be5;
-}
 header .recordingControlON--ZTT4Mq {
   background-color: #483D8B;
   border: 2px solid #483D8B;
@@ -80,4 +77,8 @@ header .md--Q7ug4 {
 }
 .ghost--Z136aiN.default--Z19H5du:focus, .buttonWrapper--x8uow:focus .ghost--Z136aiN.default--Z19H5du {
   box-shadow: none !important;
+}
+
+header .presentationTitleSeparator--ZNzwGW {
+  color: #FFF;
 }
