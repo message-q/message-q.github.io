@@ -28,11 +28,10 @@ body {
 /* Header styles */
 .navbar--Z2lHYbG {
   background: #2E8B57;
-  border-left: 1px solid #e3ebf6;
   padding-left: 50px;
   padding-right: 38px;
-  height: 124px;
-  padding-top: 20px;
+  height: 73px;
+  padding-top: 7px;
   max-height: 300px;
 }
 header .ghost--Z136aiN.default--Z19H5du, header .presentationTitle--1LT79g {
@@ -87,5 +86,5 @@ header .presentationTitleSeparator--ZNzwGW {
   left: 50px !important;
 }
 .arrowRight--Zbqp1D {
-  left: 50px !important;
+  left: 80px !important;
 }

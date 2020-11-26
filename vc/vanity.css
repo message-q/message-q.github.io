@@ -77,20 +77,19 @@ body {
 }
 
 .arrowLeft--1CFBz1 {
-    left: 10px;
+    left: 50px;
 }
 
 .arrowRight--Zbqp1D {
-    left: 40px;
+    left: 80px;
 }
 
 .navbar--Z2lHYbG {
   background: #483D8B;
-  border-left: 1px solid #e3ebf6;
   padding-left: 50px;
   padding-right: 38px;
-  height: 124px;
-  padding-top: 20px;
+  height: 73px;
+  padding-top: 7px;
   max-height: 300px;
 }
 
