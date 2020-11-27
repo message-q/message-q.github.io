@@ -115,5 +115,14 @@ header .presentationTitleSeparator--ZNzwGW {
 @media only screen and (max-width: 25.937em) and (min-width: 0em) {
   .centerWithActions--Z3YTGj {
       justify-content: center !important;
+      flex: none !important;
+      padding-right: inherit !important;
   }
+  .right--DUFDc {
+    position: inherit !important;
+    flex: none !important;
+  }
+  .actionsbar--Z1mcyA0 {
+    justify-content: center;
+ }
 }
