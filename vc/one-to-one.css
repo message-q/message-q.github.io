@@ -88,3 +88,9 @@ header .presentationTitleSeparator--ZNzwGW {
 .arrowRight--Zbqp1D {
   left: 80px !important;
 }
+
+@media only screen and (max-width: 25.937em) and (min-width: 0em) {
+  .centerWithActions--Z3YTGj {
+      justify-content: center !important;
+  }
+}

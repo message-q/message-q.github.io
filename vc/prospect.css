@@ -122,3 +122,9 @@ section.wrapper--Z20hQYP {
 header .presentationTitleSeparator--ZNzwGW {
   color: #FFF;
 }
+
+@media only screen and (max-width: 25.937em) and (min-width: 0em) {
+  .centerWithActions--Z3YTGj {
+      justify-content: center !important;
+  }
+}
