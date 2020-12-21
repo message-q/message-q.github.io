@@ -112,6 +112,22 @@ header .presentationTitleSeparator--ZNzwGW {
   color: #FFF;
 }
 
+/* Maximize Button style starts */
+.icon-bbb-fullscreen:before {
+  content: "Max" !important;
+}
+
+.fullScreenButton--Z1bf0vj i {
+  font-size: 0.8rem !important;
+  font-family: sans-serif !important;
+  width: auto !important;
+}
+
+.fullScreenButton--Z1bf0vj {
+  padding: 5px 10px !important;
+}
+/* Maximize Button style Ends */
+
 @media only screen and (max-width: 25.937em) and (min-width: 0em) {
   .centerWithActions--Z3YTGj {
       justify-content: center !important;
