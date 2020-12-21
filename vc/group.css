@@ -105,6 +105,18 @@ header .presentationTitleSeparator--ZNzwGW {
 }
 /* Maximize Button style Ends */
 
+/* Wait for Moderator Message  */
+
+#content > p {
+  font-family: sans-serif;
+  position: absolute;
+  font-size: 24px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}  
+
 @media only screen and (max-width: 25.937em) and (min-width: 0em) {
   .centerWithActions--Z3YTGj {
       justify-content: center !important;
