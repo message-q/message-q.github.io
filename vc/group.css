@@ -98,6 +98,7 @@ header .presentationTitleSeparator--ZNzwGW {
   font-size: 0.8rem !important;
   font-family: sans-serif !important;
   width: auto !important;
+  
 }
 
 .fullScreenButton--Z1bf0vj {
@@ -105,6 +106,12 @@ header .presentationTitleSeparator--ZNzwGW {
 }
 /* Maximize Button style Ends */
 
+/* Start - Hiding Three dots from top right */
+
+.right--Z4dKWq {
+  display: none !important;
+}
+/* End - Hiding Three dots from top right */
 
 
 @media only screen and (max-width: 25.937em) and (min-width: 0em) {
