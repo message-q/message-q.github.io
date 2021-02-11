@@ -1,0 +1,69 @@
+.navbar-brand, .navbar-brand > img {
+    width: 11rem;
+}
+
+.btn-orange {
+    color: #fff;
+    background-color: #FCBA2A;
+    border-color: #FCBA2A;
+}
+
+.btn-orange:hover {
+    color: #FFFFFF;
+}
+
+.btn-green {
+    color: #fff;
+    background-color: #00B383;
+    border-color: #00B383;
+}
+
+.btn-green:hover {
+    color: #FFFFFF;
+}
+
+.btn-pink {
+    color: #fff;
+    background-color: #E65EA0;
+    border-color: #E65EA0;
+}
+
+.btn-pink:hover {
+    color: #FFFFFF;
+}
+
+.btn-violet {
+    color: #fff;
+    background-color: #C344FF;
+    border-color: #C344FF;
+}
+
+.btn-violet:hover {
+    color: #FFFFFF;
+}
+
+.btn-blue {
+    color: #fff;
+    background-color: #63CEE7;
+    border-color: #63CEE7;
+}
+
+.btn-blue:hover {
+    color: #FFFFFF;
+}
+
+.bg-primary-alt {
+    background: #fafafa;
+}
+
+.text-orange {
+    color: #FD8948 !important;
+}
+
+.bg-teal {
+    background-color: #00B4AB;
+}
+
+
+
+
