@@ -75,6 +75,10 @@
     color: rgb(255 255 255);
 }
 
+footer .btn-soft-light:hover {
+    color: #fcba2a;
+}
+
 
 
 
