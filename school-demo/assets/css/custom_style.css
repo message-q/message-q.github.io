@@ -64,8 +64,15 @@
     background-color: #00B4AB;
 }
 
+.bg-green {
+    background-color: #00B383;
+}
+
 .navbar-nav-item:hover .nav-link, .navbar-nav-item:focus .nav-link {
     color: #FCBA2A;
+}
+.nav-white .nav-link {
+    color: rgb(255 255 255);
 }
 
 
