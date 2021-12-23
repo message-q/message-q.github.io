@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title>Mongrov - About mongrov and team</title>
+  <title>Mongrov - Open Source - A mobile-native chat client.</title>
 
     <!-- Keywords -->
   <meta name="description" content="Mongrov, the best team communication app & online collaboration platform, comes with group messaging, group video conference, 
@@ -28,13 +28,12 @@
 
   <!-- CSS Front Template -->
   <link rel="stylesheet" href="./assets/css/theme.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <style>
     .avatar-lg.avatar-4x3 {
     width: 8.66667rem;
     }
-    .card-subtitle {
-    text-transform:none;
-}
   </style>
 </head>
 
@@ -139,102 +138,173 @@
 
   <!-- ========== END HEADER ========== -->
 
- <!-- ========== MAIN CONTENT ========== -->
- <main id="content" role="main">
-    <!-- Gallery -->
-    <div class="container content-space-t-3 content-space-t-lg-5">
-      <div class="w-lg-75 text-center mx-lg-auto">
-        <!-- Heading -->
-        <div class="mb-5 mb-md-10">
-          <h1 class="display-4">Our mission</h1>
-          <p class="lead">To increase overall customer engagement & happiness by providing on-the-go customer-centric experiences.</p>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <!-- Hero -->
+    <div class="overflow-hidden">
+      <div class="container content-space-t-4 content-space-b-3">
+        <div class="row justify-content-lg-between align-items-md-center">
+          <div class="col-md-6 col-lg-5 mb-7 mb-md-0">
+            <a href="https://github.com/mongrov/roverz" target="_blank" rel="noopener">
+                <img class="py-2" src="assets/img/mong/roverz.png" width="100" alt="Roverz logo">
+              </a>
+              <p class="mb-3">100% Open Source</p>
+            <!-- Heading -->
+            <div class="mb-5">
+                <h1 class="display-5 mb-3">
+                    A mobile-native chat client.
+                  </h1>
+              <p class="lead">A Mongrov initiative to give back to the open source community.</p>
+             
+              <div id="git-icons" class="mt-4">
+                <a href="https://github.com/mongrov/roverz" target="_blank" rel="noopener"
+                  class="btn btn-primary py-2">
+                  <svg class="octicon octicon-repo-forked v-align-text-bottom mr-2" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20" height="20" fill="#fff"
+                    viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve">
+                    <g>
+                      <g id="star-rate">
+                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                  94.35,187.425 58.65,299.625 		"></polygon>
+                      </g>
+                    </g>
+
+                  </svg>Star <span id="star"
+                    class="bg-white text-primary rounded m-2 p-1 small font-weight-bold">--</span> </a>
+
+
+                <a href="https://github.com/mongrov/roverz" target="_blank" rel="noopener"
+                  class="btn btn-info ml-2 fork py-2">
+                  <svg class="octicon octicon-repo-forked v-align-text-bottom mr-2" viewBox="0 0 10 16" version="1.1"
+                    width="18" height="24" aria-hidden="true">
+                    <path fill="#FFFFFF" fill-rule="evenodd"
+                      d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z">
+                    </path>
+                  </svg>Fork
+                  <span id="fork" class="bg-white text-info rounded m-2 p-1 small font-weight-bold">--</span>
+                </a>
+
+
+                <a href="https://github.com/mongrov/roverz" target="_blank" rel="noopener"
+                  class="btn btn-secondary text-white ml-0 ml-sm-2 mt-2 mt-sm-0 py-2"><svg
+                    class="octicon octicon-repo-forked v-align-text-bottom mr-2" width="32" height="24"
+                    viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
+                    <g>
+                      <g id="cloud-download">
+                        <path fill="#FFFFFF" d="M494.7,255C476.85,168.3,400.35,102,306,102c-73.95,0-137.7,40.8-168.3,102C58.65,214.2,0,277.95,0,357
+                                      c0,84.15,68.85,153,153,153h331.5c71.4,0,127.5-56.1,127.5-127.5C612,316.2,558.45,260.1,494.7,255z M433.5,331.5L306,459
+                                      L178.5,331.5H255v-102h102v102H433.5z"></path>
+                      </g>
+                    </g>
+                  </svg>Clone </a>
+              </div>
+            </div>
+            <!-- End Heading -->
+
+          </div>
+          <!-- End Col -->
+
+          <div class="col-md-6">
+            <div class="position-relative">
+              <img class="img-fluid rounded-2" src="./assets/img/mong/opensource-hero.svg" alt="Image Description">
+              <div class="position-absolute top-0 end-0 w-100 h-100 bg-soft-primary rounded-2 zi-n1 mt-5 me-n5"></div>
+            </div>
+          </div>
+          <!-- End Col -->
         </div>
-        <!-- End Heading -->
+        <!-- End Row -->
       </div>
-
-
-      <div class="row gx-3">
-        <div class="col mb-3">
-          <div class="bg-img-start" style="background-image: url(./assets/img/480x320/img17.jpg); height: 15rem;"></div>
-        </div>
-        <!-- End Col -->
-
-        <div class="col-3 d-none d-md-block mb-3">
-          <div class="bg-img-start" style="background-image: url(./assets/img/480x320/img6.jpg); height: 15rem;"></div>
-        </div>
-        <!-- End Col -->
-        
-        <div class="col mb-3">
-          <div class="bg-img-start" style="background-image: url(./assets/img/480x320/img14.jpg); height: 15rem;"></div>
-        </div>
-        <!-- End Col -->
-
-        <div class="w-100"></div>
-
-        <div class="col mb-3 mb-md-0">
-          <div class="bg-img-start" style="background-image: url(./assets/img/480x320/img25.jpg); height: 15rem;"></div>
-        </div>
-        <!-- End Col -->
-        
-        <div class="col-4 d-none d-md-block mb-3 mb-md-0">
-          <div class="bg-img-start" style="background-image: url(./assets/img/480x320/img16.jpg); height: 15rem;"></div>
-        </div>
-        <!-- End Col -->
-        
-        <div class="col">
-          <div class="bg-img-start" style="background-image: url(./assets/img/480x320/img12.jpg); height: 15rem;"></div>
-        </div>
-        <!-- End Col -->
-      </div>
-      <!-- End Row -->
     </div>
-    <!-- End Gallery -->
+    <!-- End Hero -->
+
+    <!-- Clients -->
+    <div class="container">
 
 
-    <!-- About start  -->
+      <!-- Swiper Slider -->
+      <div class="js-swiper-hero-clients swiper-container text-center">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img class="avatar avatar-lg avatar-4x3" src="./assets/img/mong/partner-1.png" alt="Logo">
+          </div>
+          <!-- End Slide -->
+          <div class="swiper-slide">
+            <img class="avatar avatar-lg avatar-4x3" src="./assets/img/mong/partner-11.png" alt="Logo">
+          </div>
+          <!-- End Slide -->
+
+          <!-- End Slide -->
+          <div class="swiper-slide">
+            <img class="avatar avatar-lg avatar-4x3" src="./assets/img/mong/partner-5.png" alt="Logo">
+          </div>
+          <!-- End Slide -->
+
+          <div class="swiper-slide">
+            <img class="avatar avatar-lg avatar-4x3" src="./assets/img/mong/partner-2.png" alt="Logo">
+          </div>
+          <!-- End Slide -->
+
+          <!-- End Slide -->
+          <div class="swiper-slide">
+            <img class="avatar avatar-lg avatar-4x3" src="./assets/img/mong/partner-7.png" alt="Logo">
+          </div>
+          <!-- End Slide -->
+
+          <!-- End Slide -->
+          <div class="swiper-slide">
+            <img class="avatar avatar-lg avatar-4x3" src="./assets/img/mong/partner-12.png" alt="Logo">
+          </div>
+          <!-- End Slide -->
+
+          <!-- End Slide -->
+          <div class="swiper-slide">
+            <img class="avatar avatar-lg avatar-4x3" src="./assets/img/mong/partner-13.png" alt="Logo">
+          </div>
+          <!-- End Slide -->
+
+          <div class="swiper-slide">
+            <img class="avatar avatar-lg avatar-4x3" src="./assets/img/mong/partner-3.png" alt="Logo">
+          </div>
+          <!-- End Slide -->
+
+          <div class="swiper-slide">
+            <img class="avatar avatar-lg avatar-4x3" src="./assets/img/mong/partner-3a.png" alt="Logo">
+          </div>
+          <!-- End Slide -->
+
+          <div class="swiper-slide">
+            <img class="avatar avatar-lg avatar-4x3" src="./assets/img/mong/partner-4.png" alt="Logo">
+          </div>
+          <!-- End Slide -->
+          <div class="swiper-slide">
+            <img class="avatar avatar-lg avatar-4x3" src="./assets/img/mong/partner-6.png" alt="Logo">
+          </div>
+          <!-- End Slide -->
+          <div class="swiper-slide">
+            <img class="avatar avatar-lg avatar-4x3" src="./assets/img/mong/partner-8.png" alt="Logo">
+          </div>
+          <!-- End Slide -->
+          <div class="swiper-slide">
+            <img class="avatar avatar-lg avatar-4x3" src="./assets/img/mong/partner-9.png" alt="Logo">
+          </div>
+          <!-- End Slide -->
+          <div class="swiper-slide">
+            <img class="avatar avatar-lg avatar-4x3" src="./assets/img/mong/partner-10.png" alt="Logo">
+          </div>
+          
+        </div>
+      </div>
+      <!-- End Swiper Slider -->
+    </div>
+    <!-- End Clients -->
 
     <div class="overflow-hidden mt-7" id="awards">
         <div class="container content-space-b-2">
           <div class="position-relative">
             <div class="bg-light text-center rounded-2 p-4 p-md-7">
-              <h2 class="h1">About Us</h2>
-              <p class="w-md-80 w-lg-50 mx-md-auto mb-6">Mongrov is a technology startup, specializes in customer engagement & happiness with these core spheres.</p>
-              <div class="row justify-content-md-center">
-                <div class="col-md-4 col-lg-3 mb-9 mb-lg-0">
-                  <!-- Icon Block -->
-                  <div class="step-dots text-center px-lg-4">
-                    <span class="icon icon-lg">
-                        <img class="" src="assets/img/mong/icon-1.svg" alt="SVG">
-                    </span>
-
-                    <h5>Digital identity and assets</h5>
-                  </div>
-                  <!-- End Icon Block -->
-                </div>
-        
-                <div class="col-md-4 col-lg-3 mb-9 mb-lg-0">
-                  <!-- Icon Block -->
-                  <div class="step-dots text-center px-lg-4">
-                    <span class="icon icon-lg">
-                        <img class="" src="assets/img/mong/icon-2.svg" alt="SVG">
-                    </span>
-                    <h5>Secure collaboration for humans and things</h5>
-                  </div>
-                  <!-- End Icon Block -->
-                </div>
-        
-                <div class="col-md-4 col-lg-3">
-                  <!-- Icon Block -->
-                  <div class="text-center px-lg-4">
-                    <span class="icon icon-lg">
-                        <img class="" src="assets/img/mong/icon-3.svg" alt="SVG">
-                    </span>
-                    <h5>Instantification and knowledge</h5>
-                  </div>
-                  <!-- End Icon Block -->
-                </div>
-              </div>
-
+              <p class="w-lg-85 lead mx-auto">The much-awaited native chat client creating a unique platform for seamless communication.
+                Join our open community to chat with the team and community</p>
+              
             </div>
   
             <!-- SVG Shape -->
@@ -248,450 +318,120 @@
         </div>
       </div>
 
-      <!-- About End  -->
-
-    
-
-    <!-- Team -->
-    <div class="container content-space-2 content-space-lg-0">
-      <!-- Heading -->
-      <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-        <!-- <span class="text-cap">Our team</span> -->
-        <h2>Our advisors</h2>
-      </div>
-      <!-- End Heading -->
-
-      <div class="row gx-3 mb-5">
-        <div class="col-sm-6 col-lg-3 mb-3 text-center">
-          <!-- Card -->
-          <div class="card card-transition h-100">
-            <div class="card-body pb-0">
-              <div class="avatar avatar-xxl avatar-circle mb-4">
-                <img class="avatar-img" src="./assets/img/mong/advisor-giuseppe.jpg" alt="Image Description">
+      <!-- Features -->
+    <div class="overflow-hidden">
+        <div class="container content-space-t-1 content-space-t-lg-1 content-space-b-lg-1">
+          <div class="row justify-content-lg-between align-items-lg-center">
+            <div class="col-lg-5 mb-9 mb-lg-0">
+              <!-- Heading -->
+              <div class="mb-4">
+                <h2 class="h1">Star and Fork</h2>
+                <p>Roverz is an open source team collaboration application. Star and fork it on GitHub and help others discover the platform.</p>
               </div>
-              <h4 class="card-title">Giuseppe Porcelli</h4>
-              <span class="card-subtitle">Business Development</span>
+              <!-- End Heading -->
               
             </div>
-
-            <div class="card-footer pt-0">
-              <!-- Socials -->
-              <ul class="list-inline mb-0">
-                <li class="list-inline-item">
-                  <a class="btn btn-outline-primary btn-xs btn-icon rounded" href="https://www.linkedin.com/in/giuseppeporcelli/" target="_blank">
-                    <i class="bi-linkedin"></i>
-                  </a>
-                </li>
-                
-              </ul>
-              <!-- End Socials -->
+            <!-- End Col -->
+  
+            <div class="col-lg-6">
+              <div class="position-relative mx-auto" data-aos="fade-up">
+               
+                <!-- SVG Shape -->
+                <div class="">
+                  <img class="img-fluid" src="./assets/img/mong/os-star-fork.svg" alt="SVG">
+                </div>
+                <!-- End SVG Shape -->
+              </div>
             </div>
+            <!-- End Col -->
           </div>
-          <!-- End Card -->
+          <!-- End Row -->
         </div>
-        <!-- End Col -->
-
-        <div class="col-sm-6 col-lg-3 mb-3 text-center">
-            <!-- Card -->
-            <div class="card card-transition h-100">
-              <div class="card-body pb-0">
-                <div class="avatar avatar-xxl avatar-circle mb-4">
-                  <img class="avatar-img" src="./assets/img/mong/advisor-mvs.jpg" alt="Image Description">
-                </div>
-                <h4 class="card-title">M.V.Subramanian</h4>
-                <span class="card-subtitle">Strategy & Business Development</span>
-                
-              </div>
-  
-              <div class="card-footer pt-0">
-                <!-- Socials -->
-                <ul class="list-inline mb-0">
-                  <li class="list-inline-item">
-                    <a class="btn btn-outline-primary btn-xs btn-icon rounded" href="https://www.linkedin.com/in/mvsmani/" target="_blank">
-                      <i class="bi-linkedin"></i>
-                    </a>
-                  </li>
-                  
-                </ul>
-                <!-- End Socials -->
-              </div>
-            </div>
-            <!-- End Card -->
-          </div>
-          <!-- End Col -->
-
-          <div class="col-sm-6 col-lg-3 mb-3 text-center">
-            <!-- Card -->
-            <div class="card card-transition h-100">
-              <div class="card-body pb-0">
-                <div class="avatar avatar-xxl avatar-circle mb-4">
-                  <img class="avatar-img" src="./assets/img/mong/advisor-norman.jpg" alt="Image Description">
-                </div>
-                <h4 class="card-title">Norman Shi</h4>
-                <span class="card-subtitle">Technology </span>
-                
-              </div>
-  
-              <div class="card-footer pt-0">
-                <!-- Socials -->
-                <ul class="list-inline mb-0">
-                  <li class="list-inline-item">
-                    <a class="btn btn-outline-primary btn-xs btn-icon rounded" href="https://www.linkedin.com/in/norman-shi-6a3a6/" target="_blank">
-                      <i class="bi-linkedin"></i>
-                    </a>
-                  </li>
-                  
-                </ul>
-                <!-- End Socials -->
-              </div>
-            </div>
-            <!-- End Card -->
-          </div>
-          <!-- End Col -->
-
-          <div class="col-sm-6 col-lg-3 mb-3 text-center">
-            <!-- Card -->
-            <div class="card card-transition h-100">
-              <div class="card-body pb-0">
-                <div class="avatar avatar-xxl avatar-circle mb-4">
-                  <img class="avatar-img" src="./assets/img/mong/advisor-krishnakumar.jpg" alt="Image Description">
-                </div>
-  
-                
-                <h4 class="card-title">Krishnakumar Anandan</h4>
-                <span class="card-subtitle">Sales </span>
-              </div>
-  
-              <div class="card-footer pt-0">
-                <!-- Socials -->
-                <ul class="list-inline mb-0">
-                  <li class="list-inline-item">
-                    <a class="btn btn-outline-primary btn-xs btn-icon rounded" href="https://www.linkedin.com/in/krishnakumar-anandan-44415230/" target="_blank">
-                      <i class="bi-linkedin"></i>
-                    </a>
-                  </li>
-                  
-                </ul>
-                <!-- End Socials -->
-              </div>
-            </div>
-            <!-- End Card -->
-          </div>
-          <!-- End Col -->
-     </div>
-      <!-- End Row -->
-
-       <!-- Heading -->
-       <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-        <!-- <span class="text-cap">Our team</span> -->
-        <h2>Our Team</h2>
       </div>
-      <!-- End Heading -->
+      <!-- End Features -->
 
-      <div class="row gx-3 mb-5 justify-content-center">
-        <div class="col-sm-6 col-lg-3 mb-3 text-center">
-          <!-- Card -->
-          <div class="card card-transition h-100">
-            <div class="card-body pb-0">
-              <div class="avatar avatar-xxl avatar-circle mb-4">
-                <img class="avatar-img" src="./assets/img/mong/team-ezhil.jpg" alt="Image Description">
+      <!-- Features -->
+    <div class="overflow-hidden">
+        <div class="container content-space-t-1 content-space-t-lg-1 content-space-b-lg-1">
+          <div class="row justify-content-lg-between align-items-lg-center">
+            <div class="col-lg-5 mb-9 mb-lg-0 order-lg-2">
+              <!-- Heading -->
+              <div class="mb-4">
+                <h2 class="h1">Use and Share</h2>
+                <p>Clone and run it on your own machine and share it with your friends and colleagues who haven't experienced the power of an open source team collaboration app.</p>
               </div>
-              <h4 class="card-title">Ezhil Arasu</h4>
-              <span class="card-subtitle">Engineering</span>
+              <!-- End Heading -->
               
             </div>
-
-            <div class="card-footer pt-0">
-              <!-- Socials -->
-              <ul class="list-inline mb-0">
-                <li class="list-inline-item">
-                  <a class="btn btn-outline-primary btn-xs btn-icon rounded" href="https://www.linkedin.com/in/ezhil-arasu-6a150518/" target="_blank">
-                    <i class="bi-linkedin"></i>
-                  </a>
-                </li>
-                
-              </ul>
-              <!-- End Socials -->
+            <!-- End Col -->
+  
+            <div class="col-lg-6 order-lg-1">
+              <div class="position-relative mx-auto" data-aos="fade-up">
+               
+                <!-- SVG Shape -->
+                <div class="">
+                  <img class="img-fluid" src="./assets/img/mong/os-use-share.svg" alt="SVG">
+                </div>
+                <!-- End SVG Shape -->
+              </div>
             </div>
+            <!-- End Col -->
           </div>
-          <!-- End Card -->
+          <!-- End Row -->
         </div>
-        <!-- End Col -->
+      </div>
+      <!-- End Features -->
 
-        <div class="col-sm-6 col-lg-3 mb-3 text-center">
-            <!-- Card -->
-            <div class="card card-transition h-100">
-              <div class="card-body pb-0">
-                <div class="avatar avatar-xxl avatar-circle mb-4">
-                  <img class="avatar-img" src="./assets/img/mong/team-mani.jpg" alt="Image Description">
-                </div>
-                <h4 class="card-title">Manikandhanathan</h4>
-                <span class="card-subtitle">Marketing</span>
-                
+      <!-- Features -->
+    <div class="overflow-hidden">
+        <div class="container content-space-t-1 content-space-t-lg-1 content-space-b-lg-1">
+          <div class="row justify-content-lg-between align-items-lg-center">
+            <div class="col-lg-5 mb-9 mb-lg-0">
+              <!-- Heading -->
+              <div class="mb-4">
+                <h2 class="h1">Give a Talk</h2>
+                <p>Give a talk at a local meetup or conference sharing how you use roverz or how you customized it to suit your needs!</p>
               </div>
+              <!-- End Heading -->
+              
+            </div>
+            <!-- End Col -->
   
-              <div class="card-footer pt-0">
-                <!-- Socials -->
-                <ul class="list-inline mb-0">
-                  <li class="list-inline-item">
-                    <a class="btn btn-outline-primary btn-xs btn-icon rounded" href="https://www.linkedin.com/in/manikandhanathan-sivakumar-b5479b10/" target="_blank">
-                      <i class="bi-linkedin"></i>
-                    </a>
-                  </li>
-                  
-                </ul>
-                <!-- End Socials -->
+            <div class="col-lg-6">
+              <div class="position-relative mx-auto" data-aos="fade-up">
+               
+                <!-- SVG Shape -->
+                <div class="">
+                  <img class="img-fluid" src="./assets/img/mong/os-giv-talk.svg" alt="SVG">
+                </div>
+                <!-- End SVG Shape -->
               </div>
             </div>
-            <!-- End Card -->
+            <!-- End Col -->
           </div>
-          <!-- End Col -->
+          <!-- End Row -->
+        </div>
+      </div>
+      <!-- End Features -->
 
-          <div class="col-sm-6 col-lg-3 mb-3 text-center">
-            <!-- Card -->
-            <div class="card card-transition h-100">
-              <div class="card-body pb-0">
-                <div class="avatar avatar-xxl avatar-circle mb-4">
-                  <img class="avatar-img" src="./assets/img/mong/team-ambarrish.jpg" alt="Image Description">
-                </div>
-                <h4 class="card-title">Ambarrish Khannaa</h4>
-                <span class="card-subtitle"> Delivery</span>
-                
-              </div>
-  
-              <div class="card-footer pt-0">
-                <!-- Socials -->
-                <ul class="list-inline mb-0">
-                  <li class="list-inline-item">
-                    <a class="btn btn-outline-primary btn-xs btn-icon rounded" href="https://www.linkedin.com/in/ambarrish-khannaa-cr/" target="_blank">
-                      <i class="bi-linkedin"></i>
-                    </a>
-                  </li>
-                  
-                </ul>
-                <!-- End Socials -->
-              </div>
-            </div>
-            <!-- End Card -->
+    <!-- Ready to engage -->
+    <div class="bg-dark rounded-2 mx-3 mx-xl-10" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
+        <div class="container-xl container-fluid content-space-1 content-space-md-2 px-4 px-md-8 px-lg-10">
+          <div class="row justify-content-lg-between align-items-lg-center">
+
+            <!-- Heading -->
+        <div class="text-center mx-md-auto">
+            <h2 class="h1 text-white">Ready to Engage?</h2>
+            <a class="btn btn-primary mt-4" href="sales.html">Request a Demo</a>
           </div>
-          <!-- End Col -->
+          <!-- End Heading -->
 
-          <div class="col-sm-6 col-lg-3 mb-3 text-center">
-            <!-- Card -->
-            <div class="card card-transition h-100">
-              <div class="card-body pb-0">
-                <div class="avatar avatar-xxl avatar-circle mb-4">
-                  <img class="avatar-img" src="./assets/img/mong/team-karthi.jpg" alt="Image Description">
-                </div>
-  
-                
-                <h4 class="card-title">Karthikeyan</h4>
-                <span class="card-subtitle"> User Experience</span>
-              </div>
-  
-              <div class="card-footer pt-0">
-                <!-- Socials -->
-                <ul class="list-inline mb-0">
-                  <li class="list-inline-item">
-                    <a class="btn btn-outline-primary btn-xs btn-icon rounded" href="https://www.linkedin.com/in/karthickmscss/" target="_blank">
-                      <i class="bi-linkedin"></i>
-                    </a>
-                  </li>
-                  
-                </ul>
-                <!-- End Socials -->
-              </div>
-            </div>
-            <!-- End Card -->
           </div>
-          <!-- End Col -->
+        </div>
+      </div>
+      <!-- End Ready to engage-->
 
-          <div class="col-sm-6 col-lg-3 mb-3 text-center">
-            <!-- Card -->
-            <div class="card card-transition h-100">
-              <div class="card-body pb-0">
-                <div class="avatar avatar-xxl avatar-circle mb-4">
-                  <img class="avatar-img" src="./assets/img/mong/team-manoj.jpeg" alt="Image Description">
-                </div>
-  
-                
-                <h4 class="card-title">Manoj Prabhakar</h4>
-                <span class="card-subtitle"> Marketing</span>
-              </div>
-  
-              <div class="card-footer pt-0">
-                <!-- Socials -->
-                <ul class="list-inline mb-0">
-                  <li class="list-inline-item">
-                    <a class="btn btn-outline-primary btn-xs btn-icon rounded" href="https://www.linkedin.com/in/manoj-prabakar-328496153/" target="_blank">
-                      <i class="bi-linkedin"></i>
-                    </a>
-                  </li>
-                  
-                </ul>
-                <!-- End Socials -->
-              </div>
-            </div>
-            <!-- End Card -->
-          </div>
-          <!-- End Col -->
 
-          <div class="col-sm-6 col-lg-3 mb-3 text-center">
-            <!-- Card -->
-            <div class="card card-transition h-100">
-              <div class="card-body pb-0">
-                <div class="avatar avatar-xxl avatar-circle mb-4">
-                  <img class="avatar-img" src="./assets/img/mong/team-preetha.jpg" alt="Image Description">
-                </div>
-  
-                
-                <h4 class="card-title">Jennifer Preetha</h4>
-                <span class="card-subtitle"> Quality</span>
-              </div>
-  
-              <div class="card-footer pt-0">
-                <!-- Socials -->
-                <ul class="list-inline mb-0">
-                  <li class="list-inline-item">
-                    <a class="btn btn-outline-primary btn-xs btn-icon rounded" href="https://www.linkedin.com/in/jennifer-preetha-ba8203143/" target="_blank">
-                      <i class="bi-linkedin"></i>
-                    </a>
-                  </li>
-                  
-                </ul>
-                <!-- End Socials -->
-              </div>
-            </div>
-            <!-- End Card -->
-          </div>
-          <!-- End Col -->
-
-          <div class="col-sm-6 col-lg-3 mb-3 text-center">
-            <!-- Card -->
-            <div class="card card-transition h-100">
-              <div class="card-body pb-0">
-                <div class="avatar avatar-xxl avatar-circle mb-4">
-                  <img class="avatar-img" src="./assets/img/mong/team-tharuni.jpg" alt="Image Description">
-                </div>
-  
-                
-                <h4 class="card-title">Tharuni</h4>
-                <span class="card-subtitle"> Quality</span>
-              </div>
-  
-              <div class="card-footer pt-0">
-                <!-- Socials -->
-                <ul class="list-inline mb-0">
-                  <li class="list-inline-item">
-                    <a class="btn btn-outline-primary btn-xs btn-icon rounded" href="https://www.linkedin.com/in/tharuni-g/" target="_blank">
-                      <i class="bi-linkedin"></i>
-                    </a>
-                  </li>
-                  
-                </ul>
-                <!-- End Socials -->
-              </div>
-            </div>
-            <!-- End Card -->
-          </div>
-          <!-- End Col -->
-
-          <div class="col-sm-6 col-lg-3 mb-3 text-center">
-            <!-- Card -->
-            <div class="card card-transition h-100">
-              <div class="card-body pb-0">
-                <div class="avatar avatar-xxl avatar-circle mb-4">
-                  <img class="avatar-img" src="./assets/img/mong/team-sakkeer.jpg" alt="Image Description">
-                </div>
-  
-                
-                <h4 class="card-title">Sakkeer</h4>
-                <span class="card-subtitle">Mobile Development</span>
-              </div>
-  
-              <div class="card-footer pt-0">
-                <!-- Socials -->
-                <ul class="list-inline mb-0">
-                  <li class="list-inline-item">
-                    <a class="btn btn-outline-primary btn-xs btn-icon rounded" href="https://www.linkedin.com/in/sakkeer-abdul-salam-387175196/" target="_blank">
-                      <i class="bi-linkedin"></i>
-                    </a>
-                  </li>
-                  
-                </ul>
-                <!-- End Socials -->
-              </div>
-            </div>
-            <!-- End Card -->
-          </div>
-          <!-- End Col -->
-
-          <div class="col-sm-6 col-lg-3 mb-3 text-center">
-            <!-- Card -->
-            <div class="card card-transition h-100">
-              <div class="card-body pb-0">
-                <div class="avatar avatar-xxl avatar-circle mb-4">
-                  <img class="avatar-img" src="./assets/img/mong/team-priya.jpg" alt="Image Description">
-                </div>
-  
-                
-                <h4 class="card-title">Priyashalini</h4>
-                <span class="card-subtitle">Mobile Development</span>
-              </div>
-  
-              <div class="card-footer pt-0">
-                <!-- Socials -->
-                <ul class="list-inline mb-0">
-                  <li class="list-inline-item">
-                    <a class="btn btn-outline-primary btn-xs btn-icon rounded" href="https://www.linkedin.com/in/priyashalini-p-603242175/" target="_blank">
-                      <i class="bi-linkedin"></i>
-                    </a>
-                  </li>
-                  
-                </ul>
-                <!-- End Socials -->
-              </div>
-            </div>
-            <!-- End Card -->
-          </div>
-          <!-- End Col -->
-
-          <div class="col-sm-6 col-lg-3 mb-3 text-center">
-            <!-- Card -->
-            <div class="card card-transition h-100">
-              <div class="card-body pb-0">
-                <div class="avatar avatar-xxl avatar-circle mb-4">
-                  <img class="avatar-img" src="./assets/img/mong/team-eyal.jpg" alt="Image Description">
-                </div>
-  
-                
-                <h4 class="card-title">Eyal Arasu</h4>
-                <span class="card-subtitle">Innovation Sherpa</span>
-              </div>
-  
-              <div class="card-footer pt-0">
-                <!-- Socials -->
-                <ul class="list-inline mb-0">
-                  <li class="list-inline-item">
-                    <a class="btn btn-outline-primary btn-xs btn-icon rounded" href="https://www.linkedin.com/in/elarasu/" target="_blank">
-                      <i class="bi-linkedin"></i>
-                    </a>
-                  </li>
-                  
-                </ul>
-                <!-- End Socials -->
-              </div>
-            </div>
-            <!-- End Card -->
-          </div>
-          <!-- End Col -->
-     </div>
-      <!-- End Row -->
-
-    </div>
-    <!-- End Team -->
-
-    <div class="border-top mx-auto" style="max-width: 25rem;"></div>
   </main>
   <!-- ========== END MAIN CONTENT ========== -->
 
@@ -1124,6 +864,8 @@
   <!-- JS Front -->
   <script src="./assets/js/theme.min.js"></script>
 
+  
+
   <!-- JS Plugins Init. -->
   <script>
     (function() {
@@ -1200,5 +942,19 @@
       });
     })()
   </script>
+
+  <!-- Github api script for star and fork -->
+  <script>
+    $(window).on('load', function () {
+      $.get("https://api.github.com/repos/mongrov/roverz", function (data) {
+        console.log(data);
+        $("#star").html(data.stargazers_count);
+        $("#fork").html(data.forks);
+        // alert( "Load was performed." );
+      });
+    });
+  </script>
+
+  
 </body>
 </html>
