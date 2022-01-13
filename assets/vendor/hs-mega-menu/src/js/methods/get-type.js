@@ -1,7 +1,7 @@
 export default function getType(el, params) {
-	if (!el || !el.length) {
+	if (!el) {
 		return false;
 	}
 	
-	return el.hasClass(params.classMap.hasSubMenu.slice(1)) ? 'sub-menu' : (el.hasClass(params.classMap.hasMegaMenu.slice(1)) ? 'mega-menu' : null);
+	return el.classList.contains(params.classMap.hasSubMenu.slice(1)) ? 'sub-menu' : (el.classList.contains(params.classMap.hasMegaMenu.slice(1)) ? 'mega-menu' : null);
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<!-- Title -->
+		<!-- Heading -->
 		<title>Show Animation</title>
 
 		<!-- Required Meta Tags Always Come First -->
@@ -119,10 +119,8 @@
 		<script src="./dist/hs-show-animation.min.js"></script>
 
 		<script>
-			$(document).on('ready', function () {
-				$('.js-animation-link').each(function () {
-					var showAnimation = new HSShowAnimation($(this)).init();
-				});
+			(function() {
+				new HSShowAnimation('.js-animation-link')
 			});
 		</script>
 	</body>

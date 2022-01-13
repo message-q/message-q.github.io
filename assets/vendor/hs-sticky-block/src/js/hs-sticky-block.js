@@ -1,180 +1,238 @@
 /*
 * HSStickyBlock Plugin
-* @version: 2.0.0 (Mon, 25 Nov 2019)
-* @requires: jQuery v3.0 or laters
+* @version: 3.0.0 (Wed, 24 Nov 2021)
 * @author: HtmlStream
 * @event-namespace: .HSStickyBlock
 * @license: Htmlstream Libraries (https://htmlstream.com/)
-* Copyright 2019 Htmlstream
+* Copyright 2021 Htmlstream
 */
 
+const isNumeric = n => !isNaN(parseFloat(n)) && isFinite(n),
+  offset = el => {
+    el = typeof el === "object" ? el : document.querySelector(el)
+
+    return {
+      top: el ? window.pageYOffset + el.getBoundingClientRect().top : 0,
+      left: el ? el.getBoundingClientRect().left : 0
+    }
+  },
+  css = (el, style) => {
+    el = typeof el === "object" ? el : document.querySelector(el)
+
+    for (const property in style) {
+      el.style[property] = style[property]
+    }
+  }
+
+const dataAttributeName = 'data-hs-sticky-block-options'
+const defaults = {
+  parentSelector: null,
+  parentWidth: null,
+  parentPaddingLeft: null,
+  parentOffsetLeft: null,
+
+  targetSelector: null,
+  targetHeight: 0,
+
+  stickyHeight: null,
+  stickyOffsetTop: 0,
+  stickyOffsetBottom: 0,
+
+  windowOffsetTop: 0,
+
+  startPoint: null,
+  endPoint: null,
+
+  resolutionsList: {
+    xs: 0,
+    sm: 576,
+    md: 768,
+    lg: 992,
+    xl: 1200
+  },
+  breakpoint: 'lg',
+
+  styles: {
+    position: 'fixed'
+  },
+
+  classMap: {
+    kill: 'hs-kill-sticky'
+  }
+}
+
 export default class HSStickyBlock {
-	constructor(elem, settings) {
-		this.elem = elem;
-		this.defaults = {
-			parentSelector: null,
-			parentWidth: null,
-			parentPaddingLeft: null,
-			parentOffsetLeft: null,
-			
-			targetSelector: null,
-			targetHeight: 0,
-			
-			stickyHeight: null,
-			stickyOffsetTop: 0,
-			stickyOffsetBottom: 0,
-			
-			windowOffsetTop: 0,
-			
-			startPoint: null,
-			endPoint: null,
-			
-			resolutionsList: {
-				xs: 0,
-				sm: 576,
-				md: 768,
-				lg: 992,
-				xl: 1200
-			},
-			breakpoint: 'lg',
-			
-			styles: {
-				position: 'fixed'
-			},
-			
-			classMap: {
-				kill: 'hs-kill-sticky'
-			}
-		};
-		this.settings = settings;
-		
-		this.init();
-	}
-	
-	init() {
-		const context = this,
-			$el = context.elem,
-			dataSettings = $el.attr('data-hs-sticky-block-options') ? JSON.parse($el.attr('data-hs-sticky-block-options')) : {},
-			options = $.extend(true, context.defaults, dataSettings, context.settings);
-		
-		context._setRules($el, options);
-		
-		$(window).on('resize scroll', function () {
-			context.update();
-		});
-	}
-	
-	update() {
-		const context = this,
-			$el = context.elem,
-			dataSettings = $el.attr('data-hs-sticky-block-options') ? JSON.parse($el.attr('data-hs-sticky-block-options')) : {},
-			options = $.extend(true, context.defaults, dataSettings, context.settings);
-		
-		context._setRules($el, options);
-	}
-	
-	_updateOptions(el, params) {
-		let options = params;
-		
-		options.windowOffsetTop = $(window).scrollTop();
-		options.startPoint = $.isNumeric(options.startPoint) ? options.startPoint : $(options.startPoint).offset().top;
-		options.endPoint = $.isNumeric(options.endPoint) ? options.endPoint : $(options.endPoint).offset().top;
-		
-		options.parentWidth = $(options.parentSelector).width();
-		options.parentPaddingLeft = parseInt($(options.parentSelector).css('padding-left'));
-		options.parentOffsetLeft = $(options.parentSelector).offset().left;
-		
-		options.targetHeight = options.targetSelector ? $(options.targetSelector).outerHeight() : 0;
-		
-		options.stickyHeight = el.outerHeight();
-	}
-	
-	_setRules(el, params) {
-		const context = this;
-		let options = params;
-		
-		context._kill(el, options);
-		
-		context._updateOptions(el, options);
-		
-		if (!el.hasClass(options.classMap.kill)) {
-			if (options.windowOffsetTop >= (options.startPoint - options.targetHeight - options.stickyOffsetTop) && options.windowOffsetTop <= (options.endPoint - options.targetHeight - options.stickyOffsetTop)) {
-				context._add(el, options);
-				context._top(el, options);
-				context._parentSetHeight(options);
-			} else {
-				context._reset(el);
-				context._parentRemoveHeight(options);
-			}
-			
-			if (options.windowOffsetTop >= (options.endPoint - options.targetHeight - options.stickyHeight - options.stickyOffsetTop - options.stickyOffsetBottom)) {
-				context._bottom(el, options);
-			}
-		}
-	}
-	
-	_add(el, params) {
-		let options = params;
-		
-		el.css({
-			position: options.styles.position,
-			left: options.parentOffsetLeft + options.parentPaddingLeft,
-			width: options.parentWidth
-		});
-	}
-	
-	_top(el, params) {
-		let options = params;
-		
-		el.css({
-			top: options.stickyOffsetTop + options.targetHeight
-		});
-	}
-	
-	_bottom(el, params) {
-		let options = params;
-		
-		el.css({
-			top: options.endPoint - options.windowOffsetTop - options.stickyHeight - options.stickyOffsetBottom
-		});
-	}
-	
-	_reset(el) {
-		el.css({
-			position: '',
-			top: '',
-			bottom: '',
-			left: '',
-			width: ''
-		});
-	}
-	
-	_kill(el, params) {
-		const context = this;
-		let options = params;
-		
-		if (window.innerWidth <= options.resolutionsList[options.breakpoint]) {
-			el.addClass(options.classMap.kill);
-			context._reset(el);
-			context._parentRemoveHeight(options);
-		} else {
-			el.removeClass(options.classMap.kill);
-		}
-	}
-	
-	_parentSetHeight(params) {
-		let options = params;
-		
-		$(options.parentSelector).css({
-			height: options.stickyHeight
-		});
-	}
-	
-	_parentRemoveHeight(params) {
-		let options = params;
-		
-		$(options.parentSelector).css({
-			height: ''
-		});
-	}
+  constructor(el, options, id) {
+    this.collection = []
+    const that = this
+    let elems
+
+    if (el instanceof HTMLElement) {
+      elems = [el]
+    } else if (el instanceof Object) {
+      elems = el
+    } else {
+      elems = document.querySelectorAll(el)
+    }
+
+    for (let i = 0; i < elems.length; i += 1) {
+      that.addToCollection(elems[i], options, id || elems[i].id)
+    }
+
+    if (!that.collection.length) {
+      return false
+    }
+
+    // initialization calls
+    that._init()
+
+    return this
+  }
+
+  _init() {
+    const that = this;
+
+    for (let i = 0; i < that.collection.length; i += 1) {
+      let _$el
+      let _options
+
+      if (that.collection[i].hasOwnProperty('$initializedEl')) {
+        continue
+      }
+
+      _$el = that.collection[i].$el;
+      _options = that.collection[i].options
+
+      Array('resize', 'scroll').forEach(evt =>
+        window.addEventListener(evt, () => this.update(_$el, _options), false)
+      )
+
+      that.collection[i].$initializedEl = _options
+    }
+  }
+
+  update($el, settings) {
+    const that = this
+    that._setRules($el, settings);
+  }
+
+  _updateOptions($el, settings) {
+    const parentSelector = document.querySelector(settings.parentSelector),
+      targetSelector = document.querySelector(settings.targetSelector)
+
+    settings.windowOffsetTop = window.pageYOffset
+    settings.startPointPos = offset(settings.startPoint).top;
+    settings.endPointPos = offset(settings.endPoint).top;
+
+    settings.parentWidth = parentSelector ? parentSelector.clientWidth : 0
+    settings.parentPaddingLeft = parentSelector ? parseInt(window.getComputedStyle(parentSelector).paddingLeft) : 0
+    settings.parentOffsetLeft = offset(parentSelector).left
+
+    settings.targetHeight = targetSelector ? targetSelector.offsetHeight : 0;
+
+    settings.stickyHeight = $el.offsetHeight;
+  }
+
+  _setRules($el, settings) {
+    const that = this
+
+    that._kill($el, settings);
+
+    that._updateOptions($el, settings);
+    if (!$el.classList.contains(settings.classMap.kill)) {
+      if (settings.windowOffsetTop
+        >= (settings.startPointPos - settings.targetHeight - settings.stickyOffsetTop)
+        && settings.windowOffsetTop <= (settings.endPointPos - settings.targetHeight - settings.stickyOffsetTop)) {
+        that._add($el, settings);
+        that._top($el, settings);
+        that._parentSetHeight($el, settings);
+      } else {
+       that._reset($el);
+        that._parentRemoveHeight($el, settings);
+      }
+
+      if (settings.windowOffsetTop >= (settings.endPointPos - settings.targetHeight - settings.stickyHeight - settings.stickyOffsetTop - settings.stickyOffsetBottom)) {
+        that._bottom($el, settings);
+      }
+    }
+  }
+
+  _add($el, settings) {
+    css($el, {
+      position: settings.styles.position,
+      left: settings.parentOffsetLeft + settings.parentPaddingLeft + 'px',
+      width: settings.parentWidth + 'px'
+    })
+  }
+
+  _top($el, settings) {
+    css($el, {
+      top: settings.stickyOffsetTop + settings.targetHeight + 'px'
+    })
+  }
+
+  _bottom($el, settings) {
+    css($el, {
+      top: settings.endPointPos - settings.windowOffsetTop - settings.stickyHeight - settings.stickyOffsetBottom + 'px'
+    })
+  }
+
+  _reset($el, settings) {
+    css($el, {
+      position: '',
+      top: '',
+      bottom: '',
+      left: '',
+      width: ''
+    })
+  }
+
+  _kill($el, settings) {
+    const that = this
+
+    if (window.innerWidth < settings.resolutionsList[settings.breakpoint]) {
+      $el.classList.add(settings.classMap.kill);
+      that._reset($el);
+      that._parentRemoveHeight($el, settings);
+    } else {
+      $el.classList.remove(settings.classMap.kill);
+    }
+  }
+
+  _parentSetHeight($el, settings) {
+    css(settings.parentSelector, {
+      height: settings.stickyHeight + 'px'
+    });
+  }
+
+  _parentRemoveHeight($el, settings) {
+    css(settings.parentSelector, {
+      height: ''
+    })
+  }
+
+  addToCollection (item, options, id) {
+    this.collection.push({
+      $el: item,
+      id: id || null,
+      options: Object.assign(
+        {},
+        defaults,
+        item.hasAttribute(dataAttributeName)
+          ? JSON.parse(item.getAttribute(dataAttributeName))
+          : {},
+        options,
+      ),
+    })
+  }
+
+  getItem (item) {
+    if (typeof item === 'number') {
+      return this.collection[item].$initializedEl;
+    } else {
+      return this.collection.find(el => {
+        return el.id === item;
+      }).$initializedEl;
+    }
+  }
 }

@@ -1,9 +1,11 @@
+import slideDown from "./slideDown"
+
 export default function mobileShow(el, menu, params, itemParams) {
-	if (!menu.length) {
-		return this;
+	if (!menu) {
+		return this
 	}
 	
-	el.addClass(itemParams.activeItemClass().slice(1));
-	
-	menu.slideDown(params.mobileSpeed);
+	el.classList.add(itemParams.activeItemClass().slice(1))
+
+	slideDown(menu, params.mobileSpeed)
 }

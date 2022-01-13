@@ -192,11 +192,7 @@
 		<script src="./dist/hs-toggle-state.min.js"></script>
 		
 		<script>
-			$(document).on('ready', function () {
-				$('.js-toggle-state').each(function () {
-					var toggleState = new HSToggleState($(this)).init();
-				});
-			});
+			new HSToggleState('.js-toggle-state')
 		</script>
 	</body>
 </html>

@@ -1,112 +1,182 @@
+/*
+* HSGoTo Plugin
+* @version: 2.0.0 (1, Sun Aug 2021)
+* @author: HtmlStream
+* @event-namespace: .HSGoTo
+* @license: Htmlstream Libraries (https://htmlstream.com/)
+* Copyright 2021 Htmlstream
+*/
+
+import scrollTo from "../utils/scrollTo"
+
+const dataAttributeName = 'data-hs-go-to-options'
+const defaults = {
+  pageContainerSelector: 'html, body',
+  targetSelector: null,
+  compensationSelector: null,
+
+  animationInit: 'animated',
+  animationIn: 'fadeInUp',
+  animationOut: 'fadeOutDown',
+  duration: 800,
+
+  offsetTop: 0,
+  position: {
+    init: null,
+    hide: null,
+    show: null
+  },
+
+  isReferencedToOtherPage: null,
+  preventEventClass: 'hs-go-to-prevent-event'
+}
+
 export default class HSGoTo {
-	constructor(elem, settings) {
-		this.elem = elem;
-		this.defaults = {
-			pageContainerSelector: 'html, body',
-			targetSelector: null,
-			compensationSelector: null,
+  constructor(el, options, id) {
+    this.collection = []
+    const that = this
+    let elems
 
-			animationInit: 'animated',
-			animationIn: 'fadeInUp',
-			animationOut: 'fadeOutDown',
-			duration: 800,
+    if (el instanceof HTMLElement) {
+      elems = [el]
+    } else if (el instanceof Object) {
+      elems = el
+    } else {
+      elems = document.querySelectorAll(el)
+    }
 
-			offsetTop: 0,
-			position: {
-				init: null,
-				hide: null,
-				show: null
-			},
+    for (let i = 0; i < elems.length; i += 1) {
+      that.addToCollection(elems[i], options, id || elems[i].id)
+    }
 
-			isReferencedToOtherPage: null,
-			preventEventClass: 'hs-go-to-prevent-event'
-		};
-		this.settings = settings;
-	}
+    if (!that.collection.length) {
+      return false
+    }
 
-	init() {
-		const context = this,
-			$el = context.elem,
-			dataSettings = $el.attr('data-hs-go-to-options') ? JSON.parse($el.attr('data-hs-go-to-options')) : {},
-			options = Object.assign({}, context.defaults, dataSettings, context.settings);
+    // initialization calls
+    that._init()
 
-		options.targetOffsetTop = function() {
-			if ($(options.compensationSelector).length) {
-				return $(options.targetSelector) ? $(options.targetSelector).offset().top - $(options.compensationSelector).outerHeight() : 0;
-			} else {
-				return $(options.targetSelector).length ? $(options.targetSelector).offset().top : 0;
-			}
-		};
+    return this
+  }
 
-		context._prepareObject($el, options);
+  _init() {
+    const that = this;
 
-		// Set Position
-		if (options.position) {
-			context._setPosition($el, options.position.init);
-		}
+    for (let i = 0; i < that.collection.length; i += 1) {
+      let _$el
+      let _options
 
-		// Click Events
-		$el.on('click', function (e) {
-			context._clickEvents($el, options, e);
-		});
+      if (that.collection[i].hasOwnProperty('$initializedEl')) {
+        continue
+      }
 
-		// Scroll Events
-		if (options.animationIn && options.animationOut) {
-			$(window).on('scroll', function () {
-				context._scrollEvents($el, options);
-			});
-		}
-	}
+      _$el = that.collection[i].$el
+      _options = that.collection[i].options
 
-	_prepareObject(el, params) {
-		const options = params;
+      const _compensationSelector = document.querySelector(_options.compensationSelector),
+      _targetSelector = document.querySelector(_options.targetSelector),
+      _pageContainerSelector = document.querySelector(_options.pageContainerSelector)
 
-		if (params.animationIn && params.animationOut) {
-			if (navigator.userAgent.match('MSIE 10.0;')) {
-				$('html').addClass('ie10');
-			}
+      _options.targetOffsetTop = () => {
+        if (_compensationSelector) {
+          return _targetSelector ? _targetSelector.offsetTop - _compensationSelector.innerHeight : 0
+        } else {
+          return _targetSelector ? _targetSelector.offsetTop : 0
+        }
+      }
 
-			el.addClass(`${options.animationInit} ${options.animationOut} ${options.preventEventClass}`);
-		}
-	}
+      this.prepareObject(_$el, _options)
 
-	_setPosition(el, params) {
-		const options = params;
+      // Set Position
+      if (_options.position) {
+        this.setPosition(_$el, _options)
+      }
 
-		el.css(options);
-	}
+      // Click Events
+      _$el.addEventListener('click', e => this.clickEvents(_$el, _options, {_pageContainerSelector, _compensationSelector, _targetSelector}))
 
-	_clickEvents(el, params, event) {
-		const options = params;
+      // Scroll Events
+      if (_options.animationIn && _options.animationOut) {
+        document.addEventListener('scroll', e => this.scrollEvents(_$el, _options))
+      }
+    }
+  }
 
-		if (!options.isReferencedToOtherPage) {
-			if (event) {
-				event.preventDefault();
-			}
+  prepareObject($el, settings) {
+    if (settings.animationIn && settings.animationOut) {
+      if (navigator.userAgent.match('MSIE 10.0')) {
+        document.html.classList.add('ie10')
+      }
 
-			$(options.pageContainerSelector).stop().animate({
-				scrollTop: options.targetOffsetTop()
-			}, options.duration);
-		}
-	}
+      $el.classList.add(settings.animationInit, settings.animationOut, settings.preventEventClass)
+    }
+  }
 
-	_scrollEvents(el, params) {
-		const options = params;
+  setPosition($el, settings) {
+    for (let style in settings.position.init) {
+      $el.style.setProperty(style, settings.position.init[style])
+    }
+  }
 
-		el.css('visibility', '');
+  clickEvents($el, settings, {_pageContainerSelector}) {
+    if (!settings.isReferencedToOtherPage) {
+      if (event) {
+        event.preventDefault()
+      }
 
-		if ($(window).scrollTop() >= options.offsetTop) {
-			if (options.position.show) {
-				el.css(options.position.show);
-			}
+      scrollTo({
+        to: settings.targetOffsetTop(),
+        el: _pageContainerSelector
+      }, settings.duration)
+    }
+  }
 
-			el.removeClass(options.animationOut).addClass(options.animationIn);
-		} else {
-			if (options.position.hide) {
-				el.css(options.position.hide);
-			}
+  scrollEvents($el, settings) {
+    $el.style.visibility = ''
 
-			el.removeClass(options.animationIn).addClass(options.animationOut);
-		}
-	}
+    if (window.scrollY >= settings.offsetTop) {
+      if (settings.position.show) {
+        for (let style in settings.position.show) {
+          $el.style.setProperty(style, settings.position.show[style])
+        }
+      }
+
+      $el.classList.remove(settings.animationOut)
+      $el.classList.add(settings.animationIn)
+    } else {
+      if (settings.position.show) {
+        for (let style in settings.position.show) {
+          $el.style.setProperty(style, settings.position.show[style])
+        }
+      }
+
+      $el.classList.remove(settings.animationIn)
+      $el.classList.add(settings.animationOut)
+    }
+  }
+
+  addToCollection (item, options, id) {
+    this.collection.push({
+      $el: item,
+      id: id || null,
+      options: Object.assign(
+        {},
+        defaults,
+        item.hasAttribute(dataAttributeName)
+          ? JSON.parse(item.getAttribute(dataAttributeName))
+          : {},
+        options,
+      ),
+    })
+  }
+
+  getItem (item) {
+    if (typeof item === 'number') {
+      return this.collection[item].$initializedEl;
+    } else {
+      return this.collection.find(el => {
+        return el.id === item;
+      }).$initializedEl;
+    }
+  }
 }

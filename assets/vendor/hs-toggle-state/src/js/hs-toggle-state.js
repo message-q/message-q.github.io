@@ -1,67 +1,127 @@
 /*
 * HSToggleState Plugin
-* @version: 2.0.0 (Mon, 25 Nov 2019)
-* @requires: jQuery v3.0 or later
+* @version: 3.0.1 (Sun, 01 Aug 2021)
 * @author: HtmlStream
 * @event-namespace: .HSToggleState
 * @license: Htmlstream Libraries (https://htmlstream.com/)
-* Copyright 2019 Htmlstream
+* Copyright 2021 Htmlstream
 */
 
+const dataAttributeName = 'data-hs-toggle-state-options'
+const defaults = {
+	targetSelector: null,
+	slaveSelector: null,
+
+	classMap: {
+		toggle: 'toggled'
+	}
+}
+
 export default class HSToggleState {
-	constructor(elem, settings) {
-		this.elem = elem;
-		this.defaults = {
-			targetSelector: null,
-			slaveSelector: null,
-			
-			classMap: {
-				toggle: 'toggled'
-			}
-		};
-		this.settings = settings;
-	}
-	
-	init() {
-		const context = this,
-			$el = context.elem,
-			dataSettings = $el.attr('data-hs-toggle-state-options') ? JSON.parse($el.attr('data-hs-toggle-state-options')) : {},
-			options = $.extend(true, context.defaults, dataSettings, context.settings);
-		
-		context._prepareObject($el, options);
-		
-		$el.on('click', function () {
-			$el.toggleClass(options.classMap.toggle);
-			
-			if (options.slaveSelector) {
-				if ($el.hasClass(options.classMap.toggle)) {
-					$(options.slaveSelector).addClass(options.classMap.toggle);
-				} else {
-					$(options.slaveSelector).removeClass(options.classMap.toggle);
-				}
-			}
-			
-			context._checkState($el, options);
-		});
-		
-		$(options.slaveSelector).on('click', function () {
-			$(`[data-hs-toggle-state-slave="${options.slaveSelector}"]`).removeClass(options.classMap.toggle);
-		});
-	}
-	
-	_prepareObject(el, params) {
-		const options = params;
-		
-		el.attr('data-hs-toggle-state-slave', options.slaveSelector);
-	}
-	
-	_checkState(el, params) {
-		const options = params;
-		
-		if (el.hasClass(options.classMap.toggle)) {
-			$(options.targetSelector).prop('checked', true);
+
+	constructor(el, options, id) {
+		this.collection = []
+		const that = this
+		let elems
+
+		if (el instanceof HTMLElement) {
+			elems = [el]
+		} else if (el instanceof Object) {
+			elems = el
 		} else {
-			$(options.targetSelector).prop('checked', false);
+			elems = document.querySelectorAll(el)
+		}
+
+		for (let i = 0; i < elems.length; i += 1) {
+			that.addToCollection(elems[i], options, id || elems[i].id)
+		}
+
+		if (!that.collection.length) {
+			return false
+		}
+
+		// initialization calls
+		that._init()
+
+		return this
+	}
+
+	_init() {
+		const that = this;
+
+		for (let i = 0; i < that.collection.length; i += 1) {
+			let _$el
+			let _options
+
+			if (that.collection[i].hasOwnProperty('$initializedEl')) {
+				continue
+			}
+
+			_$el = that.collection[i].$el;
+			_options = that.collection[i].options
+
+			that.prepareObject(_$el, _options)
+			const $slaveSelector = document.querySelector(_options.slaveSelector)
+
+			_$el.addEventListener('click', () => {
+				_$el.classList.toggle(_options.classMap.toggle)
+
+				if (_options.slaveSelector) {
+					if (_$el.classList.contains(_options.classMap.toggle)) {
+						$slaveSelector.classList.add(_options.classMap.toggle)
+					} else {
+						$slaveSelector.classList.remove(_options.classMap.toggle)
+					}
+				}
+
+				that.checkState(_$el, _options)
+			});
+
+			if ($slaveSelector) {
+				$slaveSelector.addEventListener('click', () => {
+					document.querySelector(`[data-hs-toggle-state-slave="${_options.slaveSelector}"]`).classList.remove(_options.classMap.toggle)
+				})
+			}
+
+			that.collection[i].$initializedEl = _options
+		}
+	}
+
+	prepareObject($el, settings) {
+		$el.setAttribute('data-hs-toggle-state-slave', settings.slaveSelector)
+	}
+
+	checkState($el, settings) {
+		const $targetSelectors = Array.from(document.querySelectorAll(settings.targetSelector))
+		if ($el.classList.contains(settings.classMap.toggle)) {
+			$targetSelectors.forEach($target => $target.checked = true)
+		} else {
+			$targetSelectors.forEach($target => $target.checked = false)
+		}
+	}
+
+	addToCollection (item, options, id) {
+		this.collection.push({
+			$el: item,
+			id: id || null,
+			options: Object.assign(
+				{},
+				defaults,
+				item.hasAttribute(dataAttributeName)
+					? JSON.parse(item.getAttribute(dataAttributeName))
+					: {},
+				options,
+			),
+		})
+	}
+
+	getItem (item) {
+		if (typeof item === 'number') {
+			return this.collection[item].$initializedEl;
+		} else {
+			return this.collection.find(el => {
+				return el.id === item;
+			}).$initializedEl;
 		}
 	}
 }

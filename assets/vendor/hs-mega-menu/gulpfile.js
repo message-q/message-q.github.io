@@ -60,7 +60,7 @@ gulp.task('js-build', function () {
 
 gulp.task('main-watch', function () {
 	gulp.watch('./src/scss/**/*.scss', gulp.series('sass-build'));
-	gulp.watch('./src/js/hs-mega-menu.js', gulp.series('js-build'));
+	gulp.watch('./src/js/**/*.js', gulp.series('js-build'));
 });
 
 // Default Task

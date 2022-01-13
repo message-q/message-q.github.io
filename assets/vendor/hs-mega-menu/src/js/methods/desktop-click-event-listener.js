@@ -6,13 +6,12 @@ import desktopHide from "./desktop-hide";
 
 export default function desktopClickEventListener(el, menu, params, itemParams) {
 	return function () {
-		let $siblingInvokers = menu.parent(`${params.classMap.hasMegaMenu}, ${params.classMap.hasSubMenu}`).siblings(`${params.classMap.hasMegaMenu}${params.classMap.hasMegaMenuActive}, ${params.classMap.hasSubMenu}${params.classMap.hasSubMenuActive}`);
+		let $siblingInvokers = menu.closest(`${params.classMap.hasMegaMenu}, ${params.classMap.hasSubMenu}`).parentNode.querySelectorAll(`${params.classMap.hasMegaMenu}${params.classMap.hasMegaMenuActive}, ${params.classMap.hasSubMenu}${params.classMap.hasSubMenuActive}`);
 
 		if ($siblingInvokers.length) {
-			$siblingInvokers.each(function () {
-				var $el = $(this),
-					$menu = $el.children(`${params.classMap.megaMenu}, ${params.classMap.subMenu}`),
-					itemDataSettings = $el.attr('data-hs-mega-menu-item-options') ? JSON.parse($el.attr('data-hs-mega-menu-item-options')) : {};
+			$siblingInvokers.forEach($el => {
+				const $menu = $el.querySelector(`${params.classMap.megaMenu}, ${params.classMap.subMenu}`),
+					itemDataSettings = $el.hasAttribute('data-hs-mega-menu-item-options') ? JSON.parse($el.getAttribute('data-hs-mega-menu-item-options')) : {};
 				let itemSettings = {
 					desktop: {
 						animation: 'animated',
@@ -26,14 +25,14 @@ export default function desktopClickEventListener(el, menu, params, itemParams) 
 					return getType($el, params) === 'mega-menu' ? params.classMap.hasMegaMenuActive : params.classMap.hasSubMenuActive;
 				};
 
-				$el.removeClass(itemSettings.activeItemClass().slice(1));
+				$el.classList.remove(itemSettings.activeItemClass().slice(1));
 
 				desktopHide($el, $menu, params, itemSettings);
 			});
 		}
 
-		if (menu.is(':hidden')) {
-			el.addClass(itemParams.activeItemClass().slice(1));
+		if (menu.offsetParent === null) {
+			el.classList.add(itemParams.activeItemClass().slice(1));
 
 			desktopShow(el, menu, params, itemParams);
 

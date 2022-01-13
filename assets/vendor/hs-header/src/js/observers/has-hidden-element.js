@@ -1,4 +1,6 @@
 import HSAbstractObserver from "./abstract";
+import slideUp from "../utils/slideUp";
+import slideDown from "../utils/slideDown";
 
 export default class HSHeaderHasHiddenElement extends HSAbstractObserver {
 	constructor(element) {
@@ -6,12 +8,12 @@ export default class HSHeaderHasHiddenElement extends HSAbstractObserver {
 		this.config = {
 			animated: true
 		};
-		this.dataSettings = this.element.attr('data-hs-header-options') ? JSON.parse(this.element.attr('data-hs-header-options')) : {};
+		this.dataSettings = this.element.hasAttribute('data-hs-header-options') ? JSON.parse(this.element.getAttribute('data-hs-header-options')) : {};
 	}
 	
 	init() {
 		this.offset = isFinite(this.dataSettings.fixMoment) ? this.dataSettings.fixMoment : 5;
-		this.elements = this.element.find('.header-hidden-element');
+		this.elements = this.element.querySelectorAll('.navbar-hidden-element');
 		this.defaultState = true;
 		
 		return this;
@@ -26,8 +28,7 @@ export default class HSHeaderHasHiddenElement extends HSAbstractObserver {
 	check() {
 		if (!this.elements.length) return this;
 		
-		let $w = $(window),
-			docScrolled = $w.scrollTop();
+		const docScrolled = window.pageYOffset;
 		
 		if (docScrolled > this.offset && this.defaultState) {
 			this.changeState();
@@ -40,9 +41,13 @@ export default class HSHeaderHasHiddenElement extends HSAbstractObserver {
 	
 	changeState() {
 		if (this.config.animated) {
-			this.elements.stop().slideUp();
+			this.elements.forEach(item => {
+				slideUp(item)
+			})
 		} else {
-			this.elements.hide();
+			this.elements.forEach(item => {
+				item.style.display = 'none'
+			})
 		}
 		
 		this.defaultState = !this.defaultState;
@@ -52,9 +57,13 @@ export default class HSHeaderHasHiddenElement extends HSAbstractObserver {
 	
 	toDefaultState() {
 		if (this.config.animated) {
-			this.elements.stop().slideDown();
+			this.elements.forEach(item => {
+				slideDown(item)
+			})
 		} else {
-			this.elements.show();
+			this.elements.forEach(item => {
+				item.style.display = 'block'
+			})
 		}
 		
 		this.defaultState = !this.defaultState;

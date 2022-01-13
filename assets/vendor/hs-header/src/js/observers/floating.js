@@ -1,77 +1,72 @@
 import HSAbstractObserver from "./abstract";
 
 export default class HSHeaderFloatingObserver extends HSAbstractObserver {
-	constructor(element) {
-		super(element);
-		this.dataSettings = this.element.attr('data-hs-header-options') ? JSON.parse(this.element.attr('data-hs-header-options')) : {};
-	}
+  constructor(element) {
+    super(element);
+    this.dataSettings = this.element.hasAttribute('data-hs-header-options') ? JSON.parse(this.element.getAttribute('data-hs-header-options')) : {};
+  }
 
-	init() {
-		this.offset = this.element.offset().top;
-		this.sections = this.element.find('.header-section');
-		this.defaultState = true;
+  init() {
+    this.offset = this.element.offsetTop;
+    this.sections = this.element.querySelectorAll('.navbar-section');
+    this.defaultState = true;
 
-		return this;
-	}
+    return this;
+  }
 
-	destroy() {
-		this.toDefaultState();
+  destroy() {
+    this.toDefaultState();
 
-		return this;
-	}
-	
-	check() {
-		var $w = $(window),
-			docScrolled = $w.scrollTop();
-		
-		if (docScrolled > this.offset && this.defaultState) {
-			this.changeState();
-		} else if (docScrolled <= this.offset && !this.defaultState) {
-			this.toDefaultState();
-		}
-		
-		return this;
-	}
+    return this;
+  }
 
-	changeState() {
-		this.element
-			.addClass('js-header-fix-moment')
-			.addClass(this.dataSettings.fixMomentClasses)
-			.removeClass(this.dataSettings.fixMomentExclude);
+  check() {
+    const docScrolled = window.pageYOffset;
 
-		if (this.sections.length) {
-			this.sections.each(function (i, el) {
-				let $section = $(el),
-					dataSettings = $section.attr('data-hs-header-item-options') ? JSON.parse($section.attr('data-hs-header-item-options')) : {};
+    if (docScrolled > this.offset && this.defaultState) {
+      this.changeState();
+    } else if (docScrolled <= this.offset && !this.defaultState) {
+      this.toDefaultState();
+    }
 
-				$section.addClass(dataSettings.fixMomentClasses)
-					.removeClass(dataSettings.fixMomentExclude);
-			});
-		}
+    return this;
+  }
 
-		this.defaultState = !this.defaultState;
+  changeState() {
+    this.element.classList.add('navbar-scrolled')
+    this.element.classList.add(this.dataSettings.fixMomentClasses)
+    this.element.classList.remove(this.dataSettings.fixMomentExclude);
 
-		return this;
-	}
+    if (this.sections.length) {
+      this.sections.forEach($section => {
+        const dataSettings = $section.hasAttribute('data-hs-navbar-item-options') ? JSON.parse($section.getAttribute('data-hs-navbar-item-options')) : {};
 
-	toDefaultState() {
-		this.element
-			.removeClass('js-header-fix-moment')
-			.removeClass(this.dataSettings.fixMomentClasses)
-			.addClass(this.dataSettings.fixMomentExclude);
+        $section.classList.add(dataSettings.fixMomentClasses)
+        $section.classList.remove(dataSettings.fixMomentExclude)
+      });
+    }
 
-		if (this.sections.length) {
-			this.sections.each(function (i, el) {
-				let $section = $(el),
-					dataSettings = $section.attr('data-hs-header-item-options') ? JSON.parse($section.attr('data-hs-header-item-options')) : {};
+    this.defaultState = !this.defaultState;
 
-				$section.addClass(dataSettings.fixMomentClasses)
-					.removeClass(dataSettings.fixMomentExclude);
-			});
-		}
+    return this;
+  }
 
-		this.defaultState = !this.defaultState;
+  toDefaultState() {
+    this.element.classList.remove('navbar-scrolled')
+    this.element.classList.remove(this.dataSettings.fixMomentClasses)
+    this.element.classList.add(this.dataSettings.fixMomentExclude);
 
-		return this;
-	}
+    if (this.sections.length) {
+      this.sections.forEach($section => {
+        const dataSettings = $section.hasAttribute('data-hs-navbar-item-options') ? JSON.parse($section.getAttribute('data-hs-navbar-item-options')) : {};
+
+        $section.classList.add(dataSettings.fixMomentClasses)
+        $section.classList.remove(dataSettings.fixMomentExclude)
+      });
+    }
+
+    this.defaultState = !this.defaultState;
+
+    return this;
+  }
 }

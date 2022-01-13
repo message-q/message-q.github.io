@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<!-- Title -->
+		<!-- Heading -->
 		<title>Video Player</title>
 		
 		<!-- Required Meta Tags Always Come First -->
@@ -174,11 +174,7 @@
 		<script src="./dist/hs-video-player.min.js"></script>
 		
 		<script>
-			$(document).on('ready', function () {
-				$('.js-inline-video-player').each(function () {
-					var videoPlayer = new HSVideoPlayer($(this)).init();
-				});
-			});
+			new HSVideoPlayer('.js-inline-video-player')
 		</script>
 	</body>
 </html>

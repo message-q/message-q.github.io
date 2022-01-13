@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<!-- Title -->
-		<title>Step Form</title>
+		<title>Scrollspy</title>
 
 		<!-- Required Meta Tags Always Come First -->
 		<meta charset="utf-8">
@@ -18,204 +18,80 @@
 
 		<!-- CSS Front Template -->
 		<link rel="stylesheet" href="../../../assets/css/theme.css">
+
+		<style>
+			.js-scrollspy {
+				position: sticky;
+				top: 1.5rem;
+				padding-left: 1.5rem;
+			}
+
+			.js-scrollspy li.active a {
+				color: #ff0000;
+			}
+		</style>
 	</head>
 	<body>
 		<div style="height: 20vh;"></div>
 
 		<div class="container">
-			<form class="js-step-form mb-5"
-			      data-hs-step-form-options='{
-			        "progressSelector": "#progressStepForm",
-			        "stepsSelector": "#contentStepForm"
-			      }'
-			      novalidate="novalidate">
-				<div class="card">
-					<div class="card-header p-5">
-						<nav id="progressStepForm" class="js-step-progress nav nav-icon nav-justified text-center">
-							<a href="javascript:;" class="nav-item">
-                <span class="nav-icon-action">
-                  <i class="las la-user-circle nav-icon-action-inner"></i>
-                </span>
-								Select One
-							</a>
-							<a href="javascript:;" class="nav-item">
-	              <span class="nav-icon-action">
-	                <i class="las la-file-invoice-dollar nav-icon-action-inner"></i>
-	              </span>
-								Select Two
-							</a>
-							<a href="javascript:;" class="nav-item">
-                <span class="nav-icon-action">
-                  <i class="las la-paperclip nav-icon-action-inner"></i>
-                </span>
-								Select Three
-							</a>
-						</nav>
-					</div>
-
-					<!-- Content Step Form -->
-					<div id="contentStepForm" class="card-body p-5">
-						<div id="selectStepOne" class="active">
-							Select One content goes here
-
-							<div class="d-flex justify-content-end">
-								<button type="button" class="btn btn-sm btn-primary transition-3d-hover mr-1"
-								        data-hs-step-form-next-options='{
-								          "targetSelector": "#selectStepTwo"
-								        }'>Next</button>
-							</div>
-						</div>
-
-						<div id="selectStepTwo" style="display: none;">
-							Select Two content goes here
-
-							<div class="d-flex justify-content-end">
-								<a class="btn btn-sm btn-soft-secondary transition-3d-hover mr-1" href="javascript:;"
-								   data-hs-step-form-prev-options='{
-								     "targetSelector": "#selectStepOne"
-								   }'>Back</a>
-								<button type="button" class="btn btn-sm btn-primary transition-3d-hover"
-								        data-hs-step-form-next-options='{
-								          "targetSelector": "#selectStepThree"
-								        }'>Next</button>
-							</div>
-						</div>
-
-						<div id="selectStepThree" style="display: none;">
-							Select Three content goes here
-
-							<div class="d-flex justify-content-end">
-								<a class="btn btn-sm btn-soft-secondary transition-3d-hover mr-1" href="javascript:;"
-								   data-hs-step-form-prev-options='{
-								     "targetSelector": "#selectStepTwo"
-								   }'>Back</a>
-								<button type="button" class="btn btn-sm btn-primary transition-3d-hover">Done</button>
-							</div>
-						</div>
-					</div>
-					<!-- End Content Step Form -->
+			<div class="row">
+				<div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
+					<ul class="js-scrollspy list-unstyled">
+						<li>
+							<a href="#scrollspy1">Scroll Nav 1</a>
+						</li>
+						<li>
+							<ul class="pl-4">
+								<li>
+									<a href="#scrollspy2">Scroll Nav 2</a>
+								</li>
+								<li>
+									<a href="#scrollspy3">Scroll Nav 3</a>
+								</li>
+								<li>
+									<a href="#scrollspy4">Scroll Nav 4</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#scrollspy5">Scroll Nav 5</a>
+						</li>
+						<li>
+							<a href="#scrollspy6">Scroll Nav 6</a>
+						</li>
+					</ul>
 				</div>
-			</form>
 
-			<form class="js-step-form js-validate"
-			      data-hs-step-form-options='{
-			        "progressSelector": "#progressStepFormWithValidation",
-			        "stepsSelector": "#contentStepFormWithValidation",
-			        "isValidate": true
-			      }'
-			      novalidate="novalidate">
-				<div class="card">
-					<div class="card-header p-5">
-						<nav id="progressStepFormWithValidation" class="js-step-progress nav nav-icon nav-justified text-center">
-							<a href="javascript:;" class="nav-item">
-                <span class="nav-icon-action">
-                  <i class="las la-user-circle nav-icon-action-inner"></i>
-                </span>
-								Select One
-							</a>
-							<a href="javascript:;" class="nav-item">
-	              <span class="nav-icon-action">
-	                <i class="las la-file-invoice-dollar nav-icon-action-inner"></i>
-	              </span>
-								Select Two
-							</a>
-							<a href="javascript:;" class="nav-item">
-                <span class="nav-icon-action">
-                  <i class="las la-paperclip nav-icon-action-inner"></i>
-                </span>
-								Select Three
-							</a>
-						</nav>
-					</div>
+				<div class="col-xl-10 order-xl-1">
+					<div id="scrollspy1" class="scrollspy-section" style="height: 50vh; background-color: #000;"></div>
 
-					<!-- Content Step Form -->
-					<div id="contentStepFormWithValidation" class="card-body p-5">
-						<div id="selectStepOneWithValidation" class="active">
-							<div class="js-form-message mb-5">
-								<div class="input-group input-group-sm">
-									<input type="text" class="form-control" name="stepOneField1" placeholder="Placeholder 1" aria-label="Placeholder 1" required
-									       data-msg="Please enter a valid value."
-									       data-error-class="has-error"
-									       data-success-class="has-success">
-								</div>
-							</div>
+					<div id="scrollspy2" class="scrollspy-section" style="height: 50vh;"></div>
 
-							<div class="d-flex justify-content-end">
-								<button type="button" class="btn btn-sm btn-primary transition-3d-hover mr-1"
-								        data-hs-step-form-next-options='{
-								          "targetSelector": "#selectStepTwoWithValidation"
-								        }'>Next</button>
-							</div>
-						</div>
+					<div id="scrollspy3" class="scrollspy-section" style="height: 50vh; background-color: #000;"></div>
 
-						<div id="selectStepTwoWithValidation" style="display: none;">
-							<div class="js-form-message mb-5">
-								<div class="input-group input-group-sm">
-									<input type="text" class="form-control" name="stepTwoField1" placeholder="Placeholder 2" aria-label="Placeholder 2" required
-									       data-msg="Please enter a valid value."
-									       data-error-class="has-error"
-									       data-success-class="has-success">
-								</div>
-							</div>
+					<div id="scrollspy4" class="scrollspy-section" style="height: 50vh;"></div>
 
-							<div class="d-flex justify-content-end">
-								<a class="btn btn-sm btn-soft-secondary transition-3d-hover mr-1" href="javascript:;"
-								   data-hs-step-form-prev-options='{
-								     "targetSelector": "#selectStepOneWithValidation"
-								   }'>Back</a>
-								<button type="button" class="btn btn-sm btn-primary transition-3d-hover"
-								        data-hs-step-form-next-options='{
-								          "targetSelector": "#selectStepThreeWithValidation"
-								        }'>Next</button>
-							</div>
-						</div>
+					<div id="scrollspy5" class="scrollspy-section" style="height: 50vh; background-color: #000;"></div>
 
-						<div id="selectStepThreeWithValidation" style="display: none;">
-							<div class="js-form-message mb-5">
-								<div class="input-group input-group-sm">
-									<input type="text" class="form-control" name="stepThreeField1" placeholder="Placeholder 3" aria-label="Placeholder 3" required
-									       data-msg="Please enter a valid value."
-									       data-error-class="has-error"
-									       data-success-class="has-success">
-								</div>
-							</div>
-
-							<div class="d-flex justify-content-end">
-								<a class="btn btn-sm btn-soft-secondary transition-3d-hover mr-1" href="javascript:;"
-								   data-hs-step-form-prev-options='{
-								     "targetSelector": "#selectStepTwoWithValidation"
-								   }'>Back</a>
-								<button type="submit" class="btn btn-sm btn-primary transition-3d-hover">Done</button>
-							</div>
-						</div>
-					</div>
-					<!-- End Content Step Form -->
+					<div id="scrollspy6" class="scrollspy-section" style="height: 50vh;"></div>
 				</div>
-			</form>
+			</div>
 		</div>
 
 		<div style="height: 20vh;"></div>
 
 		<script src="../../../assets/vendor/jquery/dist/jquery.min.js"></script>
 		<script src="../../../assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
-		<script src="../../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="../../../assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+		<script src="../../../assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
-		<script src="../../../assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
-		<script src="./dist/hs-step-form.min.js"></script>
-
-		<script src="../../assets/js/wrappers/hs.core.js"></script>
-		<script src="../../assets/js/wrappers/hs.validation.js"></script>
+		<script src="./dist/hs-scrollspy.min.js"></script>
 
 		<script>
 			$(document).on('ready', function () {
-				// initialization of form validation
-				$('.js-validate').each(function () {
-					var validation = $.HSCore.components.HSValidation.init($(this));
-				});
-
-				// initialization of step form
-				$('.js-step-form').each(function () {
-					var stepForm = new HSStepForm($(this)).init();
+				$('.js-scrollspy').each(function () {
+					var scrollspy = new HSScrollspy($(this)).init();
 				});
 			});
 		</script>

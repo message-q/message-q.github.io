@@ -1,13 +1,13 @@
 {
-  "name": "hs-mega-menu",
+  "name": "hs-unfold",
   "version": "1.0.0",
-  "description": "Mega Menu Plugin",
+  "description": "Unfold Plugin",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "HS",
-  "dependencies": {
+  "devDependencies": {
     "@babel/core": "^7.8.6",
     "@babel/preset-env": "^7.8.6",
     "babel-loader": "^8.0.6",
@@ -17,11 +17,10 @@
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
-    "jquery": "^3.4.1",
     "webpack": "^4.41.6",
     "webpack-stream": "^5.2.1"
   },
-  "devDependencies": {
-    "babel-preset-es2015-ie": "^6.7.0"
+  "dependencies": {
+    "velocity-animate": "^1.5.2"
   }
 }

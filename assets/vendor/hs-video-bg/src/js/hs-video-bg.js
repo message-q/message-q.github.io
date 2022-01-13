@@ -1,45 +1,38 @@
 /*
 * HSVideoBg Plugin
-* @version: 2.0.0 (Mon, 25 Nov 2019)
-* @requires: jQuery v3.0 or later
+* @version: 3.0.0 (Wed, 17 Mar 2021)
 * @author: HtmlStream
 * @event-namespace: .HSVideoBg
 * @license: Htmlstream Libraries (https://htmlstream.com/)
-* Copyright 2019 Htmlstream
+* Copyright 2021 Htmlstream
 */
 
+import {fadeOut} from "./utils";
+
 export default class HSVideoBg {
-	constructor(elem, settings) {
-		this.elem = elem;
+	constructor(el, settings) {
+		this.$el = typeof el === "string" ? document.querySelector(el) : el
 		this.defaults = {
 			type: 'default',
 			videoId: null,
 			isLoop: true,
 			ratio: 1.5
 		};
-		this.settings = settings;
+		this.dataSettings = this.$el.hasAttribute('data-hs-video-bg-options') ? JSON.parse(this.$el.getAttribute('data-hs-video-bg-options')) : {};
+		this.settings = Object.assign({}, this.defaults, this.dataSettings, settings)
 	}
 	
 	init() {
-		const context = this,
-			$el = context.elem,
-			dataSettings = $el.attr('data-hs-video-bg-options') ? JSON.parse($el.attr('data-hs-video-bg-options')) : {};
-		let options = $.extend(true, context.defaults, dataSettings, context.settings);
-		
-		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-			return;
-		}
-		
-		context._prepareObject($el, options);
-		
-		if (options.type === 'you-tube') {
-			context._APICreating('//www.youtube.com/player_api', 'YT', 'YTDetect').then(() => {
+		this._prepareObject();
+
+		if (this.settings.type === 'you-tube') {
+			this._APICreating('//www.youtube.com/player_api', 'YT', 'YTDetect').then(() => {
 				let newYT;
 				
 				if (typeof window.onYouTubeIframeAPIReady === 'function') {
-					setTimeout(function () {
-						newYT = new YT.Player($el.find('.hs-video-bg-video > div')[0], {
-							videoId: options.videoId,
+					setTimeout(() => {
+						newYT = new YT.Player(this.$el.querySelector('.hs-video-bg-video > div'), {
+							videoId: this.settings.videoId,
 							playerVars: {
 								autoplay: true,
 								controls: 0,
@@ -47,27 +40,29 @@ export default class HSVideoBg {
 								enablejsapi: 1,
 								modestbranding: 1,
 								iv_load_policy: 3,
-								loop: options.isLoop,
-								playlist: options.videoId,
+								loop: this.settings.isLoop,
+								playlist: this.settings.videoId,
 								origin: window.location.origin
 							},
 							events: {
-								onReady: function (e) {
+								onReady: e => {
 									e.target.mute();
-									
-									$(window).on('resize', function () {
-										context._ratioCalc($el, options);
-									}).trigger('resize');
-									
-									$el.find('.hs-video-bg-preview').fadeOut(400);
+
+									this._ratioCalc()
+
+									window.addEventListener('resize', () => {
+										this._ratioCalc();
+									})
+
+									fadeOut(this.$el.querySelector('.hs-video-bg-preview'), 400)
 								}
 							}
 						});
 					}, 100);
 				} else {
-					window.onYouTubeIframeAPIReady = function () {
-						newYT = new YT.Player($el.find('.hs-video-bg-video > div')[0], {
-							videoId: options.videoId,
+					window.onYouTubeIframeAPIReady = () => {
+						newYT = new YT.Player(this.$el.querySelector('.hs-video-bg-video > div'), {
+							videoId: this.settings.videoId,
 							playerVars: {
 								autoplay: true,
 								controls: 0,
@@ -75,30 +70,32 @@ export default class HSVideoBg {
 								enablejsapi: 1,
 								modestbranding: 1,
 								iv_load_policy: 3,
-								loop: options.isLoop,
-								playlist: options.videoId,
+								loop: this.settings.isLoop,
+								playlist: this.settings.videoId,
 								origin: window.location.origin
 							},
 							events: {
-								onReady: function (e) {
+								onReady: e => {
 									e.target.mute();
-									
-									$(window).on('resize', function () {
-										context._ratioCalc($el, options);
-									}).trigger('resize');
-									
-									$el.find('.hs-video-bg-preview').fadeOut(400);
+
+									this._ratioCalc();
+
+									window.addEventListener('resize', () => {
+										this._ratioCalc();
+									})
+
+									fadeOut(this.$el.querySelector('.hs-video-bg-preview'), 400)
 								}
 							}
 						});
 					};
 				}
 			});
-		} else if (options.type === 'vimeo') {
-			context._APICreating('//player.vimeo.com/api/player.js', 'Vimeo', 'VimeoDetect').then(() => {
-				let newVimeo = new Vimeo.Player($el.find('.hs-video-bg-video')[0], {
-					id: options.videoId,
-					loop: options.isLoop,
+		} else if (this.settings.type === 'vimeo') {
+			this._APICreating('//player.vimeo.com/api/player.js', 'Vimeo', 'VimeoDetect').then(() => {
+				let newVimeo = new Vimeo.Player(this.$el.querySelector('.hs-video-bg-video'), {
+					id: this.settings.videoId,
+					loop: this.settings.isLoop,
 					title: false,
 					portrait: false,
 					byline: false,
@@ -107,100 +104,95 @@ export default class HSVideoBg {
 					muted: true
 				});
 				
-				newVimeo.play().then(function () {
-					$(window).on('resize', function () {
-						context._ratioCalc($el, options);
-					}).trigger('resize');
-					
-					$el.find('.hs-video-bg-preview').fadeOut(400);
+				newVimeo.play().then(() => {
+					this._ratioCalc()
+
+					window.addEventListener('resize', () => {
+						this._ratioCalc()
+					})
+
+					fadeOut(this.$el.querySelector('.hs-video-bg-preview'), 400)
 				});
 			});
 		} else {
-			$(window).on('resize', function () {
-				context._ratioCalc($el, options);
+			window.addEventListener('resize', () => {
+				this._ratioCalc()
 			});
 			
-			setTimeout(function() {
-				$(window).trigger('resize');
+			setTimeout(() => {
+				this._ratioCalc()
 			});
 		}
 	}
 	
-	_prepareObject(el, params) {
-		const context = this;
-		let options = params;
+	_prepareObject() {
+		this.$el.style.position = 'relative'
 		
-		el.css({
-			position: 'relative'
-		});
-		
-		if (options.type === 'you-tube') {
-			el.append('<div class="hs-video-bg-video"><div></div></div>');
-		} else if (options.type === 'vimeo') {
-			el.append('<div class="hs-video-bg-video"></div>');
+		if (this.settings.type === 'you-tube') {
+			this.$el.insertAdjacentHTML('beforeend', '<div class="hs-video-bg-video"><div></div></div>');
+		} else if (this.settings.type === 'vimeo') {
+			this.$el.insertAdjacentHTML('beforeend', '<div class="hs-video-bg-video"></div>');
 		} else {
-			el.append(`
+			this.$el.insertAdjacentHTML('beforeend', `
 				<div class="hs-video-bg-video">
-					<video poster="" autoplay muted ${options.isLoop ? 'loop' : ''}>
-						<source src="${options.videoId}.mp4" type="video/mp4">
-						<source src="${options.videoId}.webm" type="video/webm">
-						<source src="${options.videoId}.ogv" type="video/ogg">
+					<video poster="" autoplay muted ${this.settings.isLoop ? 'loop' : ''}>
+						<source src="${this.settings.videoId}.mp4" type="video/mp4">
+						<source src="${this.settings.videoId}.webm" type="video/webm">
+						<source src="${this.settings.videoId}.ogv" type="video/ogg">
 						Your browser doesn't support HTML5 video.
 					</video>
         </div>
 			`);
 		}
 		
-		if (options.type === 'you-tube') {
-			el.append(`<div class="hs-video-bg-preview" style="background-image: url(//img.youtube.com/vi/${options.videoId}/maxresdefault.jpg);"></div>`);
-		} else if (options.type === 'vimeo') {
-			$.getJSON(`//www.vimeo.com/api/v2/video/${options.videoId}.json?callback=?`, function (data) {
-				el.append(`<div class="hs-video-bg-preview" style="background-image: url(${data[0].thumbnail_large});"></div>`);
-			});
+		if (this.settings.type === 'you-tube') {
+			this.$el.insertAdjacentHTML('beforeend',`<div class="hs-video-bg-preview" style="background-image: url(//img.youtube.com/vi/${this.settings.videoId}/maxresdefault.jpg);"></div>`);
+		} else if (this.settings.type === 'vimeo') {
+			fetch(`//www.vimeo.com/api/v2/video/${this.settings.videoId}.json?callback=?`)
+				.then(data => {
+				this.$el.insertAdjacentHTML('beforeend',`<div class="hs-video-bg-preview" style="background-image: url(${data[0].thumbnail_large});"></div>`);
+			})
 		} else {
 			return false;
 		}
 	}
 	
-	_ratioCalc(el, params) {
-		let options = params,
-			_ratio = el.outerWidth() / el.outerHeight();
+	_ratioCalc() {
+		let _ratio = this.$el.clientWidth / this.$el.clientHeight
+			const $videoBg = this.$el.querySelector('.hs-video-bg-video')
+
+		if (!$videoBg) return false
 		
-		if(options.type === 'you-tube' || options.type === 'vimeo') {
-			if (el.outerHeight() < el.outerWidth() && window.innerWidth > 768) {
-				el.find('.hs-video-bg-video').css({
-					width: _ratio * el.outerWidth() * options.ratio,
-					height: _ratio * el.outerHeight() * options.ratio
-					// height: window.innerWidth > 1600 ? (options.ratio * el.outerHeight() * 0.4) : (options.ratio * el.outerHeight())
-				});
+		if(this.settings.type === 'you-tube' || this.settings.type === 'vimeo') {
+			if (this.$el.clientHeight < this.$el.clientWidth && window.innerWidth > 768) {
+				$videoBg.style.width = _ratio * this.$el.clientWidth * this.settings.ratio
+				$videoBg.style.height = _ratio * this.$el.clientHeight * this.settings.ratio
 			} else {
-				el.find('.hs-video-bg-video').css({
-					width: _ratio * el.outerWidth(),
-					height: '130%'
-				});
+				$videoBg.style.width = _ratio * this.$el.clientWidth
+				$videoBg.style.height = '130%'
 			}
 		}
 	}
 	
 	_APICreating(scriptUrl, globalName, globalNameDetect) {
 		if (window[globalNameDetect]) {
-			return Promise.resolve();
+			return Promise.resolve()
 		}
 		
 		return new Promise((resolve, reject) => {
 			let script = document.createElement('script'),
-				before = document.getElementsByTagName('script')[0];
+				before = document.querySelector('script')
 			
 			script.src = scriptUrl;
-			before.parentNode.insertBefore(script, before);
+			before.parentNode.insertBefore(script, before)
 			
 			script.onload = (() => {
-				!globalName || window[globalName] ? resolve() : reject(Error('window.' + globalName + ' undefined'));
-			});
+				!globalName || window[globalName] ? resolve() : reject(Error('window.' + globalName + ' undefined'))
+			})
 			
 			script.onerror = () => {
-				reject(Error('Error loading ' + globalName || scriptUrl));
-			};
+				reject(Error('Error loading ' + globalName || scriptUrl))
+			}
 		});
 	}
 }

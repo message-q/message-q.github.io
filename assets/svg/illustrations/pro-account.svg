@@ -1,21 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 155 152.9" style="enable-background:new 0 0 155 152.9;" xml:space="preserve">
-<style type="text/css">
-	.pro-account-0{fill:#00DFFC;}
-	.pro-account-1{fill:#2D1582;}
-	.pro-account-2{fill:none;stroke:#FFFFFF;}
-</style>
-<path class="pro-account-0 fill-info" d="M144.5,132.9H24.9c-5.7,0-10.3-4.7-10.3-10.3V47.3c0-5.7,4.7-10.3,10.3-10.3h119.6c5.7,0,10.3,4.7,10.3,10.3
-	v75.2C154.8,128.4,150.3,132.9,144.5,132.9z"/>
-<g>
-	<path class="pro-account-1 fill-indigo" d="M130.1,115.9H10.5c-5.7,0-10.3-4.7-10.3-10.3V30.4C0.2,24.7,4.8,20,10.5,20h119.6c5.7,0,10.3,4.7,10.3,10.3
-		v75.2C140.5,111.4,136,115.9,130.1,115.9z"/>
-	<line class="pro-account-2 fill-none stroke-white" opacity=".7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="27.2" y1="87.2" x2="14" y2="87.2"/>
-	<line class="pro-account-2 fill-none stroke-white" opacity=".7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="40.9" y1="96.4" x2="14" y2="96.4"/>
-	<rect x="101.2" y="84.9" class="pro-account-2 fill-none stroke-white" opacity=".7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="25.5" height="11.5"/>
-	<line class="pro-account-2 fill-none stroke-white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="126.6" y1="41" x2="14" y2="41"/>
-	<line class="pro-account-2 fill-none stroke-white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="126.6" y1="61.4" x2="14" y2="61.4"/>
-</g>
+<svg width="400" height="395" viewBox="0 0 400 395" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M372.903 342.968H64.2581C49.5484 342.968 37.6774 330.839 37.6774 316.387V122.065C37.6774 107.355 49.8065 95.4839 64.2581 95.4839H372.903C387.613 95.4839 399.484 107.613 399.484 122.065V316.129C399.484 331.355 387.871 342.968 372.903 342.968Z" fill="#00DFFC"/>
+<path d="M335.742 299.097H27.0968C12.3871 299.097 0.516144 286.968 0.516144 272.516V78.4515C0.516144 63.7418 12.3871 51.6128 27.0968 51.6128H335.742C350.452 51.6128 362.323 63.7418 362.323 78.1934V272.258C362.581 287.484 350.968 299.097 335.742 299.097Z" fill="#2D1582"/>
+<path opacity="0.7" d="M70.1935 225.032H36.129" stroke="white" stroke-width="4" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path opacity="0.7" d="M105.548 248.774H36.129" stroke="white" stroke-width="4" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path opacity="0.7" d="M326.968 219.096H261.161V248.774H326.968V219.096Z" stroke="white" stroke-width="4" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M326.71 105.806H36.129" stroke="white" stroke-width="4" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M326.71 158.451H36.129" stroke="white" stroke-width="4" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

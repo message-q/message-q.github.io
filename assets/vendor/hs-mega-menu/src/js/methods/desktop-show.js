@@ -1,3 +1,5 @@
 export default function desktopShow(el, menu, params, itemParams) {
-	menu.removeClass(itemParams.desktop.animationOut).show().addClass(itemParams.desktop.animationIn);
+  menu.classList.remove(itemParams.desktop.animationOut)
+  menu.style.display = 'block'
+  menu.classList.add(itemParams.desktop.animationIn)
 }

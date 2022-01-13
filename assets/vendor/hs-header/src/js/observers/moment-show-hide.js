@@ -3,7 +3,7 @@ import HSAbstractObserver from "./abstract";
 export default class HSHeaderMomentShowHideObserver extends HSAbstractObserver {
 	constructor(element) {
 		super(element);
-		this.dataSettings = this.element.attr('data-hs-header-options') ? JSON.parse(this.element.attr('data-hs-header-options')) : {};
+		this.dataSettings = this.element.hasAttribute('data-hs-header-options') ? JSON.parse(this.element.getAttribute('data-hs-header-options')) : {};
 	}
 	
 	init() {
@@ -24,13 +24,13 @@ export default class HSHeaderMomentShowHideObserver extends HSAbstractObserver {
 	}
 	
 	checkDirection() {
-		if ($(window).scrollTop() > this.delta) {
+		if (window.pageYOffset > this.delta) {
 			this.direction = 'down';
 		} else {
 			this.direction = 'up';
 		}
 		
-		this.delta = $(window).scrollTop();
+		this.delta = window.pageYOffset
 		
 		return this;
 	}
@@ -38,15 +38,15 @@ export default class HSHeaderMomentShowHideObserver extends HSAbstractObserver {
 	toDefaultState() {
 		switch (this.effect) {
 			case 'slide' :
-				this.element.removeClass('header-moved-up');
+				this.element.classList.remove('navbar-moved-up');
 				break;
 			
 			case 'fade' :
-				this.element.removeClass('header-faded');
+				this.element.classList.remove('navbar-faded');
 				break;
 			
 			default:
-				this.element.removeClass('header-invisible');
+				this.element.classList.remove('navbar-invisible');
 		}
 		
 		this.defaultState = !this.defaultState;
@@ -57,15 +57,15 @@ export default class HSHeaderMomentShowHideObserver extends HSAbstractObserver {
 	changeState() {
 		switch (this.effect) {
 			case 'slide' :
-				this.element.addClass('header-moved-up');
+				this.element.classList.add('navbar-moved-up');
 				break;
 			
 			case 'fade' :
-				this.element.addClass('header-faded');
+				this.element.classList.add('navbar-faded');
 				break;
 			
 			default:
-				this.element.addClass('header-invisible');
+				this.element.classList.add('navbar-invisible');
 		}
 		
 		this.defaultState = !this.defaultState;
@@ -74,7 +74,7 @@ export default class HSHeaderMomentShowHideObserver extends HSAbstractObserver {
 	}
 	
 	check() {
-		let docScrolled = $(window).scrollTop();
+		let docScrolled = window.pageYOffset
 		
 		this.checkDirection();
 		
