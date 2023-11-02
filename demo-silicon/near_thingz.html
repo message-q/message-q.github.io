@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Silicon | Contacts v.2</title>
+    <title>Mongrov | Home</title>
 
     <!-- SEO Meta Tags -->
     <meta name="description" content="Silicon - Multipurpose Technology Bootstrap Template">
@@ -13,21 +13,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicon and Touch Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicon/site.webmanifest">
-    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#1685FF">
-    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/mong/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/mong/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/mong/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/mong/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/img/mong/favicon/safari-pinned-tab.svg" color="#1685FF">
+    <link rel="shortcut icon" href="assets/img/mong/favicon/favicon.ico">
     <meta name="msapplication-TileColor" content="#080032">
-    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="msapplication-config" content="assets/img/mong/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
     <!-- Vendor Styles -->
     <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css"/>
 
     <!-- Main Theme Styles + Bootstrap -->
     <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <link rel="stylesheet" media="screen" href="assets/css/custom-style.css">
 
     <!-- Page loading styles -->
     <style>
@@ -94,6 +98,9 @@
         border-color: rgba(255,255,255,.4);
         border-right-color: transparent;
       }
+      .img-rounded {
+    border-radius: 10px;
+     }
       @-webkit-keyframes spinner {
         100% {
           -webkit-transform: rotate(360deg);
@@ -228,113 +235,74 @@
         </div>
       </header>
 
-      <!-- Links + Contact form -->
-      <section class="position-relative bg-secondary pt-5">
-        <div class="container position-relative zindex-2 pt-5">
 
-          <!-- Breadcrumb -->
-          <nav class="pt-lg-4 pb-3 mb-2 mb-sm-3" aria-label="breadcrumb">
-            <ol class="breadcrumb mb-0">
-              <li class="breadcrumb-item">
-                <a href="index.html"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">Do Not Sell My Personal Information</li>
-            </ol>
-          </nav>
+      <!-- Hero -->
+      <section class="inner-hero border-bottom">
+        <img src="assets/img/mong/inner-hero.svg">
+        <div class="row justify-content-center">
+          <div class="col-md-6 order-md-1 order-2 d-flex flex-column justify-content-between mt-4 pt-2 text-md-start text-center">
+            <div class="mb-md-5 pb-xl-5 mb-4 text-center">
 
-          <div class="row">
-
-            <!-- Contact links -->
-            <div class="col-xl-8 col-lg-5 mb-2 mb-sm-0">
-              <div class="pe-lg-4 pe-xl-0">
-                <h1 class="pb-3 pb-md-4 mb-lg-5">Do Not Sell My Personal Information</h1>
-              </div>
+              <h1 class="display-3 mb-md-1 mb-1 pb-3">
+                Near thingz
+              </h1>
+             
             </div>
-
-            
           </div>
         </div>
-        <div class="position-absolute bottom-0 start-0 w-100 bg-light"></div>
       </section>
 
 
-      <!-- Branches -->
-      <section class="container py-2 py-lg-4 py-xl-2 mb-2 mb-md-3">
-        <div class="row pt-5 pb-3">
-          <div class="col-lg-12 mb-5 mb-lg-0">
-                 Please note:
-                <p class="space-1 text-black-50">Mongrov and its affiliates do not sell their customers’ personal information to third parties.</p>
-
-                <p class="space-1 text-black-50">Nonetheless, California consumers have the right to request that Mongrov and its affiliates not sell their personal information to third parties should Mongrov decide in the future to sell personal information to third parties. To exercise this right, please fill out the form below. Mongrov will maintain your request on file. California consumers can request that Mongrov and its affiliates not sell their personal information in accordance with the California Consumer Privacy Act of 2018 ("CCPA"). In order to request that Mongrov and its affiliates not sell your personal information pursuant to the CCPA, please provide us with the following information and check the Submit box below. Any personal information submitted in connection with your request will be used solely for the purposes of complying with your request. All requests to opt out of the sale of personal information must be made using this online form. Mongrov may require proof of authorization when a California consumer uses an authorized agent to exercise this right. For more information, please visit www.mongrov.com/privacy to locate the privacy policy applicable to your Mongrov service or product.</p>
-
-              
+      <!-- Connect -->
+      <section class="pt-5 pt-md-4 pt-lg-5 pb-5 mt-lg-2 mt-xl-5">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="rellax col-md-6" data-rellax-percentage="0.5" data-rellax-speed="-0.6" data-disable-parallax-down="lg">
+              <img src="assets/img/mong/connect.svg" class="d-block mx-auto img-fluid" width="" alt="Image">
+            </div>
+            <div class="rellax col-md-5 col-xl-4 offset-xl-1 d-flex d-sm-block flex-column" data-rellax-percentage="0.5" data-rellax-speed="0.8" data-disable-parallax-down="lg">
+              <h2 class="pb-3 pt-2 pt-md-0">Support hybrid clouds</h2>
+              <p>Edge computing can also make following data privacy regulations easier. Rather than sending data to the cloud and storing it, processing can be done on the user’s own device or at the edge before being deleted or transformed to remove personally identifiable information.</p>
+                    
+            </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Collect -->
+      <section class="pt-5 pt-md-4 pt-lg-5 pb-5 mt-lg-2 mt-xl-5 bg-secondary">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="rellax col-md-6 order-1" data-rellax-percentage="0.5" data-rellax-speed="-0.6" data-disable-parallax-down="lg">
+              <img src="assets/img/mong/collect.svg" class="d-block mx-auto img-fluid" width="" alt="Image">
+            </div>
+            <div class="rellax col-md-6 d-flex d-sm-block flex-column" data-rellax-percentage="0.5" data-rellax-speed="0.8" data-disable-parallax-down="lg">
+              <h2 class="pb-3 pt-2 pt-md-0">Move real-time processing closer to things</h2>
+              <p>By moving computing resources closer to users latency can be reduced and users get a better experience as a result. This reduced latency and reduced bandwidth cost as a result of fewer round trips to data centers also mean new functionality and features become possible.</p>
+                    
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+       <!-- Store -->
+       <section class="pt-5 pt-md-4 pt-lg-5 pb-5 mt-lg-2 mt-xl-5">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="rellax col-md-6 order-0" data-rellax-percentage="0.5" data-rellax-speed="-0.6" data-disable-parallax-down="lg">
+              <img src="assets/img/mong/store.svg" class="d-block mx-auto img-fluid" width="" alt="Image">
+            </div>
+            <div class="rellax col-md-5 col-xl-4 offset-xl-1 d-flex d-sm-block flex-column" data-rellax-percentage="0.5" data-rellax-speed="0.8" data-disable-parallax-down="lg">
+              <h2 class="pb-3 pt-2 pt-md-0">Reduce costs on cloud ingress and egress</h2>
+              <p>For certain workloads with large amounts of data, it can be more efficient to process data at the edge rather than paying for the bandwidth required to process that data in the cloud. In some cases, computation can also be done on client devices like the user’s computer or smartphone to reduce load on your own servers.</p>
+                    
+            </div>
+          </div>
+        </div>
+      </section>
+
  
-        </div>
-
-            <div class="bg-secondary rounded-3 py-4 px-3 px-sm-4 px-md-5 mb-5">
-                <form action="https://formspree.io/f/mjvlkbqb" method="POST">
-                    <div class="row">
-                      <div class="col-md-6 mt-4">
-                        <div class="form-group">
-                          <input type="text" class="form-control" name="Contact-firstname" placeholder="First Name" required="">
-                        </div>
-                      </div>
-                      <div class="col-md-6 mt-4">
-                        <div class="form-group">
-                          <input type="text" class="form-control" name="Contact-lastname" placeholder="Last Name" required="">
-                        </div>
-                      </div>
-        
-                      <div class="col-md-6 mt-4">
-                        <div class="form-group">
-                          <input type="email" class="form-control" name="Contact-email" placeholder="Email" required="">
-                        </div>
-                      </div>
-                      <div class="col-md-6 mt-4">
-                        <div class="form-group">
-                          <input type="number" class="form-control" name="Contact-number" placeholder="Phone" required="">
-                        </div>
-                      </div>
-                      <div class="col-md-6 mt-4">
-                        <div class="form-group">
-                          <input type="text" class="form-control" name="Contact-address" placeholder="Address" required="">
-                        </div>
-                      </div>
-                      <div class="col-md-6 mt-4">
-                        <div class="form-group">
-                          <input type="text" class="form-control" name="Contact-city" placeholder="City" required="">
-                        </div>
-                      </div>
-                      <div class="col-md-6 mt-4">
-                        <div class="form-group">
-                          <input type="text" class="form-control" name="Contact-state" placeholder="State" required="">
-                        </div>
-                      </div>
-        
-                      <div class="col-md-6 mt-4">
-                        <div class="form-group">
-                          <input type="number" class="form-control" name="Contact-postalcode" placeholder="Postal Code" required="">
-                        </div>
-                      </div>
-        
-                      <div class="col-12 mt-4">
-                        <textarea name="Message" rows="5" class="form-control" placeholder="Any other information that may help us to locate your personal information, including services used or purchased:" required=""></textarea>
-                      </div>
-                      <div class="col-12 mt-4">
-                              <input type="checkbox" required="">
-                              <span class="value"> By checking this box, I hereby request that Mongrov and its affiliates not sell my
-                                 personal information 	 pursuant to the California Consumer Privacy Act of 2018.</span>
-                      </div>
-                      <div class="col">
-                        <button type="submit" class="btn btn-primary  mt-3 " data-loading-text="Sending">
-                          <span>Submit</span>
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-            </div>
-      </section>
     </main>
 
 
@@ -445,7 +413,13 @@
     <!-- Vendor Scripts -->
     <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-    <script src="assets/vendor/cleave.js/dist/cleave.min.js"></script>
+    <script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
+    <script src="assets/vendor/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/lightgallery/lightgallery.min.js"></script>
+    <script src="assets/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/shufflejs/dist/shuffle.min.js"></script>
 
     <!-- Main Theme Script -->
     <script src="assets/js/theme.min.js"></script>
