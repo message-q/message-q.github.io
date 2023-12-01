@@ -253,115 +253,138 @@
         </div>
       </section>
 
-      <!-- Platform -->
-      <section class="container mb-5 pt-md-2 pt-lg-4 pt-xl-5">
-        <h4 class="h5 my-4 pt-2 text-center blue_underline position-relative">PLATFORM</h2>
-        <h2 class="h1 my-4 pt-2 text-center">Connect, Collect and Store at scale</h2>
-        <div class="row pb-4">
-          <div class="col-md-3 col-6 order-md-1 order-2">
-            <div class="d-flex flex-column justify-content-between h-100 text-center">
+      <!-- Use cases (Tabs) -->
+      <section class="container pt-5 pb-2 mt-3 mt-sm-4 mt-xl-5">
+        <h2 class="h1 text-center pb-3 pb-lg-4">Connect, Collect and Store at scale</h2>
 
-              <!-- Item -->
-              <div class="mt-md-5 mt-4">
-                <img src="assets/img/landing/product/benefits/battery.svg" alt="Icon" class="d-inline-block mb-4">
-                <h3 class="h4 mb-0 lh-1">
-                  <span class="d-block mb-2 fs-base fw-normal">BLE, WiFi, LoraWan, HTTP, ZigBee</span>
-                  60 min
-                </h3>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs flex-nowrap justify-content-lg-center overflow-auto pb-2 mb-3 mb-lg-4" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link text-nowrap active" id="project-management-tab" data-bs-toggle="tab" data-bs-target="#project-management" type="button" role="tab" aria-controls="project-management" aria-selected="true">
+              <i class="bx bx-wifi-2 fs-xl opacity-60 me-2"></i>
+              Connect
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link text-nowrap" id="remote-work-tab" data-bs-toggle="tab" data-bs-target="#remote-work" type="button" role="tab" aria-controls="remote-work" aria-selected="false">
+              <i class="bx bx-analyse fs-lg opacity-60 me-2"></i>
+              Collect
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link text-nowrap" id="product-release-tab" data-bs-toggle="tab" data-bs-target="#product-release" type="button" role="tab" aria-controls="product-release" aria-selected="false">
+              <i class="bx bx-data fs-lg opacity-60 me-2"></i>
+              Store
+            </button>
+          </li>
+         
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content bg-secondary rounded-3 py-4">
+
+          <!-- Project Management -->
+          <div class="tab-pane fade show active" id="project-management" role="tabpanel" aria-labelledby="project-management-tab">
+            <div class="row align-items-center pt-3 pt-sm-4 pt-md-0 px-3 px-sm-4 px-lg-0">
+              <div class="col-lg-4 col-md-5 offset-lg-1 text-center text-md-start">
+                <h3 class="mb-lg-4">Connect</h3>
+                <ul class="list-unstyled pb-2">
+                  <li class="d-flex align-items-center pb-1 mb-2">
+                    <i class="bx bx-check-circle text-primary fs-xl me-2"></i>
+                    BLE, WiFi, LoraWan, HTTP, ZigBee
+                  </li>
+                  <li class="d-flex align-items-center pb-1 mb-2">
+                    <i class="bx bx-check-circle text-primary fs-xl me-2"></i>
+                    Manage hundreds of thousands of devices
+                  </li>
+                 </ul>
+                 <a href="#" class="btn btn-outline-primary rounded-pill">
+                  Learn more
+                  <i class="bx bx-right-arrow-alt fs-lg ms-2 me-n1"></i>
+                </a>
               </div>
-
-              <!-- Item -->
-              <div class="mt-md-5 mt-4">
-                <img src="assets/img/landing/product/benefits/drone.svg" alt="Icon" class="d-inline-block mb-4">
-                <h3 class="h4 mb-0 lh-1">
-                  <span class="d-block mb-2 fs-base fw-normal">Manage hundreds of thousands of devices</span>
-                  5-Direction
-                </h3>
-              </div>
-
-              <!-- Item -->
-              <div class="mt-md-5 mt-4">
-                <img src="assets/img/landing/product/benefits/monitor.svg" alt="Icon" class="d-inline-block mb-4">
-                <h3 class="h4 mb-0 lh-1">
-                  <span class="d-block mb-2 fs-base fw-normal">Real-time streaming data</span>
-                  4K
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-12 order-md-2 order-1">
-            <div class="d-flex flex-column justify-content-between h-100">
-
-              <!-- Image -->
-              <div class="mx-md-n5 mb-md-n5">
-                <img src="assets/img/landing/product/benefits/image.png" alt="Image">
-              </div>
-
-              <!-- Items row -->
-              <div class="row row-cols-2 mt-md-5 mt-4 text-center">
-
-                <!-- Item -->
-                <div class="col">
-                  <img src="assets/img/landing/product/benefits/thermometer.svg" alt="Icon" class="d-inline-block mb-4">
-                  <h3 class="h4 mb-0 lh-1">
-                    <span class="d-block mb-2 fs-base fw-normal">Scalable ETL data in real-time</span>
-                    -10°C to 40°C
-                  </h3>
-                </div>
-
-                <!-- Item -->
-                <div class="col">
-                  <img src="assets/img/landing/product/benefits/led-light.svg" alt="Icon" class="d-inline-block mb-4">
-                  <h3 class="h4 mb-0 lh-1">
-                    <span class="d-block mb-2 fs-base fw-normal">Billions of messages</span>
-                    LED searchlight
-                  </h3>
-                </div>
+              <div class="col-lg-7 col-md-7">
+                <img src="assets/img/mong/connect.svg" class="d-block my-lg-2 mx-auto me-md-0"  alt="Image">
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-6 order-md-3 order-3">
-            <div class="d-flex flex-column justify-content-between h-100 text-center">
 
-              <!-- Item -->
-              <div class="mt-md-5 mt-4">
-                <img src="assets/img/landing/product/benefits/zoom-in.svg" alt="Icon" class="d-inline-block mb-4">
-                <h3 class="h4 mb-0 lh-1">
-                  <span class="d-block mb-2 fs-base fw-normal">Billions of messages</span>
-                  2x zoom
-                </h3>
+          <!-- Remote Work -->
+          <div class="tab-pane fade" id="remote-work" role="tabpanel" aria-labelledby="remote-work-tab">
+            <div class="row align-items-center pt-3 pb-2 pb-sm-3 pt-sm-4 pt-md-0 px-3 px-sm-4 px-lg-0">
+              <div class="col-lg-4 col-md-5 offset-lg-1 text-center text-md-start">
+                <h3 class="mb-lg-4">Collect</h3>
+                <ul class="list-unstyled pb-2">
+                  <li class="d-flex align-items-center pb-1 mb-2">
+                    <i class="bx bx-check-circle text-primary fs-xl me-2"></i>
+                    Real-time streaming data
+                  </li>
+                  <li class="d-flex align-items-center pb-1 mb-2">
+                    <i class="bx bx-check-circle text-primary fs-xl me-2"></i>
+                    Scalable ETL data in real-time
+                  </li>
+                  <li class="d-flex align-items-center pb-1 mb-2">
+                    <i class="bx bx-check-circle text-primary fs-xl me-2"></i>
+                    Write dataflow serverless apps and deploythem at scale
+                  </li>
+                  <li class="d-flex align-items-center pb-1 mb-2">
+                    <i class="bx bx-check-circle text-primary fs-xl me-2"></i>
+                    Billions of messages
+                  </li>
+                  </ul>
+                  <a href="#" class="btn btn-outline-primary rounded-pill">
+                    Learn more
+                    <i class="bx bx-right-arrow-alt fs-lg ms-2 me-n1"></i>
+                  </a>
               </div>
-
-              <!-- Item -->
-              <div class="mt-md-5 mt-4">
-                <img src="assets/img/landing/product/benefits/computer-microprocessor.svg" alt="Icon" class="d-inline-block mb-4">
-                <h3 class="h4 mb-0 lh-1">
-                  <span class="d-block mb-2 fs-base fw-normal">Query data in real-time</span>
-                  1 inch
-                </h3>
-              </div>
-
-              <!-- Item -->
-              <div class="mt-md-5 mt-4">
-                <img src="assets/img/landing/product/benefits/audio.svg" alt="Icon" class="d-inline-block mb-4">
-                <h3 class="h4 mb-0 lh-1">
-                  <span class="d-block mb-2 fs-base fw-normal">Support for SQL & PromQL</span>
-                  4dB
-                </h3>
+              <div class="col-lg-7 col-md-7">
+                <img src="assets/img/mong/collect.svg" class="d-block my-lg-2 mx-auto me-md-0"  alt="Image">
               </div>
             </div>
           </div>
+
+          <!-- Product Release -->
+          <div class="tab-pane fade" id="product-release" role="tabpanel" aria-labelledby="product-release-tab">
+            <div class="row align-items-center pt-3 pt-sm-4 pt-md-0 px-3 pe-sm-4 pe-md-0 ps-sm-4 ps-lg-0">
+              <div class="col-lg-4 col-md-5 offset-lg-1 text-center text-md-start">
+                <h3 class="mb-lg-4">Store</h3>
+                <ul class="list-unstyled pb-2">
+                  <li class="d-flex align-items-center pb-1 mb-2">
+                    <i class="bx bx-check-circle text-primary fs-xl me-2"></i>
+                    50x reduction in cost of storage
+                  </li>
+                  <li class="d-flex align-items-center pb-1 mb-2">
+                    <i class="bx bx-check-circle text-primary fs-xl me-2"></i>
+                    Query data in real-time
+                  </li>
+                  <li class="d-flex align-items-center pb-1 mb-2">
+                    <i class="bx bx-check-circle text-primary fs-xl me-2"></i>
+                    Support for SQL & PromQL
+                  </li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary rounded-pill">
+                Learn more
+                <i class="bx bx-right-arrow-alt fs-lg ms-2 me-n1"></i>
+              </a>
+              </div>
+              <div class="col-lg-7 col-md-7 mt-n3 mt-md-1">
+                <img src="assets/img/mong/store.svg" class="d-block my-lg-2 mx-auto me-md-0"  alt="Image">
+              </div>
+            </div>
+          </div>
+
+          
         </div>
       </section>
 
 
       <!-- Dashboard -->
-      <section class="pt-5 pt-md-4 pt-lg-5 pb-5 mt-lg-2 mt-xl-5">
-        <div class="container py-5 bg-secondary rounded-4 px-5">
+      <section class="pt-5 pt-md-4 pt-lg-5 pb-5 mt-lg-2 mt-xl-5 bg-secondary">
+        <div class="container py-5">
           <div class="row align-items-center">
             <div class="col-md-5">
               <h2 class="pb-3 mb-3 pt-2 pt-md-0">Edge ready</h2>
-              <img src="assets/img/mong/Edge-ready.gif" class="d-block mx-auto img-fluid rounded-4" width="" alt="Image">
+              <img src="assets/img/mong/edge.svg" class="d-block mx-auto img-fluid" width="" alt="Image">
             </div>
 
             <div class="col-lg-7 col-xl-6 offset-xl-1">
@@ -410,7 +433,10 @@
       <!-- Services -->
       <section class="mb-5 pb-2 pt-lg-3 pb-md-4 pb-lg-3 border-bottom">
         <div class="container">
-         <div class="row align-items-center justify-content-center py-4 py-md-5 my-1 my-sm-3 my-md-0 my-xl-3">
+         
+            
+
+                <div class="row align-items-center justify-content-center py-4 py-md-5 my-1 my-sm-3 my-md-0 my-xl-3">
                   <div class="col-11 col-sm-9 col-md-7 col-lg-6 offset-lg-1 order-md-2 pb-2 pb-sm-3 pb-md-0 mb-4 mb-md-0">
                     <div class="parallax1" style="max-width: 636px;">
                       <div class="parallax-layer1" data-depth="0">
@@ -439,172 +465,6 @@
                     </a>
                   </div>
                 </div>
-        </div>
-      </section>
-
-
-       <!-- Use Cases -->
-       <section class="container mb-5 pb-5  border-bottom">
-        <div class="row">
-          
-          <div class="col-md-12">
-            <h4 class="h5 my-4 pt-2 text-center blue_underline position-relative">USE CASES</h4>
-            <div class="card border-0 mt-5">
-              <!-- <div class="d-flex justify-content-end pb-4 mb-2">
-               
-                <div class="d-flex">
-                  <button type="button" id="testimonials-prev1" class="btn btn-prev btn-icon btn-sm me-2">
-                    <i class="bx bx-chevron-left"></i>
-                  </button>
-                  <button type="button" id="testimonials-next1" class="btn btn-next btn-icon btn-sm ms-2">
-                    <i class="bx bx-chevron-right"></i>
-                  </button>
-                </div>
-              </div> -->
-              
-              <!-- Slider -->
-              <div class="swiper mx-0 mb-md-n2 mb-xxl-n3" data-swiper-options='{
-                "spaceBetween": 24,
-                "autoPlay" : true,
-                "loop": true,
-                "pagination": {
-                  "el": ".swiper-pagination",
-                  "clickable": true
-                },
-                "navigation": {
-                  "prevEl": "#testimonials-prev1",
-                  "nextEl": "#testimonials-next1"
-                }
-              }'>
-                <div class="swiper-wrapper">
-
-                  <!-- Item -->
-                  <div class="swiper-slide h-auto">
-                    <div class="card h-100 position-relative border-0 bg-transparent">
-                      <div class="row gy-4 mb-4 pb-md-3 pb-2">
-                        <div class="col-md-6">
-                          <div class="bg-secondary rounded-3">
-                            <img src="assets/img/landing/software-agency-3/projects/02.png" alt="Project image">
-                          </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 offset-lg-1 d-flex">
-                          <div class="align-self-center ps-lg-0 ps-md-4">
-                            
-                            <h3 class="h2 mb-lg-4 mb-3">Preventive maintenance</h3>
-                            <p class="mb-lg-4 mb-3">Vitae non luctus rhoncus ipsum feugiat luctus ornare. Pretium nulla sed quis duis tristique orci. Odio in pellentesque urna sit facilisi convallis vel tempus.</p>
-                            <ul class="mb-lg-4 mb-3 fs-sm text-muted list-inline" style="max-width: 19.125rem;">
-                              <li class="list-inline-item me-1">
-                                Product Strategy
-                                <span class="ms-1">/</span>
-                              </li>
-                              <li class="list-inline-item me-1">
-                                Front end Development
-                                <span class="ms-1">/</span>
-                              </li>
-                              <li class="list-inline-item me-1">
-                                Systems Design
-                                <span class="ms-1">/</span>
-                              </li>
-                              <li class="list-inline-item me-1">
-                                Web Development
-                              </li>
-                            </ul>
-                            <a href="#" class="btn btn-outline-primary rounded-pill">
-                              Learn more
-                              <i class="bx bx-right-arrow-alt fs-lg ms-2 me-n1"></i>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Item -->
-                  <div class="swiper-slide h-auto">
-                    <div class="card h-100 position-relative border-0 bg-transparent">
-                      <div class="row gy-4 mb-4 pb-md-3 pb-2">
-                        <div class="col-md-6">
-                          <div class="bg-secondary rounded-3">
-                            <img src="assets/img/landing/software-agency-3/projects/02.png" alt="Project image">
-                          </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 offset-lg-1 d-flex">
-                          <div class="align-self-center ps-lg-0 ps-md-4">
-                            <h3 class="h2 mb-lg-4 mb-3">High value asset data management</h3>
-                            <p class="mb-lg-4 mb-3">Vitae non luctus rhoncus ipsum feugiat luctus ornare. Pretium nulla sed quis duis tristique orci. Odio in pellentesque urna sit facilisi convallis vel tempus.</p>
-                            <ul class="mb-lg-4 mb-3 fs-sm text-muted list-inline" style="max-width: 19.125rem;">
-                              <li class="list-inline-item me-1">
-                                Product Strategy
-                                <span class="ms-1">/</span>
-                              </li>
-                              <li class="list-inline-item me-1">
-                                Front end Development
-                                <span class="ms-1">/</span>
-                              </li>
-                              <li class="list-inline-item me-1">
-                                Systems Design
-                                <span class="ms-1">/</span>
-                              </li>
-                              <li class="list-inline-item me-1">
-                                Web Development
-                              </li>
-                            </ul>
-                            <a href="#" class="btn btn-outline-primary rounded-pill">
-                              Learn more
-                              <i class="bx bx-right-arrow-alt fs-lg ms-2 me-n1"></i>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Item -->
-                  <div class="swiper-slide h-auto">
-                    <div class="card h-100 position-relative border-0 bg-transparent">
-                      <div class="row gy-4 mb-4 pb-md-3 pb-2">
-                        <div class="col-md-6">
-                          <div class="bg-secondary rounded-3">
-                            <img src="assets/img/landing/software-agency-3/projects/02.png" alt="Project image">
-                          </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 offset-lg-1 d-flex">
-                          <div class="align-self-center ps-lg-0 ps-md-4">
-                            <h3 class="h2 mb-lg-4 mb-3">Temparature control</h3>
-                            <p class="mb-lg-4 mb-3">Vitae non luctus rhoncus ipsum feugiat luctus ornare. Pretium nulla sed quis duis tristique orci. Odio in pellentesque urna sit facilisi convallis vel tempus.</p>
-                            <ul class="mb-lg-4 mb-3 fs-sm text-muted list-inline" style="max-width: 19.125rem;">
-                              <li class="list-inline-item me-1">
-                                Product Strategy
-                                <span class="ms-1">/</span>
-                              </li>
-                              <li class="list-inline-item me-1">
-                                Front end Development
-                                <span class="ms-1">/</span>
-                              </li>
-                              <li class="list-inline-item me-1">
-                                Systems Design
-                                <span class="ms-1">/</span>
-                              </li>
-                              <li class="list-inline-item me-1">
-                                Web Development
-                              </li>
-                            </ul>
-                            <a href="#" class="btn btn-outline-primary rounded-pill">
-                              Learn more
-                              <i class="bx bx-right-arrow-alt fs-lg ms-2 me-n1"></i>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Pagination (bullets) -->
-                <div class="swiper-pagination position-relative mt-5"></div>
-              </div>        
-            </div>
-          </div>
         </div>
       </section>
 
