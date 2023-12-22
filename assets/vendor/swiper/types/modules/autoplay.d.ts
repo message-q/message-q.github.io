@@ -7,6 +7,21 @@ export interface AutoplayMethods {
   running: boolean;
 
   /**
+   * Whether autoplay is paused
+   */
+  paused: boolean;
+
+  /**
+   * Pause autoplay
+   */
+  pause(speed?: number): void;
+
+  /**
+   * Run the autoplay logic
+   */
+  run(): void;
+
+  /**
    * Start autoplay
    */
   start(): boolean;
@@ -26,6 +41,14 @@ export interface AutoplayEvents {
    * Event will be fired when autoplay stopped
    */
   autoplayStop: (swiper: Swiper) => void;
+  /**
+   * Event will be fired on autoplay pause (on mouse/pointer enter), when `pauseOnMouseEnter` enabled
+   */
+  autoplayPause: (swiper: Swiper) => void;
+  /**
+   * Event will be fired on autoplay resume (on mouse/pointer leave), when `pauseOnMouseEnter` enabled
+   */
+  autoplayResume: (swiper: Swiper) => void;
   /**
    * Event will be fired when slide changed with autoplay
    */

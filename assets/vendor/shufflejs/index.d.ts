@@ -1,4 +1,4 @@
-// Type definitions for Shuffle 5.2.2
+// Type definitions for Shuffle 6.0.0
 // Project: https://github.com/Vestride/Shuffle
 // Definitions by: Glen Cheney <https://github.com/Vestride>
 
@@ -22,18 +22,15 @@ export interface ShuffleOptions {
   columnThreshold?: number;
 
   /**
-   * A static number or function that returns a number which tells the plugin
+   * A static number or function that returns a number which determines
    * how wide the columns are (in pixels).
    */
-  columnWidth?: number;
+  columnWidth?: number | ((conatinerWidth: number) => number);
 
   /**
-   * If your group is not json, and is comma delimeted, you could set delimiter to ','.
+   * If your group is not json, and is comma delimited, you could set delimiter to ','.
    */
-  delimiter?: string;
-
-  /** @deprecated Misspelling that will be removed in v6 */
-  delimeter?: string;
+  delimiter?: string | null;
 
   /**
    * CSS easing function to use.
@@ -53,16 +50,16 @@ export interface ShuffleOptions {
   group?: string;
 
   /**
-   * A static number or function that tells the plugin how wide the gutters
+   * A static number or function that determines how wide the gutters
    * between columns are (in pixels).
    */
-  gutterWidth?: number;
+  gutterWidth?: number | ((conatinerWidth: number) => number);
 
   /**
-   * Shuffle can be isInitialized with a sort object. It is the same object
+   * Shuffle can be initialized with a sort object. It is the same object
    * given to the sort method.
    */
-  initialSort?: SortOptions;
+  initialSort?: SortOptions | null;
 
   /**
    * Whether to center grid items in the row with the leftover space.
@@ -105,19 +102,9 @@ export interface ShuffleOptions {
   staggerAmountMax?: number;
 
   /**
-   * How often shuffle can be called on resize (in milliseconds).
-   */
-  throttleTime?: number;
-
-  /**
    * Whether to use transforms or absolute positioning.
    */
   useTransforms?: boolean;
-
-  /**
-   * By default, shuffle will throttle resize events. This can be changed or removed.
-   */
-  throttle?(func: Function, wait: number): Function;
 }
 
 export interface SortOptions {
@@ -125,16 +112,15 @@ export interface SortOptions {
   reverse?: boolean;
 
   // Sorting function which gives you the element each shuffle item is using by default.
-  by?: (a: Shuffle.ShuffleItem['element'], b: Shuffle.ShuffleItem['element']) => any;
+  by?: ((element: Shuffle.ShuffleItem['element']) => any) | null;
 
   // Custom sort function.
-  compare?: (a: Shuffle.ShuffleItem, b: Shuffle.ShuffleItem) => number;
+  compare?: ((a: Shuffle.ShuffleItem, b: Shuffle.ShuffleItem) => number) | null;
 
   // If true, this will skip the sorting and return a randomized order in the array.
   randomize?: boolean;
 
-  // Determines which property of each item in the array is passed to the
-  // sorting method. Only used if you use the `by` function.
+  // Determines which property of the `ShuffleItem` instance is passed to the `by` function.
   key?: keyof Shuffle.ShuffleItem;
 }
 
@@ -238,9 +224,12 @@ declare class Shuffle extends TinyEmitter {
 
   /**
    * Reposition everything.
-   * @param {boolean} [isOnlyLayout=false] If true, column and gutter widths won't be recalculated.
+   * @param {object} options options object
+   * @param {boolean} [options.recalculateSizes=true] Whether to calculate column, gutter, and container widths again.
+   * @param {boolean} [options.force=false] By default, `update` does nothing if the instance is disabled. Setting this
+   *    to true forces the update to happen regardless.
    */
-  update(isOnlyLayout?: boolean): void;
+  update(options?: { recalculateSizes?: boolean; force?: boolean }): void;
 
   /**
    * Returns styles which will be applied to the an item for a transition.

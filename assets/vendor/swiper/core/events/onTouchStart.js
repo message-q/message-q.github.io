@@ -7,6 +7,11 @@ function closestElement(selector, base = this) {
     if (!el || el === getDocument() || el === getWindow()) return null;
     if (el.assignedSlot) el = el.assignedSlot;
     const found = el.closest(selector);
+
+    if (!found && !el.getRootNode) {
+      return null;
+    }
+
     return found || __closestFrom(el.getRootNode().host);
   }
 
@@ -46,16 +51,18 @@ export default function onTouchStart(event) {
   if (!data.isTouchEvent && 'button' in e && e.button > 0) return;
   if (data.isTouched && data.isMoved) return; // change target el for shadow root component
 
-  const swipingClassHasValue = !!params.noSwipingClass && params.noSwipingClass !== '';
+  const swipingClassHasValue = !!params.noSwipingClass && params.noSwipingClass !== ''; // eslint-disable-next-line
 
-  if (swipingClassHasValue && e.target && e.target.shadowRoot && event.path && event.path[0]) {
-    $targetEl = $(event.path[0]);
+  const eventPath = event.composedPath ? event.composedPath() : event.path;
+
+  if (swipingClassHasValue && e.target && e.target.shadowRoot && eventPath) {
+    $targetEl = $(eventPath[0]);
   }
 
   const noSwipingSelector = params.noSwipingSelector ? params.noSwipingSelector : `.${params.noSwipingClass}`;
   const isTargetShadow = !!(e.target && e.target.shadowRoot); // use closestElement for shadow root element to get the actual closest for nested shadow root element
 
-  if (params.noSwiping && (isTargetShadow ? closestElement(noSwipingSelector, e.target) : $targetEl.closest(noSwipingSelector)[0])) {
+  if (params.noSwiping && (isTargetShadow ? closestElement(noSwipingSelector, $targetEl[0]) : $targetEl.closest(noSwipingSelector)[0])) {
     swiper.allowClick = true;
     return;
   }
@@ -97,7 +104,14 @@ export default function onTouchStart(event) {
 
   if (e.type !== 'touchstart') {
     let preventDefault = true;
-    if ($targetEl.is(data.focusableElements)) preventDefault = false;
+
+    if ($targetEl.is(data.focusableElements)) {
+      preventDefault = false;
+
+      if ($targetEl[0].nodeName === 'SELECT') {
+        data.isTouched = false;
+      }
+    }
 
     if (document.activeElement && $(document.activeElement).is(data.focusableElements) && document.activeElement !== $targetEl[0]) {
       document.activeElement.blur();
@@ -108,6 +122,10 @@ export default function onTouchStart(event) {
     if ((params.touchStartForcePreventDefault || shouldPreventDefault) && !$targetEl[0].isContentEditable) {
       e.preventDefault();
     }
+  }
+
+  if (swiper.params.freeMode && swiper.params.freeMode.enabled && swiper.freeMode && swiper.animating && !params.cssMode) {
+    swiper.freeMode.onTouchStart();
   }
 
   swiper.emit('touchStart', e);

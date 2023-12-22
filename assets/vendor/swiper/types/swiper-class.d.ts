@@ -1,27 +1,31 @@
 import { Dom7Array } from 'dom7';
 import { SwiperOptions } from './swiper-options';
-import { CSSSelector, SwiperComponent } from './shared';
+import { CSSSelector, SwiperModule } from './shared';
 import { SwiperEvents } from './swiper-events';
 
-import { A11yMethods } from './components/a11y';
-import { AutoplayMethods } from './components/autoplay';
-import { ControllerMethods } from './components/controller';
-import { CoverflowEffectMethods } from './components/effect-coverflow';
-import { CubeEffectMethods } from './components/effect-cube';
-import { FadeEffectMethods } from './components/effect-fade';
-import { FlipEffectMethods } from './components/effect-flip';
-import { HashNavigationMethods } from './components/hash-navigation';
-import { HistoryMethods } from './components/history';
-import { KeyboardMethods } from './components/keyboard';
-import { LazyMethods } from './components/lazy';
-import { MousewheelMethods } from './components/mousewheel';
-import { NavigationMethods } from './components/navigation';
-import { PaginationMethods } from './components/pagination';
-import { ParallaxMethods } from './components/parallax';
-import { ScrollbarMethods } from './components/scrollbar';
-import { ThumbsMethods } from './components/thumbs';
-import { VirtualMethods } from './components/virtual';
-import { ZoomMethods } from './components/zoom';
+import { A11yMethods } from './modules/a11y';
+import { AutoplayMethods } from './modules/autoplay';
+import { ControllerMethods } from './modules/controller';
+import { CoverflowEffectMethods } from './modules/effect-coverflow';
+import { CubeEffectMethods } from './modules/effect-cube';
+import { FadeEffectMethods } from './modules/effect-fade';
+import { FlipEffectMethods } from './modules/effect-flip';
+import { CreativeEffectMethods } from './modules/effect-creative';
+import { CardsEffectMethods } from './modules/effect-cards';
+import { HashNavigationMethods } from './modules/hash-navigation';
+import { HistoryMethods } from './modules/history';
+import { KeyboardMethods } from './modules/keyboard';
+import { LazyMethods } from './modules/lazy';
+import { MousewheelMethods } from './modules/mousewheel';
+import { NavigationMethods } from './modules/navigation';
+import { PaginationMethods } from './modules/pagination';
+import { ParallaxMethods } from './modules/parallax';
+import { ScrollbarMethods } from './modules/scrollbar';
+import { ThumbsMethods } from './modules/thumbs';
+import { VirtualMethods } from './modules/virtual';
+import { ZoomMethods } from './modules/zoom';
+import { FreeModeMethods } from './modules/free-mode';
+import { ManipulationMethods } from './modules/manipulation';
 
 interface SwiperClass<Events> {
   /** Add event handler */
@@ -41,6 +45,11 @@ interface Swiper extends SwiperClass<SwiperEvents> {
    * Object with passed initialization parameters
    */
   params: SwiperOptions;
+
+  /**
+   * Object with original initialization parameters
+   */
+  originalParams: SwiperOptions;
 
   /**
    * Dom7 element with slider container HTML element. To get vanilla HTMLElement use `swiper.el`
@@ -66,6 +75,11 @@ interface Swiper extends SwiperClass<SwiperEvents> {
    * Dom7 array-like collection of slides HTML elements. To get specific slide HTMLElement use `swiper.slides[1]`
    */
   slides: Dom7Array;
+
+  /**
+   * !INTERNAL
+   */
+  loopedSlides: number | null;
 
   /**
    * Width of container
@@ -105,6 +119,16 @@ interface Swiper extends SwiperClass<SwiperEvents> {
   previousIndex: number;
 
   /**
+   * Index number of current snap in `snapGrid`
+   */
+  snapIndex: number;
+
+  /**
+   * Slides snap grid
+   */
+  snapGrid: number[];
+
+  /**
    * `true` if slider on most "left"/"top" position
    */
   isBeginning: boolean;
@@ -113,6 +137,11 @@ interface Swiper extends SwiperClass<SwiperEvents> {
    * `true` if slider on most "right"/"bottom" position
    */
   isEnd: boolean;
+
+  /**
+   * `true` if slide is "locked" (by `watchOverflow`) and slides can not be, e.g. when amount of slides is less that slides per view
+   */
+  isLocked: boolean;
 
   /**
    * `true` if swiper is in transition
@@ -160,6 +189,11 @@ interface Swiper extends SwiperClass<SwiperEvents> {
    * Disable / enable ability move slider by grabbing it with mouse or by touching it with finger (on touch screens) by assigning `false` / `true` to this property
    */
   allowTouchMove: boolean;
+
+  /**
+   * Direction of sliding
+   */
+  swipeDirection: 'prev' | 'next';
 
   /**
    * !INTERNAL
@@ -291,6 +325,13 @@ interface Swiper extends SwiperClass<SwiperEvents> {
   changeDirection(direction?: 'horizontal' | 'vertical', needUpdate?: boolean): void;
 
   /**
+   * Changes slider language
+   *
+   * @param direction New direction. Should be `rtl` or `ltr`
+   */
+  changeLanguageDirection(direction: 'rtl' | 'ltr'): void;
+
+  /**
    * Detach all events listeners
    */
   detachEvents(): void;
@@ -301,9 +342,19 @@ interface Swiper extends SwiperClass<SwiperEvents> {
   attachEvents(): void;
 
   /**
+   * !INTERNAL
+   */
+  loopCreate(): void;
+
+  /**
+   * !INTERNAL
+   */
+  loopDestroy(): void;
+
+  /**
    * Initialize slider
    */
-  init(): void;
+  init(el?: HTMLElement): Swiper;
 
   /**
    * Destroy slider instance and detach all events listeners
@@ -313,71 +364,6 @@ interface Swiper extends SwiperClass<SwiperEvents> {
    * Useful if you need to destroy Swiper and to init again with new options or in different direction
    */
   destroy(deleteInstance?: boolean, cleanStyles?: boolean): void;
-
-  /**
-   * Add new slides to the end. slides could be
-   * HTMLElement or HTML string with new slide or
-   * array with such slides, for example:
-   *
-   * @example
-   * ```js
-   * appendSlide('<div class="swiper-slide">Slide 10"</div>')
-   *
-   * appendSlide([
-   *  '<div class="swiper-slide">Slide 10"</div>',
-   *  '<div class="swiper-slide">Slide 11"</div>'
-   * ]);
-   * ```
-   */
-  appendSlide(slides: HTMLElement | string | string[] | HTMLElement[]): void;
-
-  /**
-   * Add new slides to the beginning. slides could be
-   * HTMLElement or HTML string with new slide or array with such slides, for example:
-   *
-   * @example
-   * ```js
-   * prependSlide('<div class="swiper-slide">Slide 0"</div>')
-   *
-   * prependSlide([
-   *  '<div class="swiper-slide">Slide 1"</div>',
-   *  '<div class="swiper-slide">Slide 2"</div>'
-   * ]);
-   * ```
-   */
-  prependSlide(slides: HTMLElement | string | string[] | HTMLElement[]): void;
-
-  /**
-   * Add new slides to the required index. slides could be HTMLElement or HTML string with new slide or array with such slides, for example:
-   *
-   * @example
-   * ```js
-   * addSlide(1, '<div class="swiper-slide">Slide 10"</div>')
-   *
-   * addSlide(1, [
-   *  '<div class="swiper-slide">Slide 10"</div>',
-   *  '<div class="swiper-slide">Slide 11"</div>'
-   * ]);
-   * ```
-   */
-  addSlide(index: number, slides: HTMLElement | string | string[] | HTMLElement[]): void;
-
-  /**
-   * Remove selected slides. slideIndex could be a number with slide index to remove or array with indexes.
-   *
-   * @example
-   * ```js
-   * removeSlide(0); // remove first slide
-   * removeSlide([0, 1]); // remove first and second slides
-   * removeAllSlides();    // Remove all slides
-   * ```
-   */
-  removeSlide(slideIndex: number | number[]): void;
-
-  /**
-   * Remove all slides
-   */
-  removeAllSlides(): void;
 
   /**
    * Set custom css3 transform's translate value for swiper wrapper
@@ -453,7 +439,7 @@ interface Swiper extends SwiperClass<SwiperEvents> {
   /**
    * !INTERNAL
    */
-  modules: Array<any>; //TODO: add typing
+  modules: Array<SwiperModule>;
 
   a11y: A11yMethods;
   autoplay: AutoplayMethods;
@@ -462,6 +448,8 @@ interface Swiper extends SwiperClass<SwiperEvents> {
   cubeEffect: CubeEffectMethods;
   fadeEffect: FadeEffectMethods;
   flipEffect: FlipEffectMethods;
+  creativeEffect: CreativeEffectMethods;
+  cardsEffect: CardsEffectMethods;
   hashNavigation: HashNavigationMethods;
   history: HistoryMethods;
   keyboard: KeyboardMethods;
@@ -474,7 +462,10 @@ interface Swiper extends SwiperClass<SwiperEvents> {
   thumbs: ThumbsMethods;
   virtual: VirtualMethods;
   zoom: ZoomMethods;
+  freeMode: FreeModeMethods;
 }
+
+interface Swiper extends ManipulationMethods {}
 
 declare class Swiper implements Swiper {
   /**
@@ -487,7 +478,7 @@ declare class Swiper implements Swiper {
   /**
    * Installs modules on Swiper in runtime.
    */
-  static use(modules: SwiperComponent[]): void;
+  static use(modules: SwiperModule[]): void;
 
   /**
    * Swiper default options

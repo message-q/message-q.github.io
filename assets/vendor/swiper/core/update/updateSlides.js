@@ -90,6 +90,9 @@ export default function updateSlides() {
 
 
   let slideSize;
+  const shouldResetSlideSize = params.slidesPerView === 'auto' && params.breakpoints && Object.keys(params.breakpoints).filter(key => {
+    return typeof params.breakpoints[key].slidesPerView !== 'undefined';
+  }).length > 0;
 
   for (let i = 0; i < slidesLength; i += 1) {
     slideSize = 0;
@@ -102,6 +105,10 @@ export default function updateSlides() {
     if (slide.css('display') === 'none') continue; // eslint-disable-line
 
     if (params.slidesPerView === 'auto') {
+      if (shouldResetSlideSize) {
+        slides[i].style[getDirectionLabel('width')] = ``;
+      }
+
       const slideStyles = getComputedStyle(slide[0]);
       const currentTransform = slide[0].style.transform;
       const currentWebKitTransform = slide[0].style.webkitTransform;
@@ -298,5 +305,16 @@ export default function updateSlides() {
 
   if (params.watchSlidesProgress) {
     swiper.updateSlidesOffset();
+  }
+
+  if (!isVirtual && !params.cssMode && (params.effect === 'slide' || params.effect === 'fade')) {
+    const backFaceHiddenClass = `${params.containerModifierClass}backface-hidden`;
+    const hasClassBackfaceClassAdded = swiper.$el.hasClass(backFaceHiddenClass);
+
+    if (slidesLength <= params.maxBackfaceHiddenSlides) {
+      if (!hasClassBackfaceClassAdded) swiper.$el.addClass(backFaceHiddenClass);
+    } else if (hasClassBackfaceClassAdded) {
+      swiper.$el.removeClass(backFaceHiddenClass);
+    }
   }
 }

@@ -36,7 +36,8 @@ export default function Pagination({
       clickableClass: `${pfx}-clickable`,
       lockClass: `${pfx}-lock`,
       horizontalClass: `${pfx}-horizontal`,
-      verticalClass: `${pfx}-vertical`
+      verticalClass: `${pfx}-vertical`,
+      paginationDisabledClass: `${pfx}-disabled`
     }
   });
   swiper.pagination = {
@@ -96,7 +97,7 @@ export default function Pagination({
         $el.css(swiper.isHorizontal() ? 'width' : 'height', `${bulletSize * (params.dynamicMainBullets + 4)}px`);
 
         if (params.dynamicMainBullets > 1 && swiper.previousIndex !== undefined) {
-          dynamicBulletIndex += current - swiper.previousIndex;
+          dynamicBulletIndex += current - (swiper.previousIndex - swiper.loopedSlides || 0);
 
           if (dynamicBulletIndex > params.dynamicMainBullets - 1) {
             dynamicBulletIndex = params.dynamicMainBullets - 1;
@@ -105,7 +106,7 @@ export default function Pagination({
           }
         }
 
-        firstIndex = current - dynamicBulletIndex;
+        firstIndex = Math.max(current - dynamicBulletIndex, 0);
         lastIndex = firstIndex + (Math.min(bullets.length, params.dynamicMainBullets) - 1);
         midIndex = (lastIndex + firstIndex) / 2;
       }
@@ -149,7 +150,7 @@ export default function Pagination({
           }
 
           if (swiper.params.loop) {
-            if (bulletIndex >= bullets.length - params.dynamicMainBullets) {
+            if (bulletIndex >= bullets.length) {
               for (let i = params.dynamicMainBullets; i >= 0; i -= 1) {
                 bullets.eq(bullets.length - i).addClass(`${params.bulletActiveClass}-main`);
               }
@@ -275,7 +276,14 @@ export default function Pagination({
     if ($el.length === 0) return;
 
     if (swiper.params.uniqueNavElements && typeof params.el === 'string' && $el.length > 1) {
-      $el = swiper.$el.find(params.el);
+      $el = swiper.$el.find(params.el); // check if it belongs to another nested Swiper
+
+      if ($el.length > 1) {
+        $el = $el.filter(el => {
+          if ($(el).parents('.swiper')[0] !== swiper.el) return false;
+          return true;
+        });
+      }
     }
 
     if (params.type === 'bullets' && params.clickable) {
@@ -283,7 +291,7 @@ export default function Pagination({
     }
 
     $el.addClass(params.modifierClass + params.type);
-    $el.addClass(params.modifierClass + swiper.params.direction);
+    $el.addClass(swiper.isHorizontal() ? params.horizontalClass : params.verticalClass);
 
     if (params.type === 'bullets' && params.dynamicBullets) {
       $el.addClass(`${params.modifierClass}${params.type}-dynamic`);
@@ -323,8 +331,8 @@ export default function Pagination({
     const $el = swiper.pagination.$el;
     $el.removeClass(params.hiddenClass);
     $el.removeClass(params.modifierClass + params.type);
-    $el.removeClass(params.modifierClass + swiper.params.direction);
-    if (swiper.pagination.bullets) swiper.pagination.bullets.removeClass(params.bulletActiveClass);
+    $el.removeClass(swiper.isHorizontal() ? params.horizontalClass : params.verticalClass);
+    if (swiper.pagination.bullets && swiper.pagination.bullets.removeClass) swiper.pagination.bullets.removeClass(params.bulletActiveClass);
 
     if (params.clickable) {
       $el.off('click', classesToSelector(params.bulletClass));
@@ -332,9 +340,14 @@ export default function Pagination({
   }
 
   on('init', () => {
-    init();
-    render();
-    update();
+    if (swiper.params.pagination.enabled === false) {
+      // eslint-disable-next-line
+      disable();
+    } else {
+      init();
+      render();
+      update();
+    }
   });
   on('activeIndexChange', () => {
     if (swiper.params.loop) {
@@ -381,7 +394,7 @@ export default function Pagination({
       $el
     } = swiper.pagination;
 
-    if (swiper.params.pagination.el && swiper.params.pagination.hideOnClick && $el.length > 0 && !$(targetEl).hasClass(swiper.params.pagination.bulletClass)) {
+    if (swiper.params.pagination.el && swiper.params.pagination.hideOnClick && $el && $el.length > 0 && !$(targetEl).hasClass(swiper.params.pagination.bulletClass)) {
       if (swiper.navigation && (swiper.navigation.nextEl && targetEl === swiper.navigation.nextEl || swiper.navigation.prevEl && targetEl === swiper.navigation.prevEl)) return;
       const isHidden = $el.hasClass(swiper.params.pagination.hiddenClass);
 
@@ -394,7 +407,32 @@ export default function Pagination({
       $el.toggleClass(swiper.params.pagination.hiddenClass);
     }
   });
+
+  const enable = () => {
+    swiper.$el.removeClass(swiper.params.pagination.paginationDisabledClass);
+
+    if (swiper.pagination.$el) {
+      swiper.pagination.$el.removeClass(swiper.params.pagination.paginationDisabledClass);
+    }
+
+    init();
+    render();
+    update();
+  };
+
+  const disable = () => {
+    swiper.$el.addClass(swiper.params.pagination.paginationDisabledClass);
+
+    if (swiper.pagination.$el) {
+      swiper.pagination.$el.addClass(swiper.params.pagination.paginationDisabledClass);
+    }
+
+    destroy();
+  };
+
   Object.assign(swiper.pagination, {
+    enable,
+    disable,
     render,
     update,
     init,

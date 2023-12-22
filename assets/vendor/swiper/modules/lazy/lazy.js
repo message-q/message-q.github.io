@@ -155,11 +155,11 @@ export default function Lazy({
     if (params.loadPrevNext) {
       if (slidesPerView > 1 || params.loadPrevNextAmount && params.loadPrevNextAmount > 1) {
         const amount = params.loadPrevNextAmount;
-        const spv = slidesPerView;
+        const spv = Math.ceil(slidesPerView);
         const maxIndex = Math.min(activeIndex + spv + Math.max(amount, spv), slides.length);
         const minIndex = Math.max(activeIndex - Math.max(spv, amount), 0); // Next Slides
 
-        for (let i = activeIndex + slidesPerView; i < maxIndex; i += 1) {
+        for (let i = activeIndex + spv; i < maxIndex; i += 1) {
           if (slideExist(i)) loadInSlide(i);
         } // Prev Slides
 
@@ -221,7 +221,7 @@ export default function Lazy({
     }
   });
   on('init', () => {
-    if (swiper.params.lazy.enabled && !swiper.params.loop && swiper.params.initialSlide === 0) {
+    if (swiper.params.lazy.enabled) {
       if (swiper.params.lazy.checkInView) {
         checkInViewOnLoad();
       } else {
@@ -236,19 +236,31 @@ export default function Lazy({
   });
   on('scrollbarDragMove resize _freeModeNoMomentumRelease', () => {
     if (swiper.params.lazy.enabled) {
-      load();
+      if (swiper.params.lazy.checkInView) {
+        checkInViewOnLoad();
+      } else {
+        load();
+      }
     }
   });
   on('transitionStart', () => {
     if (swiper.params.lazy.enabled) {
       if (swiper.params.lazy.loadOnTransitionStart || !swiper.params.lazy.loadOnTransitionStart && !initialImageLoaded) {
-        load();
+        if (swiper.params.lazy.checkInView) {
+          checkInViewOnLoad();
+        } else {
+          load();
+        }
       }
     }
   });
   on('transitionEnd', () => {
     if (swiper.params.lazy.enabled && !swiper.params.lazy.loadOnTransitionStart) {
-      load();
+      if (swiper.params.lazy.checkInView) {
+        checkInViewOnLoad();
+      } else {
+        load();
+      }
     }
   });
   on('slideChange', () => {
@@ -263,6 +275,10 @@ export default function Lazy({
     if (lazy.enabled && (cssMode || watchSlidesProgress && (touchReleaseOnEdges || resistanceRatio === 0))) {
       load();
     }
+  });
+  on('destroy', () => {
+    if (!swiper.$el) return;
+    swiper.$el.find(`.${swiper.params.lazy.loadingClass}`).removeClass(swiper.params.lazy.loadingClass);
   });
   Object.assign(swiper.lazy, {
     load,

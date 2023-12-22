@@ -1,8 +1,11 @@
 import { TemplateRef } from '@angular/core';
+import * as i0 from "@angular/core";
 export declare class SwiperSlideDirective {
     template: TemplateRef<any>;
     virtualIndex: number;
     class: string;
+    set ngClass(val: string);
+    autoplayDelay: string | null;
     set zoom(val: boolean);
     get zoom(): boolean;
     private _zoom;
@@ -19,4 +22,6 @@ export declare class SwiperSlideDirective {
     };
     private _classNames;
     constructor(template: TemplateRef<any>);
+    static ɵfac: i0.ɵɵFactoryDeclaration<SwiperSlideDirective, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<SwiperSlideDirective, "ng-template[swiperSlide]", never, { "virtualIndex": "virtualIndex"; "class": "class"; "ngClass": "ngClass"; "autoplayDelay": "data-swiper-autoplay"; "zoom": "zoom"; }, {}, never>;
 }

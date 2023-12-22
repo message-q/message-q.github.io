@@ -18,9 +18,13 @@ export default function A11y({
       containerMessage: null,
       containerRoleDescriptionMessage: null,
       itemRoleDescriptionMessage: null,
-      slideRole: 'group'
+      slideRole: 'group',
+      id: null
     }
   });
+  swiper.a11y = {
+    clicked: false
+  };
   let liveRegion = null;
 
   function notify(message) {
@@ -111,7 +115,7 @@ export default function A11y({
   }
 
   function updateNavigation() {
-    if (swiper.params.loop || !swiper.navigation) return;
+    if (swiper.params.loop || swiper.params.rewind || !swiper.navigation) return;
     const {
       $nextEl,
       $prevEl
@@ -139,23 +143,34 @@ export default function A11y({
   }
 
   function hasPagination() {
-    return swiper.pagination && swiper.params.pagination.clickable && swiper.pagination.bullets && swiper.pagination.bullets.length;
+    return swiper.pagination && swiper.pagination.bullets && swiper.pagination.bullets.length;
+  }
+
+  function hasClickablePagination() {
+    return hasPagination() && swiper.params.pagination.clickable;
   }
 
   function updatePagination() {
     const params = swiper.params.a11y;
+    if (!hasPagination()) return;
+    swiper.pagination.bullets.each(bulletEl => {
+      const $bulletEl = $(bulletEl);
 
-    if (hasPagination()) {
-      swiper.pagination.bullets.each(bulletEl => {
-        const $bulletEl = $(bulletEl);
+      if (swiper.params.pagination.clickable) {
         makeElFocusable($bulletEl);
 
         if (!swiper.params.pagination.renderBullet) {
           addElRole($bulletEl, 'button');
           addElLabel($bulletEl, params.paginationBulletMessage.replace(/\{\{index\}\}/, $bulletEl.index() + 1));
         }
-      });
-    }
+      }
+
+      if ($bulletEl.is(`.${swiper.params.pagination.bulletActiveClass}`)) {
+        $bulletEl.attr('aria-current', 'true');
+      } else {
+        $bulletEl.removeAttr('aria-current');
+      }
+    });
   }
 
   const initNavEl = ($el, wrapperId, message) => {
@@ -170,7 +185,62 @@ export default function A11y({
     addElControls($el, wrapperId);
   };
 
-  function init() {
+  const handlePointerDown = () => {
+    swiper.a11y.clicked = true;
+  };
+
+  const handlePointerUp = () => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        if (!swiper.destroyed) {
+          swiper.a11y.clicked = false;
+        }
+      });
+    });
+  };
+
+  const handleFocus = e => {
+    if (swiper.a11y.clicked) return;
+    const slideEl = e.target.closest(`.${swiper.params.slideClass}`);
+    if (!slideEl || !swiper.slides.includes(slideEl)) return;
+    const isActive = swiper.slides.indexOf(slideEl) === swiper.activeIndex;
+    const isVisible = swiper.params.watchSlidesProgress && swiper.visibleSlides && swiper.visibleSlides.includes(slideEl);
+    if (isActive || isVisible) return;
+    if (e.sourceCapabilities && e.sourceCapabilities.firesTouchEvents) return;
+
+    if (swiper.isHorizontal()) {
+      swiper.el.scrollLeft = 0;
+    } else {
+      swiper.el.scrollTop = 0;
+    }
+
+    swiper.slideTo(swiper.slides.indexOf(slideEl), 0);
+  };
+
+  const initSlides = () => {
+    const params = swiper.params.a11y;
+
+    if (params.itemRoleDescriptionMessage) {
+      addElRoleDescription($(swiper.slides), params.itemRoleDescriptionMessage);
+    }
+
+    if (params.slideRole) {
+      addElRole($(swiper.slides), params.slideRole);
+    }
+
+    const slidesLength = swiper.params.loop ? swiper.slides.filter(el => !el.classList.contains(swiper.params.slideDuplicateClass)).length : swiper.slides.length;
+
+    if (params.slideLabelMessage) {
+      swiper.slides.each((slideEl, index) => {
+        const $slideEl = $(slideEl);
+        const slideIndex = swiper.params.loop ? parseInt($slideEl.attr('data-swiper-slide-index'), 10) : index;
+        const ariaLabelMessage = params.slideLabelMessage.replace(/\{\{index\}\}/, slideIndex + 1).replace(/\{\{slidesLength\}\}/, slidesLength);
+        addElLabel($slideEl, ariaLabelMessage);
+      });
+    }
+  };
+
+  const init = () => {
     const params = swiper.params.a11y;
     swiper.$el.append(liveRegion); // Container
 
@@ -186,23 +256,12 @@ export default function A11y({
 
 
     const $wrapperEl = swiper.$wrapperEl;
-    const wrapperId = $wrapperEl.attr('id') || `swiper-wrapper-${getRandomNumber(16)}`;
+    const wrapperId = params.id || $wrapperEl.attr('id') || `swiper-wrapper-${getRandomNumber(16)}`;
     const live = swiper.params.autoplay && swiper.params.autoplay.enabled ? 'off' : 'polite';
     addElId($wrapperEl, wrapperId);
     addElLive($wrapperEl, live); // Slide
 
-    if (params.itemRoleDescriptionMessage) {
-      addElRoleDescription($(swiper.slides), params.itemRoleDescriptionMessage);
-    }
-
-    addElRole($(swiper.slides), params.slideRole);
-    const slidesLength = swiper.params.loop ? swiper.slides.filter(el => !el.classList.contains(swiper.params.slideDuplicateClass)).length : swiper.slides.length;
-    swiper.slides.each((slideEl, index) => {
-      const $slideEl = $(slideEl);
-      const slideIndex = swiper.params.loop ? parseInt($slideEl.attr('data-swiper-slide-index'), 10) : index;
-      const ariaLabelMessage = params.slideLabelMessage.replace(/\{\{index\}\}/, slideIndex + 1).replace(/\{\{slidesLength\}\}/, slidesLength);
-      addElLabel($slideEl, ariaLabelMessage);
-    }); // Navigation
+    initSlides(); // Navigation
 
     let $nextEl;
     let $prevEl;
@@ -216,18 +275,23 @@ export default function A11y({
     }
 
     if ($nextEl && $nextEl.length) {
-      initNavEl($nextEl, params.nextSlideMessage);
+      initNavEl($nextEl, wrapperId, params.nextSlideMessage);
     }
 
     if ($prevEl && $prevEl.length) {
-      initNavEl($prevEl, params.prevSlideMessage);
+      initNavEl($prevEl, wrapperId, params.prevSlideMessage);
     } // Pagination
 
 
-    if (hasPagination()) {
+    if (hasClickablePagination()) {
       swiper.pagination.$el.on('keydown', classesToSelector(swiper.params.pagination.bulletClass), onEnterOrSpaceKey);
-    }
-  }
+    } // Tab focus
+
+
+    swiper.$el.on('focus', handleFocus, true);
+    swiper.$el.on('pointerdown', handlePointerDown, true);
+    swiper.$el.on('pointerup', handlePointerUp, true);
+  };
 
   function destroy() {
     if (liveRegion && liveRegion.length > 0) liveRegion.remove();
@@ -251,9 +315,14 @@ export default function A11y({
     } // Pagination
 
 
-    if (hasPagination()) {
+    if (hasClickablePagination()) {
       swiper.pagination.$el.off('keydown', classesToSelector(swiper.params.pagination.bulletClass), onEnterOrSpaceKey);
-    }
+    } // Tab focus
+
+
+    swiper.$el.off('focus', handleFocus, true);
+    swiper.$el.off('pointerdown', handlePointerDown, true);
+    swiper.$el.off('pointerup', handlePointerUp, true);
   }
 
   on('beforeInit', () => {
@@ -262,13 +331,12 @@ export default function A11y({
   on('afterInit', () => {
     if (!swiper.params.a11y.enabled) return;
     init();
-    updateNavigation();
   });
-  on('toEdge', () => {
+  on('slidesLengthChange snapGridLengthChange slidesGridLengthChange', () => {
     if (!swiper.params.a11y.enabled) return;
-    updateNavigation();
+    initSlides();
   });
-  on('fromEdge', () => {
+  on('fromEdge toEdge afterInit lock unlock', () => {
     if (!swiper.params.a11y.enabled) return;
     updateNavigation();
   });

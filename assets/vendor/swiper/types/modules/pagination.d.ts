@@ -13,7 +13,7 @@ export interface PaginationMethods {
    * HTML elements. To get specific slide HTMLElement
    * use `swiper.pagination.bullets[1]`.
    */
-  bullets: Dom7Array[];
+  bullets: Dom7Array;
 
   /**
    * Render pagination layout
@@ -59,6 +59,10 @@ export interface PaginationEvents {
 }
 
 export interface PaginationOptions {
+  /**
+   * Boolean property to use with breakpoints to enable/disable pagination on certain breakpoints
+   */
+  enabled?: boolean;
   /**
    * String with CSS selector or HTML element of the container with pagination
    *
@@ -120,13 +124,13 @@ export interface PaginationOptions {
    * format fraction pagination current number. Function receives current number,
    * and you need to return formatted value
    */
-  formatFractionCurrent?: (number: number) => number;
+  formatFractionCurrent?: (number: number) => number | string;
 
   /**
    * format fraction pagination total number. Function receives total number, and you
    * need to return formatted value
    */
-  formatFractionTotal?: (number: number) => number;
+  formatFractionTotal?: (number: number) => number | string;
 
   /**
    * This parameter allows totally customize pagination bullets, you need to pass here a function that accepts `index` number of
@@ -282,4 +286,11 @@ export interface PaginationOptions {
    * @default 'swiper-pagination-vertical'
    */
   verticalClass?: string;
+
+  /**
+   * CSS class name added on swiper container and pagination element when pagination is disabled by breakpoint
+   *
+   * @default 'swiper-pagination-disabled'
+   */
+  paginationDisabledClass?: string;
 }

@@ -13,7 +13,8 @@ export default function Navigation({
       hideOnClick: false,
       disabledClass: 'swiper-button-disabled',
       hiddenClass: 'swiper-button-hidden',
-      lockClass: 'swiper-button-lock'
+      lockClass: 'swiper-button-lock',
+      navigationDisabledClass: 'swiper-navigation-disabled'
     }
   });
   swiper.navigation = {
@@ -57,20 +58,22 @@ export default function Navigation({
       $nextEl,
       $prevEl
     } = swiper.navigation;
-    toggleEl($prevEl, swiper.isBeginning);
-    toggleEl($nextEl, swiper.isEnd);
+    toggleEl($prevEl, swiper.isBeginning && !swiper.params.rewind);
+    toggleEl($nextEl, swiper.isEnd && !swiper.params.rewind);
   }
 
   function onPrevClick(e) {
     e.preventDefault();
-    if (swiper.isBeginning && !swiper.params.loop) return;
+    if (swiper.isBeginning && !swiper.params.loop && !swiper.params.rewind) return;
     swiper.slidePrev();
+    emit('navigationPrev');
   }
 
   function onNextClick(e) {
     e.preventDefault();
-    if (swiper.isEnd && !swiper.params.loop) return;
+    if (swiper.isEnd && !swiper.params.loop && !swiper.params.rewind) return;
     swiper.slideNext();
+    emit('navigationNext');
   }
 
   function init() {
@@ -122,8 +125,13 @@ export default function Navigation({
   }
 
   on('init', () => {
-    init();
-    update();
+    if (swiper.params.navigation.enabled === false) {
+      // eslint-disable-next-line
+      disable();
+    } else {
+      init();
+      update();
+    }
   });
   on('toEdge fromEdge lock unlock', () => {
     update();
@@ -177,7 +185,21 @@ export default function Navigation({
       }
     }
   });
+
+  const enable = () => {
+    swiper.$el.removeClass(swiper.params.navigation.navigationDisabledClass);
+    init();
+    update();
+  };
+
+  const disable = () => {
+    swiper.$el.addClass(swiper.params.navigation.navigationDisabledClass);
+    destroy();
+  };
+
   Object.assign(swiper.navigation, {
+    enable,
+    disable,
     update,
     init,
     destroy

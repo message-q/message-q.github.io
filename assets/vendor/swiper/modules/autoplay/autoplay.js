@@ -27,6 +27,12 @@ export default function Autoplay({
   });
 
   function run() {
+    if (!swiper.size) {
+      swiper.autoplay.running = false;
+      swiper.autoplay.paused = false;
+      return;
+    }
+
     const $activeSlideEl = swiper.slides.eq(swiper.activeIndex);
     let delay = swiper.params.autoplay.delay;
 
@@ -143,6 +149,7 @@ export default function Autoplay({
     if (swiper.params.autoplay.disableOnInteraction) {
       stop();
     } else {
+      emit('autoplayPause');
       pause();
     }
 
@@ -157,6 +164,7 @@ export default function Autoplay({
     }
 
     swiper.autoplay.paused = false;
+    emit('autoplayResume');
     run();
   }
 
@@ -216,6 +224,7 @@ export default function Autoplay({
   Object.assign(swiper.autoplay, {
     pause,
     run,
+    start,
     stop
   });
 }

@@ -1,3 +1,4 @@
+import $ from '../../shared/dom.js';
 export default function updateAutoHeight(speed) {
   const swiper = this;
   const activeSlides = [];
@@ -22,7 +23,7 @@ export default function updateAutoHeight(speed) {
 
   if (swiper.params.slidesPerView !== 'auto' && swiper.params.slidesPerView > 1) {
     if (swiper.params.centeredSlides) {
-      swiper.visibleSlides.each(slide => {
+      (swiper.visibleSlides || $([])).each(slide => {
         activeSlides.push(slide);
       });
     } else {
@@ -45,5 +46,5 @@ export default function updateAutoHeight(speed) {
   } // Update Height
 
 
-  if (newHeight) swiper.$wrapperEl.css('height', `${newHeight}px`);
+  if (newHeight || newHeight === 0) swiper.$wrapperEl.css('height', `${newHeight}px`);
 }
