@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mongrov | Contact - Take Control of Your Things Data</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Real-time streaming data collection, transformation, and management system that can collect data from millions of devices, lower your storage costs by 50x, supporting blazingly fast real-time query for AI and analytics.">
+    <meta name="keywords" content="IoT, Things, Thingz, Data Streaming, Asset management, Temperature, Devices, Intert of Things, Data lake, Data Ocean, Preventive maintenance">
+    <meta name="author" content="Mongrov">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#1685FF">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+  </head>
+
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+        <div class="container px-3">
+          <a href="index.html" class="navbar-brand pe-3">
+            <img src="assets/img/mong/logo.svg" width="140" alt="mongrov">
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Product</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="thingz.html" class="dropdown-item disabled">Thingz (Cloud Data Platform)</a></li>
+                    <li><a href="near_thingz.html" class="dropdown-item disabled">Near thingz (Edge)</a></li>
+                    <li><a href="thingz_app.html" class="dropdown-item disabled">Thingz app (super app)</a></li>
+                  </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Use cases</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="preventive_maintenance.html" class="dropdown-item disabled">Preventive maintenance</a></li>
+                    <li><a href="high_value.html" class="dropdown-item disabled">High value asset data management</a></li>
+                    <li><a href="temparature_control.html" class="dropdown-item disabled">Temparature control</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Partners</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="system_integrators.html" class="dropdown-item disabled">System Integrators</a></li>
+                    <li><a href="device_manaufacturers.html" class="dropdown-item disabled">Device Manaufacturers</a></li>
+                    <li><a href="technology_partners.html" class="dropdown-item disabled">Technology Partners</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Developers</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" class="dropdown-item disabled">Getting Started</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Documentation</a></li>
+                  </ul>
+                </li>
+
+              
+                <li class="nav-item">
+                  <a href="index.html#awards" class="nav-link">Awards</a>
+                </li>
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+              <a href="contact.html" class="btn btn-primary w-100 disabled" rel="noopener">
+                &nbsp;Contact Us
+              </a>
+            </div>      
+          </div>
+          <!-- <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+            <input type="checkbox" class="form-check-input" id="theme-mode">
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+          </div> -->
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="contact.html" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex disabled"  rel="noopener">
+            <!-- <i class="bx bx-phone fs-5 lh-1 me-1"></i> -->
+            &nbsp;Contact Us
+          </a>
+        </div>
+      </header>
+
+      <!-- Links + Contact form -->
+      <section class="position-relative bg-secondary pt-5">
+        <div class="container position-relative zindex-2 pt-5">
+
+          <!-- Breadcrumb -->
+          <nav class="pt-lg-4 pb-3 mb-2 mb-sm-3" aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item">
+                <a href="index.html"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Contact</li>
+            </ol>
+          </nav>
+
+          <div class="row">
+
+            <!-- Contact links -->
+            <div class="col-xl-4 col-lg-5 pb-4 pb-sm-5 mb-2 mb-sm-0">
+              <div class="pe-lg-4 pe-xl-0">
+                <h1 class="pb-3 pb-md-4 mb-lg-5">Contact Us</h1>
+                <div class="d-flex align-items-start pb-3 mb-sm-1 mb-md-3">
+                  <div class="bg-light text-primary rounded-circle flex-shrink-0 fs-3 lh-1 p-3">
+                    <i class="bx bxl-steam"></i>
+                  </div>
+                  <div class="ps-3 ps-sm-4">
+                    <h2 class="h4 pb-1 mb-2">Request Demo</h2>
+                    <p class="mb-2">Get a personalized demo with one of our experts.</p>
+                    <div class="btn btn-link btn-lg px-0" data-bs-toggle="modal" data-bs-target="#modalLarge">
+                      Request Demo
+                      <i class="bx bx-right-arrow-alt lead ms-2"></i>
+                    </div>
+                    
+                  </div>
+                </div>
+                <div class="d-flex align-items-start">
+                  <div class="bg-light text-primary rounded-circle flex-shrink-0 fs-3 lh-1 p-3">
+                  
+                    <i class='bx bxs-institution'></i>
+                  </div>
+                  <div class="ps-3 ps-sm-4">
+                    <h2 class="h4 pb-1 mb-2">Contact Info</h2>
+                    <ul class="list-unstyled pb-2 pb-lg-0 mb-4 mb-lg-5">
+                        <li class="d-flex pb-1 mb-2">
+                            
+                            +1 415 890 3925
+                          </li>
+                          <li class="d-flex mb-2">
+                           <a href="mailto:hello@mongrov.com" class="text-decoration-none">
+                            hello@mongrov.com</a>
+                          </li>
+                        <li class="d-flex pb-1 mt-2">
+                          3001 Bishop Drive, Suite 300<br> San Ramon, CA 94583.
+                        </li>
+                        
+                      </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact form -->
+            <div class="col-xl-6 col-lg-7 offset-xl-2">
+              <div class="card border-light shadow-lg py-3 p-sm-4 p-md-5">
+                <div class="bg-dark position-absolute top-0 start-0 w-100 h-100 rounded-3 d-none d-dark-mode-block"></div>
+                <div class="card-body position-relative zindex-2">
+                  <h2 class="card-title">Enquiry</h2>
+                  <p class="mb-4">Reach to us with your questions & comments.</p>
+                  <form action="https://formspree.io/f/mgedegzw" method="POST" class="row g-4 needs-validation" novalidate>
+                    <div class="col-12">
+                      <label for="fn" class="form-label fs-base">Full Name</label>
+                      <input type="text" name="Contact-name"  class="form-control form-control-lg" id="fn" required>
+                      <div class="invalid-feedback">Please enter your full name!</div>
+                    </div>
+                    <div class="col-12">
+                      <label for="email" class="form-label fs-base">Email address</label>
+                      <input type="email" name="Contact-email" class="form-control form-control-lg" id="email" required>
+                      <div class="invalid-feedback">Please provid a valid email address!</div>
+                    </div>
+                    <div class="col-12">
+                      <label for="specialist" class="form-label fs-base">Message</label>
+                      <textarea name="Message" rows="5" class="form-control" ></textarea>
+                    </div>
+                   
+                    <div class="col-12 pt-2 pt-sm-3">
+                      <button type="submit" class="btn btn-lg btn-primary w-100 w-sm-auto">Submit</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="position-absolute bottom-0 start-0 w-100 bg-light" style="height: 8rem;"></div>
+      </section>
+
+
+      <!-- Branches -->
+      <section class="container py-2 py-lg-4 py-xl-5 mb-2 mb-md-3" id="contact">
+        <div class="row py-5">
+          <div class="col-lg-12 mb-5 mb-lg-0">
+            <div class="d-flex flex-column h-100 shadow-sm rounded-3 overflow-hidden">
+              <iframe class="d-block h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.0913164633243!2d-121.96497512430768!3d37.764456971988096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808ff3a0f0820d4f%3A0x97970ea03acca10!2s3001%20Bishop%20Dr%20Suite%20300%2C%20San%20Ramon%2C%20CA%2094583%2C%20USA!5e0!3m2!1sen!2sin!4v1700042659583!5m2!1sen!2sin" style="border: 0; min-height: 500px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+
+         
+          
+        </div>
+      </section>
+    </main>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="footer pt-5 pb-4 pb-lg-5 mt-2 mt-md-0 border-top">
+      <div class="container pt-lg-4">
+        <div class="row pb-5">
+          <div class="col-lg-4 col-md-6">
+            <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+              <img src="assets/img/mong/logo.svg" width="120" alt="Mongrov">
+            </div>
+            <ul class="nav flex-column mb-0">
+              <li class="mb-1">
+                <a href="javascript:;" class="nav-link align-items-start fw-normal px-0 py-1">
+                  <i class="bx bx-map fs-5 text-primary me-2"></i>
+                  3001 Bishop Drive, Suite 300, San Ramon, CA 94583.
+                </a>
+              </li>
+              <li class="mb-1">
+                <a href="tel:4065550120" class="nav-link align-items-start fw-normal px-0 py-1">
+                  <i class="bx bx-phone-call fs-5 text-primary me-2"></i>
+                  +1 (415) 890 3925
+                </a>
+              </li>
+              <li>
+                <a href="mailto:hello@mongrov.com" class="nav-link align-items-start fw-normal px-0 py-1">
+                  <i class="bx bx-envelope fs-5 text-primary me-2"></i>
+                  hello@mongrov.com
+                </a>
+              </li>
+            </ul>
+
+            <div class="d-flex mt-lg-3">
+              <a href="#" class="btn btn-icon btn-secondary btn-linkedin ml-0 mr-2 disabled">
+                <i class="bx bxl-linkedin"></i>
+              </a>
+              <a href="#" class="btn btn-icon btn-secondary btn-twitter mx-2 disabled">
+                <i class="bx bxl-twitter"></i>
+              </a>
+              <a href="#" class="btn btn-icon btn-secondary btn-github disabled">
+                <i class="bx bxl-github"></i>
+              </a>
+            </div>
+            <div class="mt-lg-3">
+              <h6 class="mb-2">Compliances</h6>
+              <div class="row">
+                <div class="col">
+                  <img class="img-fluid" src="assets/img/mong/compliances.png" width="200">
+                </div>
+                
+              </div>
+            </div>
+
+          </div>
+          <div class="col-xl-7 col-lg-7 col-md-5 offset-md-1 pt-4 pt-md-1 pt-lg-0">
+            <div id="footer-links" class="row">
+              <div class="col-lg-4">
+                <h6 class="mb-2">Product</h6>
+                  <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                    <li class="nav-item"><a href="thingz.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Thingz (Cloud Data Platform)</a></li>
+                    <li class="nav-item"><a href="near_thingz.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Near thingz (Edge)</a></li>
+                    <li class="nav-item"><a href="thingz_app.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Thingz app (super app)</a></li>
+                  </ul>
+                  <h6 class="mb-2">Use cases</h6>
+                  <ul class="nav flex-column mb-2 mb-lg-0">
+                    <li class="nav-item"><a href="preventive_maintenance.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Preventive maintenance</a></li>
+                    <li class="nav-item"><a href="high_value.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">High value asset data management</a></li>
+                    <li class="nav-item"><a href="temparature_control.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Temparature control</a></li>
+                  </ul>
+              </div>
+              <div class="col-xl-4 col-lg-3">
+                <h6 class="mb-2">Partners</h6>
+                <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                    <li class="nav-item"><a href="system_integrators.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">System Integrators</a></li>
+                    <li class="nav-item"><a href="device_manaufacturers.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Device Manaufacturers</a></li>
+                    <li class="nav-item"><a href="technology_partners.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Technology Partners</a></li>
+                  </ul>
+
+                  <h6 class="mb-2">Developers</h6>
+                  <ul class="nav flex-column mb-2 mb-lg-0">
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Getting Started</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Documentation</a></li>
+                  </ul>
+              </div>
+              <div class="col-xl-4 col-lg-5 pt-2 pt-lg-0">
+                <h6 class="mb-2">Company</h6>
+                <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                  <li class="nav-item"><a href="about.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">About us</a></li>
+                  <li class="nav-item"><a href="contact.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Contact us</a></li>
+                  <li class="nav-item"><a href="https://wellfound.com/company/mongrov/jobs" target="_blank" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Careers</a></li>
+                  <li class="nav-item"><a href="https://medium.com/mongrov" target="_blank" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Blog</a></li>
+                </ul>
+                <ul class="nav flex-column mb-2 mb-lg-0">
+                  <li class="nav-item"><a href="terms.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+                  <li class="nav-item"><a href="privacy-policy.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+          &copy; 2023 Mongrov, Inc. All rights reserved. 
+          <!-- <a class="nav-link d-inline-block p-0" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a> -->
+
+        </p>
+      </div>
+    </footer>
+
+
+    <!-- Back to top button -->
+    <a href="#top" class="btn-scroll-top" data-scroll>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+    </a>
+
+    <!-- Large modal-->
+    <div class="modal fade" id="modalLarge" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header border-0 pb-0">
+           
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body pt-0">
+            <h3 class="modal-title">Request Demo</h3>
+            <p>Please fill out the form below and our sales team will get back to shortly</p>
+            <form action="https://formspree.io/f/moqrqglg" method="POST">
+              <div class="form-group mb-3">
+                <input type="text" class="form-control" name="Contact-name" placeholder="Name" required="">
+              </div>
+              <div class="form-group mb-3">
+                <input type="email" class="form-control" name="Contact-email" placeholder="Email" required="">
+              </div>
+              <div class="form-group mb-3">
+                <input type="text" class="form-control" name="Contact-number" placeholder="Phone (Optional)">
+              </div>
+              <div class="form-group mb-3">
+                <textarea name="Message" rows="5" class="form-control" placeholder="Type your message here" required=""></textarea>
+              </div>
+              
+              <button type="submit" class="btn btn-block btn-primary btn-loading" data-loading-text="Sending">
+                <span>Submit</span>
+              </button>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+  
+
+
+    <!-- Vendor Scripts -->
+    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="assets/vendor/cleave.js/dist/cleave.min.js"></script>
+
+    <!-- Main Theme Script -->
+    <script src="assets/js/theme.min.js"></script>
+  </body>
+</html>
