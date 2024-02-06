@@ -56,6 +56,7 @@
     filter: invert(1);
 }
 
+
 @media only screen and (max-width:1280px) {
     .hero-master {
         margin-top: 190px;
@@ -80,5 +81,10 @@
         max-width: 180px !important;
         left: -10px !important;
         top: 60% !important;
+    }
+
+    .header-center{
+        position: relative;
+        margin:auto;
     }
 }
