@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mongrov | Healthcare</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Real-time streaming data collection, transformation, and management system that can collect data from millions of devices, lower your storage costs by 50x, supporting blazingly fast real-time query for AI and analytics.">
+    <meta name="keywords" content="IoT, Things, Thingz, Data Streaming, Asset management, Temperature, Devices, Intert of Things, Data lake, Data Ocean, Preventive maintenance">
+    <meta name="author" content="Mongrov">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#6366f1">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+    <link rel="stylesheet" media="screen" href="assets/css/custom-style.css">
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+  </head>
+
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+        <div class="container px-3">
+          <a href="index.html" class="navbar-brand pe-3">
+            <img src="assets/img/mong/logo.svg" width="140" alt="mongrov">
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">What we do</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="thingz.html" class="dropdown-item">Thingz (Cloud Data Platform)</a></li>
+                        <li><a href="near-thingz.html" class="dropdown-item">Near Thingz (Edge)</a></li>
+                        <li><a href="thingz_app.html" class="dropdown-item disabled">Thingz App (super app)</a></li>
+                      </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Industries</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="preventive_maintenance.html" class="dropdown-item disabled">Healthcare</a></li>
+                      <li><a href="high_value.html" class="dropdown-item disabled">Infrastructures</a></li>
+                      <li><a href="temparature_control.html" class="dropdown-item disabled">Automobiles</a></li>
+                    </ul>
+                  </li>
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Who we are</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="system_integrators.html" class="dropdown-item disabled">Company's Story</a></li>
+                    <li><a href="device_manaufacturers.html" class="dropdown-item disabled">Awards</a></li>
+                    <li><a href="technology_partners.html" class="dropdown-item disabled">News Sections</a></li>
+                    <li><a href="technology_partners.html" class="dropdown-item disabled">Leaderships</a></li>
+                    <li><a href="technology_partners.html" class="dropdown-item disabled">Life at Mongrov</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Become our partner</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#" class="dropdown-item disabled">System Integrators</a></li>
+                      <li><a href="#" class="dropdown-item disabled">Device Manaufacturers</a></li>
+                      <li><a href="#" class="dropdown-item disabled">Technology Partners</a></li>
+                    </ul>
+                  </li>
+                
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insights</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#" class="dropdown-item disabled">Blogs</a></li>
+                      <li><a href="#" class="dropdown-item disabled">Case Studies</a></li>
+                      <li><a href="#" class="dropdown-item disabled">Customer Stories</a></li>
+                      <li><a href="#" class="dropdown-item disabled">Events</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Careers</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#" class="dropdown-item disabled">Job Listing</a></li>
+                    </ul>
+                  </li>
+               </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+                <a href="contact.html" class="btn btn-primary w-100" rel="noopener">
+                  &nbsp;Contact Us
+                </a>
+              </div>      
+          </div>
+          
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="https://themes.getbootstrap.com/product/silicon-business-technology-template-ui-kit/" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
+            <!-- <i class="bx bx-cart fs-5 lh-1 me-1"></i> -->
+            &nbsp;Contacct Us
+          </a>
+        </div>
+      </header>
+
+
+      <!-- Hero -->
+      <section class="overflow-hidden pt-5" style="background: radial-gradient(116.18% 118% at 50% 100%, rgba(99, 102, 241, 0.1) 0%, rgba(218, 70, 239, 0.05) 41.83%, rgba(241, 244, 253, 0.07) 82.52%);">
+        <div class="container pt-3 pt-sm-4 pt-xl-5">
+          <div class="row pt-md-2 pt-lg-5">
+            <div class="col-md-5 d-flex flex-column mt-md-4 pt-5 pb-3 pb-sm-4 py-md-5">
+              <h1 class="display-4 text-center text-md-start mb-4">Manage All Your Healthcare in One App</h1>
+              <p class="fs-lg text-center text-md-start pb-2 pb-md-3 mb-4 mb-lg-5">We offer you a new generation of the mobile banking.<br>Save, spend & manage money in your pocket.</p>
+              <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-md-start"></div>
+                  
+            </div>
+            <div class="col-md-7 align-self-end">
+              <div class="position-relative overflow-hidden mt-4 pb-3 pt-4 mx-auto me-md-0" style="max-width: 632px;">
+                <div class="ratio ratio-1x1"></div>
+                <img src="assets/img/landing/app-showcase/hero-phone-1.png" class="rellax position-absolute top-0 start-0 zindex-2"  data-rellax-speed="1.6" data-disable-parallax-down="md" alt="Phone">
+                <img src="assets/img/landing/app-showcase/hero-phone-2.png" class="rellax position-absolute top-0 start-0"  data-rellax-speed="2.8" data-disable-parallax-down="md" alt="Phone">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      
+
+
+      <!-- Features section -->
+      <section id="features" class="container pt-lg-2 pt-xl-3 pb-3 pb-xl-5 mt-n2 mt-sm-0 mb-2 mb-md-4 mb-lg-5">
+        <div class="container position-relative zindex-2 pt-5">
+            <h2 class="h1 my-4 pt-2 text-center position-relative py-5">Mongrov Healthcare</h2>
+            <div class="row row-cols-1 row-cols-md-2 pt-2 pt-md-3 pb-5 mb-md-2 mb-lg-4">
+              <div class="col mb-4">
+                <h2 class="h1 mb-0">User-friendly electric <span class="text-primary">scooter</span> designed exceptionally for <span class="text-primary">sharing</span></h2>
+              </div>
+              <div class="col">
+                <p class="fs-xl mb-0">With a seamless form and swanlike silhouette, our scooter is designed to change micro-mobility forever. We engineered every element around the comfort of our riders, putting the vehicle through rigorous testing to verify its safety and durability in all environments.</p>
+              </div>
+            </div>
+            <div class="position-relative bg-dark rounded-3 overflow-hidden px-5" style="padding-top: 9.7%; padding-bottom: 6%;">
+              <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(255,255,255, .04);"></div>
+              <div class="position-relative zindex-2 mx-auto" style="max-width: 852px;">
+                <h2 class="h1 text-center pb-4 pb-lg-5 text-white">Stay Organized &amp; Connected</h2>
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 col-sm-6 text-center pb-md-2 mb-3 mb-lg-4">
+                    <div class="d-inline-block bg-secondary rounded-circle p-3 mb-4">
+                      <img src="assets/img/landing/saas-1/features/chat.svg" width="32" alt="Icon">
+                    </div>
+                    <h3 class="h5 pb-1 mb-2 text-white">Task Comments</h3>
+                    <p class="fs-sm text-white">Id mollis consectetur congue egestas egestas suspendisse blandit justo.</p>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 text-center pb-md-2 mb-3 mb-lg-4">
+                    <div class="d-inline-block bg-secondary rounded-circle p-3 mb-4">
+                      <img src="assets/img/landing/saas-1/features/analytics.svg" width="32" alt="Icon">
+                    </div>
+                    <h3 class="h5 pb-1 mb-2 text-white">Tasks Analytics</h3>
+                    <p class="fs-sm text-white">Augue pulvinar justo, fermentum fames aliquamant accumsan vestibulum.</p>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 text-center pb-md-2 mb-3 mb-lg-4">
+                    <div class="d-inline-block bg-secondary rounded-circle p-3 mb-4">
+                      <img src="assets/img/landing/saas-1/features/bell.svg" width="32" alt="Icon">
+                    </div>
+                    <h3 class="h5 pb-1 mb-2 text-white">Notifications</h3>
+                    <p class="fs-sm text-white">Mattis urna ultricies non amet, purus in auctor non. Odio vulputate ac nibh.</p>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 text-center pb-md-2 mb-3 mb-lg-4">
+                    <div class="d-inline-block bg-secondary rounded-circle p-3 mb-4">
+                      <img src="assets/img/landing/saas-1/features/tasks.svg" width="32" alt="Ic`n">
+                    </div>
+                    <h3 class="h5 pb-1 mb-2 text-white">Sections &amp; Subtasks</h3>
+                    <p class="fs-sm text-white">A elementum, imperdiet enim, pretium etiam facilisi in aenean quam mauris.</p>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 text-center pb-md-2 mb-3 mb-lg-4">
+                    <div class="d-inline-block bg-secondary rounded-circle p-3 mb-4">
+                      <img src="assets/img/landing/saas-1/features/calendar.svg" width="32" alt="Icon">
+                    </div>
+                    <h3 class="h5 pb-1 mb-2 text-white">Progress Tracking</h3>
+                    <p class="fs-sm text-white">Sit facilisis dolor arcu, fermentum vestibulum arcu elementum imperdiet eleifend.</p>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 text-center pb-md-2 mb-3 mb-lg-4">
+                    <div class="d-inline-block bg-secondary rounded-circle p-3 mb-4">
+                      <img src="assets/img/landing/saas-1/features/add-group.svg" width="32" alt="Icon">
+                    </div>
+                    <h3 class="h5 pb-1 mb-2 text-white">Multiple Assignees</h3>
+                    <p class="fs-sm text-white">Faucibus cursus maecenas lorem cursus nibh. Sociis sit risus id. Sit facilisis dolor arcu.</p>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 text-center pb-md-2 mb-3 mb-lg-4">
+                    <div class="d-inline-block bg-secondary rounded-circle p-3 mb-4">
+                      <img src="assets/img/landing/saas-1/features/headset.svg" width="32" alt="Icon">
+                    </div>
+                    <h3 class="h5 pb-1 mb-2 text-white">Support 24/7</h3>
+                    <p class="fs-sm text-white">Sapien sed massa sit erat pellentesque pellentesque nisl, elementum.</p>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 text-center pb-md-2 mb-3 mb-lg-4">
+                    <div class="d-inline-block bg-secondary rounded-circle p-3 mb-4">
+                      <img src="assets/img/landing/saas-1/features/shield.svg" width="32" alt="Icon">
+                    </div>
+                    <h3 class="h5 pb-1 mb-2 text-white">Data Security</h3>
+                    <p class="fs-sm text-white">Aliquet felis facilisi sem nunc. Sapien fermentum, fringilla molestie lorem nec.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
+
+
+      <!-- Mangrov Healthcare Development Process -->
+      <section class="position-relative bg-secondary py-5">
+        <div class="container mt-3 pt-md-2 pt-lg-4 pb-2 pb-md-4 pb-lg-5">
+          <h2 class="h1 text-center pb-2 pb-md-0 mb-4 mb-md-5">Our IOT solution for Healthcare Domain</h2>
+          <div class="position-relative mx-5">
+
+            <!-- Slider prev/next buttons -->
+            <button type="button" id="prev-screen" class="btn btn-prev btn-icon position-absolute top-50 start-0 ms-n5 translate-middle-y">
+              <i class="bx bx-chevron-left"></i>
+            </button>
+            <button type="button" id="next-screen" class="btn btn-next btn-icon position-absolute top-50 end-0 me-n5 translate-middle-y">
+              <i class="bx bx-chevron-right"></i>
+            </button>
+
+           
+
+            <!-- Swiper slider -->
+            <div class="swiper mobile-app-slider" data-swiper-options='{
+              "slidesPerView": 1,
+              "centeredSlides": true,
+              "loop": true,
+              "tabs": true,
+              "pagination": {
+                "el": "#swiper-progress",
+                "type": "progressbar"
+              },
+              "navigation": {
+                "prevEl": "#prev-screen",
+                "nextEl": "#next-screen"
+              },
+              "breakpoints": {
+                "768": { "slidesPerView": 3 }
+              }
+            }'>
+              <div class="swiper-wrapper">
+                
+                 <!-- Steps -->
+                <div class="steps steps-sm steps-horizontal-md steps-center pb-5 mb-md-2 mb-lg-3">
+                  <div class="step">
+                    <div class="step-number">
+                      <div class="step-number-inner">1</div>
+                    </div>
+                    <div class="step-body">
+                      <h3 class="h4 mb-3">Planning</h3>
+                      <p class="mb-0">Massa enim libero dictumst consectetur in convallis lobortis</p>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">
+                      <div class="step-number-inner">2</div>
+                    </div>
+                    <div class="step-body">
+                      <h3 class="h4 mb-3">Designing</h3>
+                      <p class="mb-0">At ultricies id non quisque integer eget velit. Facilisis enim</p>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">
+                      <div class="step-number-inner">3</div>
+                    </div>
+                    <div class="step-body">
+                      <h3 class="h4 mb-3">Development</h3>
+                      <p class="mb-0">Pellentesque rhoncus viverra vestibulum, purus purus</p>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">
+                      <div class="step-number-inner">4</div>
+                    </div>
+                    <div class="step-body">
+                      <h3 class="h4 mb-3">Testing</h3>
+                      <p class="mb-0">Massa enim libero dictumst consectetur in convallis lobortis</p>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">
+                      <div class="step-number-inner">5</div>
+                    </div>
+                    <div class="step-body">
+                      <h3 class="h4 mb-3">Deployment</h3>
+                      <p class="mb-0">Massa enim libero dictumst consectetur in convallis lobortis</p>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">
+                      <div class="step-number-inner">6</div>
+                    </div>
+                    <div class="step-body">
+                      <h3 class="h4 mb-3">support & Maintanancec</h3>
+                      <p class="mb-0">Massa enim libero dictumst consectetur in convallis lobortis</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <!-- <div class="swiper-slide" data-swiper-tab="#text-1">
+                  <img src="assets/img/landing/app-showcase/screens/01.png" class="d-block mx-auto" width="328" alt="Screen">
+                </div> -->
+
+                <!-- Item -->
+                <!-- <div class="swiper-slide" data-swiper-tab="#text-2">
+                  <img src="assets/img/landing/app-showcase/screens/02.png" class="d-block mx-auto" width="328" alt="Screen">
+                </div> -->
+
+                <!-- Item -->
+                <!-- <div class="swiper-slide" data-swiper-tab="#text-3">
+                  <img src="assets/img/landing/app-showcase/screens/03.png" class="d-block mx-auto" width="328" alt="Screen">
+                </div> -->
+
+                <!-- Item -->
+                <!-- <div class="swiper-slide" data-swiper-tab="#text-4">
+                  <img src="assets/img/landing/app-showcase/screens/04.png" class="d-block mx-auto" width="328" alt="Screen">
+                </div> -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Slider progress -->
+        <div id="swiper-progress" class="swiper-pagination bottom-0" style="top: auto;"></div>
+      </section>
+
+
+      <!-- Fetures -->
+      <section class="container pt-5 pb-2 pb-md-3 py-lg-5">
+        <div class="row align-items-center my-3 py-md-3 py-lg-5">
+          <div class="col-md-6 col-xl-5 offset-lg-1 offset-xl-2 order-md-2 mb-2 mb-md-0 pb-4 pb-md-0">
+            <div class="position-relative mx-auto mx-md-0" style="max-width: 469px;">
+              <img src="assets/img/landing/app-showcase/features/screen01.png" class="rellax d-block" alt="Screen" data-rellax-percentage="0.5" data-rellax-speed="-0.5" data-disable-parallax-down="md">
+              <div class="rellax position-absolute top-0 end-0 w-100 h-100" data-rellax-percentage="0.5" data-rellax-speed="0.75" data-disable-parallax-down="md">
+                <img src="assets/img/landing/app-showcase/features/screen02.png" alt="Screen">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-5 col-xl-4 offset-xl-1 order-md-1 pb-md-4">
+            <h2 class="pb-3">Make your money transfer simple and clear</h2>
+            <ul class="list-unstyled pb-3 mb-3">
+              <li class="d-flex align-items-center mb-2">
+                <i class="bx bx-check-circle fs-xl text-primary me-2"></i>
+                Banking transactions are free for you
+              </li>
+              <li class="d-flex align-items-center mb-2">
+                <i class="bx bx-check-circle fs-xl text-primary me-2"></i>
+                No monthly cash commission
+              </li>
+              <li class="d-flex align-items-center mb-2">
+                <i class="bx bx-check-circle fs-xl text-primary me-2"></i>
+                Manage payments and transactions online
+              </li>
+            </ul>
+            <a href="#" class="btn btn-primary">
+              Learn more
+              <i class="bx bx-right-arrow-alt fs-xl ms-2 me-n1"></i>
+            </a>
+          </div>
+        </div>
+        <div class="row align-items-center mt-2 mt-md-0 pt-5 pt-md-4 pt-lg-0 pb-md-3 pb-lg-5">
+          <div class="col-md-6 col-lg-5 offset-xl-1 mb-2 mb-md-0 pb-4 pb-md-0">
+            <div class="position-relative mx-auto mx-md-0" style="max-width: 462px;">
+              <img src="assets/img/landing/app-showcase/features/screen03.png" class="rellax d-block" alt="Screen" data-rellax-percentage="0.5" data-rellax-speed="-0.5" data-disable-parallax-down="md">
+              <div class="rellax position-absolute top-0 end-0 w-100 h-100 me-md-n3" data-rellax-percentage="0.5" data-rellax-speed="0.75" data-disable-parallax-down="md">
+                <img src="assets/img/landing/app-showcase/features/screen04.png" alt="Screen">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-5 offset-lg-1">
+            <h2 class="pb-3">Receive payment from international bank details</h2>
+            <div class="row row-cols-1 row-cols-sm-2 text-start pb-3">
+              <div class="col pb-4">
+                <div class="d-table bg-secondary rounded-3 flex-shrink-0 p-3 mb-3">
+                  <img src="assets/img/landing/app-showcase/features/payments.svg" alt="Easy Payments">
+                </div>
+                <p class="mb-0">Manage your payments online. Mollis congue egestas egestas fermentum fames.</p>
+              </div>
+              <div class="col pb-4">
+                <div class="d-table bg-secondary rounded-3 flex-shrink-0 p-3 mb-3">
+                  <img src="assets/img/landing/app-showcase/features/cashback.svg" alt="Regular Cashback">
+                </div>
+                <p class="mb-0">A elementur and imperdiet enim, pretium etiam facilisi aenean quam mauris.</p>
+              </div>
+            </div>
+            <a href="#" class="btn btn-primary">
+              Learn more
+              <i class="bx bx-right-arrow-alt fs-xl ms-2 me-n1"></i>
+            </a>
+          </div>
+        </div>
+        <!-- Extra spacing for dark mode only -->
+        <div class="pt-5 d-none d-dark-mode-block"></div>
+      </section>
+
+
+      <!-- Testimonials -->
+      <section class="py-5 mb-md-2" style="background: radial-gradient(116.18% 118% at 50% 100%, rgba(99, 102, 241, 0.1) 0%, rgba(218, 70, 239, 0.05) 41.83%, rgba(241, 244, 253, 0.07) 82.52%);">
+        <div class="container py-lg-4">
+          <div class="row py-md-3">
+            <div class="col-xl-3 col-lg-4 pt-2">
+              <h2 class="h1 text-center text-lg-start pb-2">Clients are Loving Our App</h2>
+              
+              <!-- Slider prev/next buttons -->
+              <div class="d-flex justify-content-center justify-content-lg-start pt-lg-5">
+                <button type="button" id="prev-review" class="btn btn-prev btn-icon btn-sm me-3">
+                  <i class="bx bx-chevron-left"></i>
+                </button>
+                <button type="button" id="next-review" class="btn btn-next btn-icon btn-sm">
+                  <i class="bx bx-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+            <div class="col-lg-8 offset-xl-1 pt-4 mt-2 mt-md-3 mt-lg-0 pt-lg-0">
+              <div class="px-2 px-sm-0">
+                <div class="swiper mx-n2" data-swiper-options='{
+                  "slidesPerView": 1,
+                  "spaceBetween": 8,
+                  "navigation": {
+                    "prevEl": "#prev-review",
+                    "nextEl": "#next-review"
+                  },
+                  "loop": true,
+                  "breakpoints": {
+                    "600": { "slidesPerView": 2 }
+                  }
+                }'>
+                  <div class="swiper-wrapper">
+      
+                    <!-- Item -->
+                    <div class="swiper-slide h-auto pt-4 pb-3 px-2">
+                      <div class="d-flex flex-column h-100 px-2 px-sm-0 mb-0">
+                        <div class="card h-100 position-relative border-0 shadow-sm pt-4">
+                          <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
+                            <i class="bx bxs-quote-left"></i>
+                          </span>
+                          <blockquote class="card-body pb-4 mb-0">
+                            <div class="text-nowrap pt-1 mb-3">
+                              <i class="bx bxs-star text-warning"></i>
+                              <i class="bx bxs-star text-warning"></i>
+                              <i class="bx bxs-star text-warning"></i>
+                              <i class="bx bx-star text-muted opacity-75"></i>
+                              <i class="bx bx-star text-muted opacity-75"></i>
+                            </div>
+                            <p class="fs-lg mb-0">Sit pretium aliquam tempor, orci dolor sed maecenas rutrum sagittis. Laoreet posuere rhoncus, egestas lacus, egestas justo aliquam vel. Nisi vitae lectus hac hendrerit. Montes justo turpis sit amet.</p>
+                          </blockquote>
+                          <div class="card-footer d-flex align-items-center border-0 pt-0">
+                            <img src="assets/img/avatar/42.png" width="48" class="rounded-circle ms-n1" alt="Fannie Summers">
+                            <div class="ps-2 ms-1">
+                              <h6 class="fs-base fw-semibold mb-0">Fannie Summers</h6>
+                              <span class="fs-sm text-muted">Designer</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+      
+                    <!-- Item -->
+                    <div class="swiper-slide h-auto pb-3 px-2 pt-4">
+                      <div class="d-flex flex-column h-100 px-2 px-sm-0 mb-0">
+                        <div class="card h-100 position-relative border-0 shadow-sm pt-4">
+                          <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
+                            <i class="bx bxs-quote-left"></i>
+                          </span>
+                          <blockquote class="card-body pb-4 mb-0">
+                            <div class="text-nowrap pt-1 mb-3">
+                              <i class="bx bxs-star text-warning"></i>
+                              <i class="bx bxs-star text-warning"></i>
+                              <i class="bx bxs-star text-warning"></i>
+                              <i class="bx bxs-star text-warning"></i>
+                              <i class="bx bxs-star text-warning"></i>
+                            </div>
+                            <p class="fs-lg mb-0">Nunc senectus leo vel venenatis accumsan vestibulum sollicitudin amet porttitor. Nisl bibendum nulla tincidunt eu enim ornare dictumst sit amet. Dictum pretium dolor tincidunt egestas eget nunc.</p>
+                          </blockquote>
+                          <div class="card-footer d-flex align-items-center border-0 pt-0">
+                            <img src="assets/img/avatar/43.png" width="48" class="rounded-circle ms-n1" alt="Robert Fox">
+                            <div class="ps-2 ms-1">
+                              <h6 class="fs-base fw-semibold mb-0">Robert Fox</h6>
+                              <span class="fs-sm text-muted">QA Engineer</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+      
+                    <!-- Item -->
+                    <div class="swiper-slide h-auto pb-3 px-2 pt-4">
+                      <div class="d-flex flex-column h-100 px-2 px-sm-0 mb-0">
+                        <div class="card h-100 position-relative border-0 shadow-sm pt-4">
+                          <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
+                            <i class="bx bxs-quote-left"></i>
+                          </span>
+                          <blockquote class="card-body pb-4 mb-0">
+                            <div class="text-nowrap pt-1 mb-3">
+                              <i class="bx bxs-star text-warning"></i>
+                              <i class="bx bxs-star text-warning"></i>
+                              <i class="bx bxs-star text-warning"></i>
+                              <i class="bx bxs-star text-warning"></i>
+                              <i class="bx bx-star text-muted opacity-75"></i>
+                            </div>
+                            <p class="fs-lg mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum odio, bibendum ornare mi at, efficitur urna. Sit pretium aliquam tempor, orci dolor sed maecenas.</p>
+                          </blockquote>
+                          <div class="card-footer d-flex align-items-center border-0 pt-0">
+                            <img src="assets/img/avatar/44.png" width="48" class="rounded-circle ms-n1" alt="Annette Black">
+                            <div class="ps-2 ms-1">
+                              <h6 class="fs-base fw-semibold mb-0">Annette Black</h6>
+                              <span class="fs-sm text-muted">Project Manager</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+      
+                    <!-- Item -->
+                    <div class="swiper-slide h-auto pb-3 px-2 pt-4">
+                      <div class="d-flex flex-column h-100 px-2 px-sm-0 mb-0">
+                        <div class="card h-100 position-relative border-0 shadow-sm pt-4">
+                          <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
+                            <i class="bx bxs-quote-left"></i>
+                          </span>
+                          <blockquote class="card-body pb-4 mb-0">
+                            <div class="text-nowrap pt-1 mb-3">
+                              <i class="bx bxs-star text-warning"></i>
+                              <i class="bx bxs-star text-warning"></i>
+                              <i class="bx bxs-star text-warning"></i>
+                              <i class="bx bxs-star text-warning"></i>
+                              <i class="bx bxs-star text-warning"></i>
+                            </div>
+                            <p class="fs-lg mb-0">Etiam augue ante, imperdiet et nunc sed, bibendum faucibus est. Suspendisse egestas facilisis erat eu eleifend. Pellentesque finibus congue egestas egestas suspendisse blandit justo.</p>
+                          </blockquote>
+                          <div class="card-footer d-flex align-items-center border-0 pt-0">
+                            <img src="assets/img/avatar/45.png" width="48" class="rounded-circle ms-n1" alt="Jerome Bell">
+                            <div class="ps-2 ms-1">
+                              <h6 class="fs-base fw-semibold mb-0">Jerome Bell</h6>
+                              <span class="fs-sm text-muted">Developer</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- FAQ -->
+      <section class="container py-5 mb-lg-2">
+        <div class="row py-2 py-md-4 py-lg-5">
+          <div class="col-xl-4 col-md-5 text-center text-md-start pt-md-2 pb-2 pb-md-0 mb-4 mb-md-0">
+            <h2 class="pb-3 mb-1 mb-lg-3">Any questions? <br class="d-none d-md-inline">Check out the FAQs</h2>
+            <p class="fs-lg pb-3 mb-2 mb-lg-3">Still have unanswered questions and need to get in touch?</p>
+            <div class="row row-cols-1 row-cols-sm-2 g-3 g-sm-4">
+              <div class="col">
+                <div class="card card-hover">
+                  <div class="card-body pb-3">
+                    <i class="bx bxs-phone-call d-block fs-2 text-primary mb-2 py-1"></i>
+                    <p class="fs-sm mb-2">Still have  questions?</p>
+                    <a href="#" class="btn btn-link stretched-link px-0">
+                      Call us
+                      <i class="bx bx-right-arrow-alt fs-xl ms-2"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card card-hover">
+                  <div class="card-body pb-3">
+                    <i class="bx bx-message-rounded-dots d-block fs-2 text-success mb-2 py-1"></i>
+                    <p class="fs-sm mb-2">Still have  questions?</p>
+                    <a href="#" class="btn btn-link text-success stretched-link px-0">
+                      Chat with us
+                      <i class="bx bx-right-arrow-alt fs-xl ms-2"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7 offset-xl-1">
+            <div class="accordion" id="faq">
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h2 class="accordion-header" id="q1-heading">
+                  <button class="accordion-button shadow-none rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#q1" aria-expanded="true" aria-controls="q1">
+                    Is any of my personal information stored in the App?
+                  </button>
+                </h2>
+                <div id="q1" class="accordion-collapse collapse show" aria-labelledby="q1-heading" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>Nunc duis id aenean gravida tincidunt eu, tempor ullamcorper. Viverra aliquam arcu, viverra et, cursus. Aliquet pretium cursus adipiscing gravida et consequat lobortis arcu velit. Nibh pharetra fermentum duis accumsan lectus non. Massa cursus molestie lorem scelerisque pellentesque. Nisi, enim, arcu purus gravida adipiscing euismod montes, duis egestas. Vehicula eu etiam quam tristique tincidunt suspendisse ut consequat.</p>
+                    <p class="mb-0">Ornare senectus fusce dignissim ut. Integer consequat in eu tortor, faucibus et lacinia posuere. Turpis sit viverra lorem suspendisse lacus aliquam auctor vulputate. Quis egestas aliquam nunc purus lacus, elit leo elit facilisi. Dignissim amet adipiscing massa integer.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h2 class="accordion-header" id="q2-heading">
+                  <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2" aria-expanded="false" aria-controls="q2">
+                    What formats can I download my transaction history in?
+                  </button>
+                </h2>
+                <div id="q2" class="accordion-collapse collapse" aria-labelledby="q2-heading" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>Nunc duis id aenean gravida tincidunt eu, tempor ullamcorper. Viverra aliquam arcu, viverra et, cursus. Aliquet pretium cursus adipiscing gravida et consequat lobortis arcu velit. Nibh pharetra fermentum duis accumsan lectus non. Massa cursus molestie lorem scelerisque pellentesque. Nisi, enim, arcu purus gravida adipiscing euismod montes, duis egestas. Vehicula eu etiam quam tristique tincidunt suspendisse ut consequat.</p>
+                    <p class="mb-0">Ornare senectus fusce dignissim ut. Integer consequat in eu tortor, faucibus et lacinia posuere. Turpis sit viverra lorem suspendisse lacus aliquam auctor vulputate. Quis egestas aliquam nunc purus lacus, elit leo elit facilisi. Dignissim amet adipiscing massa integer.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h2 class="accordion-header" id="q3-heading">
+                  <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3" aria-expanded="false" aria-controls="q3">
+                    Can I schedule future transfers?
+                  </button>
+                </h2>
+                <div id="q3" class="accordion-collapse collapse" aria-labelledby="q3-heading" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>Nunc duis id aenean gravida tincidunt eu, tempor ullamcorper. Viverra aliquam arcu, viverra et, cursus. Aliquet pretium cursus adipiscing gravida et consequat lobortis arcu velit. Nibh pharetra fermentum duis accumsan lectus non. Massa cursus molestie lorem scelerisque pellentesque. Nisi, enim, arcu purus gravida adipiscing euismod montes, duis egestas. Vehicula eu etiam quam tristique tincidunt suspendisse ut consequat.</p>
+                    <p class="mb-0">Ornare senectus fusce dignissim ut. Integer consequat in eu tortor, faucibus et lacinia posuere. Turpis sit viverra lorem suspendisse lacus aliquam auctor vulputate. Quis egestas aliquam nunc purus lacus, elit leo elit facilisi. Dignissim amet adipiscing massa integer.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h2 class="accordion-header" id="q4-heading">
+                  <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4" aria-expanded="false" aria-controls="q4">
+                    When can I use Banking App services?
+                  </button>
+                </h2>
+                <div id="q4" class="accordion-collapse collapse" aria-labelledby="q4-heading" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>Nunc duis id aenean gravida tincidunt eu, tempor ullamcorper. Viverra aliquam arcu, viverra et, cursus. Aliquet pretium cursus adipiscing gravida et consequat lobortis arcu velit. Nibh pharetra fermentum duis accumsan lectus non. Massa cursus molestie lorem scelerisque pellentesque. Nisi, enim, arcu purus gravida adipiscing euismod montes, duis egestas. Vehicula eu etiam quam tristique tincidunt suspendisse ut consequat.</p>
+                    <p class="mb-0">Ornare senectus fusce dignissim ut. Integer consequat in eu tortor, faucibus et lacinia posuere. Turpis sit viverra lorem suspendisse lacus aliquam auctor vulputate. Quis egestas aliquam nunc purus lacus, elit leo elit facilisi. Dignissim amet adipiscing massa integer.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h2 class="accordion-header" id="q5-heading">
+                  <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5" aria-expanded="false" aria-controls="q5">
+                    Can I create my own password that is easy for me to remember?
+                  </button>
+                </h2>
+                <div id="q5" class="accordion-collapse collapse" aria-labelledby="q5-heading" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>Nunc duis id aenean gravida tincidunt eu, tempor ullamcorper. Viverra aliquam arcu, viverra et, cursus. Aliquet pretium cursus adipiscing gravida et consequat lobortis arcu velit. Nibh pharetra fermentum duis accumsan lectus non. Massa cursus molestie lorem scelerisque pellentesque. Nisi, enim, arcu purus gravida adipiscing euismod montes, duis egestas. Vehicula eu etiam quam tristique tincidunt suspendisse ut consequat.</p>
+                    <p class="mb-0">Ornare senectus fusce dignissim ut. Integer consequat in eu tortor, faucibus et lacinia posuere. Turpis sit viverra lorem suspendisse lacus aliquam auctor vulputate. Quis egestas aliquam nunc purus lacus, elit leo elit facilisi. Dignissim amet adipiscing massa integer.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item border-0 rounded-3 shadow-sm">
+                <h2 class="accordion-header" id="q6-heading">
+                  <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6" aria-expanded="false" aria-controls="q6">
+                    What happens if I forget or lose my password?
+                  </button>
+                </h2>
+                <div id="q6" class="accordion-collapse collapse" aria-labelledby="q6-heading" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>Nunc duis id aenean gravida tincidunt eu, tempor ullamcorper. Viverra aliquam arcu, viverra et, cursus. Aliquet pretium cursus adipiscing gravida et consequat lobortis arcu velit. Nibh pharetra fermentum duis accumsan lectus non. Massa cursus molestie lorem scelerisque pellentesque. Nisi, enim, arcu purus gravida adipiscing euismod montes, duis egestas. Vehicula eu etiam quam tristique tincidunt suspendisse ut consequat.</p>
+                    <p class="mb-0">Ornare senectus fusce dignissim ut. Integer consequat in eu tortor, faucibus et lacinia posuere. Turpis sit viverra lorem suspendisse lacus aliquam auctor vulputate. Quis egestas aliquam nunc purus lacus, elit leo elit facilisi. Dignissim amet adipiscing massa integer.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Subscription CTA -->
+      <section class="container">
+        <div class="bg-secondary rounded-3 py-5 px-3 px-sm-4 px-lg-5 px-xl-0">
+          <div class="row align-items-center py-lg-4">
+            <div class="col-xl-5 col-md-6 offset-xl-1 mb-4 mb-md-0">
+              <div class="d-flex align-items-center">
+                <img src="assets/img/landing/app-showcase/notification-icon.svg" width="78" alt="Bell icon">
+                <div class="ps-3 ms-sm-3">
+                  <h2 class="h4 mb-0">Subscribe to our newsletter to stay informed about latest updates</h2>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-5 col-md-6">
+              <div class="ps-lg-5 ms-xl-2">
+                <form class="input-group input-group-lg needs-validation" novalidate>
+                  <input type="email" id="subscr-email" class="form-control rounded-start ps-5" placeholder="Your email" required>
+                  <i class="bx bx-envelope fs-xl text-muted position-absolute top-50 start-0 translate-middle-y ms-3 zindex-5"></i>
+                  <div class="invalid-tooltip position-absolute top-100 start-0">Please provide a valid email address.</div>
+                  <button type="submit" class="btn btn-primary px-sm-4">Subscribe</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer pt-5 pb-4 pb-lg-5">
+      <div class="container text-center pt-lg-3">
+        <div class="navbar-brand justify-content-center text-dark mb-2 mb-lg-4">
+          <img src="assets/img/logo.svg" class="me-2" width="60" alt="Silicon">
+          <span class="fs-4">Silicon</span>
+        </div>
+        <ul class="nav justify-content-center pt-3 pb-4 pb-lg-5">
+          <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Overview</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Contacts</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Account</a></li>
+        </ul>
+        <div class="d-flex flex-column flex-sm-row justify-content-center">
+          <a href="#" class="btn btn-dark btn-lg px-3 py-2 me-sm-4 mb-3">
+            <img src="assets/img/market/appstore-light.svg" class="light-mode-img" width="124" alt="App Store">
+            <img src="assets/img/market/appstore-dark.svg" class="dark-mode-img" width="124" alt="App Store">
+          </a>
+          <a href="#" class="btn btn-dark btn-lg px-3 py-2 mb-3">
+            <img src="assets/img/market/googleplay-light.svg" class="light-mode-img" width="139" alt="Google Play">
+            <img src="assets/img/market/googleplay-dark.svg" class="dark-mode-img" width="139" alt="Google Play">
+          </a>
+        </div>
+        <div class="d-flex justify-content-center pt-4 mt-lg-3">
+          <a href="#" class="btn btn-icon btn-secondary btn-facebook mx-2">
+            <i class="bx bxl-facebook"></i>
+          </a>
+          <a href="#" class="btn btn-icon btn-secondary btn-instagram mx-2">
+            <i class="bx bxl-instagram"></i>
+          </a>
+          <a href="#" class="btn btn-icon btn-secondary btn-twitter mx-2">
+            <i class="bx bxl-twitter"></i>
+          </a>
+          <a href="#" class="btn btn-icon btn-secondary btn-youtube mx-2">
+            <i class="bx bxl-youtube"></i>
+          </a>
+        </div>
+        <p class="nav d-block fs-sm text-center pt-5 mt-lg-4 mb-0">
+          <span class="opacity-80">&copy; All rights reserved. Made by </span>
+          <a class="nav-link d-inline-block p-0" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a>
+        </p>
+      </div>
+    </footer>
+
+
+    <!-- Back to top button -->
+    <a href="#top" class="btn-scroll-top" data-scroll>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+    </a>
+
+
+    <!-- Vendor Scripts -->
+    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="assets/vendor/rellax/rellax.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main Theme Script -->
+    <script src="assets/js/theme.min.js"></script>
+  </body>
+</html>
