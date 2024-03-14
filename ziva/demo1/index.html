@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ziva - Coming Soon</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section>
+        <div class="container">
+            <a href="javascript:;">
+                <img src="images/logo.svg" width="100" class="logo">
+            </a>
+        </div>
+    </section>
+    <section class="counter-sec">
+        <div class="container counter">
+            <div class="countdown">
+                <h5>#underconstruction</h5>
+                <h1>Coming Soon</h1>
+                <ul>
+                    <li><span id="days"></span> <span class="countername">days</span> </li>
+                    <li><span id="hours"></span><span class="countername">hours</span></li>
+                    <li><span id="minutes"></span><span class="countername">minutes</span></li>
+                    <li><span id="seconds"></span><span class="countername">seconds</span></li>
+                </ul>
+
+                <div class="form">
+                    <input type="text" name="email" value="" size="40" class="" aria-invalid="false" placeholder="Your E-mail">
+
+                    <button class="button-style1" type="submit"><i class="pointers-right-arrow"></i><span>Get Notified</span></button>
+                </div>
+            </div>
+            <div class="ring">
+                <img src="images/ring.jpg" width="300">
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const second = 1000,
+      minute = second * 60,
+      hour = minute * 60,
+      day = hour * 24;
+
+let countDown = new Date('April 10, 2024 10:00:00').getTime(),
+    x = setInterval(function() {
+
+      let now = new Date().getTime(),
+          distance = countDown - now;
+
+      document.getElementById('days').innerText = Math.floor(distance / (day)),
+        document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+        document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+        document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+      
+    }, second)
+    </script>
+</body>
+</html>
