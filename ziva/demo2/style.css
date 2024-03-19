@@ -29,7 +29,10 @@ a:hover {
 #body-wrap .col-4 {
     width: 30%;
     height: 100vh;
-    overflow: hidden;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 .main-content {
     color: #fff;
@@ -134,7 +137,30 @@ input::placeholder{
     align-items: center;
 }
 img.sideimg {
-    max-width: 100%;
+    max-width: 80%;
+    position: absolute;
+    left: -15%;
+    z-index: 99999;
+    overflow: visible;
+}
+.right-cont {
+    background: #744CEB;
+}
+.movingY {
+    -webkit-animation: movingY 8s linear infinite;
+    animation: movingY 5s linear infinite;
+}
+
+@keyframes movingY {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(40px);
+	}
+	100% {
+		transform: translateY(0);
+	}
 }
 
 
@@ -147,45 +173,49 @@ img.sideimg {
 	    margin-left: -48px;
 	    z-index: -1;
 	}	
- }
-
-@media (max-width: 599px) {
-	#body-wrap .col-8 {
-	    width: 100%;
-	}
-	.container {
-		width: 100%;
-	}
-	#body-wrap .page-title {
-	    width: 98%;
-	}
-	#body-wrap .col-4 {
-	    width: 100%;
-	    margin-left: -438px;
-	    opacity: 0.1;
-	}
- }
-
-@media (max-width: 540px) {
-	.container {
-    	padding-right: 30px;
-	    padding-left: 30px;
+	img.sideimg {
+		left: 10%;
 	}
 	.main-content h1 {
-	    font-size: 2.4em;
+		font-size: 2em;
+	}
+ }
+
+@media (max-width: 768px) {
+	#body-wrap .col-8 {
+		width: 100%;
+		height: 100vh;
+	}
+	
+	#body-wrap .col-4 {
+		display: none;
+	}
+	
+ }
+
+@media (max-width: 640px) {
+	.main.container {
+		width: auto;
+		padding: 20px;
 	}
 	#form .form-group {
-	    flex-wrap: wrap;
+		display: block;
 	}
 	.form-group input.form-control {
-	    width: 100%;
-	    margin-bottom: 10px;
-        background: #e4edf7;
+		width: 94%;
+		border-radius: 10px;
 	}
 	.form-group button.submit-button {
-	    width: 100%;
+		width: 100%;
+		border-radius: 10px;
+		margin-top: 10px;
 	}
-	#body-wrap .col-4 {
-	    margin-left: -108px;
+ }
+
+
+
+ @media (max-width: 640px) {
+	#countdown-clock .time {
+		padding: 6px;
 	}
  }

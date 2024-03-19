@@ -40,35 +40,38 @@
 
 							<div id="countdown-clock">
 								<div class="time">
-									<span class="days"></span>
+									<span class="days" id="days"></span>
 									<small>Days</small>
 								</div>
 								<div class="time">
-									<span class="hours"></span>
+									<span class="hours" id="hours"></span>
 									<small>Hours</small>
 								</div>
 								<div class="time">
-									<span class="minutes"></span>
+									<span class="minutes" id="minutes"></span>
 									<small>Minutes</small>
 								</div>
 								<div class="time">
-									<span class="seconds"></span>
+									<span class="seconds"  id="seconds"></span>
 									<small>Seconds</small>
 								</div>
 							</div>
-
 						</div><!--page-title-->
 
-						<form id="form">
+						<form id="form" action="https://formspree.io/f/xayrdejq" method="POST">
 
 							<p>Get notified when we launched our website</p>
 
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Your email address">
-								<button type="button" class="submit-button"><i class="icon icon-envelope"></i><span>Notify Me</span></button>
+							<div class="form-group" >
+								<input type="email" class="form-control" placeholder="Your email address" name="Subscriber's email">
+								<button type="submit" class="submit-button"><i class="icon icon-envelope"></i><span>Notify Me</span></button>
 							</div>
 
+							
+
 						</form>
+
+						
 
 					</div><!--main-content-->
 
@@ -76,7 +79,7 @@
 
 
 						<div class="copyright">
-							<p>Copyright &copy; <a href="#" target="_blank">ziva</a> 2024.</p>
+							<p>Copyright &copy; <a href="javascript:;" target="_blank">ziva</a> 2024.</p>
 							
 						</div>
 
@@ -85,57 +88,34 @@
 				</div>
 			</div><!--col-8-->
 
-			<div class="col-4">
-				<img src="images/sideimg.jpg" alt="wallpaper" class="sideimg">
+			<div class="col-4 right-cont">
+				<img src="images/phone-ring.png" alt="wallpaper" class="sideimg movingY">
 			</div>		
 		</div><!--row-->
 
 	</div><!--body-wrap-->
 
 
-<script type="text/javascript">
-	function getTimeRemaining(endtime) {
-		const total = Date.parse(endtime) - Date.parse(new Date());
-		const seconds = Math.floor((total / 1000) % 60);
-		const minutes = Math.floor((total / 1000 / 60) % 60);
-		const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
-		const days = Math.floor(total / (1000 * 60 * 60 * 24));
+<!-- Counter  -->
 
-	return {
-	total,
-	days,
-	hours,
-	minutes,
-	seconds
-	};
-	}
+<script>
+	const second = 1000,
+  minute = second * 60,
+  hour = minute * 60,
+  day = hour * 24;
 
-	function initializeClock(id, endtime) {
-		const clock = document.getElementById(id);
-		const daysSpan = clock.querySelector('.days');
-		const hoursSpan = clock.querySelector('.hours');
-		const minutesSpan = clock.querySelector('.minutes');
-		const secondsSpan = clock.querySelector('.seconds');
+let countDown = new Date('April 10, 2024 10:00:00').getTime(),
+x = setInterval(function() {
 
-	function updateClock() {
-	const t = getTimeRemaining(endtime);
+  let now = new Date().getTime(),
+	  distance = countDown - now;
 
-	daysSpan.innerHTML = t.days;
-	hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-	minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-	secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-	if (t.total <= 0) {
-	  clearInterval(timeinterval);
-	}
-	}
-
-	updateClock();
-	const timeinterval = setInterval(updateClock, 1000);
-	}
-
-	const deadline = new Date(Date.parse(new Date()) + 28 * 24 * 60 * 60 * 1000);
-	initializeClock('countdown-clock', deadline);
+  document.getElementById('days').innerText = Math.floor(distance / (day)),
+	document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+	document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+	document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+  
+}, second)
 </script>
 
 
