@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HAP - Coming Soon</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="assets/icomoon.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+</head>
+
+
+<body>
+	
+	<div id="body-wrap">
+		<div class="row">
+			<div class="col-8">
+				<div class="container main">
+
+					<header id="header">
+						<div class="logo">
+							<img src="images/logo.png" alt="logo">
+						</div>	
+					</header>
+
+					<div class="main-content">
+
+						<div class="page-title">
+
+							<h1>We are launching soon!</h1>
+
+							<div id="countdown-clock">
+								<div class="time">
+									<span class="days" id="days"></span>
+									<small>Days</small>
+								</div>
+								<div class="time">
+									<span class="hours" id="hours"></span>
+									<small>Hours</small>
+								</div>
+								<div class="time">
+									<span class="minutes" id="minutes"></span>
+									<small>Minutes</small>
+								</div>
+								<div class="time">
+									<span class="seconds"  id="seconds"></span>
+									<small>Seconds</small>
+								</div>
+							</div>
+						</div><!--page-title-->
+
+						<form id="form" action="https://formspree.io/f/xyyrnakk" method="POST">
+
+							<p>Get notified when we launched our website</p>
+
+							<div class="form-group" >
+								<input type="email" class="form-control" placeholder="Your email address" name="Subscriber's email">
+								<button type="submit" class="submit-button"><i class="icon icon-envelope"></i><span>Notify Me</span></button>
+							</div>
+
+							
+
+						</form>
+
+						
+
+					</div><!--main-content-->
+
+					<footer id="footer">
+
+
+						<div class="copyright">
+							<p>Copyright &copy; <a href="javascript:;">HAP</a> 2024.</p>
+							
+						</div>
+
+					</footer>
+
+				</div>
+			</div><!--col-8-->
+
+			<div class="col-4 right-cont">
+			
+			</div>		
+		</div><!--row-->
+
+	</div><!--body-wrap-->
+
+
+<!-- Counter  -->
+
+<script>
+	const second = 1000,
+  minute = second * 60,
+  hour = minute * 60,
+  day = hour * 24;
+
+let countDown = new Date('April 29, 2024 10:00:00').getTime(),
+x = setInterval(function() {
+
+  let now = new Date().getTime(),
+	  distance = countDown - now;
+
+  document.getElementById('days').innerText = Math.floor(distance / (day)),
+	document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+	document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+	document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+  
+}, second)
+</script>
+
+
+</body>
+</html>
