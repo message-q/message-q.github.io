@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap');
+
 body {
-	font-family: "Roboto", sans-seriff;
+	font-family: "Inter", sans-serif;
     color: #949393;
     margin: 0;
 }
@@ -24,10 +26,10 @@ a:hover {
     margin: 170px auto;
 }
 #body-wrap .col-8 {
-    width: 70%;
+    width: 80%;
 }
 #body-wrap .col-4 {
-    width: 30%;
+    width: 20%;
     height: 100vh;
     overflow: visible;
     display: flex;
@@ -38,7 +40,7 @@ a:hover {
     color: #fff;
 }
 .main-content h1 {
-    font-size: 3em;
+    font-size: 2.6em;
     font-weight: 700;
     color: #000;
     margin-bottom: 0;
@@ -48,7 +50,7 @@ a:hover {
 	font-size: 30px;
 	display: flex;
 	flex-wrap: wrap;
-	margin: 50px 0;
+	margin: 40px 0;
 }
 #countdown-clock .time{
 	background-color: #f5f5f5;
@@ -126,15 +128,18 @@ input::placeholder{
 
 .copyright p {
     color: #626262;
+    font-size: 14px;
 }
 
 .main.container {
-    width: 530px;
+    width: auto;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
     height: 100%;
     align-items: center;
+    padding-left: 200px;
+    padding-top: 0;
 }
 img.sideimg {
     max-width: 80%;
@@ -151,6 +156,37 @@ img.sideimg {
 .movingY {
     -webkit-animation: movingY 8s linear infinite;
     animation: movingY 5s linear infinite;
+}
+
+.four-container {
+	color: #000;
+}
+.four-container h4 {
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+.four-container p {
+    color: #767676;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+.four-container .row {
+    justify-content: space-between;
+    padding-right: 20px;
+    flex-wrap: wrap;
+}
+.col-3 {
+    width: 22%;
+    border: 1px solid #ebebeb;
+    border-radius: 10px;
+    padding: 10px;
+}
+#header, .main-content, #footer  {
+	width: 100%;
 }
 
 @keyframes movingY {
@@ -183,6 +219,33 @@ img.sideimg {
 	}
  }
 
+
+ @media only screen and (max-width:1200px) {
+	.col-3 {
+		width: 46%;
+		margin-bottom: 10px;
+	}
+ }
+
+ @media only screen and (max-width: 1024px) {
+	#body-wrap .col-8 {
+		width: 100%;
+	}
+	.main.container {
+		padding-left: 20px;
+		min-height: 100vh;
+	}
+	
+	.col-3 {
+		width: 22%;
+		margin-bottom: 10px;
+	}
+	#body-wrap .col-4 {
+		display: none;
+	}
+ }
+
+
 @media (max-width: 768px) {
 	#body-wrap .col-8 {
 		width: 100%;
@@ -191,6 +254,9 @@ img.sideimg {
 	
 	#body-wrap .col-4 {
 		display: none;
+	}
+	.col-3 {
+		width: 46%;
 	}
 	
  }
@@ -211,6 +277,9 @@ img.sideimg {
 		width: 100%;
 		border-radius: 10px;
 		margin-top: 10px;
+	}
+	.col-3 {
+		width: 90%;
 	}
  }
 
