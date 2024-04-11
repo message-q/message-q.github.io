@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mongrov | Asset Tracking - Take Control of Your Things Data</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Real-time streaming data collection, transformation, and management system that can collect data from millions of devices, lower your storage costs by 50x, supporting blazingly fast real-time query for AI and analytics.">
+    <meta name="keywords" content="IoT, Things, Thingz, Data Streaming, Asset management, Temperature, Devices, Intert of Things, Data lake, Data Ocean, Preventive maintenance">
+    <meta name="author" content="Mongrov">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#1685FF">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <link rel="stylesheet" media="screen" href="assets/css/custom-style.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+  </head>
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+        <div class="container px-3">
+          <a href="index.html" class="navbar-brand pe-3">
+            <img src="assets/img/mong/logo.svg" width="140" alt="mongrov">
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Product</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="thingz.html" class="dropdown-item disabled">Thingz (Cloud Data Platform)</a></li>
+                    <li><a href="near_thingz.html" class="dropdown-item disabled">Near thingz (Edge)</a></li>
+                    <li><a href="thingz_app.html" class="dropdown-item disabled">Thingz app (super app)</a></li>
+                  </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Use cases</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="preventive_maintenance.html" class="dropdown-item disabled">Preventive maintenance</a></li>
+                    <li><a href="high_value.html" class="dropdown-item disabled">High value asset data management</a></li>
+                    <li><a href="temparature_control.html" class="dropdown-item disabled">Temparature control</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Partners</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="system_integrators.html" class="dropdown-item disabled">System Integrators</a></li>
+                    <li><a href="device_manaufacturers.html" class="dropdown-item disabled">Device Manaufacturers</a></li>
+                    <li><a href="technology_partners.html" class="dropdown-item disabled">Technology Partners</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Developers</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" class="dropdown-item disabled">Getting Started</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Documentation</a></li>
+                  </ul>
+                </li>
+
+              
+                <li class="nav-item">
+                  <a href="index.html#awards" class="nav-link">Awards</a>
+                </li>
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+              <a href="contact.html" class="btn btn-primary w-100" rel="noopener">
+                &nbsp;Contact Us
+              </a>
+            </div>      
+          </div>
+          <!-- <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+            <input type="checkbox" class="form-check-input" id="theme-mode">
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+          </div> -->
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="contact.html" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex"  rel="noopener">
+            <!-- <i class="bx bx-phone fs-5 lh-1 me-1"></i> -->
+            &nbsp;Contact Us
+          </a>
+        </div>
+      </header>
+
+
+      <!-- Hero -->
+      
+
+   <!-- Hero -->
+   <section class="position-relative overflow-hidden zindex-2 pt-4 pt-md-5">
+
+    <!-- Background -->
+    <div class="position-absolute top-0 start-0 w-100 bg-position-bottom-center bg-size-cover bg-repeat-0" style="background-image: url(assets/img/about/hero-bg.svg);">
+      <div class="d-lg-none" style="height: 960px;"></div>
+      <div class="d-none d-lg-block" style="height: 600px;"></div>
+    </div>
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+
+        <!-- Parallax gfx -->
+        <div class="col-lg-6 col-md-6 col-sm-8 col-10 order-md-2">
+          <img src="assets/img/mong/asset-tracking-hero.svg" class="my-5 py-5" alt="Bubble">
+        </div>
+
+        <!-- Text -->
+        <div class="col-lg-6 col-md-6 text-center text-md-start order-md-1">
+          <h1 class="display-5 mb-lg-2 text-gradient-primary">Track, Trace, Thrive</h1>
+          <h3> The Power of Asset Tracking Solution</h3>
+          <p class="fs-xl pb-3 pb-lg-0 mb-4 mb-lg-5">Streamline and optimize your asset management process with ease. Now, you do not have to follow the manual way to track your assets since our tailored solution can make the process simpler and quicker. So, take control of your asset by using our advanced asset tracking software and use it to your advantage now!</p>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Features  -->
+
+  <section class="container pt-0 pb-5">
+    <h2 class="h1 text-center mt-0">Features of Our Asset Tracking System</h2>
+    <h4 class="h5 text-center">Stay Ahead and Streamline Operations Easily</h4>
+    <p class="text-center w-75 mx-auto mb-5">We designed our asset tracking software with high efficiency and your success in mind. So, bid goodbye to your fear of losing, replacing, or missing assets and say hello to real-time precise asset tracking.</p>
+    <div class="swiper swiper-nav-onhover mt-n3 mx-n2 swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden" data-swiper-options="{
+      &quot;slidesPerView&quot;: 1,
+      &quot;spaceBetween&quot;: 8,
+      &quot;pagination&quot;: {
+        &quot;el&quot;: &quot;.swiper-pagination&quot;,
+        &quot;clickable&quot;: true
+      },
+      &quot;breakpoints&quot;: {
+        &quot;600&quot;: {
+          &quot;slidesPerView&quot;: 2
+        },
+        &quot;1000&quot;: {
+          &quot;slidesPerView&quot;: 3
+        }
+      }
+    }">
+      <div class="swiper-wrapper" id="swiper-wrapper-c2962651076f810ee3" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
+
+        <!-- Item -->
+        <div class="swiper-slide h-auto py-3 swiper-slide-active" role="group" aria-label="1 / 3" style="width: 432px; margin-right: 8px;">
+          <div class="card card-hover h-100 mx-2">
+            <div class="card-body">
+              <div class="d-table position-relative p-3 mb-4">
+                <img src="assets/img/mong/icon-simplysity.svg" class="position-relative zindex-2" width="46" alt="Icon">
+                <span class="bg-primary position-absolute top-0 start-0 w-100 h-100 rounded-circle opacity-8"></span>
+              </div>
+              <h3 class="h5 pb-1 mb-2">Simplicity is at Our Core</h3>
+              <p class="mb-0">Our user-friendly interface makes asset tracking intuitive and super simple. This ensures quick adoption across any kind of organization.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item -->
+        <div class="swiper-slide h-auto py-3 swiper-slide-next" role="group" aria-label="2 / 3" style="width: 432px; margin-right: 8px;">
+          <div class="card card-hover h-100 mx-2">
+            <div class="card-body">
+              <div class="d-table position-relative p-3 mb-4">
+                <img src="assets/img/mong/flexibility.svg" class="position-relative zindex-2" width="46" alt="Icon">
+                <span class="bg-primary position-absolute top-0 start-0 w-100 h-100 rounded-circle opacity-8"></span>
+              </div>
+              <h3 class="h5 pb-1 mb-2">Flexibility for Getting Maximum Value</h3>
+              <p class="mb-0">Whether you are looking for a solution with advanced features or want basic tracking, use our software. We can customize it for you to meet your specific requirements.
+            </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item -->
+        <div class="swiper-slide h-auto py-3" role="group" aria-label="3 / 3" style="width: 432px; margin-right: 8px;">
+          <div class="card card-hover h-100 mx-2">
+            <div class="card-body">
+              <div class="d-table position-relative p-3 mb-4">
+                <img src="assets/img/mong/durability.svg" class="position-relative zindex-2" width="46" alt="Icon">
+                <span class="bg-primary position-absolute top-0 start-0 w-100 h-100 rounded-circle opacity-8"></span>
+              </div>
+              <h3 class="h5 pb-1 mb-2">We Guarantee Durability</h3>
+              <p class="mb-0">Our asset tracking solution can withstand the industry demands. It provides durability and reliability you can count on.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination (bullets) -->
+      <div class="swiper-pagination position-relative pt-2 pt-sm-3 mt-4 swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal swiper-pagination-lock"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1" aria-current="true"></span></div>
+    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+  </section>
+
+
+      <!-- Connect -->
+      <section class="pb-5 bg-secondary">
+        <div class="container pt-5">
+          <div class="row align-items-center gy-5 pt-2 pt-sm-3 pt-md-4">
+            <div class="col-lg-6 text-lg-start text-center">
+              <h2 class="pb-0 pt-2 h1 pt-md-0 header-center">Transforming Chaos to Control</h2>
+              <h3>Our Asset Tracking Solutions Benefits</h3>
+              <p class="mb-4 pb-1 pb-sm-2 pb-lg-3">Taking control of your asset tracking process will feel like a breeze with our asset tracking solution</p>
+              <img src="assets/img/mong/asset-tracking-benefits.svg" class="d-block mx-auto img-fluid zoom-in-out-box" width="450" alt="Image">
+            </div>
+            <div class="col-lg-6">
+              <div class="row row-cols-sm-2 row-cols-1 g-4 align-items-center">
+                <div class="col">
+                  <div class="card border-0 shadow-sm p-3 mb-5 bg-body rounded">
+                    <div class="card-body m-xl-3 m-1 text-center">
+                      <img src="assets/img/mong/security-icon.svg" style="filter: drop-shadow(0px 0.8645132780075073px 4.602016925811768px rgba(99, 102, 241, 0.02)) drop-shadow(0px 2.9037201404571533px 10.33138370513916px rgba(99, 102, 241, 0.05)) drop-shadow(0px 13px 27px rgba(99, 102, 241, 0.17));" alt="Payment icon">
+                      <h3 class="h4 mt-4 mb-2">Asset Security</h3>
+                      <p class="mb-2">Our asset tracking solution can help prevent misuse and theft of your assets. With real-time monitoring and control capabilities, gain insights into the usage patterns of your assets at any time.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card border-0 shadow-sm">
+                    <div class="card-body  m-xl-3 m-1 text-center">
+                      <img src="assets/img/mong/icon-asset-management.svg" style="filter: drop-shadow(0px 0.8645132780075073px 4.602016925811768px rgba(99, 102, 241, 0.02)) drop-shadow(0px 2.9037201404571533px 10.33138370513916px rgba(99, 102, 241, 0.05)) drop-shadow(0px 13px 27px rgba(99, 102, 241, 0.17));" alt="Security icon">
+                      <h3 class="h4 mt-4 mb-2">Centralized Assets Management</h3>
+                      <p class="mb-2">Get the power to manage your assets properly with our centralized assets management solution. Have better control, more efficiency in resource allocation, and reduce the chances of errors.</p>
+                    </div>
+                  </div>
+                  <div class="card border-0 shadow-sm mt-4">
+                    <div class="card-body  m-xl-3 m-1 bg-repeat-0 bg-position-top-end text-center">
+                      <img src="assets/img/mong/icon-asset-maintanence.svg" style="filter: drop-shadow(0px 0.8645132780075073px 4.602016925811768px rgba(99, 102, 241, 0.02)) drop-shadow(0px 2.9037201404571533px 10.33138370513916px rgba(99, 102, 241, 0.05)) drop-shadow(0px 13px 27px rgba(99, 102, 241, 0.17));" alt="Security icon">
+                      <h3 class="h4 mt-4 mb-2">Improved Asset Maintenance</h3>
+                      <p class="mb-2">Always be on top when it comes to deciding maintenance schedule. With automated reminders and notifications, track your inventory easily.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         </div>
+        </div>
+      </section> 
+
+
+
+      <!-- Industries We Serve  -->
+
+      <section class="position-relative py-5">
+        <div class="container position-relative zindex-5 pt-4">
+          <div class="row justify-content-center text-center pb-3 mb-sm-2 mb-lg-3">
+            <div class="col-xl-6 col-lg-7 col-md-9">
+              <h2 class="h1 mb-lg-4">Industries We Serve</h2>
+              <p class="fs-lg text-muted mb-0">Our asset tracking software served several industries, including:</p>
+            </div>
+          </div>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-0 pb-xl-3 justify-content-center">
+
+            <!-- Item -->
+            <div class="col position-relative">
+              <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
+                <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
+                  <img src="assets/img/mong/icon-hospital.svg" width="46" alt="Comments">
+                </div>
+                <div class="card-body text-center">
+                  <h3 class="h5 pb-1 mb-2">Hospital</h3>
+                  <p class="mb-0">With our asset tracking solution, hospitals can ensure efficient asset management. Now, tracking medical samples' movement, high-risk patients, and medical equipment is easy.</p>
+                </div>
+              </div>
+              <hr class="position-absolute top-0 end-0 w-1 h-100 d-none d-sm-block">
+              <hr class="position-absolute top-100 start-0 w-100 d-none d-sm-block">
+            </div>
+
+            <!-- Item -->
+            <div class="col position-relative">
+              <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
+                <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
+                  <img src="assets/img/mong/icon-rental.svg" width="46" alt="Analytics">
+                </div>
+                <div class="card-body text-center">
+                  <h3 class="h5 pb-1 mb-2">Rental Industry</h3>
+                  <p class="mb-0">Keep your eyes on the rental equipment with our advanced solution. Reduce the chances of unwanted equipment loss and improve profitability.</p>
+                </div>
+              </div>
+              <hr class="position-absolute top-0 end-0 w-1 h-100 d-none d-md-block">
+              <hr class="position-absolute top-100 start-0 w-100 d-none d-sm-block">
+            </div>
+
+            <!-- Item -->
+            <div class="col position-relative">
+              <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
+                <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
+                  <img src="assets/img/mong/icon-parking.svg" width="46" alt="Group">
+                </div>
+                <div class="card-body text-center">
+                  <h3 class="h5 pb-1 mb-2">Parking Lots</h3>
+                  <p class="mb-0">Easily monitor the parking lots with our real-time feature. Locate your car if it gets lost or stolen and have it back.</p>
+                </div>
+              </div>
+              <hr class="position-absolute top-0 end-0 w-1 h-100 d-none d-sm-block d-md-none">
+              <hr class="position-absolute top-100 start-0 w-100 d-none d-sm-block">
+            </div>
+
+            <!-- Item -->
+            <div class="col position-relative">
+              <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
+                <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
+                  <img src="assets/img/mong/icon-manufacturing.svg" width="46" alt="Notifications">
+                </div>
+                <div class="card-body text-center">
+                  <h3 class="h5 pb-1 mb-2">Manufacturing</h3>
+                  <p class="mb-0">Track your products and valuable source materials with asset tracking. Optimize your product line and reduce downtime.</p>
+                </div>
+              </div>
+              <hr class="position-absolute top-0 end-0 w-1 h-100 d-none d-md-block">
+              <hr class="position-absolute top-100 start-0 w-100 d-none d-sm-block d-md-none">
+            </div>
+            
+            <!-- Item -->
+            <div class="col position-relative">
+              <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
+                <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
+                  <img src="assets/img/mong/icon-militory.svg" width="46" alt="Tasks">
+                </div>
+                <div class="card-body text-center">
+                  <h3 class="h5 pb-1 mb-2">Military</h3>
+                  <p class="mb-0">Keep checking the assets in the military and allocate soldiers efficiently. Ensure readiness for all mission-critical operations.</p>
+                </div>
+              </div>
+              <hr class="position-absolute top-0 end-0 w-1 h-100 d-none d-sm-block">
+            </div>
+
+          </div>
+        </div>
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(255,255,255,.05);"></div>
+      </section>
+
+
+      <!-- Future Proof Section  -->
+
+      <section class=" bg-secondary py-5">
+       
+        <div class="container">
+            <!-- Service item -->
+        <div class="row py-5">
+            <div class="col-lg-6 col-md-6 order-md-1 order-2 d-flex">
+              <div class="align-self-center pe-lg-0 pe-md-4">
+                <h3 class="mb-md-4">Reliable Hardware Solution for Accurate Asset Tracking: Future-proof Your Business</h3>
+                <p class="fs-lg">Invest in our feature-rich and advanced asset-tracking software and take your business to a new height. Ensure long-term success with us and operate everything smoothly. Our team of experts will always be there to help you and address any rising concerns. So, stop thinking and take action now!</p>
+                
+              </div>
+            </div>
+            <div class="col-md-5 offset-lg-1 order-md-2 order-1">
+              <div class="bg-secondary rounded-3">
+                <img src="assets/img/mong/reliable.svg" alt="Image" class="d-dark-mode-none d-block">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+     
+     </main>
+
+
+     <!-- Footer -->
+     <footer class="footer pt-5 pb-4 pb-lg-5 mt-2 mt-md-0 border-top">
+      <div class="container pt-lg-4">
+        <div class="row pb-5">
+          <div class="col-lg-4 col-md-6">
+            <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+              <img src="assets/img/mong/logo.svg" width="120" alt="Mongrov">
+            </div>
+            <ul class="nav flex-column mb-0">
+              <li class="mb-1">
+                <a href="javascript:;" class="nav-link align-items-start fw-normal px-0 py-1">
+                  <i class="bx bx-map fs-5 text-primary me-2"></i>
+                  3001 Bishop Drive, Suite 300, San Ramon, CA 94583.
+                </a>
+              </li>
+              <li class="mb-1">
+                <a href="tel:4065550120" class="nav-link align-items-start fw-normal px-0 py-1">
+                  <i class="bx bx-phone-call fs-5 text-primary me-2"></i>
+                  +1 (415) 890 3925
+                </a>
+              </li>
+              <li>
+                <a href="mailto:hello@mongrov.com" class="nav-link align-items-start fw-normal px-0 py-1">
+                  <i class="bx bx-envelope fs-5 text-primary me-2"></i>
+                  hello@mongrov.com
+                </a>
+              </li>
+            </ul>
+
+            <div class="d-flex mt-lg-3">
+              <a href="https://www.linkedin.com/company/mongrov-inc/" target="_blank" class="btn btn-icon btn-secondary btn-linkedin ml-0 mr-2">
+                <i class="bx bxl-linkedin"></i>
+              </a>
+              <a href="https://twitter.com/TheMongrov" target="_blank" class="btn btn-icon btn-secondary btn-twitter mx-2">
+                <i class='bx'>
+                  <img src="assets/img/mong/twitter-x.svg"  width="16">
+                </i>
+              </a>
+              <a href="#" class="btn btn-icon btn-secondary btn-github disabled">
+                <i class="bx bxl-github"></i>
+              </a>
+            </div>
+            <div class="mt-lg-3">
+              <h6 class="mb-2">Compliances</h6>
+              <div class="row">
+                <div class="col">
+                  <img class="img-fluid" src="assets/img/mong/compliances.png" width="200">
+                </div>
+                
+              </div>
+            </div>
+
+          </div>
+          <div class="col-xl-7 col-lg-7 col-md-5 offset-md-1 pt-4 pt-md-1 pt-lg-0">
+            <div id="footer-links" class="row">
+              <div class="col-lg-4">
+                <h6 class="mb-2">Product</h6>
+                  <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                    <li class="nav-item"><a href="thingz.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Thingz (Cloud Data Platform)</a></li>
+                    <li class="nav-item"><a href="near_thingz.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Near thingz (Edge)</a></li>
+                    <li class="nav-item"><a href="thingz_app.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Thingz app (super app)</a></li>
+                  </ul>
+                  <h6 class="mb-2">Use cases</h6>
+                  <ul class="nav flex-column mb-2 mb-lg-0">
+                    <li class="nav-item"><a href="preventive_maintenance.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Preventive maintenance</a></li>
+                    <li class="nav-item"><a href="high_value.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">High value asset data management</a></li>
+                    <li class="nav-item"><a href="temparature_control.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Temparature control</a></li>
+                  </ul>
+              </div>
+              <div class="col-xl-4 col-lg-3">
+                <h6 class="mb-2">Partners</h6>
+                <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                    <li class="nav-item"><a href="system_integrators.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">System Integrators</a></li>
+                    <li class="nav-item"><a href="device_manaufacturers.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Device Manaufacturers</a></li>
+                    <li class="nav-item"><a href="technology_partners.html" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Technology Partners</a></li>
+                  </ul>
+
+                  <h6 class="mb-2">Developers</h6>
+                  <ul class="nav flex-column mb-2 mb-lg-0">
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Getting Started</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Documentation</a></li>
+                  </ul>
+              </div>
+              <div class="col-xl-4 col-lg-5 pt-2 pt-lg-0">
+                <h6 class="mb-2">Company</h6>
+                <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                  <li class="nav-item"><a href="about.html" class="nav-link d-inline-block px-0 pt-1 pb-2">About us</a></li>
+                  <li class="nav-item"><a href="contact.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Contact us</a></li>
+                  <li class="nav-item"><a href="https://wellfound.com/company/mongrov/jobs" target="_blank" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Careers</a></li>
+                  <li class="nav-item"><a href="https://medium.com/mongrov" target="_blank" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Blog</a></li>
+                </ul>
+                <ul class="nav flex-column mb-2 mb-lg-0">
+                  <li class="nav-item"><a href="terms.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+                  <li class="nav-item"><a href="privacy-policy.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+          &copy; 2024 Mongrov, Inc. All rights reserved. 
+          <!-- <a class="nav-link d-inline-block p-0" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a> -->
+
+        </p>
+      </div>
+    </footer>
+
+
+    <!-- Back to top button -->
+    <a href="#top" class="btn-scroll-top" data-scroll>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+    </a>
+
+
+    <!-- Vendor Scripts -->
+    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
+    <script src="assets/vendor/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/lightgallery/lightgallery.min.js"></script>
+    <script src="assets/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/shufflejs/dist/shuffle.min.js"></script>
+
+    <!-- Main Theme Script -->
+    <script src="assets/js/theme.min.js"></script>
+  </body>
+</html>
