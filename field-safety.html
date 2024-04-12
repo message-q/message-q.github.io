@@ -110,6 +110,10 @@
           transform: rotate(360deg);
         }
       }
+
+      .nav-tabs .nav-link {
+    background-color: #ffffff;
+}
     </style>
 
     <!-- Theme mode -->
@@ -235,10 +239,10 @@
       
 
    <!-- Hero -->
-   <section class="position-relative overflow-hidden zindex-2 pt-4 pt-md-5">
+   <section class="position-relative overflow-hidden zindex-2 pt-4 pt-md-5" style="height: 650px; align-items: center; display: flex;">
 
     <!-- Background -->
-    <div class="position-absolute top-0 start-0 w-100 bg-position-bottom-center bg-size-cover bg-repeat-0" style="background-image: url(assets/img/about/hero-bg.svg);">
+    <div class="position-absolute top-0 start-0 w-100 bg-position-bottom-center bg-size-cover bg-repeat-0" style="background-image: url(assets/img/about/hero-bg.svg); height: 650px;">
       <div class="d-lg-none" style="height: 960px;"></div>
       <div class="d-none d-lg-block" style="height: 600px;"></div>
     </div>
@@ -246,12 +250,12 @@
       <div class="row justify-content-center align-items-center">
 
         <!-- Parallax gfx -->
-        <div class="col-lg-6 col-md-6 col-sm-8 col-10 order-md-2">
-          <img src="assets/img/mong/thingz-gif-file.gif" class="my-5 py-5" alt="Bubble">
+        <div class="col-lg-5 col-md-5 col-sm-8 col-10 order-md-2">
+          <img src="assets/img/mong/field-safty-hero.svg" class="my-5 py-5" alt="Bubble">
         </div>
 
         <!-- Text -->
-        <div class="col-lg-6 col-md-6 text-center text-md-start order-md-1">
+        <div class="col-lg-7 col-md-7 text-center text-md-start order-md-1">
           <h1 class="display-5 mb-lg-2 text-gradient-primary">Field Service and Safety Solutions</h1>
           <h3>Ensuring Safe Operations in Every Environment</h3>
           <p class="fs-xl pb-3 pb-lg-0 mb-4 mb-lg-5">Welcome to our Field service and safety solutions, where a commitment to safety is made, not just a priority. The safety of your workers and business operations must come first in the hectic, high-stress environments prevalent in today's industry. Our comprehensive field safety services aim to lower risks, promote a safety culture, and enhance operational excellence across several industries.</p>
@@ -295,7 +299,9 @@
         <div class="swiper-slide h-auto swiper-slide-active" role="group" aria-label="1 / 4" style="width: 306px; margin-right: 24px;">
           <div class="card h-100">
             <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
-              <img src="assets/img/landing/software-agency-3/icons/01.svg" alt="Icon" class="d-block mb-3 mx-auto">
+              <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-0 mb-3">
+                <img src="assets/img/mong/icon-riskmanagement.svg" width="46" alt="Comments">
+              </div>
               <h3 class="h5 mb-3">Proactive Risk Management</h3>
               <p class="mb-0">Our strategy aims to provide a safe working environment by detecting and reducing hazards before they result in accidents.</p>
             </div>
@@ -306,7 +312,9 @@
         <div class="swiper-slide h-auto swiper-slide-next" role="group" aria-label="2 / 4" style="width: 306px; margin-right: 24px;">
           <div class="card h-100">
             <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
-              <img src="assets/img/landing/software-agency-3/icons/02.svg" alt="Icon" class="d-block mb-3 mx-auto">
+              <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-0 mb-3">
+                <img src="assets/img/mong/icon-compliance.svg" width="46" alt="Comments">
+              </div>
               <h3 class="h5 mb-3">Compliance Assurance</h3>
               <p class="mb-0">We minimise the possibility of fines and liabilities by keeping you in compliance with industry laws.</p>
             </div>
@@ -317,7 +325,9 @@
         <div class="swiper-slide h-auto" role="group" aria-label="3 / 4" style="width: 306px; margin-right: 24px;">
           <div class="card h-100">
             <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
-              <img src="assets/img/landing/software-agency-3/icons/03.svg" alt="Icon" class="d-block mb-3 mx-auto">
+              <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-0 mb-3">
+                <img src="assets/img/mong/icon-customize.svg" width="46" alt="Comments">
+              </div>
               <h3 class="h5 mb-3">Customised Solutions</h3>
               <p class="mb-0">We offer safety inspections, emergency planning, and training courses that are specifically designed to meet your needs.</p>
             </div>
@@ -328,7 +338,9 @@
         <div class="swiper-slide h-auto" role="group" aria-label="4 / 4" style="width: 306px; margin-right: 24px;">
           <div class="card h-100">
             <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
-              <img src="assets/img/landing/software-agency-3/icons/04.svg" alt="Icon" class="d-block mb-3 mx-auto">
+              <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-0 mb-3">
+                <img src="assets/img/mong/icon-cutting.svg" width="46" alt="Comments">
+              </div>
               <h3 class="h5 mb-3">Cutting-Edge Technology</h3>
               <p class="mb-0">Our integration of cutting-edge safety technology improves your operations' productivity and safety.</p>
             </div>
@@ -354,8 +366,8 @@
         </div>
         <div class="step-body d-flex align-items-center ps-xl-5">
           <div class="rellax d-none d-lg-block flex-shrink-0 mx-4 mx-xl-5" data-rellax-percentage="0.5" data-rellax-speed="-0.3" data-disable-parallax-down="lg">
-            <img src="assets/img/landing/online-courses/steps/01-dark.svg" class="d-dark-mode-none" width="306" alt="Illustration">
-            <img src="assets/img/landing/online-courses/steps/01-light.svg" class="d-none d-dark-mode-block" width="306" alt="Illustration">
+            <img src="assets/img/mong/assessment.svg" class="d-dark-mode-none" width="306" alt="Illustration">
+            
           </div>
           <div class="rellax ps-md-4 ps-xl-5" data-rellax-percentage="0.5" data-rellax-speed="0.4" data-disable-parallax-down="lg">
             <h3 class="h4">Assessment</h3>
@@ -369,8 +381,7 @@
         </div>
         <div class="step-body d-flex align-items-center ps-xl-5">
           <div class="rellax d-none d-lg-block flex-shrink-0 mx-4 mx-xl-5" data-rellax-percentage="0.5" data-rellax-speed="-0.5" data-disable-parallax-down="lg">
-            <img src="assets/img/landing/online-courses/steps/02-dark.svg" class="d-dark-mode-none" width="306" alt="Illustration">
-            <img src="assets/img/landing/online-courses/steps/02-light.svg" class="d-none d-dark-mode-block" width="306" alt="Illustration">
+            <img src="assets/img/mong/planning.svg" class="d-dark-mode-none" width="306" alt="Illustration">
           </div>
           <div class="rellax ps-md-4 ps-xl-5" data-rellax-percentage="0.5" data-rellax-speed="0.5" data-disable-parallax-down="lg">
             <h3 class="h4">Planning</h3>
@@ -384,8 +395,8 @@
         </div>
         <div class="step-body d-flex align-items-center ps-xl-5">
           <div class="rellax d-none d-lg-block flex-shrink-0 mx-4 mx-xl-5" data-rellax-percentage="0.5" data-rellax-speed="-0.3" data-disable-parallax-down="lg">
-            <img src="assets/img/landing/online-courses/steps/03-dark.svg" class="d-dark-mode-none" width="306" alt="Illustration">
-            <img src="assets/img/landing/online-courses/steps/03-light.svg" class="d-none d-dark-mode-block" width="306" alt="Illustration">
+            <img src="assets/img/mong/implementation.svg" class="d-dark-mode-none" width="306" alt="Illustration">
+            
           </div>
           <div class="rellax ps-md-4 ps-xl-5" data-rellax-percentage="0.5" data-rellax-speed="0.4" data-disable-parallax-down="lg">
             <h3 class="h4">Implementation</h3>
@@ -400,8 +411,8 @@
         </div>
         <div class="step-body d-flex align-items-center ps-xl-5">
           <div class="rellax d-none d-lg-block flex-shrink-0 mx-4 mx-xl-5" data-rellax-percentage="0.5" data-rellax-speed="-0.5" data-disable-parallax-down="lg">
-            <img src="assets/img/landing/online-courses/steps/04-dark.svg" class="d-dark-mode-none" width="306" alt="Illustration">
-            <img src="assets/img/landing/online-courses/steps/04-light.svg" class="d-none d-dark-mode-block" width="306" alt="Illustration">
+            <img src="assets/img/mong/monitoring.svg" class="d-dark-mode-none" width="306" alt="Illustration">
+          
           </div>
           <div class="rellax ps-md-4 ps-xl-5" data-rellax-percentage="0.5" data-rellax-speed="0.6" data-disable-parallax-down="lg">
             <h3 class="h4">Monitoring and Improvement</h3>
@@ -425,7 +436,7 @@
                 <div class="row row-cols-1 row-cols-sm-2 gx-lg-5 g-4">
                   <div class="col d-md-flex d-xl-block align-items-center pt-1 pt-sm-2 pt-md-0 pt-xl-3">
                     <div class="d-table bg-secondary rounded flex-shrink-0 p-2 mb-3 me-md-3 me-xl-0">
-                      <img src="assets/img/landing/app-showcase/features/payments.svg" width="19" class="d-block m-1" alt="Icon">
+                      <img src="assets/img/mong/icon-experience.svg" width="46" class="d-block m-1" alt="Icon">
                     </div>
                     <h3 class="h5 pb-sm-1 mb-2">
                       <span class="d-md-none d-xl-block">Experience</span>
@@ -435,7 +446,7 @@
                   </div>
                   <div class="col d-md-flex d-xl-block align-items-center pt-1 pt-sm-2 pt-md-0 pt-xl-3">
                     <div class="d-table bg-secondary rounded flex-shrink-0 p-2 mb-3 me-md-3 me-xl-0">
-                      <img src="assets/img/landing/app-showcase/features/cashback.svg" width="19" class="d-block m-1" alt="Icon">
+                      <img src="assets/img/mong/icon-expertise.svg" width="46" class="d-block m-1" alt="Icon">
                     </div>
                     <h3 class="h5 pb-sm-1 mb-2">
                       <span class="d-md-none d-xl-block">Expertise</span>
@@ -445,7 +456,7 @@
                   </div>
                   <div class="col d-md-flex d-xl-block align-items-center pt-1 pt-sm-2 pt-md-0 pt-xl-3">
                     <div class="d-table bg-secondary rounded flex-shrink-0 p-2 mb-3 me-md-3 me-xl-0">
-                      <img src="assets/img/landing/app-showcase/features/statistics.svg" width="19" class="d-block m-1" alt="Icon">
+                      <img src="assets/img/mong/icon-commitment.svg" width="46" class="d-block m-1" alt="Icon">
                     </div>
                     <h3 class="h5 pb-sm-1 mb-2">
                       <span class="d-md-none d-xl-block">Commitment to Excellence</span>
@@ -455,7 +466,7 @@
                   </div>
                   <div class="col d-md-flex d-xl-block align-items-center pt-1 pt-sm-2 pt-md-0 pt-xl-3">
                     <div class="d-table bg-secondary rounded flex-shrink-0 p-2 mb-3 me-md-3 me-xl-0">
-                      <img src="assets/img/landing/app-showcase/features/security.svg" width="19" class="d-block m-1" alt="Icon">
+                      <img src="assets/img/mong/icon-collaboration.svg" width="46" class="d-block m-1" alt="Icon">
                     </div>
                     <h3 class="h5 pb-sm-1 mb-2">
                       <span class="d-md-none d-xl-block">Collaboration Approach</span>
@@ -468,8 +479,8 @@
               </div>
             </div>
             <div class="col-md-6">
-              <div class="rellax position-relative rounded-3 mb-xl-5" style="box-shadow: -7px 12px 60px 0 rgba(126,123,160, .12);" data-rellax-percentage="0.5" data-rellax-speed="1.3" data-disable-parallax-down="xl">
-                <img src="assets/img/landing/app-showcase/stats.jpg" class="d-block rounded-3" alt="Stats screen">
+              <div class="rellax position-relative rounded-3 mb-xl-5" data-rellax-percentage="0.5" data-rellax-speed="1.3" data-disable-parallax-down="xl">
+                <img src="assets/img/mong/why-choose-us-field.svg" class="d-block rounded-3" alt="Stats screen">
               </div>
             </div>
           </div>
@@ -495,7 +506,7 @@
             <div class="col position-relative">
               <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
                 <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
-                  <img src="assets/img/landing/saas-2/features/comments.svg" width="40" alt="Comments">
+                  <img src="assets/img/mong/icon-oil.svg" width="46" alt="Comments">
                 </div>
                 <div class="card-body text-center">
                   <h3 class="h5 pb-1 mb-2">Oil and Gas</h3>
@@ -510,7 +521,7 @@
             <div class="col position-relative">
               <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
                 <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
-                  <img src="assets/img/landing/saas-2/features/analytics.svg" width="40" alt="Analytics">
+                  <img src="assets/img/mong/icon-contruction.svg" width="46" alt="Analytics">
                 </div>
                 <div class="card-body text-center">
                   <h3 class="h5 pb-1 mb-2">Construction</h3>
@@ -525,7 +536,7 @@
             <div class="col position-relative">
               <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
                 <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
-                  <img src="assets/img/landing/saas-2/features/group.svg" width="40" alt="Group">
+                  <img src="assets/img/mong/icon-manufacturing.svg" width="46" alt="Group">
                 </div>
                 <div class="card-body text-center">
                   <h3 class="h5 pb-1 mb-2">Manufacturing</h3>
@@ -540,7 +551,7 @@
             <div class="col position-relative">
               <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
                 <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
-                  <img src="assets/img/landing/saas-2/features/notifications.svg" width="40" alt="Notifications">
+                  <img src="assets/img/mong/icon-utilities.svg" width="46" alt="Notifications">
                 </div>
                 <div class="card-body text-center">
                   <h3 class="h5 pb-1 mb-2">Utilities</h3>
@@ -555,7 +566,7 @@
             <div class="col position-relative">
               <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
                 <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
-                  <img src="assets/img/landing/saas-2/features/tasks.svg" width="40" alt="Tasks">
+                  <img src="assets/img/mong/icon-logistic.svg" width="46" alt="Tasks">
                 </div>
                 <div class="card-body text-center">
                   <h3 class="h5 pb-1 mb-2">Transportation and Logistics</h3>
@@ -574,8 +585,9 @@
       <!-- Connect -->
       
       <!-- Use cases (Tabs) -->
-      <section class="container pt-5 pb-2 mt-3 mt-sm-4 mt-xl-5">
-        <h2 class="h1 text-center pb-3 pb-lg-0">Tailored Solutions for Your Industry</h2>
+      <section class="bg-secondary pt-5 pb-5 mt-3 mt-sm-4 mt-xl-5">
+        <div class="container">
+          <h2 class="h1 text-center pb-3 pb-lg-0">Tailored Solutions for Your Industry</h2>
         <p class="text-center">Discover our suite of tailored solutions</p>
 
         <!-- Nav tabs -->
@@ -613,17 +625,17 @@
         </ul>
 
         <!-- Tab panes -->
-        <div class="tab-content bg-secondary rounded-3 py-4">
+        <div class="tab-content bg-light rounded-3 py-4">
 
           <!-- Project Management -->
           <div class="tab-pane fade show active" id="project-management" role="tabpanel" aria-labelledby="project-management-tab">
             <div class="row align-items-center pt-3 pt-sm-4 pt-md-0 px-3 px-sm-4 px-lg-0">
-              <div class="col-lg-4 col-md-5 offset-lg-1 text-center text-md-start">
+              <div class="col-lg-5 col-md-5 offset-lg-1 text-center text-md-start">
                 <h3 class="mb-lg-4">Safety Training</h3>
                 <p>Empower your labour force with customised training, furnishing them with the abilities and expertise to browse risks securely.</p>
               </div>
-              <div class="col-lg-6 col-md-7 mt-md-4">
-                <img src="assets/img/landing/saas-1/use-cases/01.png" class="d-block my-lg-2 mx-auto me-md-0" width="595" alt="Image">
+              <div class="col-lg-5 col-md-7 mt-md-4">
+                <img src="assets/img/mong/saftey-training.svg" class="d-block my-lg-2 mx-auto me-md-0" width="400" alt="Image">
               </div>
             </div>
           </div>
@@ -636,7 +648,7 @@
                 <p>From headgears to breathing security, we provide a series of top-notch equipment to guarantee your group's security in the area.</p>
               </div>
               <div class="col-lg-6 col-md-7 mt-md-4">
-                <img src="assets/img/landing/saas-1/use-cases/02.png" class="d-block my-lg-2 mx-auto me-md-0" width="502" alt="Image">
+                <img src="assets/img/mong/protective-gear.svg" class="d-block my-lg-2 mx-auto me-md-0" width="400" alt="Image">
               </div>
             </div>
           </div>
@@ -650,7 +662,7 @@
                 </p>
               </div>
               <div class="col-lg-6 col-md-7 mt-n3 mt-md-1">
-                <img src="assets/img/landing/saas-1/use-cases/03.png" class="d-block mb-lg-2 mx-auto me-md-0" width="525" alt="Image">
+                <img src="assets/img/mong/consulting-service.svg" class="d-block mb-lg-2 mx-auto me-md-0" width="400" alt="Image">
               </div>
             </div>
           </div>
@@ -664,7 +676,7 @@
                 </p>
               </div>
               <div class="col-lg-6 col-md-7 mt-n3 mt-md-1">
-                <img src="assets/img/landing/saas-1/use-cases/04.png" class="d-block mb-lg-2 mx-auto me-md-0" width="545" alt="Image">
+                <img src="assets/img/mong/emergency-response.svg" class="d-block mb-lg-2 mx-auto me-md-0" width="400" alt="Image">
               </div>
             </div>
           </div>
@@ -678,23 +690,25 @@
                 </p>
               </div>
               <div class="col-lg-6 col-md-7 mt-n3 mt-md-1">
-                <img src="assets/img/landing/saas-1/use-cases/04.png" class="d-block mb-lg-2 mx-auto me-md-0" width="545" alt="Image">
+                <img src="assets/img/mong/audits-inspections.svg" class="d-block mb-lg-2 mx-auto me-md-0" width="400" alt="Image">
               </div>
             </div>
           </div>
         </div>
+        </div>
+        
       </section>
 
 
 
       <!-- Future Proof Section  -->
 
-      <section class=" bg-secondary my-5 py-lg-5 py-md-4 pt-2 pb-3">
+      <section class=" mt-5 py-lg-2 py-md-2">
        
         <div class="container">
             <!-- Service item -->
         <div class="row   gy-4 mb-5 pb-xl-5 pb-md-4 pb-3">
-            <div class="col-lg-5 col-md-6 order-md-1 order-2 d-flex rellax" data-rellax-percentage="0.5" data-rellax-speed="-0.5" data-disable-parallax-down="md" style="transform: translate3d(9px, -16px, 0px);">
+            <div class="col-lg-6 col-md-6 order-md-1 order-2 d-flex rellax" data-rellax-percentage="0.5" data-rellax-speed="-0.5" data-disable-parallax-down="md" style="transform: translate3d(9px, -16px, 0px);">
               <div class="align-self-center pe-lg-0 pe-md-4">
                 <h2 class="mb-md-0">Safeguard Your Success</h2>
                 <h4>Embrace Comprehensive Field Safety Solutions Today!</h4>
@@ -702,10 +716,9 @@
                 
               </div>
             </div>
-            <div class="col-md-6 offset-lg-1 order-md-2 order-1 rellax" data-rellax-percentage="0.5" data-rellax-speed="0.5" data-disable-parallax-down="md" style="transform: translate3d(7px, 16px, 0px);">
+            <div class="col-md-5 offset-lg-1 order-md-2 order-1 rellax" data-rellax-percentage="0.5" data-rellax-speed="0.5" data-disable-parallax-down="md" style="transform: translate3d(7px, 16px, 0px);">
               <div class="bg-secondary rounded-3">
-                <img src="assets/img/landing/software-agency-2/services/01-light.png" alt="Image" class="d-dark-mode-none d-block">
-                <img src="assets/img/landing/software-agency-2/services/01-dark.png" alt="Image" class="d-dark-mode-block d-none">
+                <img src="assets/img/mong/field-safety-success.svg" alt="Image" class="d-dark-mode-none d-block">
               </div>
             </div>
           </div>
