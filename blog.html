@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Mongrov | Thingz - Take Control of Your Things Data</title>
+    <title>Mongrov | Home - Take Control of Your Things Data</title>
 
     <!-- SEO Meta Tags -->
     <meta name="description" content="Real-time streaming data collection, transformation, and management system that can collect data from millions of devices, lower your storage costs by 50x, supporting blazingly fast real-time query for AI and analytics.">
@@ -13,14 +13,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicon and Touch Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicon/site.webmanifest">
-    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#1685FF">
-    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/mong/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/mong/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/mong/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/mong/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/img/mong/favicon/safari-pinned-tab.svg" color="#1685FF">
+    <link rel="shortcut icon" href="assets/img/mong/favicon/favicon.ico">
     <meta name="msapplication-TileColor" content="#080032">
-    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="msapplication-config" content="assets/img/mong/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
     <!-- Vendor Styles -->
@@ -98,6 +98,9 @@
         border-color: rgba(255,255,255,.4);
         border-right-color: transparent;
       }
+      .img-rounded {
+    border-radius: 10px;
+     }
       @-webkit-keyframes spinner {
         100% {
           -webkit-transform: rotate(360deg);
@@ -137,15 +140,16 @@
     </script>
   </head>
 
+
   <!-- Body -->
   <body>
 
     <!-- Page loading spinner -->
-    <div class="page-loading active">
+    <!-- <div class="page-loading active">
       <div class="page-loading-inner">
         <div class="page-spinner"></div><span>Loading...</span>
       </div>
-    </div>
+    </div> -->
 
 
     <!-- Page wrapper for sticky footer -->
@@ -260,170 +264,74 @@
       </header>
 
 
-      <!-- Hero -->
-      
+      <!-- Breadcrumb -->
+      <nav class="container mt-lg-4 pt-5" aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 pt-5">
+          <li class="breadcrumb-item">
+            <a href="index.html"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Blogs</li>
+        </ol>
+      </nav>
 
-   <!-- Hero -->
-   <section class="position-relative overflow-hidden zindex-2 pt-4 pt-md-5">
 
-    <!-- Background -->
-    <div class="position-absolute top-0 start-0 w-100 bg-position-bottom-center bg-size-cover bg-repeat-0" style="background-image: url(assets/img/about/hero-bg.svg);">
-      <div class="d-lg-none" style="height: 960px;"></div>
-      <div class="d-none d-lg-block" style="height: 600px;"></div>
-    </div>
-    <div class="container">
-      <div class="row justify-content-center align-items-center">
+      <!-- Page content -->
+      <section class="container mt-4 mb-lg-5 pt-lg-2 pb-5">
 
-        <!-- Parallax gfx -->
-        <div class="col-xl-6 col-lg-7 col-md-6 col-sm-8 col-10 offset-xl-1 order-md-2">
-          <img src="assets/img/mong/thingz-gif-file.gif" class="my-5 py-5" alt="Bubble">
+        <!-- Page title + Layout switcher + Search form -->
+        <div class="row align-items-end gy-3 mb-4 pb-lg-3 pb-1">
+          <div class="col-lg-5 col-md-4">
+            <h1 class="mb-2 mb-md-0">Blogs</h1>
+          </div>
+          <div class="col-lg-7 col-md-8">
+            
+          </div>
         </div>
 
-        <!-- Text -->
-        <div class="col-lg-5 col-md-6 text-center text-md-start order-md-1">
-          <h1 class="display-5 mb-lg-4">Thingz</h1>
-          <p class="fs-xl pb-3 pb-lg-0 mb-4 mb-lg-5">We offer you a new generation of the mobile banking. Save, spend, and manage your money on the go.</p>
+        <!-- Blog grid -->
+        <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-md-4 gy-2">
+
+          <!-- Item -->
+          <div class="col pb-3">
+            <article class="card border-0 shadow-sm h-100">
+              <div class="position-relative">
+                <a href="blog-post1.html" class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
+                
+                <img src="assets/img/mong/blog1.webp" class="card-img-top" alt="Image">
+              </div>
+              <div class="card-body pb-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <a href="blog-post1.html" class="badge fs-sm text-nav bg-secondary text-decoration-none">Technology</a>
+                  <span class="fs-sm text-muted">April 17, 2024</span>
+                </div>
+                <h3 class="h5 mb-0">
+                  <a href="blog-post1.html">The Future of Asset Management: IoT and Real-Time Tracking</a>
+                </h3>
+              </div>
+              <div class="card-footer py-4">
+                <a href="blog-post1.html" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
+                  <img src="assets/img/mong/team-sriuday.png" class="rounded-circle me-3" width="48" alt="Avatar">
+                  Sriudayakumar
+                </a>
+              </div>
+            </article>
+          </div>
+
           
         </div>
-      </div>
-    </div>
-  </section>
 
-
-      <!-- Connect -->
-      <section class="pt-5 pt-md-4 pt-lg-5 pb-5">
-        <div class="container pt-5">
-          <div class="row align-items-center gy-5 pt-2 pt-sm-3 pt-md-4">
-            <div class="col-lg-5 text-lg-start text-center">
-              <h2 class="pb-3 pt-2 h1 pt-md-0 header-center">Connect</h2>
-              <p class="mb-4 pb-1 pb-sm-2 pb-lg-3">In blandit luctus proin mauris a commodo, dolor diam tempus, aenean magna fusce eu. Id porttitor aliquam eget aliquet sagittis eu aut diam ut phasellus sed convallis iaculis neque ultricies convallis sed enim</p>
-              <img src="assets/img/mong/connect.svg" class="d-block mx-auto img-fluid zoom-in-out-box" width="" alt="Image">
-            </div>
-            <div class="col-lg-6 offset-lg-1">
-              <div class="row row-cols-sm-2 row-cols-1 g-4 align-items-center">
-                <div class="col">
-                  <div class="card border-0 shadow-sm p-3 mb-5 bg-body rounded">
-                    <div class="card-body m-xl-3 m-1 text-center">
-                      <img src="assets/img/mong/connect-icon1.svg" style="filter: drop-shadow(0px 0.8645132780075073px 4.602016925811768px rgba(99, 102, 241, 0.02)) drop-shadow(0px 2.9037201404571533px 10.33138370513916px rgba(99, 102, 241, 0.05)) drop-shadow(0px 13px 27px rgba(99, 102, 241, 0.17));" alt="Payment icon">
-                      <h3 class="h4 mt-4 mb-2">BLE, WiFi, LoraWan, HTTP, ZigBee</h3>
-                      <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card border-0">
-                    <div class="card-body shadow-sm m-xl-3 m-1 text-center">
-                      <img src="assets/img/mong/connect-icon2.svg" style="filter: drop-shadow(0px 0.8645132780075073px 4.602016925811768px rgba(99, 102, 241, 0.02)) drop-shadow(0px 2.9037201404571533px 10.33138370513916px rgba(99, 102, 241, 0.05)) drop-shadow(0px 13px 27px rgba(99, 102, 241, 0.17));" alt="Security icon">
-                      <h3 class="h4 mt-4 mb-2">Manage hundreds of thousands of devices</h3>
-                      <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    </div>
-                  </div>
-                  <div class="card border-0 mt-4">
-                    <div class="card-body shadow-sm m-xl-3 m-1 bg-repeat-0 bg-position-top-end text-center">
-                      <img src="assets/img/mong/connect-icon2.svg" style="filter: drop-shadow(0px 0.8645132780075073px 4.602016925811768px rgba(99, 102, 241, 0.02)) drop-shadow(0px 2.9037201404571533px 10.33138370513916px rgba(99, 102, 241, 0.05)) drop-shadow(0px 13px 27px rgba(99, 102, 241, 0.17));" alt="Security icon">
-                      <h3 class="h4 mt-4 mb-2">Support for SQL & PromQL</h3>
-                      <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-         </div>
-        </div>
-      </section> 
-
-
-       <!-- Collect -->
-      <section class=" container-fluid bg-secondary pt-md-2 pt-lg-3 pb-3 pb-md-4 pb-xl-5 ">
-        <h2 class="h1 text-center mt-xl-5 py-3">Collect</h2>
-        <p class="text-center pb-1 pb-sm-0 mb-4 mb-sm-5">Nisi augue at ridiculus  ullamcorper ibendum  nunc dignissim </p>
-        <div class="row align-items-lg-center">
-          <div class="col-sm-6 col-lg-3">
-            <div class="pe-lg-4 pe-xl-5">
-              <div class="text-center text-lg-end pb-2 mb-4 mb-xl-5">
-                <img src="assets/img/mong/connect-icon2.svg" class="d-inline-block" width="56" alt="Icon">
-                <h3 class="h5 pt-1 my-2">Billions of messages</h3>
-                <p class="fs-sm mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-              </div>
-              <div class="text-center text-lg-end pb-2 mb-4 mb-xl-5">
-                <img src="assets/img/mong/connect-icon1.svg" class="d-inline-block" width="56" alt="Icon">
-                <h3 class="h5 pt-1 my-2">Real-time streaming data</h3>
-                <p class="fs-sm mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-              </div>
-            </div>
-          </div>
-          <!-- Connect image -->
-          <div class="col-lg-6 d-lg-block">
-            <div class="mx-auto">
-              <img src="assets/img/mong/collect.svg" alt="Connect-illustration">
-            </div>
-          </div>
-          <!-- Connect img end -->
-          <div class="col-sm-6 col-lg-3">
-            <div class="ps-lg-4 ps-xl-5">
-              <div class="text-center text-lg-start pb-2 mb-4 mb-xl-5">
-                <img src="assets/img/mong/connect-icon1.svg" class="d-inline-block" width="56" alt="Icon">
-                <h3 class="h5 pt-1 my-2">Real-time streaming data</h3>
-                <p class="fs-sm mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-              </div>
-              <div class="text-center text-lg-start pb-2 mb-4 mb-xl-5">
-                <img src="assets/img/mong/connect-icon2.svg" class="d-inline-block" width="56" alt="Icon">
-                <h3 class="h5 pt-1 my-2">Billions of messages</h3>
-                <p class="fs-sm mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-              </div>
-            </div>
-          </div>
-         </div>
+       
       </section>
 
-      <!-- Store -->
-      <section class="pt-5 pt-md-4 pt-lg-5 pb-5">
-        <div class="container pt-5">
-          <div class="row align-items-center gy-5 pt-2 pt-sm-3 pt-md-4">
-            <div class="col-lg-5 text-lg-start text-center">
-              <h2 class="pb-3 pt-2 h1 pt-md-0 header-center">Store</h2>
-              <p class="mb-4 pb-1 pb-sm-2 pb-lg-3">In blandit luctus proin mauris a commodo, dolor diam tempus, aenean magna fusce eu. Id porttitor aliquam eget aliquet sagittis eu aut diam ut phasellus sed convallis iaculis neque ultricies convallis sed enim</p>
-              <img src="assets/img/mong/store.svg" class="d-block mx-auto img-fluid" width="" alt="Image">
-            </div>
-            <div class="col-lg-6 offset-lg-1">
-              <div class="row row-cols-sm-2 row-cols-1 g-4 align-items-center">
-                <div class="col">
-                  <div class="card border-0 shadow-sm p-3 mb-5 bg-body rounded">
-                    <div class="card-body m-xl-3 m-1 text-center">
-                      <img src="assets/img/mong/connect-icon1.svg" style="filter: drop-shadow(0px 0.8645132780075073px 4.602016925811768px rgba(99, 102, 241, 0.02)) drop-shadow(0px 2.9037201404571533px 10.33138370513916px rgba(99, 102, 241, 0.05)) drop-shadow(0px 13px 27px rgba(99, 102, 241, 0.17));" alt="Payment icon">
-                      <h3 class="h4 mt-4 mb-2">50x reduction in cost of storage</h3>
-                      <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card border-0">
-                    <div class="card-body shadow-sm m-xl-3 m-1 text-center">
-                      <img src="assets/img/mong/connect-icon2.svg" style="filter: drop-shadow(0px 0.8645132780075073px 4.602016925811768px rgba(99, 102, 241, 0.02)) drop-shadow(0px 2.9037201404571533px 10.33138370513916px rgba(99, 102, 241, 0.05)) drop-shadow(0px 13px 27px rgba(99, 102, 241, 0.17));" alt="Security icon">
-                      <h3 class="h4 mt-4 mb-2">Query data in real-time</h3>
-                      <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    </div>
-                  </div>
-                  <div class="card border-0 mt-4">
-                    <div class="card-body shadow-sm m-xl-3 m-1 bg-repeat-0 bg-position-top-end text-center">
-                      <img src="assets/img/mong/connect-icon2.svg" style="filter: drop-shadow(0px 0.8645132780075073px 4.602016925811768px rgba(99, 102, 241, 0.02)) drop-shadow(0px 2.9037201404571533px 10.33138370513916px rgba(99, 102, 241, 0.05)) drop-shadow(0px 13px 27px rgba(99, 102, 241, 0.17));" alt="Security icon">
-                      <h3 class="h4 mt-4 mb-2">Support for SQL & PromQL</h3>
-                      <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-         </div>
-        </div>
-      </section>      
-     </main>
 
 
-     <!-- Footer -->
-     <footer class="footer pt-5 pb-4 pb-lg-5 mt-2 mt-md-0 border-top">
+
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer pt-5 pb-4 pb-lg-5 mt-2 mt-md-0 border-top">
       <div class="container pt-lg-4">
         <div class="row pb-5">
           <div class="col-lg-3 col-md-6">
@@ -579,5 +487,17 @@
 
     <!-- Main Theme Script -->
     <script src="assets/js/theme.min.js"></script>
+
+   
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FG9Y3JJT67"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-FG9Y3JJT67');
+</script>
   </body>
 </html>
