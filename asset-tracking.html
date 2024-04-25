@@ -135,7 +135,11 @@
         };
       })();
     </script>
-  </head>
+  <!-- Canonical Link -->
+   
+  <link rel="canonical" href="">
+    
+</head>
 
   <!-- Body -->
   <body>
@@ -681,5 +685,12 @@
 
     <!-- Main Theme Script -->
     <script src="assets/js/theme.min.js"></script>
+  <script type='text/javascript'>
+  var link = !!document.querySelector("link[rel='canonical']") ? document.querySelector("link[rel='canonical']") : document.createElement('link');
+  link.setAttribute('rel', 'canonical');
+  link.setAttribute('href', location.protocol + '//' + location.host + location.pathname);
+  document.head.appendChild(link);
+</script>
+  
   </body>
 </html>

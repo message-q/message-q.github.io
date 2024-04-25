@@ -138,7 +138,11 @@
         };
       })();
     </script>
-  </head>
+  <!-- Canonical Link -->
+   
+  <link rel="canonical" href="">
+    
+</head>
 
 
   <!-- Body -->
@@ -280,6 +284,10 @@
               <span class="badge bg-faded-primary text-primary fs-base">Technology</span>
             </div>
             <div class="fs-sm border-end pe-3 me-3 mb-2">April 17, 2024</div>
+
+            <div class="fs-sm pe-3 me-3 mb-2">
+              <a href="downloads/the-future-of-asset-management.pdf" target="_blank" download="newfilename" class="btn btn-primary">Download Blog</a>
+            </div>
             
           </div>
           <div class="d-flex align-items-center position-relative ps-md-3 pe-lg-5 mb-2">
@@ -564,5 +572,13 @@ gtag('js', new Date());
 
 gtag('config', 'G-FG9Y3JJT67');
 </script>
-</body>
+
+<script type='text/javascript'>
+  var link = !!document.querySelector("link[rel='canonical']") ? document.querySelector("link[rel='canonical']") : document.createElement('link');
+  link.setAttribute('rel', 'canonical');
+  link.setAttribute('href', location.protocol + '//' + location.host + location.pathname);
+  document.head.appendChild(link);
+</script>
+  
+  </body>
 </html>
