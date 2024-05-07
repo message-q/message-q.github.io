@@ -88,3 +88,12 @@
         margin:auto;
     }
 }
+
+a.internal-link {
+    text-decoration: none;
+    /* color: unset; */
+    color: #1685ff;
+}
+a.internal-link:hover {
+    color: #1685ff;
+}
