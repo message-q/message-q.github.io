@@ -101,3 +101,6 @@ a.internal-link:hover {
     --si-bg-opacity: 1;
     background-color: rgb(22 133 255) !important;
 }
+#open-positions a {
+    text-decoration: none;
+}
