@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Turning Sensor Data into Actionable Insights for Smarter Field Safety Service</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="title" content="Turning Sensor Data into Actionable Insights for Smarter Field Safety Service">
+    <meta name="description" content="This article explores the impact of IoT and real-time monitoring on asset management, highlighting benefits, challenges, and industry implications.">
+
+    <meta name="keywords" content="IoT, Things, Thingz, Data Streaming, Asset management, Temperature, Devices, Intert of Things, Data lake, Data Ocean, Preventive maintenance">
+    <meta name="author" content="Mongrov">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/mong/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/mong/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/mong/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/mong/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/img/mong/favicon/safari-pinned-tab.svg" color="#1685FF">
+    <link rel="shortcut icon" href="assets/img/mong/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/img/mong/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <link rel="stylesheet" media="screen" href="assets/css/custom-style.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      .img-rounded {
+    border-radius: 10px;
+     }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+    
+    <!-- schema markup code -->
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Organization",
+    "name": "Mongrov, Inc.",
+  "address": "3001 Bishop Drive, Suite 300, San Ramon, CA, 94583",
+    "alternateName": " Mongrov",
+  "areaServed": [
+  "United States"
+  ],
+      "description": "At Mongrov, we are passionate about pushing the boundaries of technology and innovation. As a technology startup, we specialize in providing cutting-edge IoT solutions with a strong focus on Real-time Streaming Data.",
+  "email": "hello@mongrov.com",
+  "legalName": " Mongrov, Inc.",
+  "logo": " https://mongrov.com/assets/img/mong/logo.svg",
+  "mainEntityOfPage": " https://g.co/kgs/yshDyRX",
+  "sameAs": [
+  " https://www.linkedin.com/company/mongrov-inc/",
+  " https://twitter.com/TheMongrov"
+  ],
+  "slogan": "Real-time Data Management for Improved Efficiency",
+  "telephone": " +1 (415) 890 3925",
+  "url": "https://mongrov.com/"
+  }
+  }
+  </script>
+  <!-- Canonical Link -->
+   
+  <link rel="canonical" href="">
+    
+</head>
+
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <!-- <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div> -->
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+        <div class="container px-3">
+          <a href="https://mongrov.com/" class="navbar-brand pe-3">
+            <img src="assets/img/mong/logo.svg" width="140" alt="mongrov">
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">What we do?</a>
+                  <ul class="dropdown-menu">
+                    
+                    <li><a href="thingz-cloud" class="dropdown-item">Thingz cloud</a></li>
+                    <li><a href="near-thingz" class="dropdown-item">Near thingz</a></li>
+                    <li><a href="thingz-app" class="dropdown-item">Thingz app</a></li>
+                  </ul>
+                </li>
+
+               <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Who we are?</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="who-we-are" class="dropdown-item">About us</a></li>
+                    <li><a href="leadership" class="dropdown-item">Leaderships</a></li>
+                    <!-- <li><a href="#" class="dropdown-item disabled">Company's story</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Awards</a></li>
+                    <li><a href="#" class="dropdown-item disabled">News</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Life @ mongrov </a></li> -->
+                  </ul>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Solutions</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="asset-tracking" class="dropdown-item">Asset tracking</a></li>
+                    <li><a href="field-safety" class="dropdown-item">Field safety service</a></li>
+                    <li><a href="iot-data-management" class="dropdown-item">IoT data management</a></li>
+                  </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Industries</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="industries-health-care" class="dropdown-item">Health care</a></li>
+                    <li><a href="industries-infrastructure" class="dropdown-item">Infrastructures</a></li>
+                    <li><a href="industries-automotives" class="dropdown-item">Automobiles</a></li>
+                    
+                  </ul>
+                </li>
+
+               
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insights</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="blog" class="dropdown-item">Blogs</a></li>
+                    <li><a href="case-study" class="dropdown-item">Case studies</a></li>
+                    <li><a href="whitepapers" class="dropdown-item">Whitepapers</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a href="careers" class="nav-link ">Careers</a>
+                  
+                </li>
+
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+              <a href="contact" class="btn btn-primary w-100" rel="noopener">
+                &nbsp;Contact Us
+              </a>
+            </div>      
+          </div>
+          <!-- <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+            <input type="checkbox" class="form-check-input" id="theme-mode">
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+          </div> -->
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="contact" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex"  rel="noopener">
+            <!-- <i class="bx bx-phone fs-5 lh-1 me-1"></i> -->
+            &nbsp;Contact Us
+          </a>
+        </div>
+      </header>
+
+
+      <!-- Breadcrumb -->
+      <nav class="container mt-lg-4 pt-5" aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 pt-5">
+          <li class="breadcrumb-item">
+            <a href="index"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="blog">Blogs</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Blog detail</li>
+        </ol>
+      </nav>
+
+
+      <!-- Post title + Meta  -->
+      <section class="container mt-4 pt-lg-2 pb-3">
+        <h1 class="pb-3" style="max-width: 970px;">Turning Sensor Data into Actionable Insights for Smarter Field Safety Service</h1>
+        <div class="d-flex flex-md-row flex-column align-items-md-center justify-content-md-between mb-3">
+          <div class="d-flex align-items-center flex-wrap text-muted mb-md-0 mb-4">
+            <div class="fs-xs border-end pe-3 me-3 mb-2">
+              <span class="badge bg-faded-primary text-primary fs-base">Technology</span>
+            </div>
+            <div class="fs-sm border-end pe-3 me-3 mb-2">June 13, 2024</div>
+
+            <div class="fs-sm pe-3 me-3 mb-2">
+              <a href="downloads/blog/turning-sensor-data-into-actionable-insights-for-smarter-field-safety-service.pdf" target="_blank" download class="btn btn-primary">Download Blog</a>
+            </div>
+            
+          </div>
+          <div class="d-flex align-items-center position-relative ps-md-3 pe-lg-5 mb-2">
+            <img src="assets/img/mong/logo-icon.png" class="rounded-circle" width="60" alt="Avatar">
+            <div class="ps-3">
+              <h6 class="mb-1 mt-3">Author</h6>
+              <h6 class="fw-semibold mt-2">Mongrov’s Tech Library</h5>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Post image (parallax) -->
+      <div class="jarallax mb-lg-5 mb-4" data-jarallax data-speed="0.35" style="height: 36.45vw; min-height: 300px;">
+        <img src="assets/img/mong/blog5.jpg" alt="The Future of Asset Management" class="jarallax-img">
+      </div>
+
+      <!-- Post content + Sharing -->
+      <section class="container mb-5 pt-4 pb-2 py-mg-4">
+        <div class="row gy-4">
+
+          <!-- Content -->
+          <div class="col-lg-9 mx-auto">
+            <h3 class="h5 mb-4 pb-2 fw-medium">The application of sensor data is a key component in improving field safety service operations in modern industrial environments where efficiency and safety are of the utmost importance. Organizations may create a culture of proactive risk mitigation and operational efficiency by combining cutting-edge sensor technology with strong data analytics frameworks to convert raw data streams into actionable insights.
+            </h3>
+
+            <h2 class="h4">The Essence of Sensor Data in Field Safety</h2>
+            <p class="mb-4 pb-2">Sensor data contains a plethora of information on human behavior, equipment status, and environmental circumstances. It comes from a variety of sources, including wearables, industrial equipment, and Internet of Things devices. When properly utilized, this data offers priceless insight into operational dynamics, empowering stakeholders to recognize possible risks, anticipate equipment breakdowns, and take proactive steps to reduce them.
+            </p>
+
+            <h2 class="h4">Harnessing Sensor Data for Insight Generation</h2>
+            <p class="mb-2">Moving from raw sensor data to meaningful experiences requires a planned process of gathering, organizing, analyzing, and explaining information.</p>
+            <p class="mb-4 pb-2">Sensor systems can be sent throughout open-air environments to provide organizations with real-time information streams that include components like temperature, weight, vibration, and chemical concentrations. To find trends, abnormalities, and correlations, these data points are then combined and evaluated using sophisticated analytics algorithms.</p>
+
+            <h3 class="h5">Data preprocessing and cleaning </h3>
+            <p class="mb-4 pb-2">
+                Prior to examination, raw sensor data is carefully cleaned and preprocessed to remove null values, anomalies, and conflicts. In addition to providing a solid foundation for further analytical stages, this crucial step is essential to maintaining the dataset's legitimacy and coherence. This meticulous procedure protects data integrity and guarantees that the conclusions are valid and useful.
+            </p>
+
+            <h3 class="h5">Statistical analysis and pattern recognition</h3>
+            <p class="mb-4 pb-2">
+                To extract important information from sensor data, organizations employ factual techniques including clustering, time-series estimation, and relapse investigation. Partners enhance support plans, identify security threats, and streamline asset allocation processes by identifying designs and patterns within the data. By encouraging informed decision-making, these illuminating techniques foster proactive security management and operational efficiency.
+
+            </p>
+
+            <h3 class="h5">Machine learning for predictive modeling</h3>
+            <p class="mb-4 pb-2">
+                Including machine learning algorithms makes it easier to create predictive models that can accurately predict safety-related occurrences in the future. Organizations will prevent safety events and minimize operational disruptions by proactively identifying deviations from normal operating circumstances through techniques such as anomaly detection, classification, and supervised learning.
+
+            </p>
+
+            <h2 class="h4">Operationalizing Actionable Insights for Field Safety</h2>
+            <p class="mb-4 pb-2">The real value of sensor data is not only in its analytical capacity but also in its capacity to motivate concrete actions and interventions in on-the-ground situations. Organizations can establish a culture of proactive risk management and continuous improvement throughout their field safety service operations by operationalizing actionable insights gained from sensor data.
+              </p>
+
+              <h3 class="h5">Real-time alerting and intervention</h3>
+              <p class="mb-2">Using real-time alerting systems enables organizations to react quickly to safety-critical events as they happen. Stakeholders can take immediate action by being instantly notified of aberrant situations when threshold-based alerts are placed on critical sensor data. 
+            </p>
+            <p class="mb-4 pb-2">This proactive strategy derives support from a study that shows how real-time signaling successfully reduces security risks and threats, as well as the impact of mishaps in a variety of commercial scenarios.
+            </p>
+            <h3 class="h5">Dynamic Risk Assessment and Adaptive Controls</h3>
+              <p class="mb-4 pb-2">Organizations can reduce safety threats in an adaptive manner, depending on operational dynamics and real-time environmental circumstances, by utilizing sensor data for dynamic risk assessment. Organizations can adapt safety protocols, control measures, and resource allocations dynamically to handle changing safety threats by integrating sensor data with risk assessment frameworks.
+ 
+            </p>
+
+            <h3 class="h5">Predictive maintenance and asset optimization</h3>
+              <p class="mb-2">Through the application of predictive analytics models in proactive support techniques, enterprises will effectively anticipate security threats and reduce equipment failure.</p>
+
+              <p class="mb-4 pb-2">Predictive maintenance computations allow for the early detection of deviations from typical equipment behavior, allowing for prompt intervention to stop possible issues from developing into security incidents.
+            </p>
+              
+              <h2 class="h4">The Future Landscape of Sensor-Driven Safety Service</h2>
+              <p class="mb-4 pb-2">Future developments in field safety services could bring about revolutionary breakthroughs as sensor technology's capabilities keep expanding. The ways that sensor data is collected, processed, and used in field safety operations are about to change dramatically because of emerging technologies like edge computing, artificial intelligence, and 5G connections.
+              </p>
+
+              <h3 class="h5">Edge Computing for Real-Time Processing</h3>
+              <p class="mb-4 pb-2">By handling and analyzing data in real time at the edge of the network, organizations can now reduce idle time and increase responsiveness, thanks to the emergence of edge computing structures. By placing edge computing hubs close to sensor endpoints, organizations can expedite the enhancement of big data and promote quicker decision-making and intervention.</p>
+
+              <h3 class="h5">AI-powered predictive analytics</h3>
+              <p class="mb-2">An important chance to improve sensor data prediction is to incorporate artificial intelligence into predictive analytics frameworks. Organizations can find complex patterns and correlations in sensor information by utilizing AI techniques like deep learning and reinforcement learning.</p>
+              <p class="mb-4 pb-2">This sophisticated research makes it easier to predict safety-related events and trends with more accuracy, which improves risk management plans and operational readiness in the end.</p>
+
+              <h3 class="h5">5G-enabled sensor networks</h3>
+              <p class="mb-2">With the arrival of 5G connectivity, the field of sensor networks is set for a revolutionary change that promises revolutionary capacity and scalability. This signals the smooth transition of numerous sensor endpoints over large field areas.</p>
+
+              <p class="mb-2">By utilizing the fast and low-latency characteristics of 5G networks, businesses will access data more easily than ever before. As a result, essential field safety parameter monitoring and analysis in real-time have become possible on a scale that was previously impractical.</p>
+              <p class="mb-4 pb-2">This development ensures a safer and more responsive environment by improving operating efficiency and enhancing the capacity to rapidly address safety problems.
+            </p>
+
+              <h2 class="h4">Conclusion: Empowering Tomorrow's Safety
+              </h2>
+
+              <p class="mb-2">In the end, there is a great deal of potential for increasing the efficiency and productivity of field safety operations when sensor data and advanced analytics are combined. Through leveraging sensor data to extract actionable insights, businesses will proactively mitigate safety risks, optimize operational effectiveness, and foster a culture of continuous improvement. </p>
+
+              <p class="mb-4 pb-2">With the advent of a more connected digital age, the strategic integration of sensor data becomes essential to strengthening field safety service ecosystems that are safer, smarter, and more flexible. Platforms like Mongrov, which provide all-inclusive solutions for seamless data administration and analysis, can be integrated to further streamline these procedures.
+            </p>
+
+          </div>
+
+          
+        </div>
+      </section>
+
+
+
+    </main>
+
+<!-- Footer -->
+<footer class="footer pt-5 pb-4 pb-lg-5 mt-2 mt-md-0 border-top">
+  <div class="container pt-lg-4">
+    <div class="row pb-5">
+      <div class="col-lg-3 col-md-6">
+        <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+          <img src="assets/img/mong/logo.svg" width="120" alt="Mongrov">
+        </div>
+        <ul class="nav flex-column mb-0">
+          <li class="mb-1">
+            <a href="javascript:;" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-map fs-5 text-primary me-2"></i>
+              3001 Bishop Drive, Suite 300, San Ramon, CA 94583.
+            </a>
+          </li>
+          <li class="mb-1">
+            <a href="tel:4065550120" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-phone-call fs-5 text-primary me-2"></i>
+              +1 (415) 890 3925
+            </a>
+          </li>
+          <li>
+            <a href="mailto:hello@mongrov.com" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-envelope fs-5 text-primary me-2"></i>
+              hello@mongrov.com
+            </a>
+          </li>
+        </ul>
+
+        <div class="d-flex mt-lg-3">
+          <a href="https://www.linkedin.com/company/mongrov-inc/" target="_blank" class="btn btn-icon btn-secondary btn-linkedin ml-0 mr-2">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://twitter.com/TheMongrov" target="_blank" class="btn btn-icon btn-secondary btn-twitter mx-2">
+            <i class='bx'>
+              <img src="assets/img/mong/twitter-x.svg"  width="16">
+            </i>
+          </a>
+          <a href="#" class="btn btn-icon btn-secondary btn-github disabled">
+            <i class="bx bxl-github"></i>
+            
+          </a>
+        </div>
+        <div class="mt-lg-3">
+          <h6 class="mb-2">Compliances</h6>
+          <div class="row">
+            <div class="col">
+              <img class="img-fluid" src="assets/img/mong/compliances.png" width="200">
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+      <div class="col-xl-9 col-md-5 pt-4 pt-md-1 pt-lg-0">
+        <div id="footer-links" class="row">
+          <div class="col-lg-3">
+            <h6 class="mb-2">What we do?</h6>
+              <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                
+                <li class="nav-item"><a href="thingz-cloud" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz cloud</a></li>
+                <li class="nav-item"><a href="near-thingz" class="nav-link d-inline-block px-0 pt-1 pb-2">Near thingz</a></li>
+                <li class="nav-item"><a href="thingz-app" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz app</a></li>
+              </ul>
+
+              <h6 class="mb-2">Who we are?</h6>
+                  <ul class="nav flex-column mb-2 mb-lg-0">
+                    <li class="nav-item"><a href="who-we-are" class="nav-link d-inline-block px-0 pt-1 pb-2">About us</a></li>
+                    <li class="nav-item"><a href="leadership" class="nav-link d-inline-block px-0 pt-1 pb-2">Leaderships</a></li>
+                    <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Company's story</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Awards</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">News</a></li> -->
+                    <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Life @ mongrov</a></li> -->
+                  </ul>
+
+              
+          </div>
+          <div class="col-xl-3 col-lg-3">
+            <h6 class="mb-2">Solutions</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                <li class="nav-item"><a href="asset-tracking" class="nav-link d-inline-block px-0 pt-1 pb-2">Asset tracking</a></li>
+                <li class="nav-item"><a href="field-safety" class="nav-link d-inline-block px-0 pt-1 pb-2">Field safety service</a></li>
+                <li class="nav-item"><a href="iot-data-management" class="nav-link d-inline-block px-0 pt-1 pb-2">IoT data management</a></li>
+              </ul>
+
+              <h6 class="mb-2">Industries</h6>
+              <ul class="nav flex-column mb-2 mb-lg-0">
+                <li class="nav-item"><a href="industries-health-care" class="nav-link d-inline-block px-0 pt-1 pb-2">Health care</a></li>
+                <li class="nav-item"><a href="industries-infrastructure" class="nav-link d-inline-block px-0 pt-1 pb-2 ">Infrastructures</a></li>
+                <li class="nav-item"><a href="industries-automotives.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Automobiles</a></li>
+              </ul>
+
+              
+          </div>
+          <div class="col-xl-3 col-lg-3 pt-2 pt-lg-0">
+            <h6 class="mb-2">Become our partner</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+              <li class="nav-item"><a href="about" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">System integrators</a></li>
+              <li class="nav-item"><a href="contact" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Device manufacturers</a></li>
+              <li class="nav-item"><a href="https://wellfound.com/company/mongrov/jobs" target="_blank" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Technology partners</a></li>
+              
+            </ul>
+            <h6 class="mb-2">Insights</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+              <li class="nav-item"><a href="blog" class="nav-link d-inline-block px-0 pt-1 pb-2">Blogs</a></li>
+              <li class="nav-item"><a href="case-study" class="nav-link d-inline-block px-0 pt-1 pb-2">Case studies</a></li>
+              <li class="nav-item"><a href="whitepapers" target="_blank" class="nav-link d-inline-block px-0 pt-1 pb-2">Whitepapers</a></li>
+             
+              
+            </ul>
+            <!-- <ul class="nav flex-column mb-2 mb-lg-0">
+              <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+              <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+            </ul> -->
+          </div>
+
+          <div class="col-xl-3 col-lg-3 pt-2 pt-lg-0">
+            
+           <ul class="nav flex-column mb-2 mb-lg-0">
+            <li class="nav-item"><a href="careers" class="nav-link d-inline-block px-0 pt-1 pb-2">Careers</a></li>
+            <li class="nav-item"><a href="contact" class="nav-link d-inline-block px-0 pt-1 pb-2">Contact us</a></li>
+              <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+              <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+      &copy; 2024 Mongrov, Inc. All rights reserved. 
+      <!-- <a class="nav-link d-inline-block p-0" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a> -->
+
+    </p>
+  </div>
+</footer>
+
+
+<!-- Back to top button -->
+<a href="#top" class="btn-scroll-top" data-scroll>
+  <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+  <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+</a>
+
+
+<!-- Vendor Scripts -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
+<script src="assets/vendor/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/lightgallery/lightgallery.min.js"></script>
+<script src="assets/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/shufflejs/dist/shuffle.min.js"></script>
+
+<!-- Main Theme Script -->
+<script src="assets/js/theme.min.js"></script>
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FG9Y3JJT67"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-FG9Y3JJT67');
+</script>
+
+<script type='text/javascript'>
+  var link = !!document.querySelector("link[rel='canonical']") ? document.querySelector("link[rel='canonical']") : document.createElement('link');
+  link.setAttribute('rel', 'canonical');
+  link.setAttribute('href', location.protocol + '//' + location.host + location.pathname);
+  document.head.appendChild(link);
+</script>
+  
+  </body>
+</html>
