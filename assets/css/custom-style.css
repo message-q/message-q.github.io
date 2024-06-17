@@ -104,3 +104,7 @@ a.internal-link:hover {
 #open-positions a {
     text-decoration: none;
 }
+.hero .container {
+    position: relative;
+    z-index: 9;
+}
