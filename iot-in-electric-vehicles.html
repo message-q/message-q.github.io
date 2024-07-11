@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>IoT in Electric Vehicles: Enhancing Range and Efficiency</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="title" content="IoT in Electric Vehicles: Enhancing Range and Efficiency">
+    <meta name="description" content="In this blog, we look at how IoT can impact predictive maintenance in field services, including its benefits, applications, and implementation strategies.">
+
+    <meta name="keywords" content="IoT, Things, Thingz, Data Streaming, Asset management, Temperature, Devices, Intert of Things, Data lake, Data Ocean, Preventive maintenance">
+    <meta name="author" content="Mongrov">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/mong/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/mong/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/mong/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/mong/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/img/mong/favicon/safari-pinned-tab.svg" color="#1685FF">
+    <link rel="shortcut icon" href="assets/img/mong/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/img/mong/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <link rel="stylesheet" media="screen" href="assets/css/custom-style.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      .img-rounded {
+    border-radius: 10px;
+     }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+    
+    <!-- schema markup code -->
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Organization",
+    "name": "Mongrov, Inc.",
+  "address": "3001 Bishop Drive, Suite 300, San Ramon, CA, 94583",
+    "alternateName": " Mongrov",
+  "areaServed": [
+  "United States"
+  ],
+      "description": "At Mongrov, we are passionate about pushing the boundaries of technology and innovation. As a technology startup, we specialize in providing cutting-edge IoT solutions with a strong focus on Real-time Streaming Data.",
+  "email": "hello@mongrov.com",
+  "legalName": " Mongrov, Inc.",
+  "logo": " https://mongrov.com/assets/img/mong/logo.svg",
+  "mainEntityOfPage": " https://g.co/kgs/yshDyRX",
+  "sameAs": [
+  " https://www.linkedin.com/company/mongrov-inc/",
+  " https://twitter.com/TheMongrov"
+  ],
+  "slogan": "Real-time Data Management for Improved Efficiency",
+  "telephone": " +1 (415) 890 3925",
+  "url": "https://mongrov.com/"
+  }
+  }
+  </script>
+  <!-- Canonical Link -->
+   
+  <link rel="canonical" href="">
+    
+</head>
+
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <!-- <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div> -->
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+        <div class="container px-3">
+          <a href="https://mongrov.com/" class="navbar-brand pe-3">
+            <img src="assets/img/mong/logo.svg" width="140" alt="mongrov">
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">What we do?</a>
+                  <ul class="dropdown-menu">
+                    
+                    <li><a href="thingz-cloud" class="dropdown-item">Thingz cloud</a></li>
+                    <li><a href="near-thingz" class="dropdown-item">Near thingz</a></li>
+                    <li><a href="thingz-app" class="dropdown-item">Thingz app</a></li>
+                  </ul>
+                </li>
+
+               <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Who we are?</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="who-we-are" class="dropdown-item">About us</a></li>
+                    <li><a href="leadership" class="dropdown-item">Leaderships</a></li>
+                    <!-- <li><a href="#" class="dropdown-item disabled">Company's story</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Awards</a></li>
+                    <li><a href="#" class="dropdown-item disabled">News</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Life @ mongrov </a></li> -->
+                  </ul>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Solutions</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="asset-tracking-system" class="dropdown-item">Asset tracking</a></li>
+                    <li><a href="field-service-management-software" class="dropdown-item">Field safety service</a></li>
+                    <li><a href="iot-data-management" class="dropdown-item">IoT data management</a></li>
+                  </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Industries</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="industries-health-care" class="dropdown-item">Health care</a></li>
+                    <li><a href="industries-infrastructure" class="dropdown-item">Infrastructures</a></li>
+                    <li><a href="industries-automotives" class="dropdown-item">Automobiles</a></li>
+                    
+                  </ul>
+                </li>
+
+               
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insights</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="blog" class="dropdown-item">Blogs</a></li>
+                    <li><a href="case-study" class="dropdown-item">Case studies</a></li>
+                    <li><a href="whitepapers" class="dropdown-item">Whitepapers</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a href="careers" class="nav-link ">Careers</a>
+                  
+                </li>
+
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+              <a href="contact" class="btn btn-primary w-100" rel="noopener">
+                &nbsp;Contact Us
+              </a>
+            </div>      
+          </div>
+          <!-- <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+            <input type="checkbox" class="form-check-input" id="theme-mode">
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+          </div> -->
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="contact" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex"  rel="noopener">
+            <!-- <i class="bx bx-phone fs-5 lh-1 me-1"></i> -->
+            &nbsp;Contact Us
+          </a>
+        </div>
+      </header>
+
+
+      <!-- Breadcrumb -->
+      <nav class="container mt-lg-4 pt-5" aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 pt-5">
+          <li class="breadcrumb-item">
+            <a href="index"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="blog">Blogs</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Blog detail</li>
+        </ol>
+      </nav>
+
+
+      <!-- Post title + Meta  -->
+      <section class="container mt-4 pt-lg-2 pb-3">
+        <h1 class="pb-3" style="max-width: 970px;">IoT in Electric Vehicles: Enhancing Range and Efficiency</h1>
+        <div class="d-flex flex-md-row flex-column align-items-md-center justify-content-md-between mb-3">
+          <div class="d-flex align-items-center flex-wrap text-muted mb-md-0 mb-4">
+            <div class="fs-xs border-end pe-3 me-3 mb-2">
+              <span class="badge bg-faded-primary text-primary fs-base">Technology</span>
+            </div>
+            <div class="fs-sm border-end pe-3 me-3 mb-2">June 20, 2024</div>
+
+            <div class="fs-sm pe-3 me-3 mb-2">
+              <a href="downloads/blog/iot-in-electric-vehicles.pdf" target="_blank" download class="btn btn-primary">Download Blog</a>
+            </div>
+            
+          </div>
+          <div class="d-flex align-items-center position-relative ps-md-3 pe-lg-5 mb-2">
+            <img src="assets/img/mong/logo-icon.png" class="rounded-circle" width="60" alt="Avatar">
+            <div class="ps-3">
+              <h6 class="mb-1 mt-3">Author</h6>
+              <h6 class="fw-semibold mt-2">Mongrov’s Tech Library</h5>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Post image (parallax) -->
+      <div class="jarallax mb-lg-5 mb-4" data-jarallax data-speed="0.35" style="height: 36.45vw; min-height: 300px;">
+        <img src="assets/img/mong/blog10.jpg" alt="The role of IoT in predictive maintenance for field service" class="jarallax-img">
+      </div>
+
+
+      <!-- Post content + Sharing -->
+      <section class="container mb-5 pt-4 pb-2 py-mg-4">
+        <div class="row gy-4">
+
+          <!-- Content -->
+          <div class="col-lg-9 mx-auto">
+            <h3 class="h5 mb-4 pb-2 fw-medium">Internet of Things (IoT) integration in electric vehicles (EVs) has revolutionized the automotive sector by yielding breakthrough range and efficiency across EVs. This kind of point-to-point exchange of real-time data between EV components and external systems the IoT supports; is powerful enough to help perform fine-grained battery management, optimize charging, and shift closer toward intelligent infrastructure. This article discusses how the Internet of Things (IoT) can revolutionize EV operation, through any improvements possible.
+
+            </h3>
+
+
+            <h4>Sophisticated Battery Management Systems</h4>
+            <h5>Battery Management's Significance for EVs</h5>
+            <p>The energy contained in an electric vehicle's batteries is what drives them, and it ultimately decides how far they can go and how well they can turn that energy into miles driven. Conventional battery management systems (BMS) tend not to have this capability, providing a less-than-ideal performance due to pronounced latency. Whereas IoT-driven BMS uses real-time data analytics, and monitors and manages battery health, battery temperature, and battery charge.
+            </p>
+            <h5>Monitoring and Diagnosis at Runtime</h5>
+            <p>IoT-enabled BMS enables constant monitoring of battery parameters, identifies any abnormalities, and helps in avoiding failures. The system has sensors embedded in the battery pack that deliver temperature, voltage, and current data to a central data system. The data in real-time use leads to predictive maintenance, less downtime, and a longer battery life.
+            </p>
+            <h5>Enhancing the Performance of Batteries</h5>
+            <p>It enables dynamic battery optimization wherein the charging and discharging cycles are modified to respond in real-time to the conditions of a battery. This ensures that it works in the right zone which improves efficiency and battery life. IoT also can work together with vehicle control systems to regulate power distribution and further manage energy efficiently.
+            </p>
+            <h4>Charging Optimization in Real Time</h4>
+            <h5>Problems with Charging Infrastructure</h5>
+            <p>Charging infrastructure availability and efficiency pose as one of the most significant challenges in EV adoption. Focus on smart charging (enhanced via IoT): IoT can be used to facilitate smart charging solutions that optimize the charging process and in turn, reduce long wait times and charge-up energy consumption.
+            </p>
+            <h5>Smart Charging Algorithms</h5>
+            <p>At the push of a button, IoT performs complex algorithms to control charging sessions taking into account grid load, electricity prices, and the individual needs of each vehicle, among other elements. IoT can also delay charging or cut down on power during times of peak electricity demand when the grid might already be on the brink of being overloaded. On the other end, it can start charging when electricity is at its off-peak hours and rates are lower.
+            </p>
+            <h5>Real-Time Data Exchange</h5>
+            <p>EVs and charging stations can communicate seamlessly thanks to IoT. Vehicles can communicate to the station the state of their batteries and the amount of charging they need, and the station will subsequently modify the charging parameters. Through this real-time exchange, power is distributed to each car in an ideal amount, improving efficiency and cutting down on charging time.
+            </p>
+            <h5>Integration and Management in Grid</h5>
+            <p>IoT - vital for the integration of EVs into the grid IoT system will control all of the distribution of power to the charging stations by monitoring the grid condition and predicting the demand, so that overloads of power will not happen and this will help to maintain the balance between the supply and demand. This not only increases the effectiveness of charging infrastructure but also serves the overall stability of the electrical grid.
+            </p>
+            <h4>Smart Charging Infrastructure</h4>
+            <h5>The Development of Charging Networks</h5>
+            <p>These proliferating EVs require that charging infrastructure be robust as well as intelligent. IoT enables the creation of a smart charging infrastructure that can alter in real-time as per the desire of users and grid.
+            </p>
+            <h5>Connected charging stations</h5>
+            <p>The Internet of Things allows charging stations to communicate with each other and with central management systems. Such connectivity facilitates charging coordination on a network-wide level that would maximize resource use. In the case where a station is already saturated, it could send vehicles on their routes to the closest stations available to minimize the waiting time and improve the efficiency of the offer.
+            </p>
+            <h5>User-Centric Solutions</h5>
+            <p>Not only does smart charging infrastructure improve the experience of owning an EV, but it provides users with an unprecedentedly seamless and user-friendly experience. Users can receive real-time updates on spot availability, and the status of their vehicle charging, and pay remotely through IoT-enabled applications. Both features make it far easier to own and operate an electric vehicle, and such convenience is key to expanding electric vehicles.
+            </p>
+            <h5>Increasing range through intelligent routing</h5>
+            <p>Such systems, i.e. navigation systems with IoT, can extend the range of electric vehicles by running routes based on real-time information. Well, those also take into account traffic conditions, road gradients, and charging stations for more tailored and optimized routes. IoT helps maximize the range per charge of EVs by preventing traffic jams and reducing energy consumption.
+            </p>
+            <h4>Vehicle-To-Everything Based Communication or (V2X)</h4>
+            <h5>Safer and More Efficient</h5>
+            <p>EVs can also communicate such information with other vehicles and road infrastructures with the help of V2X technology, which improves safety and efficiency as well. This will enable things like vehicles being able to communicate information on road conditions, traffic jams, or accidents, allowing humans to make more educated decisions and keep away from potential dangers. Keeping everything within a mile removes all unnecessary stops and delays.
+            </p>
+            <h5>Supporting autonomous driving</h5>
+            <p>Autonomous vehicles depend on the Internet of Things to move freely and safely IoT ensures that the vehicles are in constant communication with their environment in real-time. For EVs, this could prove particularly critical as autonomous driving could improve their range and efficiency by idealizing driving patterns and having a more energy-efficient driving style.
+            </p>
+            <h4>Predictive Maintenance and Efficiency</h4>
+            <h5>Predictive Analytics</h5>
+            <p>Smart maintenance becomes a game-changer for the automotive sector and this is being led by IoT. IoT systems can use real-time data from different components of a vehicle to predict failures and schedule maintenance even before an issue emerges.
+            </p>
+            <h5>Enhancing Vehicle Lifespan</h5>
+            <p>This is particularly essential in the case of electric vehicles as predictive maintenance can act as a preventive measure for the health of key components, e.g., batteries, motors, charging systems, etc. Preventing unscheduled failures, IoT-driven predictive maintenance prolongs the life of these components, thereby ensuring that the EVs stay efficient and reliable during their lifespan.
+            </p>
+            <h5>Savings or Cost-efficiencies</h5>
+            <p>On a final note, preventative maintenance increases electric vehicle reliability and lowers long-term costs, two things dealerships dispute. This helps alleviate the potential for minor issues to turn into major issues in the future and the resulting repairs and downtime they can cause. In addition, it makes certain that vehicles are functioning optimally, extending the range and performance of the vehicle.
+            </p>
+            <h4>The Role of Data Analytics</h4>
+            <h5>Using Big Data for Knowledge</h5>
+            <p>The enormous data generated from IoT systems on electric vehicles provides a good chance for data analytics. This data provides manufacturers, service providers, and users with in-depth information on vehicle performance, user behavior, and system efficiency, by analyzing the same data.
+            </p>
+            <h5>Design and manufacturing honing</h5>
+            <p>Data analytics are essential for auto manufacturers, providing valuable real-world performance feedback on vehicle components and systems. It will help design and manufacture EVs in terms of functionality and durability. For instance, when data analysis indicates that a certain component is particularly prone to failure, manufacturers can choose to redesign the component to improve both its durability and its performance.
+            </p>
+            <h5>Personalized User Experience</h5>
+            <p>Data analytics help to provide a more customized user experience as well. They can also tailor the vehicle for the particular person driving by learning driver patterns/preferences to customize climate control, navigation, entertainment, etc. The user satisfaction is thus increased and with that, the operation of the vehicle can be adapted to the user and even optimized in terms of energy consumption.
+            </p>
+            <h4>Challenges in Cybersecurity and their Solutions</h4>
+            <h5>Why IoT Needs Security</h5>
+            <p>The connected nature of electric vehicles has further highlighted the issue of cybersecurity. The large information exchanged in one position - involving vehicle-to-vehicle (V2V), vehicle-to-infrastructure (V2I) as well as vehicle-to-grid (V2G) communication -set up potential vulnerabilities for cyber-attackers.
+            </p>
+            <h5>Protecting data integrity</h5>
+            <p>Secure encryption and secure authentication must be used in any IoT systems inside electric vehicles for data integrity. This stops thieves from getting all of the good info, in addition to securing the information circulation between the vehicle and its road-going buddies.
+            </p>
+            <h5>Addressing potential threats</h5>
+            <p>This requires IoT systems to be able to proactively detect and respond to potential threats in real time. In the first step, network traffic is monitored at all times, anomalies are detected, and responses for them are conducted. Through proactive cybersecurity measures, IoT guarantees that electric vehicles can operate safely and effectively.
+            </p>
+            <h4>Case Study: The Effect of Mongrov on EV Efficiency</h4>
+            <h5>Use of IoT to Improve the Efficiency</h5>
+            <p>Mongrov has been taking huge steps in electric vehicle technology, and now is the answer for more electric vehicles to show up in commuting cities, and shorten or eliminate the long development phases with their technology -changing efficiency measures from miles between charges to miles per unit of charge! Mongrov uses cutting-edge IoT to integrate real-time data analytics, predictive maintenance as well as smart charging as a service solution to upgrade the efficiency of electric vehicles by a quantum.
+            </p>
+            <h5>Future Prospects</h5>
+            <p>Going forward, Mongrov wants to continue to expand its IoT solutions and grow by using cutting-edge technologies like artificial intelligence and machine learning. Through continuous innovation, Mongrov is actively participating in the advancement of electric vehicles and making them efficient, reliable, and greener.
+            </p>
+            <h4>IoT's Future in Electric Vehicles</h4>
+            <p>In summary, IoT has been a game changer when it comes to technology as it is this that has propelled technology forward with Electric Vehicles allowing us greater range and performance. IoT is changing the behavior and relationship of electricity by keeping an eye on cars and surroundings with the connection of industry-leading BMS and real-time billing optimization as well as clever billing infrastructure. 
+            </p>
+            <p>The integration of this technology improves sustainability by optimizing the energy rate of use, which allows for lower power levels and less frequent charging, which in turn helps reduce the carbon footprint of transportation. Mongrov, a pioneer in this technology space, has been developing crafted IoT solutions for the better and more efficient functioning of electric vehicles. 
+            </p>
+            <p>As with all technology, IoT is only going to take an ever-growing role in increasing efficiency (and sustainability) in the EV sector, helping to ensure that these vehicles can remain a viable and attractive option going forward.
+            </p>
+           
+
+             
+
+          </div>
+
+          
+        </div>
+      </section>
+
+
+
+    </main>
+ <!-- Footer -->
+ <footer class="footer pt-5 pb-4 pb-lg-5 mt-2 mt-md-0 border-top">
+  <div class="container pt-lg-4">
+    <div class="row pb-5">
+      <div class="col-md-3">
+        <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+          <img src="assets/img/mong/logo.svg" width="120" alt="Mongrov">
+        </div>
+        <ul class="nav flex-column mb-0">
+          <li class="mb-1">
+            <a href="contact#contact" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-map fs-5 text-primary me-2"></i>
+              3001 Bishop Drive, Suite 300, San Ramon, CA 94583.
+            </a>
+          </li>
+          <li class="mb-1">
+            <a href="tel:4065550120" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-phone-call fs-5 text-primary me-2"></i>
+              +1 (415) 890 3925
+            </a>
+          </li>
+          <li>
+            <a href="mailto:hello@mongrov.com" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-envelope fs-5 text-primary me-2"></i>
+              hello@mongrov.com
+            </a>
+          </li>
+        </ul>
+
+        <div class="d-flex mt-lg-3">
+          <a href="https://www.linkedin.com/company/mongrov-inc/" target="_blank" aria-label="Linked in" class="btn btn-icon btn-secondary btn-linkedin ml-0 mr-2">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://twitter.com/TheMongrov" target="_blank" class="btn btn-icon btn-secondary btn-twitter mx-2">
+            <i class='bx'>
+              <img src="assets/img/mong/twitter-x.svg"  width="16" alt="Twitter">
+            </i>
+          </a>
+          <a href="https://github.com/mongrov" target="_blank" aria-label="Github" class="btn btn-icon btn-secondary btn-github">
+            <i class="bx bxl-github"></i>
+          </a>
+        </div>
+        <div class="mt-lg-3">
+          <h6 class="mb-2">Compliances</h6>
+          <div class="row">
+            <div class="col">
+              <img class="img-fluid" src="assets/img/mong/compliances.png" width="200" alt="Compliances">
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-9 pt-4 pt-md-1 pt-lg-0">
+        <div id="footer-links" class="row">
+          <div class="col-md-3">
+            <h6 class="mb-2">What we do?</h6>
+              <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                
+                <li class="nav-item"><a href="thingz-cloud" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz cloud</a></li>
+                <li class="nav-item"><a href="near-thingz" class="nav-link d-inline-block px-0 pt-1 pb-2">Near thingz</a></li>
+                <li class="nav-item"><a href="thingz-app" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz app</a></li>
+              </ul>
+
+              <h6 class="mb-2 mt-3 mt-md-0">Who we are?</h6>
+              <ul class="nav flex-column mb-2 mb-lg-0">
+                <li class="nav-item"><a href="who-we-are" class="nav-link d-inline-block px-0 pt-1 pb-2">About us</a></li>
+                <li class="nav-item"><a href="leadership" class="nav-link d-inline-block px-0 pt-1 pb-2">Leaderships</a></li>
+                <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Company's story</a></li>
+                <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Awards</a></li>
+                <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">News</a></li> -->
+                <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Life @ mongrov</a></li> -->
+              </ul>
+
+              
+          </div>
+          <div class="col-md-3">
+            <h6 class="mb-2 mt-2 mt-md-0">Solutions</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                <li class="nav-item"><a href="asset-tracking-system" class="nav-link d-inline-block px-0 pt-1 pb-2">Asset tracking</a></li>
+                <li class="nav-item"><a href="field-service-management-software" class="nav-link d-inline-block px-0 pt-1 pb-2">Field safety service</a></li>
+                <li class="nav-item"><a href="iot-data-management" class="nav-link d-inline-block px-0 pt-1 pb-2">IoT data management</a></li>
+              </ul>
+
+              <h6 class="mb-2 mt-3 mt-md-0">Industries</h6>
+              <ul class="nav flex-column mb-2 mb-lg-0">
+                <li class="nav-item"><a href="industries-health-care" class="nav-link d-inline-block px-0 pt-1 pb-2">Health care</a></li>
+                <li class="nav-item"><a href="industries-infrastructure" class="nav-link d-inline-block px-0 pt-1 pb-2 ">Infrastructures</a></li>
+                <li class="nav-item"><a href="industries-automotives.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Automobiles</a></li>
+              </ul>
+
+              
+          </div>
+          <div class="col-md-3 pt-2 pt-lg-0">
+            <h6 class="mb-2">Become our partner</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+              <li class="nav-item"><a href="system-integrators" class="nav-link d-inline-block px-0 pt-1 pb-2">System integrators</a></li>
+              <li class="nav-item"><a href="device-manufacturers" class="nav-link d-inline-block px-0 pt-1 pb-2">Device manufacturers</a></li>
+              <li class="nav-item"><a href="cloud-partners" class="nav-link d-inline-block px-0 pt-1 pb-2">Cloud partners</a></li>
+              
+            </ul>
+            <h6 class="mb-2 mt-3 mt-md-0">Insights</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+              <li class="nav-item"><a href="blog" class="nav-link d-inline-block px-0 pt-1 pb-2">Blogs</a></li>
+              <li class="nav-item"><a href="case-study" class="nav-link d-inline-block px-0 pt-1 pb-2">Case studies</a></li>
+              <li class="nav-item"><a href="whitepapers" class="nav-link d-inline-block px-0 pt-1 pb-2">Whitepapers</a></li>
+             
+              
+            </ul>
+            <!-- <ul class="nav flex-column mb-2 mb-lg-0">
+              <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+              <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+            </ul> -->
+          </div>
+
+          <div class="col-md-3 pt-2 pt-lg-0">
+            
+           <ul class="nav flex-column mb-2 mb-lg-0">
+            <li class="nav-item"><a href="careers" class="nav-link d-inline-block px-0 pt-1 pb-2">Careers</a></li>
+            <li class="nav-item"><a href="contact" class="nav-link d-inline-block px-0 pt-1 pb-2">Contact us</a></li>
+              <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+              <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+      &copy; 2024 Mongrov, Inc. All rights reserved. 
+      <!-- <a class="nav-link d-inline-block p-0" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a> -->
+
+    </p>
+  </div>
+</footer>
+
+
+<!-- Back to top button -->
+<a href="#top" class="btn-scroll-top" aria-label="backtotop" data-scroll>
+  <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+  <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+</a>
+
+
+<!-- Vendor Scripts -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
+<script src="assets/vendor/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/lightgallery/lightgallery.min.js"></script>
+<script src="assets/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/shufflejs/dist/shuffle.min.js"></script>
+
+<!-- Main Theme Script -->
+<script src="assets/js/theme.min.js"></script>
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FG9Y3JJT67"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-FG9Y3JJT67');
+</script>
+
+<script type='text/javascript'>
+  var link = !!document.querySelector("link[rel='canonical']") ? document.querySelector("link[rel='canonical']") : document.createElement('link');
+  link.setAttribute('rel', 'canonical');
+  link.setAttribute('href', location.protocol + '//' + location.host + location.pathname);
+  document.head.appendChild(link);
+</script>
+  
+  </body>
+</html>

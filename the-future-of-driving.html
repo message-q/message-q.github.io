@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>The Future of Driving: The Role and Impact of IoT on Autonomous Vehicles</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="title" content="The Future of Driving: The Role and Impact of IoT on Autonomous Vehicles">
+    <meta name="description" content="The upgrade is one of the sweeping advancements to get you quicker, way more secure, and a significant amount more comfortable on the road with all IoT-based, primarily self-driving cars.">
+
+    <meta name="keywords" content="IoT, Things, Thingz, Data Streaming, Asset management, Temperature, Devices, Intert of Things, Data lake, Data Ocean, Preventive maintenance">
+    <meta name="author" content="Mongrov">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/mong/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/mong/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/mong/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/mong/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/img/mong/favicon/safari-pinned-tab.svg" color="#1685FF">
+    <link rel="shortcut icon" href="assets/img/mong/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/img/mong/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <link rel="stylesheet" media="screen" href="assets/css/custom-style.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      .img-rounded {
+    border-radius: 10px;
+     }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+    
+    <!-- schema markup code -->
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Organization",
+    "name": "Mongrov, Inc.",
+  "address": "3001 Bishop Drive, Suite 300, San Ramon, CA, 94583",
+    "alternateName": " Mongrov",
+  "areaServed": [
+  "United States"
+  ],
+      "description": "At Mongrov, we are passionate about pushing the boundaries of technology and innovation. As a technology startup, we specialize in providing cutting-edge IoT solutions with a strong focus on Real-time Streaming Data.",
+  "email": "hello@mongrov.com",
+  "legalName": " Mongrov, Inc.",
+  "logo": " https://mongrov.com/assets/img/mong/logo.svg",
+  "mainEntityOfPage": " https://g.co/kgs/yshDyRX",
+  "sameAs": [
+  " https://www.linkedin.com/company/mongrov-inc/",
+  " https://twitter.com/TheMongrov"
+  ],
+  "slogan": "Real-time Data Management for Improved Efficiency",
+  "telephone": " +1 (415) 890 3925",
+  "url": "https://mongrov.com/"
+  }
+  }
+  </script>
+  <!-- Canonical Link -->
+   
+  <link rel="canonical" href="">
+    
+</head>
+
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <!-- <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div> -->
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+        <div class="container px-3">
+          <a href="https://mongrov.com/" class="navbar-brand pe-3">
+            <img src="assets/img/mong/logo.svg" width="140" alt="mongrov">
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">What we do?</a>
+                  <ul class="dropdown-menu">
+                    
+                    <li><a href="thingz-cloud" class="dropdown-item">Thingz cloud</a></li>
+                    <li><a href="near-thingz" class="dropdown-item">Near thingz</a></li>
+                    <li><a href="thingz-app" class="dropdown-item">Thingz app</a></li>
+                  </ul>
+                </li>
+
+               <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Who we are?</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="who-we-are" class="dropdown-item">About us</a></li>
+                    <li><a href="leadership" class="dropdown-item">Leaderships</a></li>
+                    <!-- <li><a href="#" class="dropdown-item disabled">Company's story</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Awards</a></li>
+                    <li><a href="#" class="dropdown-item disabled">News</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Life @ mongrov </a></li> -->
+                  </ul>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Solutions</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="asset-tracking-system" class="dropdown-item">Asset tracking</a></li>
+                    <li><a href="field-service-management-software" class="dropdown-item">Field safety service</a></li>
+                    <li><a href="iot-data-management" class="dropdown-item">IoT data management</a></li>
+                  </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Industries</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="industries-health-care" class="dropdown-item">Health care</a></li>
+                    <li><a href="industries-infrastructure" class="dropdown-item">Infrastructures</a></li>
+                    <li><a href="industries-automotives" class="dropdown-item">Automobiles</a></li>
+                    
+                  </ul>
+                </li>
+
+               
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insights</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="blog" class="dropdown-item">Blogs</a></li>
+                    <li><a href="case-study" class="dropdown-item">Case studies</a></li>
+                    <li><a href="whitepapers" class="dropdown-item">Whitepapers</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a href="careers" class="nav-link ">Careers</a>
+                  
+                </li>
+
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+              <a href="contact" class="btn btn-primary w-100" rel="noopener">
+                &nbsp;Contact Us
+              </a>
+            </div>      
+          </div>
+          <!-- <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+            <input type="checkbox" class="form-check-input" id="theme-mode">
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+          </div> -->
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="contact" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex"  rel="noopener">
+            <!-- <i class="bx bx-phone fs-5 lh-1 me-1"></i> -->
+            &nbsp;Contact Us
+          </a>
+        </div>
+      </header>
+
+
+      <!-- Breadcrumb -->
+      <nav class="container mt-lg-4 pt-5" aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 pt-5">
+          <li class="breadcrumb-item">
+            <a href="index"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="blog">Blogs</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Blog detail</li>
+        </ol>
+      </nav>
+
+
+      <!-- Post title + Meta  -->
+      <section class="container mt-4 pt-lg-2 pb-3">
+        <h1 class="pb-3" style="max-width: 970px;">The Future of Driving: The Role and Impact of IoT on Autonomous Vehicles</h1>
+        <div class="d-flex flex-md-row flex-column align-items-md-center justify-content-md-between mb-3">
+          <div class="d-flex align-items-center flex-wrap text-muted mb-md-0 mb-4">
+            <div class="fs-xs border-end pe-3 me-3 mb-2">
+              <span class="badge bg-faded-primary text-primary fs-base">Technology</span>
+            </div>
+            <div class="fs-sm border-end pe-3 me-3 mb-2">June 27, 2024</div>
+
+            <div class="fs-sm pe-3 me-3 mb-2">
+              <a href="downloads/blog/the-future-of-driving.pdf" target="_blank" download class="btn btn-primary">Download Blog</a>
+            </div>
+            
+          </div>
+          <div class="d-flex align-items-center position-relative ps-md-3 pe-lg-5 mb-2">
+            <img src="assets/img/mong/logo-icon.png" class="rounded-circle" width="60" alt="Avatar">
+            <div class="ps-3">
+              <h6 class="mb-1 mt-3">Author</h6>
+              <h6 class="fw-semibold mt-2">Mongrov’s Tech Library</h5>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Post image (parallax) -->
+      <div class="jarallax mb-lg-5 mb-4" data-jarallax data-speed="0.35" style="height: 36.45vw; min-height: 300px;">
+        <img src="assets/img/mong/blog7.jpg" alt="The role of IoT in predictive maintenance for field service" class="jarallax-img">
+      </div>
+
+
+      <!-- Post content + Sharing -->
+      <section class="container mb-5 pt-4 pb-2 py-mg-4">
+        <div class="row gy-4">
+
+          <!-- Content -->
+          <div class="col-lg-9 mx-auto">
+            <h3 class="h5 mb-4 pb-2 fw-medium">The upgrade is one of the sweeping advancements to get you quicker, way more secure, and a significant amount more comfortable on the road with all IoT-based, primarily self-driving cars.
+                <br>
+                <br>
+
+                This tech jump is all about connecting devices via the internet for more control and communication. This essentially means a network of interlinked devices that can collect, transmit and store data on the internet. By integrating IoT to AVs, this triggered auto industry perhaps can create highly imaginative, flexible, and driving experiences - using immense data and thousands or sensors.
+                <br>
+                <br>
+                In this article, we discuss how the Internet of Things is transforming the way Autonomous cars are gaining popularity, what technology is using it, what are its benefits, and how it is changing the picture of transportation in the long run.
+
+            </h3>
+
+
+            <h2 class="h4">IoT: The Foundation of Tech for Self-driving Cars</h2>
+            <h3 class="h5">Understanding IoT in Automotive Industry</h3>
+            <p class="mb-4 pb-2">Simply put, IoT refers to the normal, everyday stuff that gets connected to the internet via having a computer crammed into it that can send data and receive that same data in return. It is the IoT that makes entire bits, cameras, sensors, and actuators of a system together and becomes glue to each other. Talking and deciding in real time is essential for autonomous vehicles (AVs) to function.</p>
+
+            <h2 class="h4">What Are the Roles of Sensor Technologies in Autonomous Vehicles?</h2>
+
+            <p class="mb-2">Autonomous vehicles or IoT integrated vehicles collect information from their surrounding areas and thus it uses that collected data for making more precise decisions. Noteworthy sensor technologies are as follows:
+            </p>
+
+            <p class="mb-2"><b>LiDAR (Light Detection and Ranging):</b> Extensively accurate 3D imaging of the space around a car, accomplished by laser beam coordination at an event. This sensor in turn takes care of navigation, distance tracking and obstacle recognition etc.
+            </p>
+
+            <p class="mb-2"><b>Radar (Radio Detection and Ranging):</b> Radar applies radio waves to detect how fast another object is moving. They really do their best work when the weather is bad, like a lot of rain or fog and when your optical sensors could go on the fritz.
+            </p>
+
+            <p class="mb-2"><b> Lenses:</b> Process high-definition camera visual data and recognize traffic signs, objects, and lane locations. 
+            </p>
+
+            <p class="mb-2"><b> Ultrasonic sensors </b> - are used for low-speed movement, short-distance detection, and parking aids.
+            </p>
+
+           
+
+            <h2 class="h4 mt-4">Smart Autonomous Vehicles: Data Analytics</h2>
+           
+            <p class="mb-2">Automated driving requires real-time data processing and analysis With all that data from sensors, it also gets to see around it, in a way. The onboard sensor data is used for risk prediction using advanced data analytics and machine learning algorithms and generating the driving decisions.</p>
+
+            <h3 class="h5">Processing Data in Real Time</h3>
+
+            <p class="mb-2">Autonomous vehicles rely on processing real-time data, in order to perform adequately. Thanks to the interconnected processing of a multitude of data streams via the Internet of Things, artificial intelligence (AV) can react very quickly to unexpected obstacles and changing road conditions. This is essential to ensure the functionality and safety of autonomous driving.</p>
+
+            <h2 class="h4 mt-4">Adding IoT for enhanced safety</h2>
+
+            <h3 class="h5">Systems to Prevent Collisions</h3>
+
+            <p class="mb-2">These days, the hottest IoT functionality for autonomous vehicles is safety, propelled by next-generation collision avoidance systems. They use input from sensors to detect potential collisions and trigger evasive maneuvers, like braking in the direction of safety.
+            </p>
+
+            <h3 class="h5">Better Decision-Making Skills</h3>
+            
+            <p class="mb-2">When it comes to autonomous cars, they use IoT sensing and can decide in milliseconds what the human drivers may take some moments to click. Self-driving cars always have their sensors running and churning through enormous amounts of data, which makes them super aware of their surroundings and allows them to do a much better job of seeing things that might pose a safety threat and steering clear of causing any adverse interactions. </p>
+
+            <p class="mb-2">This has the effect of reducing, in the main, traffic accidents, which are typically the result of human error. </p>
+
+            <p class="mb-2">What the company call as a new level of smart data management that has been self-governing systems, and the fact that helps the company feed test data and use test automation and continuous testing, the use of autonomous remediation and the automation related to these technologies is certainly helpful, the integration of third-party tools like a modern IoT solutions provider like Mongrov can further enhance the performance of these self-governing systems.
+            </p>
+
+            <h2 class="h4">V2X or (Vehicle-to-Everything based Communication)</h2>
+            <h3 class="h5">Different types of communication take place in V2X communication:</h3>
+
+            <p class="mb-2"><b>Vehicle to vehicle (V2V) communication:</b> V2V technology is onboard the vehicles, and the vehicles exchange data of their planned direction, speed, position. This reduces collisions and improves traffic flow.
+            
+            </p>
+
+            <p class="mb-2"><b> Vehicle-to-Infrastructure (V2I) communication:</b>The data contained in V2I is exactly what it sounds like; vehicles taking note of what road signs and traffic lights are telling them. It will in turn benefit planning for the right way to go and helps the traffic to flow smoothly through.</p>
+
+            <p class="mb-2"><b>Vehicle-to-Pedestrian (V2P) communication:</b>V2P signals alerts pedestrians via V2P apps that are installed on their devices, this communication technology efficiently helps in managing the safety of pedestrians especially when they may be walking in high-density or crowded areas. This technology also plays a major role in preventing unwanted car-pedestrian accidents.</p>
+
+            <h2 class="h4">Productivity improves with IoT and Autonomous vehicles</h2>
+
+            <h3 class="h5">Enhanced traffic control</h3>
+
+            <p class="mb-2">Once activity administration is melded with IoT in autonomous vehicles, the future of transportation could be forever changed. By having self-governing vehicles (AVs) consistently address both the movement structure and each other, steering can be advanced and congestion can be minimized to improve general movement stream. This shortens travel times and, subsequently, reduces fuel use.
+            </p>
+
+            <h3 class="h5">Benefits of energy efficiency to the nature</h3>
+
+            <p class="mb-2">Autonomous cars can serve much better over traditional ones when they are incorporated with the Internet of Things technology. Such vehicles can achieve better gas mileage through optimizing their driving habits and minimizing unnecessary braking and acceleration. Moreover, the combined effect of smart grid integration with electric AVs could help lower gas emissions by properly managing energy demand.
+            </p>
+
+            <h3 class="h5">Solutions for mobility sharing and fleet management</h3>
+
+            <p class="mb-2">And the Internet of Things can benefit even more by shared mobility services and fleet management. An autonomous fleet can run remotely, or from one central location, ensuring the autonomous vehicles are always being used and in the best class, and when they are not used they are maintained accordingly. This way the users of the shared vehicles will receive a more reliable service, while the operator will save money by doing so. Smart or autonomous vehicles will definitely help you by reducing the effect of ride hailing and car sharing.
+            </p>
+             
+
+
+            <h2 class="h4">Challenges to be Overcome by Internet of Things-Powered Autonomous Vehicles</h2>
+            <h3 class="h5">Relates to data security and privacy Group</h3>
+              <p class="mb-4 pb-2">The huge data flow of IoT-enabled autonomous vehicles is putting them under considerable threat as to security & privacy. It is crucial that antivirus software is secure and strong enough; otherwise, all confidential data will be in danger of being attacked online. Protecting data means implementing strong authentication, encrypt, and access controls.
+            </p>
+
+            <h3 class="h5">Interoperability and standardization</h3>
+
+            <p class="mb-4 pb-2">This is where the biggest issue with standards and interoperability occurs in the IoT space. This is critical from an autonomy perspective: For an autonomous car to be successful, it must be able to communicate with different parts and frameworks. It requires industry collaboration and regulatory frameworks to establish uniform standards and protocols.
+            </p>
+
+            <h3 class="h5">Development of infrastructure</h3>
+            <p class="mb-4 pb-2">IOT Autonomous Cars Infrastructure Development - Due to the number of IOT sensors required and data that will be created, significant infrastructure needs to be built in order to support IOT autonomous cars. In the streets, intelligent activity signals, sensors, and communication devices should be implanted along with a redesign of street foundations so that V2X communication can be sufficiently promoted. This will require governments and partners in the business sector to collaborate to fund and build the foundation.
+            </p>
+
+            <h2 class="h4">IoT Landscape for the Future autonomous vehicles
+            </h2>
+
+            <h3 class="h5">Advances in sensors technology</h3>
+
+            <p class="mb-4 pb-2">The better sensor tech gets improved for autonomous vehicles. LiDAR systems, high-resolution cameras, and radar will be more sensitive, leading to increased accuracy, dependability in AV navigation and more effective performance of these vehicles in challenging environments.
+            </p>
+             
+            <h3 class="h5">Integration with smart cities</h3>
+            <p class="mb-4 pb-2">The autonomous guarantee should in the meantime be actually linked to urban area smart initiatives and were driven by integrating DAO technology with urban projects. As a result, IoT connected autonomous vehicles (AVs) are seen as a central component of smart city mobility initiatives, their connectivity making it possible to integrate with other intelligent infrastructures such as energy networks and public transportation. This integration could lead to more efficient and sustainable urban settings.</p>
+
+            <h3 class="h5">A Brief History of Laws and Bills</h3>
+
+            <p class="mb-4 pb-2">Whether laws and regulations will be mature enough for autonomous cars guided by IoT to be ubiquitous is still up in the air. Governments will have to provide comprehensive frameworks for standards and insurance coverage in order to incentivize research and investment in autonomous vehicle technology.</p>
+
+            <h3 class="h5">Function of Machine learning/Artificial Intelligence</h3>
+
+            <p class="mb-4 pb-2">Artificial intelligence and machine learning will largely drive the development of autonomous vehicles. AI calculations can also propel these predictive assistance and decision-making shapes, enabling more complex intuitive correlations between autonomous vehicles (AVs) and their surroundings. This will enable new stages of car autonomy and intelligence, thanks to the synergy of IoT and AI.</p>
+
+            <h2 class="h4">What to expect from driverless cars and the internet of things in the future?</h2>
+
+            <p class="mb-4 pb-2">
+                So, how do the Internet of Things and driverless/shuttle cars change the transportation universe into a more safer and productive one, breaking the limits and generating creativity in the mobility realm? This will open up the field to a broader range of autonomous vehicles. Autonomous cars are going to receive an impetus, they will get more robust and sturdy thanks to the innovations in sensor technology, data analytics, and communication systems that all IoT-enabled devices will bring about.
+            </p>
+
+            <p class="mb-4 pb-2">
+                Business innovators, universities, and governments must work together to eliminate the barriers that prevent these vehicles from achieving their full potential. And that means a non-trivial cost on foundation research and development. If we move to long-term portability, secure, interesting, aesthetical transportation of people using IoT in fully autonomous vehicles can continuously be in style. Benefits far outweigh the challenges. Yes, with the power of the Internet of Things, we can make it a system that serves the twenty-first century - and beyond.
+            </p>
+
+            <p class="mb-4 pb-2">
+                Therefore, a major stride in the transportation development has been the fusion of IoT and autonomous car technologies. Prior to the IoT, connected vehicles didn't exist in the way we understand them today, and the level of safety, efficiency and convenience now possible on the roads was unimaginable. The future is brighter, greener, and more sustained for everyone if we innovate and invest on this game-changing technology following the footsteps of the Mongrov advancements.
+            </p>
+
+          </div>
+
+          
+        </div>
+      </section>
+
+
+
+    </main>
+ <!-- Footer -->
+ <footer class="footer pt-5 pb-4 pb-lg-5 mt-2 mt-md-0 border-top">
+  <div class="container pt-lg-4">
+    <div class="row pb-5">
+      <div class="col-md-3">
+        <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+          <img src="assets/img/mong/logo.svg" width="120" alt="Mongrov">
+        </div>
+        <ul class="nav flex-column mb-0">
+          <li class="mb-1">
+            <a href="contact#contact" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-map fs-5 text-primary me-2"></i>
+              3001 Bishop Drive, Suite 300, San Ramon, CA 94583.
+            </a>
+          </li>
+          <li class="mb-1">
+            <a href="tel:4065550120" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-phone-call fs-5 text-primary me-2"></i>
+              +1 (415) 890 3925
+            </a>
+          </li>
+          <li>
+            <a href="mailto:hello@mongrov.com" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-envelope fs-5 text-primary me-2"></i>
+              hello@mongrov.com
+            </a>
+          </li>
+        </ul>
+
+        <div class="d-flex mt-lg-3">
+          <a href="https://www.linkedin.com/company/mongrov-inc/" target="_blank" aria-label="Linked in" class="btn btn-icon btn-secondary btn-linkedin ml-0 mr-2">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://twitter.com/TheMongrov" target="_blank" class="btn btn-icon btn-secondary btn-twitter mx-2">
+            <i class='bx'>
+              <img src="assets/img/mong/twitter-x.svg"  width="16" alt="Twitter">
+            </i>
+          </a>
+          <a href="https://github.com/mongrov" target="_blank" aria-label="Github" class="btn btn-icon btn-secondary btn-github">
+            <i class="bx bxl-github"></i>
+          </a>
+        </div>
+        <div class="mt-lg-3">
+          <h6 class="mb-2">Compliances</h6>
+          <div class="row">
+            <div class="col">
+              <img class="img-fluid" src="assets/img/mong/compliances.png" width="200" alt="Compliances">
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-9 pt-4 pt-md-1 pt-lg-0">
+        <div id="footer-links" class="row">
+          <div class="col-md-3">
+            <h6 class="mb-2">What we do?</h6>
+              <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                
+                <li class="nav-item"><a href="thingz-cloud" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz cloud</a></li>
+                <li class="nav-item"><a href="near-thingz" class="nav-link d-inline-block px-0 pt-1 pb-2">Near thingz</a></li>
+                <li class="nav-item"><a href="thingz-app" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz app</a></li>
+              </ul>
+
+              <h6 class="mb-2 mt-3 mt-md-0">Who we are?</h6>
+              <ul class="nav flex-column mb-2 mb-lg-0">
+                <li class="nav-item"><a href="who-we-are" class="nav-link d-inline-block px-0 pt-1 pb-2">About us</a></li>
+                <li class="nav-item"><a href="leadership" class="nav-link d-inline-block px-0 pt-1 pb-2">Leaderships</a></li>
+                <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Company's story</a></li>
+                <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Awards</a></li>
+                <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">News</a></li> -->
+                <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Life @ mongrov</a></li> -->
+              </ul>
+
+              
+          </div>
+          <div class="col-md-3">
+            <h6 class="mb-2 mt-2 mt-md-0">Solutions</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                <li class="nav-item"><a href="asset-tracking-system" class="nav-link d-inline-block px-0 pt-1 pb-2">Asset tracking</a></li>
+                <li class="nav-item"><a href="field-service-management-software" class="nav-link d-inline-block px-0 pt-1 pb-2">Field safety service</a></li>
+                <li class="nav-item"><a href="iot-data-management" class="nav-link d-inline-block px-0 pt-1 pb-2">IoT data management</a></li>
+              </ul>
+
+              <h6 class="mb-2 mt-3 mt-md-0">Industries</h6>
+              <ul class="nav flex-column mb-2 mb-lg-0">
+                <li class="nav-item"><a href="industries-health-care" class="nav-link d-inline-block px-0 pt-1 pb-2">Health care</a></li>
+                <li class="nav-item"><a href="industries-infrastructure" class="nav-link d-inline-block px-0 pt-1 pb-2 ">Infrastructures</a></li>
+                <li class="nav-item"><a href="industries-automotives.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Automobiles</a></li>
+              </ul>
+
+              
+          </div>
+          <div class="col-md-3 pt-2 pt-lg-0">
+            <h6 class="mb-2">Become our partner</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+              <li class="nav-item"><a href="system-integrators" class="nav-link d-inline-block px-0 pt-1 pb-2">System integrators</a></li>
+              <li class="nav-item"><a href="device-manufacturers" class="nav-link d-inline-block px-0 pt-1 pb-2">Device manufacturers</a></li>
+              <li class="nav-item"><a href="cloud-partners" class="nav-link d-inline-block px-0 pt-1 pb-2">Cloud partners</a></li>
+              
+            </ul>
+            <h6 class="mb-2 mt-3 mt-md-0">Insights</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+              <li class="nav-item"><a href="blog" class="nav-link d-inline-block px-0 pt-1 pb-2">Blogs</a></li>
+              <li class="nav-item"><a href="case-study" class="nav-link d-inline-block px-0 pt-1 pb-2">Case studies</a></li>
+              <li class="nav-item"><a href="whitepapers" class="nav-link d-inline-block px-0 pt-1 pb-2">Whitepapers</a></li>
+             
+              
+            </ul>
+            <!-- <ul class="nav flex-column mb-2 mb-lg-0">
+              <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+              <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+            </ul> -->
+          </div>
+
+          <div class="col-md-3 pt-2 pt-lg-0">
+            
+           <ul class="nav flex-column mb-2 mb-lg-0">
+            <li class="nav-item"><a href="careers" class="nav-link d-inline-block px-0 pt-1 pb-2">Careers</a></li>
+            <li class="nav-item"><a href="contact" class="nav-link d-inline-block px-0 pt-1 pb-2">Contact us</a></li>
+              <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+              <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+      &copy; 2024 Mongrov, Inc. All rights reserved. 
+      <!-- <a class="nav-link d-inline-block p-0" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a> -->
+
+    </p>
+  </div>
+</footer>
+
+
+<!-- Back to top button -->
+<a href="#top" class="btn-scroll-top" aria-label="backtotop" data-scroll>
+  <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+  <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+</a>
+
+
+<!-- Vendor Scripts -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
+<script src="assets/vendor/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/lightgallery/lightgallery.min.js"></script>
+<script src="assets/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/shufflejs/dist/shuffle.min.js"></script>
+
+<!-- Main Theme Script -->
+<script src="assets/js/theme.min.js"></script>
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FG9Y3JJT67"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-FG9Y3JJT67');
+</script>
+
+<script type='text/javascript'>
+  var link = !!document.querySelector("link[rel='canonical']") ? document.querySelector("link[rel='canonical']") : document.createElement('link');
+  link.setAttribute('rel', 'canonical');
+  link.setAttribute('href', location.protocol + '//' + location.host + location.pathname);
+  document.head.appendChild(link);
+</script>
+  
+  </body>
+</html>
