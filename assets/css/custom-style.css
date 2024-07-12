@@ -124,3 +124,12 @@ a.internal-link:hover {
 .harness a.h4:hover {
     color: #1685ff;
 }
+.demo-bg {
+    background: url(../img/mong/demo-pic.jpg);
+    background-size: cover;
+}
+
+.become-partner-bg {
+    background: url(../img/mong/become-partner.jpg);
+    background-size: cover;
+}
