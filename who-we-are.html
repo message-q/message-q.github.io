@@ -289,40 +289,36 @@
 
       
       <!-- Hero -->
-      <section class="position-relative hero py-5">
+      <section class="position-relative hero overflow-hidden zindex-2 pb-5 pt-5" style="background-image: url(assets/img/about/hero-bg.svg);align-items: center;display: flex;background-position: bottom left;background-repeat: no-repeat;background-size: cover;">
 
-        <!-- Background -->
-        <div class="position-absolute top-0 start-0 w-100 bg-position-bottom-center bg-size-cover bg-repeat-0" style="background-image: url(assets/img/about/hero-bg.svg);">
-          <div class="d-lg-none" style="height: 960px;"></div>
-          <div class="d-none d-lg-block" style="height: 600px;"></div>
-        </div>
+       
 
         <!-- Content -->
-        <div class="container position-relative zindex-5 pt-5">
-          <div class="row">
-            <div class="col-lg-6">
+        <div class="container">
+          <div class="row justify-content-center align-items-center">
+            <div class="col-lg-6 py-5">
               
               <!-- Breadcrumb -->
-              <nav class="pt-md-2 pt-lg-3 pb-4 pb-md-5 mb-xl-4" aria-label="breadcrumb">
+              <!-- <nav class="pt-md-2 pt-lg-3 pb-4 pb-md-5 mb-xl-4" aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0">
                   <li class="breadcrumb-item">
                     <a href="index"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
                   </li>
                   <li class="breadcrumb-item active" aria-current="page">About us</li>
                 </ol>
-              </nav>
+              </nav> -->
 
               <!-- Text -->
-              <h1 class="display-5 mb-lg-2 mt-5 pt-5 text-gradient-primary">About us</h1>    
+              <h1 class="display-5 mb-lg-2 text-gradient-primary">About us</h1>    
 
               <p class="fs-xl">Mongrov, Inc. (mongrov.com) is a technology organization headquartered in California, US with teams across the globe.</p>       
           
             </div>
 
             <!-- Images -->
-            <div class="col-lg-4 offset-lg-2 mt-xl-3 pt-5 pt-lg-4">
+            <div class="col-lg-4 offset-lg-2">
               
-                  <img src="assets/img/mong/who-we-are.svg" class="d-block rounded-3 mb-3 mb-lg-4" alt="Image">
+                  <img src="assets/img/mong/who-we-are.svg" class="my-3 py-3 my-xl-0 pt-0 pt-md-5" alt="Image">
                 
             </div>
           </div>
@@ -413,8 +409,8 @@
       <section class="py-5 my-3">
         <div class="container py-3">
           <div class="row">
-            <div class="col-md-6">
-              <div class="d-flex align-items-center bg-secondary p-2 rounded-2">
+            <div class="col-lg-6 mb-3">
+              <div class="d-sm-flex d-block align-items-center bg-secondary p-2 rounded-2 text-center text-sm-start">
                 <img src="assets/img/mong/mission.svg" width="200" alt="Bell icon">
                 <div class="ps-3 ms-sm-3">
                   <h2 class="h4 mb-0">Our Mission</h2>
@@ -422,8 +418,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="d-flex align-items-center bg-secondary p-2 rounded-2">
+            <div class="col-lg-6 mb-3">
+              <div class="d-sm-flex d-block align-items-center bg-secondary p-2 rounded-2 text-center text-sm-start">
                 <img src="assets/img/mong/vision.svg" width="200" alt="Bell icon">
                 <div class="ps-3 ms-sm-3">
                   <h2 class="h4 mb-0">Our Vision</h2>
@@ -444,7 +440,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
               <div class="card h-100">
                 <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
                   <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-0 mb-3">
@@ -455,7 +451,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
               <div class="card h-100">
                 <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
                   <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-0 mb-3">
@@ -466,7 +462,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
               <div class="card h-100">
                 <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
                   <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-0 mb-3">
@@ -482,7 +478,7 @@
       </section>
 
       <section class="py-5">
-        <div class="container">
+        <div class="container text-center text-md-start">
           <div class="row align-items-center">
             <div class="col-md-4">
               <img src="assets/img/mong/our-ethics.svg" class="rounded-3">
@@ -556,7 +552,7 @@
           </a>
         </div>
         <div class="mt-lg-3">
-          <h6 class="mb-2">Compliances</h6>
+          <h6 class="mb-2 mt-3">Compliances</h6>
           <div class="row">
             <div class="col">
               <img class="img-fluid" src="assets/img/mong/compliances.png" width="200" alt="Compliances">
@@ -595,6 +591,7 @@
                 <li class="nav-item"><a href="asset-tracking-system" class="nav-link d-inline-block px-0 pt-1 pb-2">Asset tracking</a></li>
                 <li class="nav-item"><a href="field-service-management-software" class="nav-link d-inline-block px-0 pt-1 pb-2">Field safety service</a></li>
                 <li class="nav-item"><a href="iot-data-management" class="nav-link d-inline-block px-0 pt-1 pb-2">IoT data management</a></li>
+                    
               </ul>
 
               <h6 class="mb-2 mt-3 mt-md-0">Industries</h6>
