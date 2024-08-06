@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>How IoT Transforms Field Safety Service Operations</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="title" content="How IoT Transforms Field Safety Service Operations">
+    <meta name="description" content="Internet of Things (IoT) integration in electric vehicles (EVs) has revolutionized the automotive sector by yielding breakthrough range and efficiency across EVs. Learn more about IoT in Electric Vehicles in this blog.">
+
+    <meta name="keywords" content="IoT, Things, Thingz, Data Streaming, Asset management, Temperature, Devices, Intert of Things, Data lake, Data Ocean, Preventive maintenance">
+    <meta name="author" content="Mongrov">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/mong/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/mong/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/mong/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/mong/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/img/mong/favicon/safari-pinned-tab.svg" color="#1685FF">
+    <link rel="shortcut icon" href="assets/img/mong/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/img/mong/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <link rel="stylesheet" media="screen" href="assets/css/custom-style.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      .img-rounded {
+    border-radius: 10px;
+     }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+    
+    <!-- schema markup code -->
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Organization",
+    "name": "Mongrov, Inc.",
+  "address": "3001 Bishop Drive, Suite 300, San Ramon, CA, 94583",
+    "alternateName": " Mongrov",
+  "areaServed": [
+  "United States"
+  ],
+      "description": "At Mongrov, we are passionate about pushing the boundaries of technology and innovation. As a technology startup, we specialize in providing cutting-edge IoT solutions with a strong focus on Real-time Streaming Data.",
+  "email": "hello@mongrov.com",
+  "legalName": " Mongrov, Inc.",
+  "logo": " https://mongrov.com/assets/img/mong/logo.svg",
+  "mainEntityOfPage": " https://g.co/kgs/yshDyRX",
+  "sameAs": [
+  " https://www.linkedin.com/company/mongrov-inc/",
+  " https://twitter.com/TheMongrov"
+  ],
+  "slogan": "Real-time Data Management for Improved Efficiency",
+  "telephone": " +1 (415) 890 3925",
+  "url": "https://mongrov.com/"
+  }
+  }
+  </script>
+  <!-- Canonical Link -->
+   
+  <link rel="canonical" href="">
+    
+</head>
+
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <!-- <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div> -->
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+        <div class="container px-3">
+          <a href="https://mongrov.com/" class="navbar-brand pe-3">
+            <img src="assets/img/mong/logo.svg" width="140" alt="mongrov">
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">What we do?</a>
+                  <ul class="dropdown-menu">
+                    
+                    <li><a href="thingz-cloud" class="dropdown-item">Thingz cloud</a></li>
+                    <li><a href="near-thingz" class="dropdown-item">Near thingz</a></li>
+                    <li><a href="thingz-app" class="dropdown-item">Thingz app</a></li>
+                  </ul>
+                </li>
+
+               <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Who we are?</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="who-we-are" class="dropdown-item">About us</a></li>
+                    <li><a href="leadership" class="dropdown-item">Leaderships</a></li>
+                    <!-- <li><a href="#" class="dropdown-item disabled">Company's story</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Awards</a></li>
+                    <li><a href="#" class="dropdown-item disabled">News</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Life @ mongrov </a></li> -->
+                  </ul>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Solutions</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="asset-tracking-system" class="dropdown-item">Asset tracking system</a></li>
+                    <li><a href="field-service-management-software" class="dropdown-item">Field service software</a></li>
+                    <li><a href="field-safety-software" class="dropdown-item">Field safety software</a></li>
+                    <li><a href="iot-data-management" class="dropdown-item">IoT data management</a></li>
+                  </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Industries</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="industries-health-care" class="dropdown-item">Health care</a></li>
+                    <li><a href="industries-infrastructure" class="dropdown-item">Infrastructures</a></li>
+                    <li><a href="industries-automotives" class="dropdown-item">Automobiles</a></li>
+                    
+                  </ul>
+                </li>
+
+               
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insights</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="blog" class="dropdown-item">Blogs</a></li>
+                    <li><a href="case-study" class="dropdown-item">Case studies</a></li>
+                    <li><a href="whitepapers" class="dropdown-item">Whitepapers</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a href="careers" class="nav-link ">Careers</a>
+                  
+                </li>
+
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+              <a href="contact" class="btn btn-primary w-100" rel="noopener">
+                &nbsp;Contact Us
+              </a>
+            </div>      
+          </div>
+          <!-- <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+            <input type="checkbox" class="form-check-input" id="theme-mode">
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+          </div> -->
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="contact" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex"  rel="noopener">
+            <!-- <i class="bx bx-phone fs-5 lh-1 me-1"></i> -->
+            &nbsp;Contact Us
+          </a>
+        </div>
+      </header>
+
+
+      <!-- Breadcrumb -->
+      <nav class="container mt-lg-4 pt-5" aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 pt-5">
+          <li class="breadcrumb-item">
+            <a href="index"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="blog">Blogs</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Blog detail</li>
+        </ol>
+      </nav>
+
+
+      <!-- Post title + Meta  -->
+      <section class="container mt-4 pt-lg-2 pb-3">
+        <h1 class="pb-3" style="max-width: 970px;">How IoT Transforms Field Safety Service Operations</h1>
+        <div class="d-flex flex-md-row flex-column align-items-md-center justify-content-md-between mb-3">
+          <div class="d-flex align-items-center flex-wrap text-muted mb-md-0 mb-4">
+            <div class="fs-xs border-end pe-3 me-3 mb-2">
+              <span class="badge bg-faded-primary text-primary fs-base">Technology</span>
+            </div>
+            <div class="fs-sm border-end pe-3 me-3 mb-2">August 5, 2024</div>
+
+            <div class="fs-sm pe-3 me-3 mb-2">
+              <a href="downloads/blog/how-iot-transforms-field-safety-service-operations.pdf" target="_blank" download class="btn btn-primary">Download Blog</a>
+            </div>
+            
+          </div>
+          <div class="d-flex align-items-center position-relative ps-md-3 pe-lg-5 mb-2">
+            <img src="assets/img/mong/logo-icon.png" class="rounded-circle" width="60" alt="Avatar">
+            <div class="ps-3">
+              <h6 class="mb-1 mt-3">Author</h6>
+              <h6 class="fw-semibold mt-2">Mongrov’s Tech Library</h5>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Post image (parallax) -->
+      <div class="jarallax mb-lg-5 mb-4" data-jarallax data-speed="0.35" style="height: 36.45vw; min-height: 300px;">
+        <img src="assets/img/mong/blog14.jpg" alt="The role of IoT in predictive maintenance for field service" class="jarallax-img">
+      </div>
+
+
+      <!-- Post content + Sharing -->
+      <section class="container mb-5 pt-4 pb-2 py-mg-4">
+        <div class="row gy-4">
+
+          <!-- Content -->
+          <div class="col-lg-9 mx-auto">
+            <h3 class="h5 mb-4 pb-2 fw-medium">By 2025, forecasts suggest a staggering 75 billion connected devices will inhabit the Internet of Things (IoT). This surge in interconnectedness reshapes business landscapes, promising enhanced customer journeys and fortified operational frameworks. With its transformative potential, IoT stands poised to revolutionize conventional approaches within field safety service operations and workplace safety protocols alike. 
+
+            </h3>
+
+
+            <h4>IoT's Role in Shaping the Future of Field Safety Service Operations</h4>
+            <p>Through the modification of current forms and advancement of operational productivity, the consolidation of Internet of Things (IoT) technologies has brought about a shift in field security benefit operations. Organizing devices with data-sharing capabilities, or the Internet of Things (IoT), offers hitherto unrecognized potential benefits for improving security, reducing risks, and optimizing operations across a range of mechanical areas. Because IoT alters field security operations, this article explores how IoT transforms field safety service operations and potential future outcomes.
+            </p>
+            <h5>Instantaneous Remote Diagnostics with IoT</h5>
+            <p>A major step forward in guaranteeing the efficiency and safety of industrial settings is the introduction of real-time remote diagnostics via IoT in field safety service operations. Organizations may remotely monitor performance indicators and identify any problems in real-time by incorporating IoT sensors and devices into essential infrastructure and equipment. With the help of this proactive approach, safety dangers, and equipment faults can be quickly identified, facilitating quick action and mitigation strategies. Furthermore, real-time remote diagnostics enable field safety workers to make well-informed decisions quickly, which minimizes downtime, lowers hazards, and improves overall operational performance.
+            </p>
+            <p><b>Case Study:</b>IoT-enabled diagnostic gadgets allow healthcare companies to perform sure assessments and assessments remotely. This includes digital stethoscopes, otoscopes, and other tools that can transmit diagnostic data over the internet.  </p>
+            <h5>Leveraging inventory management for sustainable waste reduction</h5>
+            <p>Field safety service operations require efficient inventory management since even the smallest mistake might have expensive repercussions. Organizations may drastically cut waste and expedite inventory procedures by using IoT technologies. Real-time data on expiration dates, usage patterns, and inventory levels can be gathered and evaluated by deploying IoT sensors and tracking devices. This level of detail allows for proactive restocking of inventory, minimizes overstocking or stockouts, and lowers the possibility of outdated or expired material. In the end, IoT-driven inventory management improves resource usage, boosts operational effectiveness, and guarantees smooth field safety service continuity.
+            </p>
+            <h5>Elevating Employee Satisfaction</h5>
+            <p>Studies reveal a positive relationship between increased worker satisfaction and the improvement of first-time fix rates when IoT is applied to field safety service operations. Employees must make fewer trips when first-time-fix rates rise, which saves them time traveling between job sites. Employees in the field service are more productive and content in their roles when they have less time to travel. When there are fewer disruptions and more time is spent on productive tasks, employees feel more successful and satisfied. This raises employee morale and enhances job satisfaction.
+            </p>
+            <h5>Elevating Customer Experience Through Proactive Solutions</h5>
+            <p>Integrating IoT into field safety services enables proactive issue preemption and reaction, marking a new era of customer experience and service excellence. By leveraging IoT sensors and analytics, organizations can efficiently anticipate safety concerns and operational interruptions, enabling prompt intervention. This proactive approach helps by reducing accidents and downtime, showcasing dedication to safety. IoT fosters a smooth, proactive customer experience, building loyalty through real-time monitoring and predictive analytics.
+            </p>
+            <p><b>Case Study: </b>Retailers may obtain up-to-date information on product availability and stock levels by equipping smart shelves with sensors that are linked to a central system. This helps optimize inventory management and enhances the overall shopping experience for customers.
+            </p>
+            <h5>Harnessing speed for equipment failure resolution</h5>
+            <p>When it comes to reducing the time, it takes to fix equipment failures, IoT technology has changed the game. Organizations may keep an ongoing, real-time eye on performance measures by embedding IoT sensors into vital machinery and infrastructure. IoT solutions quickly identify abnormalities and initiate automated warnings when equipment malfunctions or deviates from standard operating settings. Maintenance teams may respond quickly to problems, identify their core causes, and take proactive corrective action thanks to this immediate notification. This reduces downtime, lessens operational disturbances, and maintains safety measures, guaranteeing continuous workflow and protecting people and property.
+            </p>
+            <p><b>Case Study: </b>According to the American Trucking Association, fleets are going through challenges from growing old vehicles and growing element prices. To ensure an awesome return on investment, fleet operators need to maximize performance and limit downtime. By adopting IoT for predictive maintenance, fleets can use AI to pick out and address problems early, decreasing vehicle downtime, preventing breakdowns, and slicing and restoring prices.
+            </p>
+            <h5>Employing IoT for Increased Fuel Savings and Cost Reductions</h5>
+            <p>Eliminating expensive truck rolls might result in significant fuel savings for organizations. In the past, personnel had to visit the location to do safety inspections, equipment maintenance, and repairs, which led to high gasoline consumption and related costs. But without requiring direct human interaction, real-time identification of equipment problems and possible safety threats is now possible thanks to IoT-enabled sensors and remote monitoring capabilities. Companies can minimize the frequency of truck rolls, cut operating expenses, and better utilize resources, all of which contribute to increased sustainability and profitability in field safety services.
+            </p>
+            <p><b>Case Study: </b>Maersk’s remote container management system uses internal sensors to collect and transmit real-time information on temperature, humidity, and CO2 levels. It offers continuous 24/7 GPS tracking of containers, sends automatic alerts for any temperature changes or discrepancies, allows for cargo rerouting, and enhances security. This comprehensive approach ensures cargo owners are consistently informed and can respond promptly to any issues that arise.
+            </p>
+            <h5>Enhancing Product Quality Imperatives</h5>
+            <p>Improving product and service quality imperatives can be greatly enhanced by integrating Internet of Things (IoT) technology into field safety service operations. Using IoT-enabled sensors and devices, firms may take proactive quality control steps by gaining real-time insights into worker behavior, ambient conditions, and equipment performance. For example, IoT sensors can keep an eye out for wear or malfunction in machinery, which makes predictive maintenance possible to avoid expensive downtime and guarantee peak performance. To further improve the caliber and dependability of field safety services, IoT-based tracking solutions can also guarantee adherence to safety procedures and legal requirements.
+            </p>
+            <p><b>Case study: </b>Microsoft empowers its customers with comprehensive insights throughout the supply chain, allowing them to foresee issues before they arise, conserve resources, and enhance global business operations. A key IoT solution from Microsoft is the Azure IoT Suite, which offers ready-to-use solutions that deliver actionable insights and real-time data from existing devices, assets, and information. The Azure IoT Suite supports businesses of all sizes by facilitating applications like remote monitoring, asset management, and predictive maintenance, effectively managing millions of connected devices and assets.
+            </p>
+            <h5>More informed strategic decision-making</h5>
+            <p>Incorporating Internet of Things (IoT) technology into field safety service operations empowers strategic decision-makers with real-time insights. By deploying IoT sensors across work environments, organizations gain valuable data on personnel well-being, equipment performance, and environmental conditions. This wealth of information enables proactive hazard mitigation, resource optimization, and enhanced safety protocols. Ultimately, IoT-driven decision-making fosters proactive safety cultures, cultivates safer workplaces, and efficiently optimizes operational effectiveness.
+            </p>
+            <h4>Impact Of IoT</h4>
+            <h5>IoT’s Impact in Diagnostics</h5>
+            <p>IoT, which is expected to enhance the economic system by way of trillions by means of 2025, has been made possible by means of the pointy decline in sensor prices and ICT improvements. OEMs are increasingly using IoT-based diagnostics to increase the efficacy and efficiency of maintenance.
+            </p>
+            <p>Numerous equipment state indicators, including vibration, temperature, pressure, and sound data, are continuously monitored by various equipment-mounted sensors in IoT-based maintenance service systems. By sending out warning signals prior to an actual failure, these systems can maximize equipment maintenance.
+            </p>
+            <h5>Inventory Management</h5>
+            <p>If a corporation has fleets of vehicles and equipment in its inventory, IoT can be quite helpful. Using GPS technology for real-time tracking, fleet vehicle or equipment location data is gathered to help avoid loss and maintain inventory control. Businesses may detect load variations and instantly alert logistic partners and customers with enhanced GPS tracking from IoT devices. Keeping an eye on the cargo while it's being transported also helps guard against theft, spoiling, and improper use.
+            </p>
+            <h5>Employee Satisfaction</h5>
+            <p>It is possible to improve operational efficiency and employee experience by integrating IoT-based diagnostics into maintenance procedures. Workers can now concentrate on more complex tasks and move from mundane work to more strategic responsibilities. By realizing their influence on the entire process and the company, they are empowered to sense a connection that goes beyond their individual efforts. While employees have right of entry to predictive insights and real-time information, they're better equipped to make selections and feel more engaged and in control, which promotes creativity and efficiency.
+            </p>
+            <h4>Integration with Existing systems</h4>
+            <p>Integrating IoT into field service management offers transformative benefits, enhancing operational efficiency and data analytics despite integration challenges. These can be overcome by planning a modern data integration strategy, identifying data sources, and setting quality standards. Replacing legacy systems with modern solutions improves data integrity and security, while understanding communication protocols and APIs facilitates seamless data exchange. Utilizing platforms like IPaaS supports practices such as data virtualization and edge computing, enabling immediate implementation without heavy hardware investment, driving innovation, and enhancing field service management.
+            </p>
+            <p><b>For example: In Smart Manufacturing,</b>IoT sensors are integrated into manufacturing equipment to monitor performance and predict maintenance needs. This integration helps in reducing downtime and increasing efficiency. For example, sensors on a conveyor belt could predict a malfunction before it occurs, allowing for proactive maintenance.
+            </p>
+            <h4>Conclusion: Safeguarding Tomorrow with IoT's Evolutionary Impact on Field Safety Service Operations
+            </h4>
+            <p>In conclusion, field safety service operations have been transformed by the incorporation of IoT technology, made possible by cutting-edge platforms like Mongrov. It provides unmatched chances for improved risk reduction, predictive maintenance, monitoring, and data-driven decision-making. Organizations in a variety of industrial sectors may guarantee smooth operations, reduce risks, and optimize safety standards by utilizing IoT-enabled solutions. The IoT is expected to have a profoundly disruptive impact on field safety service operations as it develops further, fostering resilience, efficiency, and innovation in the quest for safer working conditions and environmentally friendly corporate practices.
+            </p>
+
+          </div>
+
+          
+        </div>
+      </section>
+
+
+
+    </main>
+ <!-- Footer -->
+ <footer class="footer pt-5 pb-4 pb-lg-5 mt-2 mt-md-0 border-top">
+  <div class="container pt-lg-4">
+    <div class="row pb-5">
+      <div class="col-md-3">
+        <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+          <img src="assets/img/mong/logo.svg" width="120" alt="Mongrov">
+        </div>
+        <ul class="nav flex-column mb-0">
+          <li class="mb-1">
+            <a href="contact#contact" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-map fs-5 text-primary me-2"></i>
+              3001 Bishop Drive, Suite 300, San Ramon, CA 94583.
+            </a>
+          </li>
+          <li class="mb-1">
+            <a href="tel:4065550120" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-phone-call fs-5 text-primary me-2"></i>
+              +1 (415) 890 3925
+            </a>
+          </li>
+          <li>
+            <a href="mailto:hello@mongrov.com" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-envelope fs-5 text-primary me-2"></i>
+              hello@mongrov.com
+            </a>
+          </li>
+        </ul>
+
+        <div class="d-flex mt-lg-3">
+          <a href="https://www.linkedin.com/company/mongrov-inc/" target="_blank" aria-label="Linked in" class="btn btn-icon btn-secondary btn-linkedin ml-0 mr-2">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://twitter.com/TheMongrov" target="_blank" class="btn btn-icon btn-secondary btn-twitter mx-2">
+            <i class='bx'>
+              <img src="assets/img/mong/twitter-x.svg"  width="16" alt="Twitter">
+            </i>
+          </a>
+          <a href="https://github.com/mongrov" target="_blank" aria-label="Github" class="btn btn-icon btn-secondary btn-github">
+            <i class="bx bxl-github"></i>
+          </a>
+        </div>
+        <div class="mt-lg-3">
+          <h6 class="mb-2 mt-3">Compliances</h6>
+          <div class="row">
+            <div class="col">
+              <img class="img-fluid" src="assets/img/mong/compliances.png" width="200" alt="Compliances">
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-9 pt-4 pt-md-1 pt-lg-0">
+        <div id="footer-links" class="row">
+          <div class="col-md-3">
+            <h6 class="mb-2">What we do?</h6>
+              <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                
+                <li class="nav-item"><a href="thingz-cloud" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz cloud</a></li>
+                <li class="nav-item"><a href="near-thingz" class="nav-link d-inline-block px-0 pt-1 pb-2">Near thingz</a></li>
+                <li class="nav-item"><a href="thingz-app" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz app</a></li>
+              </ul>
+
+              <h6 class="mb-2 mt-3 mt-md-0">Who we are?</h6>
+              <ul class="nav flex-column mb-2 mb-lg-0">
+                <li class="nav-item"><a href="who-we-are" class="nav-link d-inline-block px-0 pt-1 pb-2">About us</a></li>
+                <li class="nav-item"><a href="leadership" class="nav-link d-inline-block px-0 pt-1 pb-2">Leaderships</a></li>
+                <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Company's story</a></li>
+                <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Awards</a></li>
+                <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">News</a></li> -->
+                <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Life @ mongrov</a></li> -->
+              </ul>
+
+              
+          </div>
+          <div class="col-md-3">
+            <h6 class="mb-2 mt-2 mt-md-0">Solutions</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                <li class="nav-item"><a href="asset-tracking-system" class="nav-link d-inline-block px-0 pt-1 pb-2">Asset tracking system</a></li>
+                <li class="nav-item"><a href="field-service-management-software" class="nav-link d-inline-block px-0 pt-1 pb-2">Field service software</a></li>
+                    <li class="nav-item"><a href="field-safety-software" class="nav-link d-inline-block px-0 pt-1 pb-2">Field safety software</a></li>
+                <li class="nav-item"><a href="iot-data-management" class="nav-link d-inline-block px-0 pt-1 pb-2">IoT data management</a></li>
+                    
+              </ul>
+
+              <h6 class="mb-2 mt-3 mt-md-0">Industries</h6>
+              <ul class="nav flex-column mb-2 mb-lg-0">
+                <li class="nav-item"><a href="industries-health-care" class="nav-link d-inline-block px-0 pt-1 pb-2">Health care</a></li>
+                <li class="nav-item"><a href="industries-infrastructure" class="nav-link d-inline-block px-0 pt-1 pb-2 ">Infrastructures</a></li>
+                <li class="nav-item"><a href="industries-automotives.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Automobiles</a></li>
+              </ul>
+
+              
+          </div>
+          <div class="col-md-3 pt-2 pt-lg-0">
+            <h6 class="mb-2">Become our partner</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+              <li class="nav-item"><a href="system-integrators" class="nav-link d-inline-block px-0 pt-1 pb-2">System integrators</a></li>
+              <li class="nav-item"><a href="device-manufacturers" class="nav-link d-inline-block px-0 pt-1 pb-2">Device manufacturers</a></li>
+              <li class="nav-item"><a href="cloud-partners" class="nav-link d-inline-block px-0 pt-1 pb-2">Cloud partners</a></li>
+              
+            </ul>
+            <h6 class="mb-2 mt-3 mt-md-0">Insights</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+              <li class="nav-item"><a href="blog" class="nav-link d-inline-block px-0 pt-1 pb-2">Blogs</a></li>
+              <li class="nav-item"><a href="case-study" class="nav-link d-inline-block px-0 pt-1 pb-2">Case studies</a></li>
+              <li class="nav-item"><a href="whitepapers" class="nav-link d-inline-block px-0 pt-1 pb-2">Whitepapers</a></li>
+             
+              
+            </ul>
+            <!-- <ul class="nav flex-column mb-2 mb-lg-0">
+              <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+              <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+            </ul> -->
+          </div>
+
+          <div class="col-md-3 pt-2 pt-lg-0">
+            
+           <ul class="nav flex-column mb-2 mb-lg-0">
+            <li class="nav-item"><a href="careers" class="nav-link d-inline-block px-0 pt-1 pb-2">Careers</a></li>
+            <li class="nav-item"><a href="contact" class="nav-link d-inline-block px-0 pt-1 pb-2">Contact us</a></li>
+              <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+              <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+      &copy; 2024 Mongrov, Inc. All rights reserved. 
+      <!-- <a class="nav-link d-inline-block p-0" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a> -->
+
+    </p>
+  </div>
+</footer>
+
+
+<!-- Back to top button -->
+<a href="#top" class="btn-scroll-top" aria-label="backtotop" data-scroll>
+  <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+  <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+</a>
+
+
+<!-- Vendor Scripts -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
+<script src="assets/vendor/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/lightgallery/lightgallery.min.js"></script>
+<script src="assets/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/shufflejs/dist/shuffle.min.js"></script>
+
+<!-- Main Theme Script -->
+<script src="assets/js/theme.min.js"></script>
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FG9Y3JJT67"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-FG9Y3JJT67');
+</script>
+
+<script type='text/javascript'>
+  var link = !!document.querySelector("link[rel='canonical']") ? document.querySelector("link[rel='canonical']") : document.createElement('link');
+  link.setAttribute('rel', 'canonical');
+  link.setAttribute('href', location.protocol + '//' + location.host + location.pathname);
+  document.head.appendChild(link);
+</script>
+  
+  </body>
+</html>

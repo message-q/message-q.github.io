@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Introducing Mongrov’s Advanced Field Safety Services Technologies</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="title" content="Introducing Mongrov’s Advanced Field Safety Services Technologies">
+    <meta name="description" content="Internet of Things (IoT) integration in electric vehicles (EVs) has revolutionized the automotive sector by yielding breakthrough range and efficiency across EVs. Learn more about IoT in Electric Vehicles in this blog.">
+
+    <meta name="keywords" content="IoT, Things, Thingz, Data Streaming, Asset management, Temperature, Devices, Intert of Things, Data lake, Data Ocean, Preventive maintenance">
+    <meta name="author" content="Mongrov">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/mong/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/mong/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/mong/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/mong/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/img/mong/favicon/safari-pinned-tab.svg" color="#1685FF">
+    <link rel="shortcut icon" href="assets/img/mong/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/img/mong/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <link rel="stylesheet" media="screen" href="assets/css/custom-style.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      .img-rounded {
+    border-radius: 10px;
+     }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+    
+    <!-- schema markup code -->
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Organization",
+    "name": "Mongrov, Inc.",
+  "address": "3001 Bishop Drive, Suite 300, San Ramon, CA, 94583",
+    "alternateName": " Mongrov",
+  "areaServed": [
+  "United States"
+  ],
+      "description": "At Mongrov, we are passionate about pushing the boundaries of technology and innovation. As a technology startup, we specialize in providing cutting-edge IoT solutions with a strong focus on Real-time Streaming Data.",
+  "email": "hello@mongrov.com",
+  "legalName": " Mongrov, Inc.",
+  "logo": " https://mongrov.com/assets/img/mong/logo.svg",
+  "mainEntityOfPage": " https://g.co/kgs/yshDyRX",
+  "sameAs": [
+  " https://www.linkedin.com/company/mongrov-inc/",
+  " https://twitter.com/TheMongrov"
+  ],
+  "slogan": "Real-time Data Management for Improved Efficiency",
+  "telephone": " +1 (415) 890 3925",
+  "url": "https://mongrov.com/"
+  }
+  }
+  </script>
+  <!-- Canonical Link -->
+   
+  <link rel="canonical" href="">
+    
+</head>
+
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <!-- <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div> -->
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+        <div class="container px-3">
+          <a href="https://mongrov.com/" class="navbar-brand pe-3">
+            <img src="assets/img/mong/logo.svg" width="140" alt="mongrov">
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">What we do?</a>
+                  <ul class="dropdown-menu">
+                    
+                    <li><a href="thingz-cloud" class="dropdown-item">Thingz cloud</a></li>
+                    <li><a href="near-thingz" class="dropdown-item">Near thingz</a></li>
+                    <li><a href="thingz-app" class="dropdown-item">Thingz app</a></li>
+                  </ul>
+                </li>
+
+               <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Who we are?</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="who-we-are" class="dropdown-item">About us</a></li>
+                    <li><a href="leadership" class="dropdown-item">Leaderships</a></li>
+                    <!-- <li><a href="#" class="dropdown-item disabled">Company's story</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Awards</a></li>
+                    <li><a href="#" class="dropdown-item disabled">News</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Life @ mongrov </a></li> -->
+                  </ul>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Solutions</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="asset-tracking-system" class="dropdown-item">Asset tracking system</a></li>
+                    <li><a href="field-service-management-software" class="dropdown-item">Field service software</a></li>
+                    <li><a href="field-safety-software" class="dropdown-item">Field safety software</a></li>
+                    <li><a href="iot-data-management" class="dropdown-item">IoT data management</a></li>
+                  </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Industries</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="industries-health-care" class="dropdown-item">Health care</a></li>
+                    <li><a href="industries-infrastructure" class="dropdown-item">Infrastructures</a></li>
+                    <li><a href="industries-automotives" class="dropdown-item">Automobiles</a></li>
+                    
+                  </ul>
+                </li>
+
+               
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insights</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="blog" class="dropdown-item">Blogs</a></li>
+                    <li><a href="case-study" class="dropdown-item">Case studies</a></li>
+                    <li><a href="whitepapers" class="dropdown-item">Whitepapers</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a href="careers" class="nav-link ">Careers</a>
+                  
+                </li>
+
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+              <a href="contact" class="btn btn-primary w-100" rel="noopener">
+                &nbsp;Contact Us
+              </a>
+            </div>      
+          </div>
+          <!-- <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+            <input type="checkbox" class="form-check-input" id="theme-mode">
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+          </div> -->
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="contact" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex"  rel="noopener">
+            <!-- <i class="bx bx-phone fs-5 lh-1 me-1"></i> -->
+            &nbsp;Contact Us
+          </a>
+        </div>
+      </header>
+
+
+      <!-- Breadcrumb -->
+      <nav class="container mt-lg-4 pt-5" aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 pt-5">
+          <li class="breadcrumb-item">
+            <a href="index"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="blog">Blogs</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Blog detail</li>
+        </ol>
+      </nav>
+
+
+      <!-- Post title + Meta  -->
+      <section class="container mt-4 pt-lg-2 pb-3">
+        <h1 class="pb-3" style="max-width: 970px;">Introducing Mongrov’s Advanced Field Safety Services Technologies</h1>
+        <div class="d-flex flex-md-row flex-column align-items-md-center justify-content-md-between mb-3">
+          <div class="d-flex align-items-center flex-wrap text-muted mb-md-0 mb-4">
+            <div class="fs-xs border-end pe-3 me-3 mb-2">
+              <span class="badge bg-faded-primary text-primary fs-base">Technology</span>
+            </div>
+            <div class="fs-sm border-end pe-3 me-3 mb-2">July 29, 2024</div>
+
+            <div class="fs-sm pe-3 me-3 mb-2">
+              <a href="downloads/blog/mongrov-advanced-field-safety-services-technologies.pdf" target="_blank" download class="btn btn-primary">Download Blog</a>
+            </div>
+            
+          </div>
+          <div class="d-flex align-items-center position-relative ps-md-3 pe-lg-5 mb-2">
+            <img src="assets/img/mong/logo-icon.png" class="rounded-circle" width="60" alt="Avatar">
+            <div class="ps-3">
+              <h6 class="mb-1 mt-3">Author</h6>
+              <h6 class="fw-semibold mt-2">Mongrov’s Tech Library</h5>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Post image (parallax) -->
+      <div class="jarallax mb-lg-5 mb-4" data-jarallax data-speed="0.35" style="height: 36.45vw; min-height: 300px;">
+        <img src="assets/img/mong/blog13.jpg" alt="The role of IoT in predictive maintenance for field service" class="jarallax-img">
+      </div>
+
+
+      <!-- Post content + Sharing -->
+      <section class="container mb-5 pt-4 pb-2 py-mg-4">
+        <div class="row gy-4">
+
+          <!-- Content -->
+          <div class="col-lg-9 mx-auto">
+            <h3 class="h5 mb-4 pb-2 fw-medium">Welcome to cutting-edge innovative safety! To transform the way businesses protect their field workers, Mongrov is pleased to present its state-of-the-art Advanced Field Safety Services Technologies. Assuring employee well-being is crucial in today's hectic environment, and Mongrov's solutions are setting the standard.
+                
+                <br>
+                Our extensive safety feature set provides unmatched protection and peace of mind, ranging from fall detection and panic buttons to real-time GPS tracking and more. Come explore the realm of Mongrov's cutting-edge innovations, where safety and innovation coexist together.
+
+            </h3>
+
+
+            <h4>Real-Time GPS Tracking</h4>
+            <p>Mongrov's real-time GPS tracking ensures continuous monitoring and precise location data for field workers, crucial for sectors like oil and gas, emergency services, and construction. This technology enables swift emergency response, enhances task coordination, and optimizes resource allocation, ultimately improving productivity and safety in hazardous or remote areas.
+            </p>
+            <p>If also facilitates some major advantages that you must consider:</p>
+            <ul class="list-unstyled">
+                <li><b> Enhanced Safety:</b> Enables precise employee location in emergencies, ensuring rapid assistance.</li>
+                <li><b> Improved Coordination:</b>Streamlines tasks and resources, boosting productivity and safety.</li>
+                <li><b> Accurate Monitoring:</b>Continuously tracks field worker locations.</li>
+                <li><b>Industry Applicability: </b>Vital for high-risk sectors like oil and gas.</li>
+                <li><b> Operational Efficiency:</b>Provides critical data for quick decision-making.
+                </li>
+            </ul>
+            <h4>Panic Buttons</h4>
+<p>Panic buttons integrated by Mongrov into its safety systems provide an essential lifeline for workers in distress. These accessible buttons enable quick notification to managers and emergency personnel. In emergencies, this rapid communication can save lives. Mongrov's panic buttons are intuitively designed for ease of use, ensuring activation even under stress. They offer real-time tracking, providing alerts with location data for faster response, and customizable settings tailored to specific emergencies. With robust integration into safety systems and reliable durability in harsh conditions, these buttons enhance worker confidence by guaranteeing immediate access to help.</p>
+
+<h4>Fall Detection</h4>
+<p>Falls are a common hazard that can result in fatalities or serious injuries in many agricultural areas. Mongrov's novel fall detection system uses advanced sensors to recognize sudden movements that might be signs of a fall. The technology automatically sounds an alert to warn supervisors and emergency responders when it detects a fall.</p>
+
+<p>Fast medical attention can be provided thanks to this timely notice, potentially saving lives and reducing the severity of injuries. Furthermore, Mongrov's technology provides customized alarm thresholds and real-time data analytics to improve response accuracy and customize safety measures.</p>
+
+<h4>SOS Alerts</h4>
+<p>Mongrov provides safety features like SOS alerts, panic buttons, and fall detection. The SOS button sends a distress signal with GPS location and emergency info, aiding employees unable to speak due to medical conditions or fear. This ensures prompt, accurate assistance for field workers in hazardous situations, adding an extra layer of protection.</p>
+<p>Features that make it unique are real-time monitoring of SOS alerts, automated escalation protocols to ensure swift response, and seamless integration with emergency services for enhanced coordination.</p>
+<h4>Two-Way Communication Capabilities</h4>
+<p>Safety in the field depends on effective communication, and Mongrov's technologies provide strong two-way connections. No matter where they are, employees may use this tool to always communicate with coworkers and managers via voice, text, and video calls.</p>
+<p>With advanced encryption for secure conversations and seamless integration with other safety systems, Mongrov ensures that critical messages are protected and effortlessly coordinated.</p>
+<p>The smooth coordination of work, real-time updates, and timely resolution of any difficulties that may emerge are all ensured by two-way communication. When there is an emergency, prompt and clear communication greatly improves coordination and response times, which improves safety results.</p>
+<h4>Automated Check-In Systems</h4>
+<p>Mongrov's automatic check-in systems ensure regular supervisor-field personnel contact by prompting location and safety checks. Alerts notify supervisors of missed check-ins, prompting necessary actions.</p>
+<p>Unique features include seamless integration with existing software, real-time data analytics for enhanced decision-making, and customizable alert settings to match specific safety protocols.</p>
+<p>This functionality is especially helpful in dangerous or remote situations where it might not be feasible to perform manual check-ins regularly. Automated check-ins always guarantee employees’ safety by offering constant monitoring without taxing them with frequent updates.</p>
+<h4>Geofencing</h4>
+<p>Mongrov's geofencing technology allows organizations to create virtual borders around regions, sending automatic notifications to supervisors when workers enter or leave these zones. It enhances safety by monitoring high-risk areas, restricting access to authorized personnel, and tracking movements in sensitive areas, thereby improving safety procedures, compliance, and security.</p>
+<p>Mongrov’s geofencing also offers real-time alerts, customizable zone parameters, and seamless integration with existing systems, enhancing operational efficiency and providing precise location data for critical decision-making.
+</p>
+<h4>Lone Worker Protection</h4>
+<p>Mongrov offers tailored lone worker protection solutions, including emergency response plans, man-down notifications, and automatic check-in reminders, ensuring constant supervision for employees in hazardous or isolated environments. This enhances safety by addressing specific risks and preventing lone workers from being vulnerable in emergencies.</p>
+<p>Unique features include GPS tracking, panic buttons, and real-time alerts for immediate assistance.
+</p>
+<h4>Incident Reporting and Management
+</h4>
+<p>The platform from Mongrov has powerful options for managing and reporting incidents. Using a mobile app, employees may promptly report events, near misses, or dangerous situations. Supervisors may track and evaluate occurrences to discover recurring safety hazards and put corrective actions in place because the system logs these reports. Maintaining a safe workplace requires effective incident management, which aids businesses in consistently enhancing their safety procedures.</p>
+<p>Mongrov also facilitates with real-time alerts, customizable forms, analytics, and seamless integration with existing systems.</p>
+<h4>Customizable Dashboards and Reporting</h4>
+<p>Mongrov's customizable dashboards and reporting modules provide supervisors with key performance indicators (KPIs), incident trends, and compliance reports, enabling data-driven decisions and continuous safety improvements through real-time data and insights for enhanced field operations.</p>
+<p>Mongrov’s dashboards offer flexible data visualization, automated reporting, and integration with other systems for seamless analysis.
+</p>
+<h4>Mobile app integration</h4>
+<p>Mongrov's smartphone app lets field workers report accidents, check in, receive alerts, and access safety features easily, ensuring they stay informed and connected regardless of their location.
+</p>
+<p>Some unique advantages of this feature include real-time updates, seamless integration with existing systems, and advanced analytics for proactive safety management.</p>
+<h4>Emergency Response Coordination
+</h4>
+<p>Mongrov's approach makes coordinated response efforts easier in case of an emergency. By integrating the platform with neighborhood emergency services, responders can be guaranteed up-to-date information on the circumstances and whereabouts of impacted workers. To manage emergencies effectively and efficiently, reduce reaction times, and enhance results, coordination is essential. </p>
+<p>Mongrov's technology improves field operations safety by optimizing emergency response procedures, real-time alerting, automated incident tracking, and seamless communication with multiple emergency teams for optimal response.</p>
+<h4>Training and safety compliance</h4>
+<p>Mongrov offers training modules and safety compliance monitoring to ensure ongoing safety education and adherence. The platform tracks certificates and training completions, providing employees with regular updates on safety procedures. This continuous training and compliance monitoring are crucial for maintaining workplace safety and readiness.</p>
+<p>Mongrov's system features customizable training programs, real-time compliance tracking, and automated alerts for certificate renewals, enhancing overall safety efficiency and adherence.</p>
+<h4>Elevating Field Safety to New Heights</h4>
+<p>In summary, Mongrov's cutting-edge field safety services technologies provide a thorough answer to the enduring problem of field worker protection. With a host of cutting-edge features like panic buttons, real-time GPS monitoring, fall detection, and more, Mongrov is laying the foundation for a more effective and secure workplace. Organizations may optimize operational performance and emphasize worker well-being by incorporating these state-of-the-art technologies.</p>
+
+
+
+          </div>
+
+          
+        </div>
+      </section>
+
+
+
+    </main>
+ <!-- Footer -->
+ <footer class="footer pt-5 pb-4 pb-lg-5 mt-2 mt-md-0 border-top">
+  <div class="container pt-lg-4">
+    <div class="row pb-5">
+      <div class="col-md-3">
+        <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+          <img src="assets/img/mong/logo.svg" width="120" alt="Mongrov">
+        </div>
+        <ul class="nav flex-column mb-0">
+          <li class="mb-1">
+            <a href="contact#contact" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-map fs-5 text-primary me-2"></i>
+              3001 Bishop Drive, Suite 300, San Ramon, CA 94583.
+            </a>
+          </li>
+          <li class="mb-1">
+            <a href="tel:4065550120" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-phone-call fs-5 text-primary me-2"></i>
+              +1 (415) 890 3925
+            </a>
+          </li>
+          <li>
+            <a href="mailto:hello@mongrov.com" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-envelope fs-5 text-primary me-2"></i>
+              hello@mongrov.com
+            </a>
+          </li>
+        </ul>
+
+        <div class="d-flex mt-lg-3">
+          <a href="https://www.linkedin.com/company/mongrov-inc/" target="_blank" aria-label="Linked in" class="btn btn-icon btn-secondary btn-linkedin ml-0 mr-2">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://twitter.com/TheMongrov" target="_blank" class="btn btn-icon btn-secondary btn-twitter mx-2">
+            <i class='bx'>
+              <img src="assets/img/mong/twitter-x.svg"  width="16" alt="Twitter">
+            </i>
+          </a>
+          <a href="https://github.com/mongrov" target="_blank" aria-label="Github" class="btn btn-icon btn-secondary btn-github">
+            <i class="bx bxl-github"></i>
+          </a>
+        </div>
+        <div class="mt-lg-3">
+          <h6 class="mb-2 mt-3">Compliances</h6>
+          <div class="row">
+            <div class="col">
+              <img class="img-fluid" src="assets/img/mong/compliances.png" width="200" alt="Compliances">
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-9 pt-4 pt-md-1 pt-lg-0">
+        <div id="footer-links" class="row">
+          <div class="col-md-3">
+            <h6 class="mb-2">What we do?</h6>
+              <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                
+                <li class="nav-item"><a href="thingz-cloud" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz cloud</a></li>
+                <li class="nav-item"><a href="near-thingz" class="nav-link d-inline-block px-0 pt-1 pb-2">Near thingz</a></li>
+                <li class="nav-item"><a href="thingz-app" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz app</a></li>
+              </ul>
+
+              <h6 class="mb-2 mt-3 mt-md-0">Who we are?</h6>
+              <ul class="nav flex-column mb-2 mb-lg-0">
+                <li class="nav-item"><a href="who-we-are" class="nav-link d-inline-block px-0 pt-1 pb-2">About us</a></li>
+                <li class="nav-item"><a href="leadership" class="nav-link d-inline-block px-0 pt-1 pb-2">Leaderships</a></li>
+                <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Company's story</a></li>
+                <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Awards</a></li>
+                <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">News</a></li> -->
+                <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Life @ mongrov</a></li> -->
+              </ul>
+
+              
+          </div>
+          <div class="col-md-3">
+            <h6 class="mb-2 mt-2 mt-md-0">Solutions</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                <li class="nav-item"><a href="asset-tracking-system" class="nav-link d-inline-block px-0 pt-1 pb-2">Asset tracking system</a></li>
+                <li class="nav-item"><a href="field-service-management-software" class="nav-link d-inline-block px-0 pt-1 pb-2">Field service software</a></li>
+                    <li class="nav-item"><a href="field-safety-software" class="nav-link d-inline-block px-0 pt-1 pb-2">Field safety software</a></li>
+                <li class="nav-item"><a href="iot-data-management" class="nav-link d-inline-block px-0 pt-1 pb-2">IoT data management</a></li>
+                    
+              </ul>
+
+              <h6 class="mb-2 mt-3 mt-md-0">Industries</h6>
+              <ul class="nav flex-column mb-2 mb-lg-0">
+                <li class="nav-item"><a href="industries-health-care" class="nav-link d-inline-block px-0 pt-1 pb-2">Health care</a></li>
+                <li class="nav-item"><a href="industries-infrastructure" class="nav-link d-inline-block px-0 pt-1 pb-2 ">Infrastructures</a></li>
+                <li class="nav-item"><a href="industries-automotives.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Automobiles</a></li>
+              </ul>
+
+              
+          </div>
+          <div class="col-md-3 pt-2 pt-lg-0">
+            <h6 class="mb-2">Become our partner</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+              <li class="nav-item"><a href="system-integrators" class="nav-link d-inline-block px-0 pt-1 pb-2">System integrators</a></li>
+              <li class="nav-item"><a href="device-manufacturers" class="nav-link d-inline-block px-0 pt-1 pb-2">Device manufacturers</a></li>
+              <li class="nav-item"><a href="cloud-partners" class="nav-link d-inline-block px-0 pt-1 pb-2">Cloud partners</a></li>
+              
+            </ul>
+            <h6 class="mb-2 mt-3 mt-md-0">Insights</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+              <li class="nav-item"><a href="blog" class="nav-link d-inline-block px-0 pt-1 pb-2">Blogs</a></li>
+              <li class="nav-item"><a href="case-study" class="nav-link d-inline-block px-0 pt-1 pb-2">Case studies</a></li>
+              <li class="nav-item"><a href="whitepapers" class="nav-link d-inline-block px-0 pt-1 pb-2">Whitepapers</a></li>
+             
+              
+            </ul>
+            <!-- <ul class="nav flex-column mb-2 mb-lg-0">
+              <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+              <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+            </ul> -->
+          </div>
+
+          <div class="col-md-3 pt-2 pt-lg-0">
+            
+           <ul class="nav flex-column mb-2 mb-lg-0">
+            <li class="nav-item"><a href="careers" class="nav-link d-inline-block px-0 pt-1 pb-2">Careers</a></li>
+            <li class="nav-item"><a href="contact" class="nav-link d-inline-block px-0 pt-1 pb-2">Contact us</a></li>
+              <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+              <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+      &copy; 2024 Mongrov, Inc. All rights reserved. 
+      <!-- <a class="nav-link d-inline-block p-0" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a> -->
+
+    </p>
+  </div>
+</footer>
+
+
+<!-- Back to top button -->
+<a href="#top" class="btn-scroll-top" aria-label="backtotop" data-scroll>
+  <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+  <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+</a>
+
+
+<!-- Vendor Scripts -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
+<script src="assets/vendor/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/lightgallery/lightgallery.min.js"></script>
+<script src="assets/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/shufflejs/dist/shuffle.min.js"></script>
+
+<!-- Main Theme Script -->
+<script src="assets/js/theme.min.js"></script>
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FG9Y3JJT67"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-FG9Y3JJT67');
+</script>
+
+<script type='text/javascript'>
+  var link = !!document.querySelector("link[rel='canonical']") ? document.querySelector("link[rel='canonical']") : document.createElement('link');
+  link.setAttribute('rel', 'canonical');
+  link.setAttribute('href', location.protocol + '//' + location.host + location.pathname);
+  document.head.appendChild(link);
+</script>
+  
+  </body>
+</html>
