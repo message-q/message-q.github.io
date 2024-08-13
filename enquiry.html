@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mongrov | Enquiry</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Mongrov | Enquiry">
+    <meta name="keywords" content="bootstrap, business, creative agency, mobile app showcase, saas, fintech, finance, online courses, software, medical, conference landing, services, e-commerce, shopping cart, multipurpose, shop, ui kit, marketing, seo, landing, blog, portfolio, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="author" content="Createx Studio">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#6366f1">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+  </head>
+
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg navbar-dark bg-dark navbar-sticky">
+        <div class="container px-3">
+          <a href="index.html" class="navbar-brand pe-3">
+            <img src="assets/img/mong/logo.svg" width="150" alt="Silicon">
+          </a>
+          
+          
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="contact" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" rel="noopener">
+            Contact Us
+          </a>
+        </div>
+      </header>
+
+      
+      <!-- Hero -->
+      <section class="bg-dark dark-mode py-4">
+        <div class="container pb-2 py-lg-5">
+
+          
+          <h1 class="text-center mb-0">Thank you for showing your interest!</h1>
+        </div>
+        <div style="height: 300px;"></div>
+      </section>
+
+
+      <!-- Pricing plans -->
+      <section class="container position-relative zindex-2" style="margin-top: -300px;">
+        <div class="price-switch-wrapper">
+         
+          <div class="table-responsive-lg">
+            <div class="d-flex justify-content-center align-items-center pb-4">
+  
+              <!-- Pricing plan -->
+              <div class="border rounded-3 shadow-sm me-n1 w-lg-75">
+                <div class="card bg-light h-100 border-0 border-end py-3 py-sm-4 py-lg-3">
+                  <div class="card-body text-center">
+                    <h2 class="card-title">Enquiry</h2>
+                  <p class="mb-4">Reach to us with your questions & comments.</p>
+                  <form action="https://formspree.io/f/mgedegzw" method="POST" class="row g-4 needs-validation text-start" novalidate>
+                    <div class="col-6">
+                      <label for="fn" class="form-label fs-base">Full Name</label>
+                      <input type="text" name="Contact Name"  class="form-control form-control-lg" id="FullName" required>
+                      <div class="invalid-feedback">Please enter your full name!</div>
+                    </div>
+                    <div class="col-6">
+                      <label for="fn" class="form-label fs-base">Company Name</label>
+                      <input type="text" name="Company Name"  class="form-control form-control-lg" id="companyName" >
+                    </div>
+                    <div class="col-6">
+                      <label for="email" class="form-label fs-base">Business Mail</label>
+                      <input type="email" name="Business Email" class="form-control form-control-lg" id="email" required>
+                      <div class="invalid-feedback">Please provid a valid email address!</div>
+                    </div>
+                    <div class="col-6">
+                      <label for="Phone" class="form-label fs-base">Phone Number</label>
+                      <input type="text" name="Phone Number" class="form-control form-control-lg" id="phone">
+                    </div>
+                   
+                    
+                    <div class="col-12">
+                      <label for="specialist" class="form-label fs-base">Message</label>
+                      <textarea name="Message" rows="4" class="form-control" ></textarea>
+                    </div>
+                   
+                    <div class="col-12 pt-2 pt-sm-3">
+                      <button type="submit" class="btn btn-lg btn-primary w-100 w-sm-auto">Submit</button>
+                    </div>
+                  </form>
+                  </div>
+                 
+                </div>
+              </div>
+          
+             
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="container mb-5 pb-lg-5 pb-md-4 pb-3 pt-3 mt-5">
+        <h2 class="display-5 mb-lg-2 text-gradient-primary text-center">Boost Efficiency by 50% with <br> Field Service Management Software</h2>
+    
+        <h3 class="text-center my-4 display-6">Key Features</h3>
+    
+        
+    
+        <!-- Swiper slider -->
+       
+          <div class="row justify-content-center">
+    
+            <!-- Swiper item -->
+            <div class="col-md-4 mb-3 mb-sm-0">
+              <div class="card h-100">
+                <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                  <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-0 mb-3">
+                    <img src="assets/img/mong/icon-automated-scheduling.svg" width="46" alt="Comments">
+                  </div>
+                  <h3 class="h5 mb-3">Intelligent Scheduling and Dispatching</h3>
+                  <p class="mb-0">Optimize your field service management with our advanced scheduling and dispatching tools. Ensure the right technician is assigned to the right job, improving efficiency and first-time fix rates.</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Swiper item -->
+            <div class="col-md-4 mb-3 mb-sm-0">
+              <div class="card h-100">
+                <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                  <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-0 mb-3">
+                    <img src="assets/img/mong/icon-mobile-access.svg" width="46" alt="Comments">
+                  </div>
+                  <h3 class="h5 mb-3">Mobile Workforce <br> Management</h3>
+                  <p class="mb-0">Empower your field workforce with mobile access to all necessary information. Our user-friendly mobile app ensures field technicians can perform their duties effectively, anytime and anywhere.</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Swiper item -->
+            <div class="col-md-4 mb-3 mb-sm-0">
+              <div class="card h-100">
+                <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                  <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-0 mb-3">
+                    <img src="assets/img/mong/icon-inventory-tracking.svg" width="46" alt="Comments">
+                  </div>
+                  <h3 class="h5 mb-3">Comprehensive Inventory and Asset Management</h3>
+                  <p class="mb-0">Keep your inventory and assets organized with our Field Workforce Management Software. Ensure your technicians have the tools and parts to complete their tasks efficiently.</p>
+                </div>
+              </div>
+            </div>
+
+             <!-- Swiper item -->
+             <div class="col-md-4 mt-4">
+              <div class="card h-100">
+                <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                  <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-0 mb-3">
+                    <img src="assets/img/mong/icon-customer-portal.svg" width="46" alt="Comments">
+                  </div>
+                  <h3 class="h5 mb-3">Enhanced Customer Communication and Engagement</h3>
+                  <p class="mb-0">Improve your customer experience with tools designed to keep clients informed and engaged throughout the service process.</p>
+                </div>
+              </div>
+            </div>
+
+             <!-- Swiper item -->
+             <div class="col-md-4 mt-4">
+              <div class="card h-100">
+                <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                  <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-0 mb-3">
+                    <img src="assets/img/mong/icon-dashboards-and-reports.svg" width="46" alt="Comments">
+                  </div>
+                  <h3 class="h5 mb-3">Advanced Analytics and Reporting</h3>
+                  <p class="mb-0">Make data-driven decisions with our powerful analytics and reporting tools. Gain insights into your operations and identify areas for improvement.</p>
+                </div>
+              </div>
+            </div>
+    
+          </div>
+    
+        
+        
+      </section>
+
+      <section class="mt-4 mb-lg-5 pt-lg-5 pb-5 bg-secondary">
+        <div class="container">
+
+        <!-- Page title + Layout switcher + Search form -->
+        <div class="row align-items-end gy-3 mb-4 pb-lg-3 pb-1 text-center">
+          <div class="col-lg-12">
+            <h1 class="mb-2 mb-md-0">Know more about field service management</h1>
+          </div>
+          <div class="col-lg-7 col-md-8">
+            
+          </div>
+        </div>
+
+        <!-- Blog grid -->
+        <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-md-4 gy-2">
+
+          <!-- Item -->
+          <div class="col pb-3">
+            
+            <article class="card border-0 shadow-sm h-100">
+             
+              <div class="position-relative">
+                <a href="streamlining-project-management" class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
+                
+                <img src="assets/img/mong/blog-thumb15.jpg" class="card-img-top" alt="The role of IoT in predictive maintenance for field service">
+              </div>
+              <div class="card-body pb-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <a href="streamlining-project-management" class="badge fs-sm text-nav bg-secondary text-decoration-none">Technology</a>
+                  <span class="fs-sm text-muted">August 12, 2024</span>
+                </div>
+                <h3 class="h5 mb-0">
+                  <a href="streamlining-project-management">Streamlining Project Management in Construction with Field Service Software</a>
+                </h3>
+              </div>
+              <div class="card-footer py-4">
+                <a href="streamlining-project-management" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
+                  <img src="assets/img/mong/logo-icon.png" class="rounded-circle me-3" width="48" alt="Avatar">
+                  Mongrov’s Tech Library
+                </a>
+              </div>
+            
+            </article>
+          
+        </div>
+
+
+          
+
+           <!-- Item -->
+           <div class="col pb-3">
+            
+            <article class="card border-0 shadow-sm h-100">
+             
+              <div class="position-relative">
+                <a href="advanced-field-safety-services-technologies" class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
+                
+                <img src="assets/img/mong/blog-thumb13.jpg" class="card-img-top" alt="The role of IoT in predictive maintenance for field service">
+              </div>
+              <div class="card-body pb-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <a href="advanced-field-safety-services-technologies" class="badge fs-sm text-nav bg-secondary text-decoration-none">Technology</a>
+                  <span class="fs-sm text-muted">July 29, 2024</span>
+                </div>
+                <h3 class="h5 mb-0">
+                  <a href="advanced-field-safety-services-technologies">Introducing Mongrov’s Advanced Field Safety Services Technologies</a>
+                </h3>
+              </div>
+              <div class="card-footer py-4">
+                <a href="advanced-field-safety-services-technologies" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
+                  <img src="assets/img/mong/logo-icon.png" class="rounded-circle me-3" width="48" alt="Avatar">
+                  Mongrov’s Tech Library
+                </a>
+              </div>
+            
+            </article>
+          
+        </div>
+
+
+
+          <!-- Item -->
+          <div class="col pb-3">
+            <article class="card border-0 shadow-sm h-100">
+              <div class="position-relative">
+                <a href="safety-of-remote-workers" class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
+                
+                <img src="assets/img/mong/blog-thumb2.jpg" class="card-img-top" alt="Safety of remote workers">
+              </div>
+              <div class="card-body pb-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <a href="safety-of-remote-workers" class="badge fs-sm text-nav bg-secondary text-decoration-none">Technology</a>
+                  <span class="fs-sm text-muted">April 24, 2024</span>
+                </div>
+                <h3 class="h5 mb-0">
+                  <a href="safety-of-remote-workers">Safety of remote workers: Bringing universal connectivity with IoT</a>
+                </h3>
+              </div>
+              <div class="card-footer py-4">
+                <a href="safety-of-remote-workers" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
+                  <img src="assets/img/mong/logo-icon.png" class="rounded-circle me-3" width="48" alt="Avatar">
+                  Mongrov’s Tech Library
+                </a>
+              </div>
+            </article>
+          </div>
+
+          
+          
+        </div>
+
+      </div>
+      </section>
+
+    </main>
+
+    
+    <!-- Sign up CTA -->
+    <section class="container position-relative zindex-2">
+      <div class="bg-dark border border-light rounded-3 py-5 px-4 px-sm-0">
+        <div class="row justify-content-center py-sm-2 py-lg-5">
+          <div class="col-xl-8 col-lg-8 col-md-8 col-sm-10 text-center ">
+            <h2 class="card-title text-light mb-5">Contact</h2>
+                  
+                  <form action="https://formspree.io/f/mgedegzw" method="POST" class="row g-4  needs-validation text-start" novalidate>
+                    <div class="col-6">
+                      <label for="fn" class="form-label fs-base text-light">Full Name</label>
+                      <input type="text" name="Contact Name"  class="form-control form-control-lg" id="FullName" required>
+                      <div class="invalid-feedback">Please enter your full name!</div>
+                    </div>
+                    <div class="col-6">
+                      <label for="fn" class="form-label fs-base text-light">Company Name</label>
+                      <input type="text" name="Company Name"  class="form-control form-control-lg" id="companyName" >
+                    </div>
+                    <div class="col-6">
+                      <label for="email" class="form-label fs-base text-light">Business Mail</label>
+                      <input type="email" name="Business Email" class="form-control form-control-lg" id="email" required>
+                      <div class="invalid-feedback">Please provid a valid email address!</div>
+                    </div>
+                    <div class="col-6">
+                      <label for="Phone" class="form-label fs-base text-light">Phone Number</label>
+                      <input type="text" name="Phone Number" class="form-control form-control-lg" id="phone">
+                    </div>
+                   
+                    
+                    <div class="col-12">
+                      <label for="specialist" class="form-label fs-base text-light">Message</label>
+                      <textarea name="Message" rows="4" class="form-control" ></textarea>
+                    </div>
+                   
+                    <div class="col-12 pt-2 pt-sm-3">
+                      <button type="submit" class="btn btn-lg btn-primary w-100 w-sm-auto">Submit</button>
+                    </div>
+                  </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer bg-secondary pt-5 pb-4 pb-lg-5" style="margin-top: -100px;">
+      <div style="height: 100px;"></div>
+      <div class="container pt-lg-2">
+        <p class="nav d-block text-center fs-xs pb-2 pb-lg-0 mb-0">
+          © 2024 Mongrov, Inc. All rights reserved. 
+        </p>
+      </div>
+    </footer>
+
+
+    <!-- Back to top button -->
+    <a href="#top" class="btn-scroll-top" data-scroll>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+    </a>
+
+
+    <!-- Vendor Scripts -->
+    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main Theme Script -->
+    <script src="assets/js/theme.min.js"></script>
+  </body>
+</html>
