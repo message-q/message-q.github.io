@@ -133,3 +133,9 @@ a.internal-link:hover {
     background: url(../img/mong/become-partner.jpg);
     background-size: cover;
 }
+
+.error-message {
+    color: #F00;
+    font-size: 11px;
+    margin-top: 2px;
+}
