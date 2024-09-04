@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Common Challenges in Field Service and How Mobile Apps Can Solve Them</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="title" content="Common Challenges in Field Service and How Mobile Apps Can Solve Them">
+    <meta name="description" content="Internet of Things (IoT) integration in electric vehicles (EVs) has revolutionized the automotive sector by yielding breakthrough range and efficiency across EVs. Learn more about IoT in Electric Vehicles in this blog.">
+
+    <meta name="keywords" content="IoT, Things, Thingz, Data Streaming, Asset management, Temperature, Devices, Intert of Things, Data lake, Data Ocean, Preventive maintenance">
+    <meta name="author" content="Mongrov">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/mong/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/mong/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/mong/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/mong/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/img/mong/favicon/safari-pinned-tab.svg" color="#1685FF">
+    <link rel="shortcut icon" href="assets/img/mong/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/img/mong/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <link rel="stylesheet" media="screen" href="assets/css/custom-style.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      .img-rounded {
+    border-radius: 10px;
+     }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+    
+    <!-- schema markup code -->
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Organization",
+    "name": "Mongrov, Inc.",
+  "address": "3001 Bishop Drive, Suite 300, San Ramon, CA, 94583",
+    "alternateName": " Mongrov",
+  "areaServed": [
+  "United States"
+  ],
+      "description": "At Mongrov, we are passionate about pushing the boundaries of technology and innovation. As a technology startup, we specialize in providing cutting-edge IoT solutions with a strong focus on Real-time Streaming Data.",
+  "email": "hello@mongrov.com",
+  "legalName": " Mongrov, Inc.",
+  "logo": " https://mongrov.com/assets/img/mong/logo.svg",
+  "mainEntityOfPage": " https://g.co/kgs/yshDyRX",
+  "sameAs": [
+  " https://www.linkedin.com/company/mongrov-inc/",
+  " https://twitter.com/TheMongrov"
+  ],
+  "slogan": "Real-time Data Management for Improved Efficiency",
+  "telephone": " +1 (408) 384 8120",
+  "url": "https://mongrov.com/"
+  }
+  }
+  </script>
+  <!-- Canonical Link -->
+   
+  <link rel="canonical" href="">
+    
+</head>
+
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <!-- <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div> -->
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+        <div class="container px-3">
+          <a href="https://mongrov.com/" class="navbar-brand pe-3">
+            <img src="assets/img/mong/logo.svg" width="140" alt="mongrov">
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">What we do?</a>
+                  <ul class="dropdown-menu">
+                    
+                    <li><a href="thingz-cloud" class="dropdown-item">Thingz cloud</a></li>
+                    <li><a href="near-thingz" class="dropdown-item">Near thingz</a></li>
+                    <li><a href="thingz-app" class="dropdown-item">Thingz app</a></li>
+                  </ul>
+                </li>
+
+               <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Who we are?</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="who-we-are" class="dropdown-item">About us</a></li>
+                    <li><a href="leadership" class="dropdown-item">Leaderships</a></li>
+                    <!-- <li><a href="#" class="dropdown-item disabled">Company's story</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Awards</a></li>
+                    <li><a href="#" class="dropdown-item disabled">News</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Life @ mongrov </a></li> -->
+                  </ul>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Solutions</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="asset-tracking-system" class="dropdown-item">Asset tracking system</a></li>
+                    <li><a href="field-service-management-software" class="dropdown-item">Field service software</a></li>
+                    <li><a href="field-safety-software" class="dropdown-item">Field safety software</a></li>
+                    <li><a href="iot-data-management" class="dropdown-item">IoT data management</a></li>
+                  </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Industries</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="industries-health-care" class="dropdown-item">Health care</a></li>
+                    <li><a href="industries-infrastructure" class="dropdown-item">Infrastructures</a></li>
+                    <li><a href="industries-automotives" class="dropdown-item">Automobiles</a></li>
+                    
+                  </ul>
+                </li>
+
+               
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insights</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="blog" class="dropdown-item">Blogs</a></li>
+                    <li><a href="case-study" class="dropdown-item">Case studies</a></li>
+                    <li><a href="whitepapers" class="dropdown-item">Whitepapers</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a href="careers" class="nav-link ">Careers</a>
+                  
+                </li>
+
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+              <a href="contact" class="btn btn-primary w-100" rel="noopener">
+                &nbsp;Contact Us
+              </a>
+            </div>      
+          </div>
+          <!-- <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+            <input type="checkbox" class="form-check-input" id="theme-mode">
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+          </div> -->
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="contact" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex"  rel="noopener">
+            <!-- <i class="bx bx-phone fs-5 lh-1 me-1"></i> -->
+            &nbsp;Contact Us
+          </a>
+        </div>
+      </header>
+
+
+      <!-- Breadcrumb -->
+      <nav class="container mt-lg-4 pt-5" aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 pt-5">
+          <li class="breadcrumb-item">
+            <a href="index"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="blog">Blogs</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Blog detail</li>
+        </ol>
+      </nav>
+
+
+      <!-- Post title + Meta  -->
+      <section class="container mt-4 pt-lg-2 pb-3">
+        <h1 class="pb-3" style="max-width: 970px;">Common Challenges in Field Service and How Mobile Apps Can Solve Them</h1>
+        <div class="d-flex flex-md-row flex-column align-items-md-center justify-content-md-between mb-3">
+          <div class="d-flex align-items-center flex-wrap text-muted mb-md-0 mb-4">
+            <!-- <div class="fs-xs border-end pe-3 me-3 mb-2">
+              <span class="badge bg-faded-primary text-primary fs-base">Technology</span>
+            </div>
+            <div class="fs-sm border-end pe-3 me-3 mb-2">August 16, 2024</div> -->
+
+            <div class="fs-sm pe-3 me-3 mb-2">
+              <a href="downloads/blog/common-challenges-in-field-service.pdf" target="_blank" download class="btn btn-primary">Download Blog</a>
+            </div>
+            
+          </div>
+          <div class="d-flex align-items-center position-relative ps-md-3 pe-lg-5 mb-2">
+            <img src="assets/img/mong/logo-icon.png" class="rounded-circle" width="60" alt="Avatar">
+            <div class="ps-3">
+              <h6 class="mb-1 mt-3">Author</h6>
+              <h6 class="fw-semibold mt-2">Mongrov’s Tech Library</h5>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Post image (parallax) -->
+      <div class="jarallax mb-lg-5 mb-4" data-jarallax data-speed="0.35" style="height: 36.45vw; min-height: 300px;">
+        <img src="assets/img/mong/blog21.webp" alt="The role of IoT in predictive maintenance for field service" class="jarallax-img">
+      </div>
+
+
+      <!-- Post content + Sharing -->
+      <section class="container mb-5 pt-4 pb-2 py-mg-4">
+        <div class="row gy-4">
+
+          <!-- Content -->
+          <div class="col-lg-9 mx-auto">
+            <p>Field service management is a wide discipline that includes the smooth coordination of many extraordinary responsibilities, such as scheduling technicians and preserving unique statistics of provider operations. However, many obstacles inside the field that may impede effectiveness, affordability, and patron happiness. 
+            </p>
+            <p>Current traits in generation, particularly mobile applications, have been confirmed to be effective tools for addressing these issues and have modified the way subject carrier groups paint. Any company looking to enhance subject carrier control must realize the most common problems these teams face and the ways mobile apps can help remedy them.
+            </p>
+            <p>From research, 60% of 251 business leaders found that good communication boosts employee confidence, while 56% of 1,001 knowledge workers said it enhances job satisfaction too.</p>
+            <p>Improving real-time coordination and communication is frequently the first step in addressing these issues, and mobile apps are essential for this.
+            </p>
+
+            <h2>The Struggle with Real-Time Communication and Coordination</h2>
+
+            <p>A study shows that top global field service organization’s ‘'best-in-class” companies deal with customer complaints for the first time 88% of the time due to best practices exercised in their operations. On the other hand, average organizations have an 80% FTFR, however, ‘laggards’ at 63%, indicating the existence of serious issues.</p>
+
+            <p>These disparities are often compounded by outdated communication methods such as phone calls and emails, which can introduce errors and delays. Embracing real-time communication can bridge these gaps and enhance service delivery efficiency. Mobile apps enable real-time video calls, live updates, and instant messaging among field technicians, dispatchers, and office staff, reducing errors and increasing productivity.</p>
+
+            <p>In addition to the ongoing communication barriers, maintaining constant worker productivity in a setting that is becoming more and more dynamic presents a big difficulty.</p>
+
+
+
+
+            <h2>The Challenge of Managing Workforce Productivity</h2>
+
+            <p>Another crucial area of FSCM is the scheduling of the workers or employees that will be going to the field to meet the customer’s needs. On the other hand, many firms are challenged with how best to track and improve the efficiency of the field teams. According to research carried out by The Service Council, it is established that the first-time fix rate of organizations is around 77%. This means technicians require a revision of approximately 23% of all service tickets and preserves service costs, asset accessibility, and response time into account.
+            </p>
+
+            <p>For enhancing the first-time fix rates, having field service management software and integrated intelligence is pivotal. It enables the right tasks to be given to technicians with required skill levels and will give out as much detail as possible to the technicians, thus increasing the probability of success.
+
+            </p>
+
+            <p>Mobile apps like those provided by Mangrov solve this problem by enabling real-time tracking of the technicians using GPS and efficient schedule, route, and task allocation. One study said that by using localization, the first call fix would be boosted since the closest and most eligible technician would be sent to complete a job; this could amount to a 10% increase and above.</p>
+
+            <p>The influence of erroneous data and paperwork, which can seriously impair operational efficiency, must also be considered to properly address staff productivity.</p>
+
+            <h2>The Problem of Inaccurate Data and Documentation
+            </h2>
+
+            <p>Timeous, correct data, and paperwork are therefore very important in field service management. The traditional paper-based or manual system can prove to be a bit unreliable in terms of record-keeping as well as error-prone. </p>
+
+<p>The analysis of the report showed that mistakes detected during visual checking were 2958% more than double entries and were not far from single entry. Test-wise, these mistakes affected coefficient alphas, correlations, and t-tests tremendously. For example, 66% of participants made coefficient alpha errors over. 40, with 0.06% being detectable.</p>
+
+<p>The issues posed by imprecise data and documentation compound to make compliance and safety management even more difficult, hence increasing operational risks.</p>
+
+<h2>The Difficulty in Ensuring Compliance and Safety</h2>
+<p>Managers in field services, first, must focus on safety and compliance, which is not easy to achieve when people are divided between a couple of locations. We made a $300 million investment in vehicle controls, ergonomics, and technology advancements to improve safety. To protect the safety of our customers and employees, we have invested over $15 billion in COVID-19-related initiatives since March 2020.
+</p>
+
+<p>Some of the important mobile applications that ought to be implemented are safety, containing checklists, safety procedures, and compliance forms, easily accessible on technicians’ devices. These apps make risk assessments manageable, timely reminders as well as compliance with regulations more manageable, again making operations safer and maintaining the integrity of the company.</p>
+<p>Managing inventory and spare parts effectively is essential for operational continuity and efficiency, but it may be just as difficult as balancing compliance and safety.</p>
+
+<h2>The Challenge of Managing Inventory and Spare Parts</h2>
+<p>There are many issues that field service teams must endure when it comes to inventory, managing a geographically dispersed workforce, and high service numbers. As stated by the consumer survey, overstocking is a condition where a business firm stocks up too many inventories, just wasting precious money and space. </p>
+<p>On the other hand, understocking occurs when there is a scarcity of inventory to cater to the demand. Reducing both the stock-outs and the amounts of inventory above and below the optimal level by significant amounts slashes inventory costs by 10%.</p>
+<p>Our tactics for upholding outstanding customer satisfaction and guaranteeing long-term retention must also adapt along with inventory and spare parts management, exposing interrelated issues.</p>
+<p>The customer satisfaction index is, therefore, a core KPI of any field service organization. Though the steady delivery of service quality is a challenge, especially when delivering complex services within the given time and in the presence of clients who are demanding, In the field of financial services, a 5% increase in the rate of customer retention has the potential of increasing the profits by more than 25%, implying the significance of customer retention.</p>
+<p>The mobile application solutions with effective features like Mongrov contribute significantly to the satisfaction of consumers since they bring an improvement of the general standard of services. Technicians are also able to carry their work tools to work knowing that they can retrieve task histories, details about the clients, and details about services on their gadgets once they get to the workstation. </p>
+<p>Also, features such as the monitoring of the arrival of the technician, notifications to the customer, and offering direct feedback by the customer are features often seen in mobile applications. Therefore, these elements can be used in organizations to improve clients’ satisfaction and retention rates for the delivery of better and more personalized services.</p>
+<p>Handling client retention and satisfaction brings us directly to the critical task of efficiently handling and interpreting performance data.</p>
+<h2>The Problem of Managing and Analyzing Performance Data</h2>
+<p>For field service operations to be optimized, data-driven decision-making is essential. However, because field service activities are distributed, many organizations find it difficult to collect and process performance data. </p>
+<p>A company’s study highlights that balancing current stability with future scalability boosts competitive agility and drives growth in shifting markets. It can boost the productivity of technicians by 20 to 25%, boost the provision of assets with the aid of 10 to 15%, and enhance service sales by 8 to 10%.
+</p>
+<p>By automatically gathering and evaluating data on inventory, customer happiness, technician performance, and task completion times, mobile apps provide a solution. Through customizable dashboards, these apps offer real-time information that helps managers measure key performance indicators (KPIs), find inefficiencies, and improve service delivery.</p>
+<p>Businesses must deal with the ever-changing difficulty of keeping up with the rapid growth of technology while navigating performance data.
+</p>
+
+<h2>The challenge of adapting to rapid technological advancements</h2>
+<p>A substantial 88% of respondents believe customers will pay a premium for top-notch experiences, and 94% say excellent service drives them to make repeat purchases, highlighting its crucial role. Mobile apps provide a scalable solution that makes it simple for companies to incorporate cutting-edge technologies. </p>
+<p>Mobile apps with modular architecture let businesses add additional features or outside services as needed. Field service teams may improve operations and stay ahead of technological changes with the help of this flexibility. To stay competitive and efficient, businesses may easily incorporate IoT devices for remote monitoring or AI-driven predictive maintenance solutions.
+</p>
+<p>We need to be agile and forward-thinking to navigate these technology shifts and integrate mobile apps for a modernized field service operation.</p>
+<h2>Conclusion: Embracing mobile apps for a future-ready field service operation</h2>
+<p>Field service management faces challenges like data accuracy, compliance, and productivity issues. Mobile apps offer a transformative solution by enhancing customer satisfaction, streamlining processes, and improving communication. Embracing these technologies helps companies not only address current problems but also thrive in a competitive market. </p>
+<p>For example, companies like Mongrov exemplify how leveraging advanced mobile apps can significantly boost operational efficiency. To thrive in the evolving field service sector, embracing these technologies boosts productivity, cuts costs, and ensures outstanding service.</p>
+
+
+
+
+
+          </div>
+
+          
+        </div>
+      </section>
+
+
+
+    </main>
+ <!-- Footer -->
+ <footer class="footer pt-5 pb-4 pb-lg-5 mt-2 mt-md-0 border-top">
+  <div class="container pt-lg-4">
+    <div class="row pb-5">
+      <div class="col-md-3">
+        <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+          <img src="assets/img/mong/logo.svg" width="120" alt="Mongrov">
+        </div>
+        <ul class="nav flex-column mb-0">
+          <li class="mb-1">
+            <a href="contact#contact" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-map fs-5 text-primary me-2"></i>
+              3001 Bishop Drive, Suite 300, San Ramon, CA 94583.
+            </a>
+          </li>
+          <li class="mb-1">
+            <a href="tel:+1 (408) 384 8120" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-phone-call fs-5 text-primary me-2"></i>
+              +1 (408) 384 8120
+            </a>
+          </li>
+          <li>
+            <a href="mailto:hello@mongrov.com" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-envelope fs-5 text-primary me-2"></i>
+              hello@mongrov.com
+            </a>
+          </li>
+        </ul>
+
+        <div class="d-flex mt-lg-3">
+          <a href="https://www.linkedin.com/company/mongrov-inc/" target="_blank" aria-label="Linked in" class="btn btn-icon btn-secondary btn-linkedin ml-0 mr-2">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://twitter.com/TheMongrov" target="_blank" class="btn btn-icon btn-secondary btn-twitter mx-2">
+            <i class='bx'>
+              <img src="assets/img/mong/twitter-x.svg"  width="16" alt="Twitter">
+            </i>
+          </a>
+          <a href="https://github.com/mongrov" target="_blank" aria-label="Github" class="btn btn-icon btn-secondary btn-github">
+            <i class="bx bxl-github"></i>
+          </a>
+        </div>
+        <div class="mt-lg-3">
+          <h6 class="mb-2 mt-3">Compliances</h6>
+          <div class="row">
+            <div class="col">
+              <img class="img-fluid" src="assets/img/mong/compliances.png" width="200" alt="Compliances">
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-9 pt-4 pt-md-1 pt-lg-0">
+        <div id="footer-links" class="row">
+          <div class="col-md-3">
+            <h6 class="mb-2">What we do?</h6>
+              <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                
+                <li class="nav-item"><a href="thingz-cloud" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz cloud</a></li>
+                <li class="nav-item"><a href="near-thingz" class="nav-link d-inline-block px-0 pt-1 pb-2">Near thingz</a></li>
+                <li class="nav-item"><a href="thingz-app" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz app</a></li>
+              </ul>
+
+              <h6 class="mb-2 mt-3 mt-md-0">Who we are?</h6>
+              <ul class="nav flex-column mb-2 mb-lg-0">
+                <li class="nav-item"><a href="who-we-are" class="nav-link d-inline-block px-0 pt-1 pb-2">About us</a></li>
+                <li class="nav-item"><a href="leadership" class="nav-link d-inline-block px-0 pt-1 pb-2">Leaderships</a></li>
+                <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Company's story</a></li>
+                <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Awards</a></li>
+                <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">News</a></li> -->
+                <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Life @ mongrov</a></li> -->
+              </ul>
+
+              
+          </div>
+          <div class="col-md-3">
+            <h6 class="mb-2 mt-2 mt-md-0">Solutions</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                <li class="nav-item"><a href="asset-tracking-system" class="nav-link d-inline-block px-0 pt-1 pb-2">Asset tracking system</a></li>
+                <li class="nav-item"><a href="field-service-management-software" class="nav-link d-inline-block px-0 pt-1 pb-2">Field service software</a></li>
+                    <li class="nav-item"><a href="field-safety-software" class="nav-link d-inline-block px-0 pt-1 pb-2">Field safety software</a></li>
+                <li class="nav-item"><a href="iot-data-management" class="nav-link d-inline-block px-0 pt-1 pb-2">IoT data management</a></li>
+                    
+              </ul>
+
+              <h6 class="mb-2 mt-3 mt-md-0">Industries</h6>
+              <ul class="nav flex-column mb-2 mb-lg-0">
+                <li class="nav-item"><a href="industries-health-care" class="nav-link d-inline-block px-0 pt-1 pb-2">Health care</a></li>
+                <li class="nav-item"><a href="industries-infrastructure" class="nav-link d-inline-block px-0 pt-1 pb-2 ">Infrastructures</a></li>
+                <li class="nav-item"><a href="industries-automotives.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Automobiles</a></li>
+              </ul>
+
+              
+          </div>
+          <div class="col-md-3 pt-2 pt-lg-0">
+            <h6 class="mb-2">Become our partner</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+              <li class="nav-item"><a href="system-integrators" class="nav-link d-inline-block px-0 pt-1 pb-2">System integrators</a></li>
+              <li class="nav-item"><a href="device-manufacturers" class="nav-link d-inline-block px-0 pt-1 pb-2">Device manufacturers</a></li>
+              <li class="nav-item"><a href="cloud-partners" class="nav-link d-inline-block px-0 pt-1 pb-2">Cloud partners</a></li>
+              
+            </ul>
+            <h6 class="mb-2 mt-3 mt-md-0">Insights</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+              <li class="nav-item"><a href="blog" class="nav-link d-inline-block px-0 pt-1 pb-2">Blogs</a></li>
+              <li class="nav-item"><a href="case-study" class="nav-link d-inline-block px-0 pt-1 pb-2">Case studies</a></li>
+              <li class="nav-item"><a href="whitepapers" class="nav-link d-inline-block px-0 pt-1 pb-2">Whitepapers</a></li>
+             
+              
+            </ul>
+            <!-- <ul class="nav flex-column mb-2 mb-lg-0">
+              <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+              <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+            </ul> -->
+          </div>
+
+          <div class="col-md-3 pt-2 pt-lg-0">
+            
+           <ul class="nav flex-column mb-2 mb-lg-0">
+            <li class="nav-item"><a href="careers" class="nav-link d-inline-block px-0 pt-1 pb-2">Careers</a></li>
+            <li class="nav-item"><a href="contact" class="nav-link d-inline-block px-0 pt-1 pb-2">Contact us</a></li>
+              <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+              <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+      &copy; 2024 Mongrov, Inc. All rights reserved. 
+      <!-- <a class="nav-link d-inline-block p-0" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a> -->
+
+    </p>
+  </div>
+</footer>
+
+
+<!-- Back to top button -->
+<a href="#top" class="btn-scroll-top" aria-label="backtotop" data-scroll>
+  <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+  <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+</a>
+
+
+<!-- Vendor Scripts -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
+<script src="assets/vendor/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/lightgallery/lightgallery.min.js"></script>
+<script src="assets/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/shufflejs/dist/shuffle.min.js"></script>
+
+<!-- Main Theme Script -->
+<script src="assets/js/theme.min.js"></script>
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FG9Y3JJT67"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-FG9Y3JJT67');
+</script>
+
+<script type='text/javascript'>
+  var link = !!document.querySelector("link[rel='canonical']") ? document.querySelector("link[rel='canonical']") : document.createElement('link');
+  link.setAttribute('rel', 'canonical');
+  link.setAttribute('href', location.protocol + '//' + location.host + location.pathname);
+  document.head.appendChild(link);
+</script>
+  
+  </body>
+</html>
