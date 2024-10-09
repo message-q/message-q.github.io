@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>What is field service management (FSM)?</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="title" content="What is field service management (FSM)?">
+    <meta name="description" content="Internet of Things (IoT) integration in electric vehicles (EVs) has revolutionized the automotive sector by yielding breakthrough range and efficiency across EVs. Learn more about IoT in Electric Vehicles in this blog.">
+
+    <meta name="keywords" content="IoT, Things, Thingz, Data Streaming, Asset management, Temperature, Devices, Intert of Things, Data lake, Data Ocean, Preventive maintenance">
+    <meta name="author" content="Mongrov">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/mong/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/mong/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/mong/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/mong/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/img/mong/favicon/safari-pinned-tab.svg" color="#1685FF">
+    <link rel="shortcut icon" href="assets/img/mong/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/img/mong/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <link rel="stylesheet" media="screen" href="assets/css/custom-style.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      .img-rounded {
+    border-radius: 10px;
+     }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+    
+    <!-- schema markup code -->
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Organization",
+    "name": "Mongrov, Inc.",
+  "address": "3001 Bishop Drive, Suite 300, San Ramon, CA, 94583",
+    "alternateName": " Mongrov",
+  "areaServed": [
+  "United States"
+  ],
+      "description": "At Mongrov, we are passionate about pushing the boundaries of technology and innovation. As a technology startup, we specialize in providing cutting-edge IoT solutions with a strong focus on Real-time Streaming Data.",
+  "email": "hello@mongrov.com",
+  "legalName": " Mongrov, Inc.",
+  "logo": " https://mongrov.com/assets/img/mong/logo.svg",
+  "mainEntityOfPage": " https://g.co/kgs/yshDyRX",
+  "sameAs": [
+  " https://www.linkedin.com/company/mongrov-inc/",
+  " https://twitter.com/TheMongrov"
+  ],
+  "slogan": "Real-time Data Management for Improved Efficiency",
+  "telephone": " +1 (408) 384 8120",
+  "url": "https://mongrov.com/"
+  }
+  }
+  </script>
+  <!-- Canonical Link -->
+   
+  <link rel="canonical" href="">
+    
+</head>
+
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <!-- <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div> -->
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+        <div class="container px-3">
+          <a href="https://mongrov.com/" class="navbar-brand pe-3">
+            <img src="assets/img/mong/logo.svg" width="140" alt="mongrov">
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">What we do?</a>
+                  <ul class="dropdown-menu">
+                    
+                    <li><a href="thingz-cloud" class="dropdown-item">Thingz cloud</a></li>
+                    <li><a href="near-thingz" class="dropdown-item">Near thingz</a></li>
+                    <li><a href="thingz-app" class="dropdown-item">Thingz app</a></li>
+                  </ul>
+                </li>
+
+               <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Who we are?</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="who-we-are" class="dropdown-item">About us</a></li>
+                    <li><a href="leadership" class="dropdown-item">Leaderships</a></li>
+                    <!-- <li><a href="#" class="dropdown-item disabled">Company's story</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Awards</a></li>
+                    <li><a href="#" class="dropdown-item disabled">News</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Life @ mongrov </a></li> -->
+                  </ul>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Solutions</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="asset-tracking-system" class="dropdown-item">Asset tracking system</a></li>
+                    <li><a href="field-service-management-software" class="dropdown-item">Field service software</a></li>
+                    <li><a href="field-safety-software" class="dropdown-item">Field safety software</a></li>
+                    <li><a href="iot-data-management" class="dropdown-item">IoT data management</a></li>
+                  </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Industries</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="industries-health-care" class="dropdown-item">Health care</a></li>
+                    <li><a href="industries-infrastructure" class="dropdown-item">Infrastructures</a></li>
+                    <li><a href="industries-automotives" class="dropdown-item">Automobiles</a></li>
+                    
+                  </ul>
+                </li>
+
+               
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insights</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="blog" class="dropdown-item">Blogs</a></li>
+                    <li><a href="case-study" class="dropdown-item">Case studies</a></li>
+                    <li><a href="whitepapers" class="dropdown-item">Whitepapers</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a href="careers" class="nav-link ">Careers</a>
+                  
+                </li>
+
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+              <a href="contact" class="btn btn-primary w-100" rel="noopener">
+                &nbsp;Contact Us
+              </a>
+            </div>      
+          </div>
+          <!-- <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+            <input type="checkbox" class="form-check-input" id="theme-mode">
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+          </div> -->
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="contact" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex"  rel="noopener">
+            <!-- <i class="bx bx-phone fs-5 lh-1 me-1"></i> -->
+            &nbsp;Contact Us
+          </a>
+        </div>
+      </header>
+
+
+      <!-- Breadcrumb -->
+      <nav class="container mt-lg-4 pt-5" aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 pt-5">
+          <li class="breadcrumb-item">
+            <a href="index"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="blog">Blogs</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Blog detail</li>
+        </ol>
+      </nav>
+
+
+      <!-- Post title + Meta  -->
+      <section class="container mt-4 pt-lg-2 pb-3">
+        <h1 class="pb-3" style="">What is field service management (FSM)?</h1>
+        <div class="d-flex flex-md-row flex-column align-items-md-center justify-content-md-between mb-3">
+          <div class="d-flex align-items-center flex-wrap text-muted mb-md-0 mb-4">
+            <!-- <div class="fs-xs border-end pe-3 me-3 mb-2">
+              <span class="badge bg-faded-primary text-primary fs-base">Technology</span>
+            </div>
+            <div class="fs-sm border-end pe-3 me-3 mb-2">August 16, 2024</div> -->
+
+            <div class="fs-sm pe-3 me-3 mb-2">
+              <a href="downloads/blog/what-is-field-service-management.pdf" target="_blank" download class="btn btn-primary">Download Blog</a>
+            </div>
+            
+          </div>
+          <div class="d-flex align-items-center position-relative ps-md-3 pe-lg-5 mb-2">
+            <img src="assets/img/mong/logo-icon.png" class="rounded-circle" width="60" alt="Avatar">
+            <div class="ps-3">
+              <h6 class="mb-1 mt-3">Author</h6>
+              <h6 class="fw-semibold mt-2">Mongrov’s Tech Library</h5>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Post image (parallax) -->
+      <div class="jarallax mb-lg-5 mb-4" data-jarallax data-speed="0.35" style="height: 36.45vw; min-height: 300px;">
+        <img src="assets/img/mong/blog26.webp" alt="Illustration of workforce management elements: people, processes, and technology" class="jarallax-img">
+      </div>
+
+
+      <!-- Post content + Sharing -->
+      <section class="container mb-5 pt-4 pb-2 py-mg-4">
+        <div class="row gy-4">
+
+          <!-- Content -->
+          <div class="col-lg-9 mx-auto">
+            <p>Modern corporations need field service management (FSM) for off-site services, installations, repairs, and maintenance. To simplify field labor management, equipment, customer contacts, and workflow, organizations have adopted modern technologies. What is field service management, and why does it matter for field-operated industries?
+            </p>
+
+            <p>Fundamentally, the goal of field service management is to simplify the coordination of field personnel activities. Task organization, including scheduling, dispersion, monitoring, and reporting, helps to improve efficiency, lower costs, and raise customer service quality. Field service automation has evolved with technology and become essential as it automates repetitive jobs and improves field operations for best effectiveness, hence revolutionizing FMS.
+            </p>
+
+            <p>
+                FYI: A data stated, by 2031, the worldwide field service management industry is expected to reach over 30 billion dollars in market value from a compound annual growth rate (CAGR) of 19%.
+            </p>
+            <p>Knowing the foundations of field service management (FSM) helps one to investigate its main elements and purposes.</p>
+            
+
+            <h2>The Core Components of Field Service Management</h2>
+            <p>Field service management entails more than just sending experts to a job site to ensure smooth operations. Important components include:</p>
+
+            <p><b> Scheduling and dispatching: </b> FSM relies heavily on assigning the right specialist to the right task at the right time. FSM systems schedule by location, skill, availability, and task significance. Using field service automation, dispatchers can assign jobs based on real-time data and preferences without having to manually assign them.</p>
+
+            <p>
+                <b> Work Order Management:</b> Any endeavor in any profession must effectively document all processes. FMS is applied for the creation, monitoring, and modification of work orders and supplies data to the technicians. This fosters a sense of responsibility and mitigates potential risk or unpredictability. They also help in the production appraisal by recording the contacts with clients, suppliers, and time of completion.
+            </p>
+            <p><b> Real-time Tracking and Monitoring:</b> There is credibility of real-time technician location, which enhances benefits for businesses. With GPS, management can monitor field workers as well as achieve on-time delivery in modern FMS systems. Besides, it enhances the provision of quick responses in case of emergence of such incidences or changes.
+            </p>
+            <p>
+                <b> Inventory and Equipment Management: </b> The activities carried out in the field are generally part-tool-based. Managing inventories is not simple if there is no adequate system in place. Furthermore, the FSM tools enable technicians to be equipped with the proper tools, address inventory control, and avoid service-based resource stagnation.
+            </p>
+            <p>The move toward mobile solutions has changed everything as companies realize the need for effective field service management more and more.</p>
+
+            <h2>The Evolution of Mobile Field Service Solutions</h2>
+            <p>According to the survey, cellphones or handheld devices are the primary means of contact for 49% of the organization's employees. According to the report, 62% of field service managers are improving efficiency and communication using the bring your own device approach.</p>
+            <p>Exploding mobile technology has brought a big change in the field service segment. The mobile field service solutions eliminate the need for technicians to rush back to the office to accomplish paper work or get more information. Companies may track inventory, get updates, engage customers, and generate or send reports via mobile apps. </p>
+
+            <p>Service workers can acquire anything with field service management software. Work orders, logs, and technician status reports are visible. Perfect field-office synchronization speeds response time and improves client satisfaction. Mobile solutions boost output and create a flexible service environment.</p>
+            <p>Achieving constant success and efficiency now depends on their seamless integration into corporate operations.
+            </p>
+
+            <h2>Why FSM is Integral to Business Success</h2>
+            <p>Good field service management lets companies handle several problems. Field Service Management (FSM) holds significant importance for various reasons.</p>
+
+            <p><b>1. Increased Efficiency:</b> FSM optimizes scheduling, automates processes, and provides real-time data, allowing technicians to deploy more efficiently. This reduces operational costs, boosts task completion, and reduces idle time.</p>
+
+            <p><b>2. Improved Customer Satisfaction:</b> FMS systems improve customer satisfaction by speeding up response times and improving contact. Customers appreciate updates on technician arrivals and job progress. Automated systems keep appointments and fix issues on the first visit, building client loyalty.</p>
+
+            <p><b>3. Enhanced Visibility and Control:</b> FSM technology helps management comprehend field activity. They are able to monitor job status, technician performance, and delays. Increased visibility allows for proactive decision-making and field operation control.</p>
+
+            <p><b>4. Data-driven Decisions:</b> Field service systems collect valuable data on task execution, resource utilization, customer feedback, and staff efficiency. Data analysis helps firms identify trends, optimize processes, and make smart decisions to improve results.</p>
+            <p>Including FMS not only improves company processes but also opens the path for efficient automation if one wants to succeed in the competitive scene of today.</p>
+
+            <h2>Leveraging Automation for Streamlined Operations</h2>
+            <p>Modern FMS systems may automate. Hand data entry and task allocation are tiresome and error-prone, therefore automated workflows’ solutions improve operations. The system may promptly invoice the client, close the work order, and manage follow-up details after a technician finishes a project.</p>
+
+            <p>Again, predictive maintenance, which uses analytics to predict when building systems and equipment may break down, is another benefit of automated FMS solutions. This preemptive approach helps organizations avoid disruptions and save time. </p>
+
+            <p>Knowing the benefits of automation helps companies decide which field service management system would be best.</p>
+            <h2>Choosing the best Field Service Management Software</h2>
+            <p>Choosing the best field service management software for your company might be difficult given the variety of FMS products now on the market. Businesses should take into account their particular requirements, personnel size, and degree of operation complexity. The key characteristics to look for include:</p>
+            <p><b> Customization:</b> The best FMS program should allow you to modify your company's specific needs. This may extend to customized reporting options for specific processes.</p>
+
+            <p>
+                <b>Integration</b>Companies sometimes combine multiple systems, such as accounting tools, inventory control systems, and CRM. To ensure a seamless experience, the FSM system should seamlessly integrate with these systems.
+
+            </p>
+            <p>
+                <b>Mobile Capability </b>With more field workers relying on smartphones and tablets, having a robust field service management app is critical. The app should allow field workers to send job updates, interact with the office, and leave comments on any site.
+            </p>
+
+            <p>
+                <b>Scalability </b>Your FMS requirements will change as your company grows. Scalable software is one that can manage more users, growing data, and extra processes without sacrificing performance.
+
+            </p>
+
+            <p>
+                From a study, by 2026, field service sector is predicted to reach USD 5.7 billion.
+            </p>
+            <p>Knowing the main factors for implementation helps you to investigate the possibilities for choosing the best field service management software.</p>
+
+            <p>For a comprehensive guide on selecting the right tools, explore the blog on the best field service management softwares of 2024 for top recommendations.</p>
+
+            <h2>Key considerations for FSM implementation</h2>
+            <p>FMS calls for careful planning. Companies must ensure that their staff is well-qualified to operate the new system and that their goals match the software. These are some important factors:</p>
+            <p><b> Employee Training:</b> The degree to which employees adopt an FMS system determines its success primarily. Good training guarantees that office staff and field workers are at ease utilizing the equipment, facilitating better operations.</p>
+            <p><b> Change Management:</b> Some employees find it intimidating to go from conventional systems to automated ones. Constant support and emphasis on the benefits of automation will mitigate the change.</p>
+            <p><b> Data Security:</b> FSM systems manage operational data and private information, including consumer records. Protecting against data breaches depends on strong security policies in place within the program.</p>
+            <p>Understanding its transforming power helps one to see how FSM improves the future of field operations as companies balance the main factors for FSM deployment.</p>
+            <h2>FSM Enhances the Future of Field Operations
+            </h2>
+            <p>According to research, 83% of top-performing field service companies use workflow automation, while 78% of them have been discovered to employ artificial intelligence. ”
+                Guidelines for field service management are essential for organizations that rely on field operations in dynamic business environments. Timely and accurate completion of work needs leads to what customers want to see: improved efficiency and effectiveness in organizations and precise job completion. Mobile field service solutions and the adoption of automated processes are real game-changers because they provide businesses with the flexibility to address new opportunities and challenges. 
+                </p>
+        
+                <p>Indeed, Field Service Management (FSM) is an investment that yields relatively faster returns over time, particularly in areas such as enhancing the performance of the field crew. Selecting the most suitable system for field services can advance the company's operations and meet the growing needs of a mobile and connected society through a proper approach.</p>
+
+                <p>FSM not only transforms field operations but also lays the groundwork for a more efficient future by adopting modern technology.</p>
+
+                <h2>Conclusion: The Future Lies in Optimized Field Service Management
+                </h2>
+                <p>As a result, field service management has great potential for further growth as long as technology continues to expand. Organizations that are prepared to implement a field service automation solution and integrate mobility solutions into their service operations will be better equipped to tackle the challenges within their respective industries.</p>
+                <p>FMS helps the companies in meeting the consumer requirements, enhancing the effectiveness, and gaining competitive advantage using the right tools and methods. For organizations looking to optimize their field service operations, partnering with a company like Mongrov can provide invaluable support and expertise.</p>
+
+
+
+          </div>
+
+          
+        </div>
+      </section>
+
+
+
+    </main>
+ <!-- Footer -->
+ <footer class="footer pt-5 pb-4 pb-lg-5 mt-2 mt-md-0 border-top">
+  <div class="container pt-lg-4">
+    <div class="row pb-5">
+      <div class="col-md-3">
+        <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+          <img src="assets/img/mong/logo.svg" width="120" alt="Mongrov">
+        </div>
+        <ul class="nav flex-column mb-0">
+          <li class="mb-1">
+            <a href="contact#contact" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-map fs-5 text-primary me-2"></i>
+              3001 Bishop Drive, Suite 300, San Ramon, CA 94583.
+            </a>
+          </li>
+          <li class="mb-1">
+            <a href="tel:+1 (408) 384 8120" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-phone-call fs-5 text-primary me-2"></i>
+              +1 (408) 384 8120
+            </a>
+          </li>
+          <li>
+            <a href="mailto:hello@mongrov.com" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-envelope fs-5 text-primary me-2"></i>
+              hello@mongrov.com
+            </a>
+          </li>
+        </ul>
+
+        <div class="d-flex mt-lg-3">
+          <a href="https://www.linkedin.com/company/mongrov-inc/" target="_blank" aria-label="Linked in" class="btn btn-icon btn-secondary btn-linkedin ml-0 mr-2">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://twitter.com/TheMongrov" target="_blank" class="btn btn-icon btn-secondary btn-twitter mx-2">
+            <i class='bx'>
+              <img src="assets/img/mong/twitter-x.svg"  width="16" alt="Twitter">
+            </i>
+          </a>
+          <a href="https://github.com/mongrov" target="_blank" aria-label="Github" class="btn btn-icon btn-secondary btn-github">
+            <i class="bx bxl-github"></i>
+          </a>
+        </div>
+        <div class="mt-lg-3">
+          <h6 class="mb-2 mt-3">Compliances</h6>
+          <div class="row">
+            <div class="col">
+              <img class="img-fluid" src="assets/img/mong/compliances.png" width="200" alt="Compliances">
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-9 pt-4 pt-md-1 pt-lg-0">
+        <div id="footer-links" class="row">
+          <div class="col-md-3">
+            <h6 class="mb-2">What we do?</h6>
+              <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                
+                <li class="nav-item"><a href="thingz-cloud" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz cloud</a></li>
+                <li class="nav-item"><a href="near-thingz" class="nav-link d-inline-block px-0 pt-1 pb-2">Near thingz</a></li>
+                <li class="nav-item"><a href="thingz-app" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz app</a></li>
+              </ul>
+
+              <h6 class="mb-2 mt-3 mt-md-0">Who we are?</h6>
+              <ul class="nav flex-column mb-2 mb-lg-0">
+                <li class="nav-item"><a href="who-we-are" class="nav-link d-inline-block px-0 pt-1 pb-2">About us</a></li>
+                <li class="nav-item"><a href="leadership" class="nav-link d-inline-block px-0 pt-1 pb-2">Leaderships</a></li>
+                <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Company's story</a></li>
+                <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Awards</a></li>
+                <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">News</a></li> -->
+                <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Life @ mongrov</a></li> -->
+              </ul>
+
+              
+          </div>
+          <div class="col-md-3">
+            <h6 class="mb-2 mt-2 mt-md-0">Solutions</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                <li class="nav-item"><a href="asset-tracking-system" class="nav-link d-inline-block px-0 pt-1 pb-2">Asset tracking system</a></li>
+                <li class="nav-item"><a href="field-service-management-software" class="nav-link d-inline-block px-0 pt-1 pb-2">Field service software</a></li>
+                    <li class="nav-item"><a href="field-safety-software" class="nav-link d-inline-block px-0 pt-1 pb-2">Field safety software</a></li>
+                <li class="nav-item"><a href="iot-data-management" class="nav-link d-inline-block px-0 pt-1 pb-2">IoT data management</a></li>
+                    
+              </ul>
+
+              <h6 class="mb-2 mt-3 mt-md-0">Industries</h6>
+              <ul class="nav flex-column mb-2 mb-lg-0">
+                <li class="nav-item"><a href="industries-health-care" class="nav-link d-inline-block px-0 pt-1 pb-2">Health care</a></li>
+                <li class="nav-item"><a href="industries-infrastructure" class="nav-link d-inline-block px-0 pt-1 pb-2 ">Infrastructures</a></li>
+                <li class="nav-item"><a href="industries-automotives.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Automobiles</a></li>
+              </ul>
+
+              
+          </div>
+          <div class="col-md-3 pt-2 pt-lg-0">
+            <h6 class="mb-2">Become our partner</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+              <li class="nav-item"><a href="system-integrators" class="nav-link d-inline-block px-0 pt-1 pb-2">System integrators</a></li>
+              <li class="nav-item"><a href="device-manufacturers" class="nav-link d-inline-block px-0 pt-1 pb-2">Device manufacturers</a></li>
+              <li class="nav-item"><a href="cloud-partners" class="nav-link d-inline-block px-0 pt-1 pb-2">Cloud partners</a></li>
+              
+            </ul>
+            <h6 class="mb-2 mt-3 mt-md-0">Insights</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+              <li class="nav-item"><a href="blog" class="nav-link d-inline-block px-0 pt-1 pb-2">Blogs</a></li>
+              <li class="nav-item"><a href="case-study" class="nav-link d-inline-block px-0 pt-1 pb-2">Case studies</a></li>
+              <li class="nav-item"><a href="whitepapers" class="nav-link d-inline-block px-0 pt-1 pb-2">Whitepapers</a></li>
+             
+              
+            </ul>
+            <!-- <ul class="nav flex-column mb-2 mb-lg-0">
+              <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+              <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+            </ul> -->
+          </div>
+
+          <div class="col-md-3 pt-2 pt-lg-0">
+            
+           <ul class="nav flex-column mb-2 mb-lg-0">
+            <li class="nav-item"><a href="careers" class="nav-link d-inline-block px-0 pt-1 pb-2">Careers</a></li>
+            <li class="nav-item"><a href="contact" class="nav-link d-inline-block px-0 pt-1 pb-2">Contact us</a></li>
+              <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+              <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+      &copy; 2024 Mongrov, Inc. All rights reserved. 
+      <!-- <a class="nav-link d-inline-block p-0" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a> -->
+
+    </p>
+  </div>
+</footer>
+
+
+<!-- Back to top button -->
+<a href="#top" class="btn-scroll-top" aria-label="backtotop" data-scroll>
+  <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+  <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+</a>
+
+
+<!-- Vendor Scripts -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
+<script src="assets/vendor/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/lightgallery/lightgallery.min.js"></script>
+<script src="assets/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/shufflejs/dist/shuffle.min.js"></script>
+
+<!-- Main Theme Script -->
+<script src="assets/js/theme.min.js"></script>
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FG9Y3JJT67"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-FG9Y3JJT67');
+</script>
+
+<script type='text/javascript'>
+  var link = !!document.querySelector("link[rel='canonical']") ? document.querySelector("link[rel='canonical']") : document.createElement('link');
+  link.setAttribute('rel', 'canonical');
+  link.setAttribute('href', location.protocol + '//' + location.host + location.pathname);
+  document.head.appendChild(link);
+</script>
+  
+  </body>
+</html>
