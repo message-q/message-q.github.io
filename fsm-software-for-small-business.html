@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Field Service Management Software for Small Business: A Comprehensive Guide</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="title" content="Field Service Management Software for Small Business: A Comprehensive Guide">
+    <meta name="description" content="Internet of Things (IoT) integration in electric vehicles (EVs) has revolutionized the automotive sector by yielding breakthrough range and efficiency across EVs. Learn more about IoT in Electric Vehicles in this blog.">
+
+    <meta name="keywords" content="IoT, Things, Thingz, Data Streaming, Asset management, Temperature, Devices, Intert of Things, Data lake, Data Ocean, Preventive maintenance">
+    <meta name="author" content="Mongrov">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/mong/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/mong/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/mong/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/mong/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/img/mong/favicon/safari-pinned-tab.svg" color="#1685FF">
+    <link rel="shortcut icon" href="assets/img/mong/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/img/mong/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <link rel="stylesheet" media="screen" href="assets/css/custom-style.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      .img-rounded {
+    border-radius: 10px;
+     }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+    
+    <!-- schema markup code -->
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Organization",
+    "name": "Mongrov, Inc.",
+  "address": "3001 Bishop Drive, Suite 300, San Ramon, CA, 94583",
+    "alternateName": " Mongrov",
+  "areaServed": [
+  "United States"
+  ],
+      "description": "At Mongrov, we are passionate about pushing the boundaries of technology and innovation. As a technology startup, we specialize in providing cutting-edge IoT solutions with a strong focus on Real-time Streaming Data.",
+  "email": "hello@mongrov.com",
+  "legalName": " Mongrov, Inc.",
+  "logo": " https://mongrov.com/assets/img/mong/logo.svg",
+  "mainEntityOfPage": " https://g.co/kgs/yshDyRX",
+  "sameAs": [
+  " https://www.linkedin.com/company/mongrov-inc/",
+  " https://twitter.com/TheMongrov"
+  ],
+  "slogan": "Real-time Data Management for Improved Efficiency",
+  "telephone": " +1 (408) 384 8120",
+  "url": "https://mongrov.com/"
+  }
+  }
+  </script>
+  <!-- Canonical Link -->
+   
+  <link rel="canonical" href="">
+    
+</head>
+
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <!-- <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div> -->
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+        <div class="container px-3">
+          <a href="https://mongrov.com/" class="navbar-brand pe-3">
+            <img src="assets/img/mong/logo.svg" width="140" alt="mongrov">
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">What we do?</a>
+                  <ul class="dropdown-menu">
+                    
+                    <li><a href="thingz-cloud" class="dropdown-item">Thingz cloud</a></li>
+                    <li><a href="near-thingz" class="dropdown-item">Near thingz</a></li>
+                    <li><a href="thingz-app" class="dropdown-item">Thingz app</a></li>
+                  </ul>
+                </li>
+
+               <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Who we are?</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="who-we-are" class="dropdown-item">About us</a></li>
+                    <li><a href="leadership" class="dropdown-item">Leaderships</a></li>
+                    <!-- <li><a href="#" class="dropdown-item disabled">Company's story</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Awards</a></li>
+                    <li><a href="#" class="dropdown-item disabled">News</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Life @ mongrov </a></li> -->
+                  </ul>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Solutions</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="asset-tracking-system" class="dropdown-item">Asset tracking system</a></li>
+                    <li><a href="field-service-management-software" class="dropdown-item">Field service software</a></li>
+                    <li><a href="field-safety-software" class="dropdown-item">Field safety software</a></li>
+                    <li><a href="iot-data-management" class="dropdown-item">IoT data management</a></li>
+                  </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Industries</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="industries-health-care" class="dropdown-item">Health care</a></li>
+                    <li><a href="industries-infrastructure" class="dropdown-item">Infrastructures</a></li>
+                    <li><a href="industries-automotives" class="dropdown-item">Automobiles</a></li>
+                    
+                  </ul>
+                </li>
+
+               
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insights</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="blog" class="dropdown-item">Blogs</a></li>
+                    <li><a href="case-study" class="dropdown-item">Case studies</a></li>
+                    <li><a href="whitepapers" class="dropdown-item">Whitepapers</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a href="careers" class="nav-link ">Careers</a>
+                  
+                </li>
+
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+              <a href="contact" class="btn btn-primary w-100" rel="noopener">
+                &nbsp;Contact Us
+              </a>
+            </div>      
+          </div>
+          <!-- <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+            <input type="checkbox" class="form-check-input" id="theme-mode">
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+          </div> -->
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="contact" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex"  rel="noopener">
+            <!-- <i class="bx bx-phone fs-5 lh-1 me-1"></i> -->
+            &nbsp;Contact Us
+          </a>
+        </div>
+      </header>
+
+
+      <!-- Breadcrumb -->
+      <nav class="container mt-lg-4 pt-5" aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 pt-5">
+          <li class="breadcrumb-item">
+            <a href="index"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="blog">Blogs</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Blog detail</li>
+        </ol>
+      </nav>
+
+
+      <!-- Post title + Meta  -->
+      <section class="container mt-4 pt-lg-2 pb-3">
+        <h1 class="pb-3" style="">Field Service Management Software for Small Business:<br> Comprehensive Guide</h1>
+        <div class="d-flex flex-md-row flex-column align-items-md-center justify-content-md-between mb-3">
+          <div class="d-flex align-items-center flex-wrap text-muted mb-md-0 mb-4">
+            <!-- <div class="fs-xs border-end pe-3 me-3 mb-2">
+              <span class="badge bg-faded-primary text-primary fs-base">Technology</span>
+            </div>
+            <div class="fs-sm border-end pe-3 me-3 mb-2">August 16, 2024</div> -->
+
+            <div class="fs-sm pe-3 me-3 mb-2">
+              <a href="downloads/blog/fsm-software-for-small-business.pdf" target="_blank" download class="btn btn-primary">Download Blog</a>
+            </div>
+            
+          </div>
+          <div class="d-flex align-items-center position-relative ps-md-3 pe-lg-5 mb-2">
+            <img src="assets/img/mong/logo-icon.png" class="rounded-circle" width="60" alt="Avatar">
+            <div class="ps-3">
+              <h6 class="mb-1 mt-3">Author</h6>
+              <h6 class="fw-semibold mt-2">Mongrov’s Tech Library</h5>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Post image (parallax) -->
+      <div class="jarallax mb-lg-5 mb-4" data-jarallax data-speed="0.35" style="height: 36.45vw; min-height: 300px;">
+        <img src="assets/img/mong/blog27.webp" alt="Illustration of workforce management elements: people, processes, and technology" class="jarallax-img">
+      </div>
+
+
+      <!-- Post content + Sharing -->
+      <section class="container mb-5 pt-4 pb-2 py-mg-4">
+        <div class="row gy-4">
+
+          <!-- Content -->
+          <div class="col-lg-9 mx-auto">
+            <p>From research, in 2024, we expect the global work order management software solution market to be worth over USD 0.83 billion. We expect this number to rise dramatically by 2029, approaching USD 1.22 billion. Reflecting the increasing need for simplified operational management solutions, this shows a compound annual growth rate (CAGR) of 7.99% throughout the predicted period, from 2024 to 2029.
+            </p>
+
+            <p>Dealing with field operations can be difficult in the frequently changing terrain of small firms. Field service management is complicated in many ways, including monitoring client contacts, tracking work orders, and planning services. Digital solutions help us to solve these problems more effectively today.
+            </p>
+
+            <p>
+                One of the most crucial tools that businesses can utilize is Field Service Management Software for Small Businesses. This comprehensive guide looks at how this program might simplify processes, raise customer satisfaction, and boost general company output.
+            </p>
+            <p>Using creative tools can help you unlock the possibilities of your company; let's explore further how field service management software improves operations for small companies, promoting efficiency and expansion.</p>
+            
+
+            <h2>Understanding <a href="https://mongrov.com/field-service-management-software"> Field Service Management Software</a></h2>
+            <p>The Field Service Management Software for Small Businesses is digital and helps organizations organize field activities. This software integrates field service functions like scheduling, dispatching, billing, and customer administration. For small firms with limited resources, such a program optimizes operations without requiring too many people or time.</p>
+            <p>By automating labor-intensive processes, the program guarantees staff and resource effectiveness. With work order administration, real-time updates, and route optimization—which streamlines field activity tracking—field service management solutions improve service quality by means of simplification.</p>
+            <p>Unlocking the full potential of service operations requires then looking at the game-changing features of field service management software.</p>
+            <p>For a comprehensive guide on field service management software and its working, explore the blog on <a href="https://mongrov.com/what-is-field-service-management-software" class="internal-link"> What is field service management software and how does it work.</a></p>
+            <h2>Field Service Management Software: Key Features</h2>
+            <p>A strong small business field service management software has many capabilities to simplify processes. These cover tools for service scheduling tools, mobile field service solutions, and work order management systems. A clear understanding of these elements will help companies maximize their usage.</p>
+            <h3>Work Order Management Software</h3>
+            <p>Work order management is required in field service operations. Work order management solutions include tracking and arranging orders from start to finish. This feature meticulously records work. By giving repair orders first priority, assigning them, and tracking them, small businesses may prevent mistakes and lost appointments. For service-oriented companies, automation streamlines client contacts, billing, and daily operations.</p>
+            <h4>Case Study: Jobber</h4>
+            <p>Jobber, the top choice for field service operations, provides a simple work order administration application for medium-sized and large businesses. Jobber is well-known for its simplicity of use, drag-and-drop capacity, changeable templates, and perfect real-time communication. It makes preparation easier. Mobile connectivity allows field workers to instantly update work orders and simplify procedures.</p>
+            <p><b> Note:</b> According to statistics, small firms hire 61.7 million Americans, or 46.4% of private sector workers.</p>
+            <p>By combining Jobber's invoicing and billing tools, the system guarantees perfect and rapid financial operations. Jobber becomes the ideal response for businesses seeking a flexible and robust work order solution in 2024.</p>
+            <h3>Mobile Field Service Solutions</h3>
+            <p><a href="https://mongrov.com/integrating-mobile-field-service-solutions" class="internal-link"> Mobile field service solutions</a> change the mobility of company field teams. From their phones, technicians might obtain schedule adjustments, client information, and repair orders. This provides the team with up-to-date information from anywhere, eliminating the need for paper records.</p>
+            <p>Mobile technologies enable instant office-to-field communication, allowing one to make immediate adjustments. Last-minute scheduling changes and client demands can alert personnel, thereby improving service efficiency and reaction times.</p>
+            <h4>Case Study: Service Fusion</h4>
+            <p>Designed as a versatile FMS solution, Service Fusion provides estimates, regulates dispatching and scheduling, automates processes, and simplifies operations. Its design is aimed at small to medium-field service firms. Available features include GPS fleet tracking, integrated voice and text for customer communication, integrated email for bill distribution and estimate, and an online booking system.</p>
+            <p>By giving field workers real-time access to work orders, client histories, and other data, cloud-based technologies guarantee that they stay linked to headquarters and clients. To increase efficiency, Service Fusion uses mobile task management, invoicing, and branded customer apps accessible via native iOS and Android apps.</p>
+            <p><b> From a study:</b> “Save time and boost output by 40% while raising effectiveness.”</p>
+            <h3>Service Scheduling Tools</h3>
+            <p>Field service management depends on effective scheduling. Systems of business service scheduling help to allocate specialists to assignments at the proper moment. These instruments cut travel time, maximize paths, and complete chores. Scheduling solutions save small companies mistakes and time. These solutions, which use smart algorithms, schedule technicians depending on availability, expertise, and task site proximity, so improving workflow.</p>
+            <h4>Case Study: HouseCall Pro</h4>
+            <p>Combining a mobile app with a cloud-based internet platform, HouseCall Pro—an all-in-one home services tool for certified professional providers—simplifies key business tasks, including client correspondence, billing, online booking, and <a href="https://mongrov.com/optimizing-utility-field-service-operations" class="internal-link"> service scheduling.</a></p>
+            <p>Thanks to seamless capabilities for managing schedules, generating paperless estimates, and processing payments, it allows businesses to efficiently handle every element of a job from start to completion. The system helps with customer updates, real-time field technician tracking, and rapid team deployment. It is accessible on iPhone, iPad, and Android, and it also provides consumer-facing options for direct booking from their phones.</p>
+            <p>While seamless operations management is essential, efficient dispatching software improves performance for small businesses, turning potential into profit and simplifying expansion. Here's why.</p>
+            <h2>The Importance of Dispatching Software for Small Businesses
+            </h2>
+            <p>Small service companies must have effective workforce distribution. Software streamlines small firm distribution by grouping processes. This assigns the closest and best professional to a work, therefore reducing delays and raising output. </p>
+            <p>Since the software, the tracking of the technicians’ location and job status in real-time lets the managers quickly assign jobs. Dispatching software for small businesses is cost-cutting as it enables them to set free routes, fuel, and time, hence increasing technician productivity.</p>
+            <p>Unlocking operational efficiency is just the beginning; the real magic happens when software seamlessly enhances your customer connections.</p>
+            <h2>Enhancing Customer Relationships with Field Service Software</h2>
+            <p>A good service organization is measured by the kind of contact their customers have with their organization. Field services are officially structured from customer interaction point to after service follow up. With all the consumers’ data centralized, this technology enables firms to record interaction history, employment background, and preferences. </p>
+            <p>The accuracy of consumer relationship analysis was recognized to enhance consumer satisfaction and modify business relevant products. Auto-reminders and follow-up also assist in cementing the customer and his confidence on the product.</p>
+            <p>As client relationships develop, finding the best field service management system becomes critical in order to enable unmatched operational performance and expansion.</p>
+            <h2>The Best Field Service Management Software for Small Businesses Benefits</h2>
+            <p>Using the best field service management software for a small business will help in various ways. Better production, teamwork, and cost control can enhance corporate success. There are a few notable advantages: </p>
+            <ul>
+                <li><b> Increased Productivity:</b> Outsourcing of billing, dispatching and scheduling helps organizations to focus on the quality services other than burdening themselves with the chores. </li>
+                <li>
+                    <b>Cost Efficiency:</b>A person can cut the time for a single trip and the general running costs by choosing the nearest technician and easy routes. Also, mobile solutions minimize the use of many documents, which means that the cost will be less. 
+                </li>
+                <li>
+                    <b>Enhanced Communication</b> It is important that everyone is kept informed, especially workers on the office and field; real time communication affirms this. This helps avoid miscommunication and time wastage hence increasing the quality of the offered service delivery. 
+                </li>
+                <li>
+                    <b>Scalability</b>Field service management tools grow with small businesses. It may provide the ability to stay relevant and fulfill business requirements.
+                </li>
+                <li>
+                    <b>Customer Satisfaction</b>Proper servicing, right charging and personalized client contact switches all lead to higher client satisfaction and that is extremely important for retaining as well as acquiring more business.
+                </li>
+               
+            </ul>
+            <p>Equipped with knowledge of advantages, let's investigate how best to choose the field service management system suited to your specific requirements.</p>
+            <h2>Choosing the Right Field Service Management Software</h2>
+            <p>When selecting a field service management system, this is some of the aspects that small businesses have to look for including price, flexibility, and ease of use. The program should be filling the needs of the businesses to the letter and integrate with other systems already in place. </p>
+            <p>In this case, depending if a business is focused on customer care, dispatching, or scheduling, the application should be moldable in answering the growing demand of the business. Since most field teams are constantly reporting progress and status in the field, it’s also important to choose a solution that has solid mobile support. Basic mobile interface purchase tools can enable field operations to be more broadly beneficial to an organization.</p>
+            <p>Managing the software terrain is essential; the correct decision not only maximizes processes but also supports small business expansion and success.</p>
+            <h2>Why Field Service Software Is Essential for Small Businesses</h2>
+            <p>However, as a whole, and specifically in the sphere of the service industry, only those small businesses – especially those – that seek success totally rely on skillful management of field operations. Gone are the days when field service management had the facilities of software as a luxury; they need is compulsion to fulfill the customer’s requirement and quality service delivery. When the right technologies are developed the less firm threatens even the large firms by offering faster, more dependable, and cheaper services.
+            </p>
+            <p>Unlocking the potential of small businesses, field service software lays the foundation; now discover the smartest solution yet.
+            </p>
+            <h2>A Smart Solution for Every Small Business</h2>
+            <p>Small business service management systems increase operational effectiveness and client satisfaction. Using these advantages depends on selecting the correct software program that meets the company's specific requirements. Software for work order administration, mobile field service, and service scheduling improves field operations, cuts costs, and pleases consumers.</p>
+            <p>This dynamic union, which combines strategy and creativity, propels small enterprises toward long-term success in competitive environments.</p>
+            <h2>A Strategic Partnership for Long-Term Success</h2>
+            <p>Therefore, as small businesses strive to enhance their operations and provide exceptional services, the significance of customer management software for field services increases. Companies can improve their long-term development and streamline their operations by selecting a comprehensive solution, such as Mongrov. This allows businesses to focus on their primary competencies while the program manages customer administration, scheduling, and distribution, thereby ensuring efficient service delivery.</p>
+            <p>Finally, choosing the appropriate field service management system is critical for modernizing small business operations and establishing a path toward sustainable development and improved service quality.</p>
+
+          </div>
+
+          
+        </div>
+      </section>
+
+
+
+    </main>
+ <!-- Footer -->
+ <footer class="footer pt-5 pb-4 pb-lg-5 mt-2 mt-md-0 border-top">
+  <div class="container pt-lg-4">
+    <div class="row pb-5">
+      <div class="col-md-3">
+        <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+          <img src="assets/img/mong/logo.svg" width="120" alt="Mongrov">
+        </div>
+        <ul class="nav flex-column mb-0">
+          <li class="mb-1">
+            <a href="contact#contact" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-map fs-5 text-primary me-2"></i>
+              3001 Bishop Drive, Suite 300, San Ramon, CA 94583.
+            </a>
+          </li>
+          <li class="mb-1">
+            <a href="tel:+1 (408) 384 8120" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-phone-call fs-5 text-primary me-2"></i>
+              +1 (408) 384 8120
+            </a>
+          </li>
+          <li>
+            <a href="mailto:hello@mongrov.com" class="nav-link align-items-start fw-normal px-0 py-1">
+              <i class="bx bx-envelope fs-5 text-primary me-2"></i>
+              hello@mongrov.com
+            </a>
+          </li>
+        </ul>
+
+        <div class="d-flex mt-lg-3">
+          <a href="https://www.linkedin.com/company/mongrov-inc/" target="_blank" aria-label="Linked in" class="btn btn-icon btn-secondary btn-linkedin ml-0 mr-2">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://twitter.com/TheMongrov" target="_blank" class="btn btn-icon btn-secondary btn-twitter mx-2">
+            <i class='bx'>
+              <img src="assets/img/mong/twitter-x.svg"  width="16" alt="Twitter">
+            </i>
+          </a>
+          <a href="https://github.com/mongrov" target="_blank" aria-label="Github" class="btn btn-icon btn-secondary btn-github">
+            <i class="bx bxl-github"></i>
+          </a>
+        </div>
+        <div class="mt-lg-3">
+          <h6 class="mb-2 mt-3">Compliances</h6>
+          <div class="row">
+            <div class="col">
+              <img class="img-fluid" src="assets/img/mong/compliances.png" width="200" alt="Compliances">
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-9 pt-4 pt-md-1 pt-lg-0">
+        <div id="footer-links" class="row">
+          <div class="col-md-3">
+            <h6 class="mb-2">What we do?</h6>
+              <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                
+                <li class="nav-item"><a href="thingz-cloud" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz cloud</a></li>
+                <li class="nav-item"><a href="near-thingz" class="nav-link d-inline-block px-0 pt-1 pb-2">Near thingz</a></li>
+                <li class="nav-item"><a href="thingz-app" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz app</a></li>
+              </ul>
+
+              <h6 class="mb-2 mt-3 mt-md-0">Who we are?</h6>
+              <ul class="nav flex-column mb-2 mb-lg-0">
+                <li class="nav-item"><a href="who-we-are" class="nav-link d-inline-block px-0 pt-1 pb-2">About us</a></li>
+                <li class="nav-item"><a href="leadership" class="nav-link d-inline-block px-0 pt-1 pb-2">Leaderships</a></li>
+                <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Company's story</a></li>
+                <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Awards</a></li>
+                <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">News</a></li> -->
+                <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Life @ mongrov</a></li> -->
+              </ul>
+
+              
+          </div>
+          <div class="col-md-3">
+            <h6 class="mb-2 mt-2 mt-md-0">Solutions</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                <li class="nav-item"><a href="asset-tracking-system" class="nav-link d-inline-block px-0 pt-1 pb-2">Asset tracking system</a></li>
+                <li class="nav-item"><a href="field-service-management-software" class="nav-link d-inline-block px-0 pt-1 pb-2">Field service software</a></li>
+                    <li class="nav-item"><a href="field-safety-software" class="nav-link d-inline-block px-0 pt-1 pb-2">Field safety software</a></li>
+                <li class="nav-item"><a href="iot-data-management" class="nav-link d-inline-block px-0 pt-1 pb-2">IoT data management</a></li>
+                    
+              </ul>
+
+              <h6 class="mb-2 mt-3 mt-md-0">Industries</h6>
+              <ul class="nav flex-column mb-2 mb-lg-0">
+                <li class="nav-item"><a href="industries-health-care" class="nav-link d-inline-block px-0 pt-1 pb-2">Health care</a></li>
+                <li class="nav-item"><a href="industries-infrastructure" class="nav-link d-inline-block px-0 pt-1 pb-2 ">Infrastructures</a></li>
+                <li class="nav-item"><a href="industries-automotives.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Automobiles</a></li>
+              </ul>
+
+              
+          </div>
+          <div class="col-md-3 pt-2 pt-lg-0">
+            <h6 class="mb-2">Become our partner</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+              <li class="nav-item"><a href="system-integrators" class="nav-link d-inline-block px-0 pt-1 pb-2">System integrators</a></li>
+              <li class="nav-item"><a href="device-manufacturers" class="nav-link d-inline-block px-0 pt-1 pb-2">Device manufacturers</a></li>
+              <li class="nav-item"><a href="cloud-partners" class="nav-link d-inline-block px-0 pt-1 pb-2">Cloud partners</a></li>
+              
+            </ul>
+            <h6 class="mb-2 mt-3 mt-md-0">Insights</h6>
+            <ul class="nav flex-column pb-lg-1 mb-lg-3">
+              <li class="nav-item"><a href="blog" class="nav-link d-inline-block px-0 pt-1 pb-2">Blogs</a></li>
+              <li class="nav-item"><a href="case-study" class="nav-link d-inline-block px-0 pt-1 pb-2">Case studies</a></li>
+              <li class="nav-item"><a href="whitepapers" class="nav-link d-inline-block px-0 pt-1 pb-2">Whitepapers</a></li>
+             
+              
+            </ul>
+            <!-- <ul class="nav flex-column mb-2 mb-lg-0">
+              <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+              <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+            </ul> -->
+          </div>
+
+          <div class="col-md-3 pt-2 pt-lg-0">
+            
+           <ul class="nav flex-column mb-2 mb-lg-0">
+            <li class="nav-item"><a href="careers" class="nav-link d-inline-block px-0 pt-1 pb-2">Careers</a></li>
+            <li class="nav-item"><a href="contact" class="nav-link d-inline-block px-0 pt-1 pb-2">Contact us</a></li>
+              <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+              <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+      &copy; 2024 Mongrov, Inc. All rights reserved. 
+      <!-- <a class="nav-link d-inline-block p-0" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a> -->
+
+    </p>
+  </div>
+</footer>
+
+
+<!-- Back to top button -->
+<a href="#top" class="btn-scroll-top" aria-label="backtotop" data-scroll>
+  <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+  <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+</a>
+
+
+<!-- Vendor Scripts -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
+<script src="assets/vendor/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/lightgallery/lightgallery.min.js"></script>
+<script src="assets/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/shufflejs/dist/shuffle.min.js"></script>
+
+<!-- Main Theme Script -->
+<script src="assets/js/theme.min.js"></script>
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FG9Y3JJT67"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-FG9Y3JJT67');
+</script>
+
+<script type='text/javascript'>
+  var link = !!document.querySelector("link[rel='canonical']") ? document.querySelector("link[rel='canonical']") : document.createElement('link');
+  link.setAttribute('rel', 'canonical');
+  link.setAttribute('href', location.protocol + '//' + location.host + location.pathname);
+  document.head.appendChild(link);
+</script>
+  
+  </body>
+</html>
