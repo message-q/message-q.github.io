@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title> #1 Asset Tracking Software & Fleet Management System</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="title" content=" #1 Asset Tracking Software & Fleet Management System">
+    <meta name="description" content="Mongrov’s dedicated asset tracking software helps track IT assets, inventory, equipment, fleet and many more. Try our advanced IoT enabled asset tracking system today.">
+    <meta name="keywords" content="IoT, Things, Thingz, Data Streaming, Asset management, Temperature, Devices, Intert of Things, Data lake, Data Ocean, Preventive maintenance">
+    <meta name="author" content="Mongrov">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#1685FF">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <link rel="stylesheet" media="screen" href="assets/css/custom-style.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+
+    <!-- schema markup code -->
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Organization",
+    "name": "Mongrov, Inc.",
+  "address": "3001 Bishop Drive, Suite 300, San Ramon, CA, 94583",
+    "alternateName": " Mongrov",
+  "areaServed": [
+  "United States"
+  ],
+      "description": "At Mongrov, we are passionate about pushing the boundaries of technology and innovation. As a technology startup, we specialize in providing cutting-edge IoT solutions with a strong focus on Real-time Streaming Data.",
+  "email": "hello@mongrov.com",
+  "legalName": " Mongrov, Inc.",
+  "logo": " https://mongrov.com/assets/img/mong/logo.svg",
+  "mainEntityOfPage": " https://g.co/kgs/yshDyRX",
+  "sameAs": [
+  " https://www.linkedin.com/company/mongrov-inc/",
+  " https://twitter.com/TheMongrov"
+  ],
+  "slogan": "Real-time Data Management for Improved Efficiency",
+  "telephone": " +1 (415) 610 3668",
+  "url": "https://mongrov.com/"
+  }
+  }
+  </script>
+  
+  <!-- Canonical Link -->
+   
+  <link rel="canonical" href="">
+    
+</head>
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+        <div class="container px-3">
+          <a href="https://mongrov.com/" class="navbar-brand pe-3">
+            <img src="assets/img/mong/logo.svg" width="140" alt="mongrov">
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">What we do?</a>
+                  <ul class="dropdown-menu">
+                    
+                    <li><a href="thingz-cloud" class="dropdown-item">Thingz cloud</a></li>
+                    <li><a href="near-thingz" class="dropdown-item">Near thingz</a></li>
+                    <li><a href="thingz-app" class="dropdown-item">Thingz app</a></li>
+                  </ul>
+                </li>
+
+               <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Who we are?</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="who-we-are" class="dropdown-item">About us</a></li>
+                    <li><a href="leadership" class="dropdown-item">Leaderships</a></li>
+                    <!-- <li><a href="#" class="dropdown-item disabled">Company's story</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Awards</a></li>
+                    <li><a href="#" class="dropdown-item disabled">News</a></li>
+                    <li><a href="#" class="dropdown-item disabled">Life @ mongrov </a></li> -->
+                  </ul>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Solutions</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="asset-tracking-system" class="dropdown-item">Asset tracking system</a></li>
+                    <li><a href="field-service-management-software" class="dropdown-item">Field service software</a></li>
+                    <li><a href="field-safety-software" class="dropdown-item">Field safety software</a></li>
+                    <li><a href="iot-data-management" class="dropdown-item">IoT data management</a></li>
+                  </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Industries</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="industries-health-care" class="dropdown-item">Health care</a></li>
+                    <li><a href="industries-infrastructure" class="dropdown-item">Infrastructures</a></li>
+                    <li><a href="industries-automotives" class="dropdown-item">Automobiles</a></li>
+                    
+                  </ul>
+                </li>
+
+               
+
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insights</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="blog" class="dropdown-item">Blogs</a></li>
+                    <li><a href="case-study" class="dropdown-item">Case studies</a></li>
+                    <li><a href="whitepapers" class="dropdown-item">Whitepapers</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a href="careers" class="nav-link ">Careers</a>
+                  
+                </li>
+
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+              <a href="contact" class="btn btn-primary w-100" rel="noopener">
+                &nbsp;Contact Us
+              </a>
+            </div>      
+          </div>
+          <!-- <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+            <input type="checkbox" class="form-check-input" id="theme-mode">
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+          </div> -->
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="contact" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex"  rel="noopener">
+            <!-- <i class="bx bx-phone fs-5 lh-1 me-1"></i> -->
+            &nbsp;Contact Us
+          </a>
+        </div>
+      </header>
+
+      <!-- Hero -->
+      
+
+   <!-- Hero -->
+   <section class="position-relative hero overflow-hidden zindex-2 pb-5 pt-5" style="background-image: url(assets/img/about/hero-bg.svg);align-items: center;display: flex;background-position: bottom left;background-repeat: no-repeat;background-size: cover;">
+   
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+
+        <!-- Parallax gfx -->
+        <div class="col-lg-6 col-sm-8 col-10 order-md-2">
+          <img src="assets/img/mong/conditional-monitoring-hero.png" class="my-3 py-3 my-xl-0" alt="Bubble">
+        </div>
+
+        <!-- Text -->
+        <div class="col-lg-6 text-center text-md-start order-md-1 py-5">
+          <h1 class="display-5 mb-lg-2 text-gradient-primary">Conditional Monitoring</h1>
+          <h3>Monitor. Predict. Prevent.</h3>
+          <p class="fs-xl pb-3 mb-0">Maximize the efficiency of your equipment and ensure seamless operations with our advanced Conditional Monitoring solution. Powered by cutting-edge sensors and machine learning algorithms, our system offers real-time monitoring and predictive maintenance to minimize downtime and enhance productivity.
+          </p>
+          <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#requestDemo">Request Demo</a>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Features  -->
+
+  <section class="container pt-0 pb-5">
+    <h2 class="h1 text-center mt-5">What is Conditional Monitoring?</h2>
+    <p class="text-center w-75 mx-auto mb-2">Conditional Monitoring is a proactive maintenance system designed to monitor the health of machinery, detect potential failures, and predict maintenance needs before breakdowns occur. By tracking critical parameters such as vibration, temperature, and humidity, our solution identifies early signs of equipment degradation and alerts you instantly.</p>
+    
+  </section>
+
+  <hr>
+
+  <!-- How It Works -->
+  <section class="container pt-4 pt-lg-0 pb-4 pb-lg-5 mt-5">
+    <h2 class="h1 text-center pb-3 pb-md-0 mb-md-5">How Does it Work?</h2>
+    <div class="steps">
+      <div class="step pt-0 pt-md-3 pb-5">
+        <div class="step-number">
+          <div class="step-number-inner">1</div>
+        </div>
+        <div class="step-body d-flex align-items-center ps-xl-5">
+          <div class="rellax d-none d-lg-block flex-shrink-0 mx-4 mx-xl-5" data-rellax-percentage="0.5" data-rellax-speed="-0.3" data-disable-parallax-down="lg">
+            <img src="assets/img/mong/wireless-sensors.svg" class="d-dark-mode-none" width="306" alt="Illustration">
+            
+          </div>
+          <div class="rellax ps-md-4 ps-xl-5" data-rellax-percentage="0.5" data-rellax-speed="0.4" data-disable-parallax-down="lg">
+            <h3 class="h4">Wireless Sensors</h3>
+            <p class="mb-0">Attach compact, wireless sensors to your equipment to track real-time data such as vibration, temperature, and pressure.</p>
+          </div>
+        </div>
+      </div>
+      <div class="step pt-0 pt-md-4 pb-5">
+        <div class="step-number">
+          <div class="step-number-inner">2</div>
+        </div>
+        <div class="step-body d-flex align-items-center ps-xl-5">
+          <div class="rellax d-none d-lg-block flex-shrink-0 mx-4 mx-xl-5" data-rellax-percentage="0.5" data-rellax-speed="-0.5" data-disable-parallax-down="lg">
+            <img src="assets/img/mong/data-analysis.svg" class="d-dark-mode-none" width="306" alt="Illustration">
+          </div>
+          <div class="rellax ps-md-4 ps-xl-5" data-rellax-percentage="0.5" data-rellax-speed="0.5" data-disable-parallax-down="lg">
+            <h3 class="h4">Data Analysis</h3>
+            <p class="mb-0">The system leverages advanced machine learning to analyze the sensor data and recognize patterns that indicate wear or malfunction.</p>
+          </div>
+        </div>
+      </div>
+      <div class="step pt-0 pt-md-4 pb-5">
+        <div class="step-number">
+          <div class="step-number-inner">3</div>
+        </div>
+        <div class="step-body d-flex align-items-center ps-xl-5">
+          <div class="rellax d-none d-lg-block flex-shrink-0 mx-4 mx-xl-5" data-rellax-percentage="0.5" data-rellax-speed="-0.3" data-disable-parallax-down="lg">
+            <img src="assets/img/mong/alerts-notifications.svg" class="d-dark-mode-none" width="306" alt="Illustration">
+            
+          </div>
+          <div class="rellax ps-md-4 ps-xl-5" data-rellax-percentage="0.5" data-rellax-speed="0.4" data-disable-parallax-down="lg">
+            <h3 class="h4">Alerts & Notifications</h3>
+            <p class="mb-0">Receive instant alerts on your dashboard or mobile app, allowing you to take corrective action before failures occur.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="step pt-0 pt-md-4 pb-5">
+        <div class="step-number">
+          <div class="step-number-inner">4</div>
+        </div>
+        <div class="step-body d-flex align-items-center ps-xl-5">
+          <div class="rellax d-none d-lg-block flex-shrink-0 mx-4 mx-xl-5" data-rellax-percentage="0.5" data-rellax-speed="-0.5" data-disable-parallax-down="lg">
+            <img src="assets/img/mong/cloud-based-dashboard.svg" class="d-dark-mode-none" width="306" alt="Illustration">
+          
+          </div>
+          <div class="rellax ps-md-4 ps-xl-5" data-rellax-percentage="0.5" data-rellax-speed="0.6" data-disable-parallax-down="lg">
+            <h3 class="h4">Cloud-Based Dashboard</h3>
+            <p class="mb-0">Access all your equipment data through an intuitive, cloud-based platform, providing insights from anywhere, anytime.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-5 pb-lg-5 pb-md-4 pb-3 pt-5 mt-5 bg-secondary">
+
+    <div class="container">
+
+        <div class="row justify-content-center text-center pb-3 mb-sm-2 mb-lg-3">
+            <div class="col-xl-6 col-lg-7 col-md-9">
+              <h2 class="h1 mb-lg-4">Key Features of Mongrov Conditional Monitoring Solution</h2>
+            </div>
+        </div>
+
+    <!-- Swiper slider -->
+   
+      <div class="row justify-content-center">
+
+        <!-- Swiper item -->
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+              <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-0 mb-3">
+                <img src="assets/img/mong/icon-real-time-analytics.svg" width="46" alt="Comments">
+              </div>
+              <h3 class="h5 mb-3">Real-Time Monitoring</h3>
+              <p class="mb-0">Constantly track your machinery's vital signs, providing up-to-the-minute data on equipment performance.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Swiper item -->
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+              <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-0 mb-3">
+                <img src="assets/img/mong/icon-predictive-maintenance1.svg" width="46" alt="Comments">
+              </div>
+              <h3 class="h5 mb-3">Predictive Maintenance</h3>
+              <p class="mb-0">Use historical data and predictive algorithms to forecast when maintenance is required, reducing unnecessary downtime.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Swiper item -->
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+              <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-0 mb-3">
+                <img src="assets/img/mong/icon-seamless-integration.svg" width="46" alt="Comments">
+              </div>
+              <h3 class="h5 mb-3">Seamless Integration</h3>
+              <p class="mb-0">Easily integrate the system with your existing maintenance management software and IoT infrastructure.</p>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Swiper item -->
+        <div class="col-md-4 mb-3 mb-sm-0">
+            <div class="card h-100">
+              <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-0 mb-3">
+                  <img src="assets/img/mong/icon-scalable-solutions.svg" width="50" alt="Comments">
+                </div>
+                <h3 class="h5 mb-3">Scalable Solution</h3>
+                <p class="mb-0">Whether you’re monitoring a few assets or hundreds, the system scales effortlessly to meet your needs.</p>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Swiper item -->
+        <div class="col-md-4 mb-3 mb-sm-0">
+            <div class="card h-100">
+              <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-0 mb-3">
+                  <img src="assets/img/mong/icon-dashboards-and-reports.svg" width="46" alt="Comments">
+                </div>
+                <h3 class="h5 mb-3">User-Friendly Dashboard</h3>
+                <p class="mb-0">Intuitive interface for analyzing trends, generating reports, and making data-driven decisions.</p>
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+    
+
+    
+  </section>
+
+
+
+      <!-- Industries We Serve  -->
+
+      <section class="position-relative py-5">
+        <div class="container position-relative zindex-5 pt-4">
+          <div class="row justify-content-center text-center pb-3 mb-sm-2 mb-lg-3">
+            <div class="col-xl-6 col-lg-7 col-md-9">
+              <h2 class="h1 mb-lg-4">Why Choose Our Conditional Monitoring System?</h2>
+            </div>
+          </div>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-0 pb-xl-3 justify-content-center">
+
+            <!-- Item -->
+            <div class="col position-relative">
+              <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
+                <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
+                  <img src="assets/img/mong/icon-increased-uptime.svg" width="46" alt="Comments">
+                </div>
+                <div class="card-body text-center">
+                  <h3 class="h5 pb-1 mb-2">Increased Uptime</h3>
+                  <p class="mb-0">By detecting issues early, you can schedule maintenance during planned downtimes, minimizing unexpected halts in production.</p>
+                </div>
+              </div>
+             
+            </div>
+
+            <!-- Item -->
+            <div class="col position-relative">
+              <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
+                <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
+                  <img src="assets/img/mong/icon-reduced-operational-costs.svg" width="46" alt="Analytics">
+                </div>
+                <div class="card-body text-center">
+                  <h3 class="h5 pb-1 mb-2">Reduced Maintenance Costs</h3>
+                  <p class="mb-0">Avoid expensive emergency repairs by addressing minor issues before they escalate into critical failures.</p>
+                </div>
+              </div>
+              
+            </div>
+
+            <!-- Item -->
+            <div class="col position-relative">
+              <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
+                <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
+                  <img src="assets/img/mong/icon-prolong.svg" width="46" alt="Group">
+                </div>
+                <div class="card-body text-center">
+                  <h3 class="h5 pb-1 mb-2">Prolonged Equipment Life</h3>
+                  <p class="mb-0">Consistent monitoring ensures that machinery operates within optimal conditions, prolonging its lifespan.</p>
+                </div>
+              </div>
+            </div>
+
+         
+
+          </div>
+        </div>
+       
+      </section>
+
+
+ 
+       <!-- Get Started  -->
+       <section class="bg-secondary py-4">
+        <div class="container text-center py-1 py-md-4 py-lg-5">
+          <h2 class="h1 mb-4">Get Started Today!</h2>
+          <p class="pb-3 mb-3">Ready to unleash the power of IoT in your business? Contact us today for a free consultation and explore how <a href="https://mongrov.com/thingz-app" class="internal-link"> ThingzApp</a> can transform your operations.</p>
+          <a href="contact" class="btn btn-primary shadow-primary btn-lg mb-1">Get started</a>
+        </div>
+      </section>
+
+
+     </main>
+
+
+      <!-- Footer -->
+    <footer class="footer pt-5 pb-4 pb-lg-5 mt-2 mt-md-0 border-top">
+      <div class="container pt-lg-4">
+        <div class="row pb-5">
+          <div class="col-md-3">
+            <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+              <img src="assets/img/mong/logo.svg" width="120" alt="Mongrov">
+            </div>
+            <ul class="nav flex-column mb-0">
+              <li class="mb-1">
+                <a href="contact#contact" class="nav-link align-items-start fw-normal px-0 py-1">
+                  <i class="bx bx-map fs-5 text-primary me-2"></i>
+                  2603 Camino Ramon, Suite 200,<br>San Ramon, CA 94583.
+                </a>
+              </li>
+              <li class="mb-1">
+                <a href="tel:+1 (415) 610 3668" class="nav-link align-items-start fw-normal px-0 py-1">
+                  <i class="bx bx-phone-call fs-5 text-primary me-2"></i>
+                  +1 (415) 610 3668
+                </a>
+              </li>
+              <li>
+                <a href="mailto:hello@mongrov.com" class="nav-link align-items-start fw-normal px-0 py-1">
+                  <i class="bx bx-envelope fs-5 text-primary me-2"></i>
+                  hello@mongrov.com
+                </a>
+              </li>
+            </ul>
+
+            <div class="d-flex mt-lg-3">
+              <a href="https://www.linkedin.com/company/mongrov-inc/" target="_blank" aria-label="Linked in" class="btn btn-icon btn-secondary btn-linkedin ml-0 mr-2">
+                <i class="bx bxl-linkedin"></i>
+              </a>
+              <a href="https://twitter.com/TheMongrov" target="_blank" class="btn btn-icon btn-secondary btn-twitter mx-2">
+                <i class='bx'>
+                  <img src="assets/img/mong/twitter-x.svg"  width="16" alt="Twitter">
+                </i>
+              </a>
+              <a href="https://github.com/mongrov" target="_blank" aria-label="Github" class="btn btn-icon btn-secondary btn-github">
+                <i class="bx bxl-github"></i>
+              </a>
+            </div>
+            <div class="mt-lg-3">
+              <h6 class="mb-2 mt-3">Compliances</h6>
+              <div class="row">
+                <div class="col">
+                  <img class="img-fluid" src="assets/img/mong/compliances.png" width="200" alt="Compliances">
+                </div>
+                
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-9 pt-4 pt-md-1 pt-lg-0">
+            <div id="footer-links" class="row">
+              <div class="col-md-3">
+                <h6 class="mb-2">What we do?</h6>
+                  <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                    
+                    <li class="nav-item"><a href="thingz-cloud" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz cloud</a></li>
+                    <li class="nav-item"><a href="near-thingz" class="nav-link d-inline-block px-0 pt-1 pb-2">Near thingz</a></li>
+                    <li class="nav-item"><a href="thingz-app" class="nav-link d-inline-block px-0 pt-1 pb-2">Thingz app</a></li>
+                  </ul>
+
+                  <h6 class="mb-2 mt-3 mt-md-0">Who we are?</h6>
+                  <ul class="nav flex-column mb-2 mb-lg-0">
+                    <li class="nav-item"><a href="who-we-are" class="nav-link d-inline-block px-0 pt-1 pb-2">About us</a></li>
+                    <li class="nav-item"><a href="leadership" class="nav-link d-inline-block px-0 pt-1 pb-2">Leaderships</a></li>
+                    <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Company's story</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Awards</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">News</a></li> -->
+                    <!-- <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2 disabled">Life @ mongrov</a></li> -->
+                  </ul>
+
+                  
+              </div>
+              <div class="col-md-3">
+                <h6 class="mb-2 mt-2 mt-md-0">Solutions</h6>
+                <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                    <li class="nav-item"><a href="asset-tracking-system" class="nav-link d-inline-block px-0 pt-1 pb-2">Asset tracking system</a></li>
+                    <li class="nav-item"><a href="field-service-management-software" class="nav-link d-inline-block px-0 pt-1 pb-2">Field service software</a></li>
+                    <li class="nav-item"><a href="field-safety-software" class="nav-link d-inline-block px-0 pt-1 pb-2">Field safety software</a></li>
+                    <li class="nav-item"><a href="iot-data-management" class="nav-link d-inline-block px-0 pt-1 pb-2">IoT data management</a></li>
+                    
+                  </ul>
+
+                  <h6 class="mb-2 mt-3 mt-md-0">Industries</h6>
+                  <ul class="nav flex-column mb-2 mb-lg-0">
+                    <li class="nav-item"><a href="industries-health-care" class="nav-link d-inline-block px-0 pt-1 pb-2">Health care</a></li>
+                    <li class="nav-item"><a href="industries-infrastructure" class="nav-link d-inline-block px-0 pt-1 pb-2 ">Infrastructures</a></li>
+                    <li class="nav-item"><a href="industries-automotives.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Automobiles</a></li>
+                  </ul>
+
+                  
+              </div>
+              <div class="col-md-3 pt-2 pt-lg-0">
+                <h6 class="mb-2">Become our partner</h6>
+                <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                  <li class="nav-item"><a href="system-integrators" class="nav-link d-inline-block px-0 pt-1 pb-2">System integrators</a></li>
+                  <li class="nav-item"><a href="device-manufacturers" class="nav-link d-inline-block px-0 pt-1 pb-2">Device manufacturers</a></li>
+                  <li class="nav-item"><a href="cloud-partners" class="nav-link d-inline-block px-0 pt-1 pb-2">Cloud partners</a></li>
+                  
+                </ul>
+                <h6 class="mb-2 mt-3 mt-md-0">Insights</h6>
+                <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                  <li class="nav-item"><a href="blog" class="nav-link d-inline-block px-0 pt-1 pb-2">Blogs</a></li>
+                  <li class="nav-item"><a href="case-study" class="nav-link d-inline-block px-0 pt-1 pb-2">Case studies</a></li>
+                  <li class="nav-item"><a href="whitepapers" class="nav-link d-inline-block px-0 pt-1 pb-2">Whitepapers</a></li>
+                 
+                  
+                </ul>
+                <!-- <ul class="nav flex-column mb-2 mb-lg-0">
+                  <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+                  <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+                </ul> -->
+              </div>
+
+              <div class="col-md-3 pt-2 pt-lg-0">
+                
+               <ul class="nav flex-column mb-2 mb-lg-0">
+                <li class="nav-item"><a href="careers" class="nav-link d-inline-block px-0 pt-1 pb-2">Careers</a></li>
+                <li class="nav-item"><a href="contact" class="nav-link d-inline-block px-0 pt-1 pb-2">Contact us</a></li>
+                  <li class="nav-item"><a href="terms" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+                  <li class="nav-item"><a href="privacy-policy" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+          &copy; 2024 Mongrov, Inc. All rights reserved. 
+          <!-- <a class="nav-link d-inline-block p-0" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a> -->
+
+        </p>
+      </div>
+    </footer>
+
+
+    <!-- Back to top button -->
+    <a href="#top" class="btn-scroll-top" aria-label="backtotop" data-scroll>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+    </a>
+
+   
+    
+
+<!-- Request Demo modal-->
+<div class="modal fade" id="requestDemo" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content ps-0 overflow-hidden">
+      <div class="row">
+        <div class="col-6 demo-bg d-none d-lg-block">
+          
+        </div>
+        <div class="col-lg-6 ps-4">
+          <div class="modal-header border-0 pb-0">
+       
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body pt-0">
+            <h3 class="modal-title">Request Demo</h3>
+            <p>Please fill out the form below and our sales team will get back to you shortly</p>
+            <form action="https://formspree.io/f/moqrqglg" method="POST">
+              <div class="form-group mb-3">
+                <input type="text" class="form-control" name="Contact-name" placeholder="Full Name" >
+                <div class="error-message"></div>
+              </div>
+              <div class="form-group mb-3">
+                <input type="email" class="form-control" name="Contact-email" placeholder="Business Mail" >
+                <div class="error-message"></div>
+              </div>
+              <div class="form-group mb-3">
+                <input type="text" class="form-control" name="Contact-number" placeholder="Phone" >
+                <div class="error-message"></div>
+              </div>
+              <div class="form-group mb-3">
+                <textarea name="Message" rows="5" class="form-control" placeholder="Type your message here" ></textarea>
+                <div class="error-message"></div>
+              </div>
+          
+              <button type="submit" class="btn btn-block btn-primary btn-loading" data-loading-text="Sending">
+                <span>Submit</span>
+              </button>
+
+              <a href="https://cal.com/ryan-nate-khhe11/fsm-demo" target="_blank" class="nav-link float-end lead">
+                <i class="bx fs-5 text-primary me-2">
+                  <img src="assets/img/mong/cal-mail.svg" width="28">
+                </i>
+                Quick appointment 
+              </a>
+
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <!-- Vendor Scripts -->
+    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
+    <script src="assets/vendor/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/lightgallery/lightgallery.min.js"></script>
+    <script src="assets/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/shufflejs/dist/shuffle.min.js"></script>
+
+
+    <!-- Custome scripts  -->
+    <script src="assets/js/custome.js"></script>
+
+  
+
+    <!-- Main Theme Script -->
+    <script src="assets/js/theme.min.js"></script>
+  <script type='text/javascript'>
+  var link = !!document.querySelector("link[rel='canonical']") ? document.querySelector("link[rel='canonical']") : document.createElement('link');
+  link.setAttribute('rel', 'canonical');
+  link.setAttribute('href', location.protocol + '//' + location.host + location.pathname);
+  document.head.appendChild(link);
+</script>
+
+<!-- FAQ Schema  -->
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "What is an asset tracking system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Asset tracking system helps organizations to efficiently monitor important data of their physical assets by utilizing tags and barcode scanners that broadcast their location via GPS or RFID."
+      }
+    },{
+      "@type": "Question",
+      "name": "What are the benefits of using an asset tracking system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Asset tracking system helps companies to efficiently monitor, gather and preserve information of company’s assets. This data includes maintenance reports, asset use, physical location, and associated downtime and costs."
+      }
+    },{
+      "@type": "Question",
+      "name": "What is IoT asset tracking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The location and status of assets can be managed in real-time with IoT asset tracking by using GPS and fleet tracking technologies. Through its use, enterprises can enhance productivity, safety, and resource efficiency."
+      }
+    },{
+      "@type": "Question",
+      "name": "What data can be collected by an asset tracking system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To provide comprehensive insights into asset management and utilization. An IoT asset tracking system always keeps records of mobility area, location, usage patterns, environmental conditions, and maintenance schedules."
+      }
+    },{
+      "@type": "Question",
+      "name": "How do I choose the right asset tracking system for my business?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For choosing the right asset tracking system for your business then carefully research vendors' track records, customer reviews, interoperability, scalability, security features and integration capabilities for informed decision-making."
+      }
+    },{
+      "@type": "Question",
+      "name": "How does Mongrov’s asset tracking system compare to others?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mongrov's IoT asset tracking system excels with customizable features, seamless integration, and real-time monitoring. It prioritizes user-centricity, robust analytics, scalability, and accuracy for efficient asset management."
+      }
+    },{
+      "@type": "Question",
+      "name": "I have concerns about the security of my asset data. How does Mongrov ensure data security?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For the IoT asset monitoring system, Mongrov uses encryption methods, access limits, and frequent security assessments to guarantee strong data protection, prevent unauthorized access and cyber threats."
+      }
+    },{
+      "@type": "Question",
+      "name": "How asset tracking software can save your time and money?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This program provides timely updates on the location of the assets, reduces the chances of making mistakes while monitoring the guide, and simplifies the management of inventories. Meanwhile, it can be argued that the employment of asset tracking software may protect your agenda, enable faster identification of the goods’ location, and reduce the risk of theft or loss. But in the above case, this performance reduces the operating expenses as well as time and money that might have been used in carrying out surgeries with the potential of incurring high expenses."
+      }
+    },{
+      "@type": "Question",
+      "name": "What is indoor asset tracking and how Mongrov can help with it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Indoor asset tracking refers to the identification of the position, condition, or status of items in a facility. Mongrov provides clients with sophisticated methods for tracking assets to increase their awareness and properly manage them. The specific system is designed in such a way that one can track the indoor assets in real-time, thus increasing the efficiency of the tracking system."
+      }
+    },{
+      "@type": "Question",
+      "name": "What is a fleet tracking system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A fleet monitoring device is a gizmo that utilizes GPS generation with a view to displaying information with reference to the position, motion, and condition of cars. It facilitates the implementation of proper logistics for owned vehicles to reduce expenditures and increase productivity. Furthermore, the fleet tracking solutions can also be linked with the solutions that track other assets as well as resources. For the assets that are within structures, indoor asset tracking is applied for accurate tracking. All in all, a fleet tracking system is a crucial tool for efficient fleet as well as asset management."
+      }
+    },{
+      "@type": "Question",
+      "name": "What makes GPS tracking useful in the management of a fleet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fleet management GPS trackers have numerous advantages for their users. Through real-time updates of the vehicle’s location, it facilitates accurate route planning and the overall amount of gas used. Other benefits include increased security and reduced theft since one can trace the car’s location in case of a theft. GPS asset tracking is also used in monitoring the activities of the fleet, driver conduct, and usage of the vehicle. Also, since information on vehicle condition and usage can easily be obtained, the scheduling of protection is made easier, resulting in fewer interruptions and a longer vehicle life."
+      }
+    }]
+  }
+  </script>
+
+  <!-- Start of Rocket.Chat Livechat Script -->
+<!-- <script type="text/javascript">
+	(function(w, d, s, u) {
+		w.RocketChat = function(c) { w.RocketChat._.push(c) }; w.RocketChat._ = []; w.RocketChat.url = u;
+		var h = d.getElementsByTagName(s)[0], j = d.createElement(s);
+		j.async = true; j.src = 'https://corp.mongrov.com/livechat/rocketchat-livechat.min.js?_=201903270000';
+		h.parentNode.insertBefore(j, h);
+	})(window, document, 'script', 'https://corp.mongrov.com/livechat');
+	</script> -->
+  
+  </body>
+</html>
