@@ -23,9 +23,7 @@
     background: #ffffffad;
     border: 1px solid #1685ff;
 }
-.display-3 {
-    font-size: calc(1.525rem + 1vw);
-}
+
 
 .hero-meditrack .row {
     position: absolute;
