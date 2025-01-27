@@ -46,6 +46,12 @@ section.hero-meditrack:before {
     z-index: 9;
 }
 
+.three-banner {
+  background: #ccc url(../img/mong/banner-bg.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .hero-master > .row {
     position: absolute;
     top: 80px;
