@@ -111,6 +111,13 @@
           transform: rotate(360deg);
         }
       }
+      /* Keep inline links identifiable without relying on color. */
+      main a.internal-link,
+      main a.internal-link:hover,
+      main a.internal-link:focus {
+        text-decoration: underline;
+        text-underline-offset: 0.15em;
+      }
     </style>
 
     <!-- Theme mode -->
@@ -296,7 +303,7 @@
 
         <!-- Parallax gfx -->
         <div class="col-lg-5 col-md-5 col-sm-8 col-10 order-md-2">
-          <img src="assets/img/mong/asset-tracking-hero.svg" class="my-3 py-3 my-xl-0" alt="Bubble">
+          <img src="assets/img/mong/asset-tracking-hero.svg" class="my-3 py-3 my-xl-0" alt="">
         </div>
 
         <!-- Text -->
@@ -342,7 +349,7 @@
           <div class="card card-hover h-100 mx-2">
             <div class="card-body">
               <div class="d-table position-relative p-3 mb-4">
-                <img src="assets/img/mong/icon-simplysity.svg" class="position-relative zindex-2" width="46" alt="Icon">
+                <img src="assets/img/mong/icon-simplysity.svg" class="position-relative zindex-2" width="46" alt="">
                 <span class="bg-primary position-absolute top-0 start-0 w-100 h-100 rounded-circle opacity-8"></span>
               </div>
               <h3 class="h5 pb-1 mb-2">Simplicity Is At Our Core</h3>
@@ -356,7 +363,7 @@
           <div class="card card-hover h-100 mx-2">
             <div class="card-body">
               <div class="d-table position-relative p-3 mb-4">
-                <img src="assets/img/mong/flexibility.svg" class="position-relative zindex-2" width="46" alt="Icon">
+                <img src="assets/img/mong/flexibility.svg" class="position-relative zindex-2" width="46" alt="">
                 <span class="bg-primary position-absolute top-0 start-0 w-100 h-100 rounded-circle opacity-8"></span>
               </div>
               <h3 class="h5 pb-1 mb-2">Flexibility for Getting Maximum Value</h3>
@@ -372,7 +379,7 @@
           <div class="card card-hover h-100 mx-2">
             <div class="card-body">
               <div class="d-table position-relative p-3 mb-4">
-                <img src="assets/img/mong/durability.svg" class="position-relative zindex-2" width="46" alt="Icon">
+                <img src="assets/img/mong/durability.svg" class="position-relative zindex-2" width="46" alt="">
                 <span class="bg-primary position-absolute top-0 start-0 w-100 h-100 rounded-circle opacity-8"></span>
               </div>
               <h3 class="h5 pb-1 mb-2">We Guarantee Durability</h3>
@@ -396,14 +403,14 @@
               <h2 class="pb-0 pt-2 h1 pt-md-0 header-center">Transforming Chaos to Control</h2>
               <h3>Our Asset Tracking Solutions Benefits</h3>
               <p class="mb-4 pb-1 pb-sm-2 pb-lg-3">Taking control of your asset tracking process will feel like a breeze with our asset tracking solution.</p>
-              <img src="assets/img/mong/asset-tracking-benefits.svg" class="d-block mx-auto img-fluid zoom-in-out-box" width="450" alt="Image">
+              <img src="assets/img/mong/asset-tracking-benefits.svg" class="d-block mx-auto img-fluid zoom-in-out-box" width="450" alt="Asset management checklist with security, maintenance, and notification symbols.">
             </div>
             <div class="col-lg-6">
               <div class="row row-cols-sm-2 row-cols-1 g-4 align-items-center">
                 <div class="col">
                   <div class="card border-0 shadow-sm p-3 mb-5 bg-body rounded">
                     <div class="card-body m-xl-3 m-1 text-center">
-                      <img src="assets/img/mong/security-icon.svg" style="filter: drop-shadow(0px 0.8645132780075073px 4.602016925811768px rgba(99, 102, 241, 0.02)) drop-shadow(0px 2.9037201404571533px 10.33138370513916px rgba(99, 102, 241, 0.05)) drop-shadow(0px 13px 27px rgba(99, 102, 241, 0.17));" alt="Payment icon">
+                      <img src="assets/img/mong/security-icon.svg" style="filter: drop-shadow(0px 0.8645132780075073px 4.602016925811768px rgba(99, 102, 241, 0.02)) drop-shadow(0px 2.9037201404571533px 10.33138370513916px rgba(99, 102, 241, 0.05)) drop-shadow(0px 13px 27px rgba(99, 102, 241, 0.17));" alt="">
                       <h3 class="h4 mt-4 mb-2">Asset Security</h3>
                       <p class="mb-2">Our IoT enabled asset tracking solution can help prevent misuse and theft of your assets. With real-time monitoring and control capabilities, gain insights into the usage patterns of your assets at any time.</p>
                     </div>
@@ -412,14 +419,14 @@
                 <div class="col">
                   <div class="card border-0 shadow-sm">
                     <div class="card-body  m-xl-3 m-1 text-center">
-                      <img src="assets/img/mong/icon-asset-management.svg" style="filter: drop-shadow(0px 0.8645132780075073px 4.602016925811768px rgba(99, 102, 241, 0.02)) drop-shadow(0px 2.9037201404571533px 10.33138370513916px rgba(99, 102, 241, 0.05)) drop-shadow(0px 13px 27px rgba(99, 102, 241, 0.17));" alt="Security icon">
+                      <img src="assets/img/mong/icon-asset-management.svg" style="filter: drop-shadow(0px 0.8645132780075073px 4.602016925811768px rgba(99, 102, 241, 0.02)) drop-shadow(0px 2.9037201404571533px 10.33138370513916px rgba(99, 102, 241, 0.05)) drop-shadow(0px 13px 27px rgba(99, 102, 241, 0.17));" alt="">
                       <h3 class="h4 mt-4 mb-2">Centralized Assets Management</h3>
                       <p class="mb-2">Get the power to manage your assets properly with our centralized assets management solution. Have better control, more efficiency in resource allocation, and reduce the chances of errors.</p>
                     </div>
                   </div>
                   <div class="card border-0 shadow-sm mt-4">
                     <div class="card-body  m-xl-3 m-1 bg-repeat-0 bg-position-top-end text-center">
-                      <img src="assets/img/mong/icon-asset-maintanence.svg" style="filter: drop-shadow(0px 0.8645132780075073px 4.602016925811768px rgba(99, 102, 241, 0.02)) drop-shadow(0px 2.9037201404571533px 10.33138370513916px rgba(99, 102, 241, 0.05)) drop-shadow(0px 13px 27px rgba(99, 102, 241, 0.17));" alt="Security icon">
+                      <img src="assets/img/mong/icon-asset-maintanence.svg" style="filter: drop-shadow(0px 0.8645132780075073px 4.602016925811768px rgba(99, 102, 241, 0.02)) drop-shadow(0px 2.9037201404571533px 10.33138370513916px rgba(99, 102, 241, 0.05)) drop-shadow(0px 13px 27px rgba(99, 102, 241, 0.17));" alt="">
                       <h3 class="h4 mt-4 mb-2">Improved Asset Maintenance</h3>
                       <p class="mb-2">Always be on top when it comes to deciding maintenance schedules. With automated reminders and notifications, track your inventory easily.</p>
                     </div>
@@ -450,7 +457,7 @@
             <div class="col position-relative">
               <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
                 <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
-                  <img src="assets/img/mong/icon-hospital.svg" width="46" alt="Comments">
+                  <img src="assets/img/mong/icon-hospital.svg" width="46" alt="">
                 </div>
                 <div class="card-body text-center">
                   <h3 class="h5 pb-1 mb-2">Hospital</h3>
@@ -465,7 +472,7 @@
             <div class="col position-relative">
               <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
                 <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
-                  <img src="assets/img/mong/icon-rental.svg" width="46" alt="Analytics">
+                  <img src="assets/img/mong/icon-rental.svg" width="46" alt="">
                 </div>
                 <div class="card-body text-center">
                   <h3 class="h5 pb-1 mb-2">Rental Industry</h3>
@@ -480,7 +487,7 @@
             <div class="col position-relative">
               <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
                 <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
-                  <img src="assets/img/mong/icon-parking.svg" width="46" alt="Group">
+                  <img src="assets/img/mong/icon-parking.svg" width="46" alt="">
                 </div>
                 <div class="card-body text-center">
                   <h3 class="h5 pb-1 mb-2">Parking Lots</h3>
@@ -495,7 +502,7 @@
             <div class="col position-relative">
               <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
                 <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
-                  <img src="assets/img/mong/icon-manufacturing.svg" width="46" alt="Notifications">
+                  <img src="assets/img/mong/icon-manufacturing.svg" width="46" alt="">
                 </div>
                 <div class="card-body text-center">
                   <h3 class="h5 pb-1 mb-2">Manufacturing</h3>
@@ -510,7 +517,7 @@
             <div class="col position-relative">
               <div class="card border-0 bg-transparent rounded-0 p-md-1 p-xl-3">
                 <div class="d-table bg-secondary rounded-3 p-3 mx-auto mt-3 mt-md-4">
-                  <img src="assets/img/mong/icon-militory.svg" width="46" alt="Tasks">
+                  <img src="assets/img/mong/icon-militory.svg" width="46" alt="">
                 </div>
                 <div class="card-body text-center">
                   <h3 class="h5 pb-1 mb-2">Military</h3>
@@ -544,7 +551,7 @@
             </div>
             <div class="col-md-5 offset-lg-1 order-md-2 order-1">
               <div class="bg-secondary rounded-3">
-                <img src="assets/img/mong/reliable.svg" alt="Image" class="d-dark-mode-none d-block">
+                <img src="assets/img/mong/reliable.svg" alt="" class="d-dark-mode-none d-block">
               </div>
             </div>
           </div>
@@ -991,7 +998,7 @@
 
               <a href="https://cal.com/ryan-nate-khhe11/fsm-demo" target="_blank" class="nav-link float-end lead">
                 <i class="bx fs-5 text-primary me-2">
-                  <img src="assets/img/mong/cal-mail.svg" width="28">
+                  <img src="assets/img/mong/cal-mail.svg" width="28" alt="">
                 </i>
                 Quick appointment 
               </a>

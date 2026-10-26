@@ -115,6 +115,13 @@
           transform: rotate(360deg);
         }
       }
+      /* Keep article links identifiable without relying on color. */
+      .article-content a[href],
+      .article-content a[href]:hover,
+      .article-content a[href]:focus {
+        text-decoration: underline;
+        text-underline-offset: 0.15em;
+      }
     </style>
 
     <!-- Theme mode -->
@@ -337,7 +344,7 @@
 
 
       <!-- Post content + Sharing -->
-      <section class="container mb-5 pt-4 pb-2 py-mg-4">
+      <section class="container mb-5 pt-4 pb-2 py-mg-4 article-content">
         <div class="row gy-4">
 
           <!-- Content -->
