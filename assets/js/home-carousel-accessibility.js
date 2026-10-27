@@ -2,7 +2,7 @@
 (function () {
   'use strict';
 
-  document.querySelectorAll('.home-page .swiper').forEach(function (element) {
+  document.querySelectorAll('.swiper[data-accessible-pagination]').forEach(function (element) {
     var swiper = element.swiper;
     if (!swiper || !swiper.pagination) return;
 

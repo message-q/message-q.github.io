@@ -92,8 +92,6 @@
         border: .15em solid #b4b7c9;
         border-right-color: transparent;
         border-radius: 50%;
-        -webkit-animation: spinner .75s linear infinite;
-        animation: spinner .75s linear infinite;
       }
       .dark-mode .page-spinner {
         border-color: rgba(255,255,255,.4);
@@ -179,7 +177,7 @@
 </head>
 
   <!-- Body -->
-  <body class="contrast-accessible-page">
+  <body class="contrast-accessible-page bounded-loader-page keyboard-focus-page">
 
     <!-- Page loading spinner -->
     <div class="page-loading active">
@@ -326,12 +324,13 @@
     <h2 class="h1 text-center mt-5">Features of Our Asset Tracking System</h2>
     <h4 class="h5 text-center">Stay Ahead and Streamline Operations Easily</h4>
     <p class="text-center w-75 mx-auto mb-5">We designed our <a href="https://mongrov.com/asset-tracking-system" class="internal-link"> best asset tracking software</a> with high efficiency and your success in mind. So, bid goodbye to your fear of losing, replacing, or missing assets and say hello to real-time precise asset tracking.</p>
-    <div class="swiper swiper-nav-onhover mt-n3 mx-n2 swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden" data-swiper-options="{
+    <div data-accessible-pagination class="swiper swiper-nav-onhover mt-n3 mx-n2 swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden" data-swiper-options="{
       &quot;slidesPerView&quot;: 1,
       &quot;spaceBetween&quot;: 8,
       &quot;pagination&quot;: {
         &quot;el&quot;: &quot;.swiper-pagination&quot;,
-        &quot;clickable&quot;: true
+        &quot;clickable&quot;: false,
+        &quot;bulletElement&quot;: &quot;button&quot;
       },
       &quot;breakpoints&quot;: {
         &quot;600&quot;: {
@@ -390,7 +389,7 @@
       </div>
 
       <!-- Pagination (bullets) -->
-      <div class="swiper-pagination position-relative pt-2 pt-sm-3 mt-4 swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal swiper-pagination-lock"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1" aria-current="true"></span></div>
+      <div class="swiper-pagination position-relative pt-2 pt-sm-3 mt-4 swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal swiper-pagination-lock"></div>
     <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
   </section>
 
@@ -1034,6 +1033,7 @@
 
     <!-- Main Theme Script -->
     <script src="assets/js/theme.min.js"></script>
+    <script src="assets/js/home-carousel-accessibility.js"></script>
   <script type='text/javascript'>
   var link = !!document.querySelector("link[rel='canonical']") ? document.querySelector("link[rel='canonical']") : document.createElement('link');
   link.setAttribute('rel', 'canonical');

@@ -356,3 +356,24 @@ section.hero-meditrack:before {
 .contrast-accessible-page .error-message {
   color: #b42318;
 }
+/* Bounded loading motion and visible keyboard focus on audited pages. */
+.bounded-loader-page .page-spinner {
+  animation: spinner .75s linear 6;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bounded-loader-page .page-spinner {
+    animation: none;
+  }
+}
+.keyboard-focus-page a:focus-visible,
+.keyboard-focus-page button:focus-visible,
+.keyboard-focus-page [tabindex]:focus-visible {
+  outline: 3px solid #111827 !important;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px #fff !important;
+}
+@media (forced-colors: active) {
+  .keyboard-focus-page :focus-visible {
+    outline-color: Highlight !important;
+  }
+}
