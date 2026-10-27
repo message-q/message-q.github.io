@@ -186,3 +186,80 @@ section.hero-meditrack:before {
 
 
   
+
+/* Homepage accessibility: readable actions, focus, and carousel controls. */
+.home-page .btn-primary,
+.home-page .btn-outline-primary {
+  --si-btn-color: #fff;
+  --si-btn-bg: #0759b5;
+  --si-btn-border-color: #0759b5;
+  --si-btn-hover-color: #fff;
+  --si-btn-hover-bg: #06488f;
+  --si-btn-hover-border-color: #06488f;
+  --si-btn-active-color: #fff;
+  --si-btn-active-bg: #06488f;
+  --si-btn-active-border-color: #06488f;
+}
+.home-page .btn-outline-primary {
+  --si-btn-color: #0759b5;
+  --si-btn-bg: #fff;
+}
+.home-page a:focus-visible,
+.home-page button:focus-visible,
+.home-page [tabindex]:focus-visible {
+  outline: 3px solid #111827 !important;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px #fff !important;
+}
+.home-page .swiper-pagination .swiper-pagination-bullet {
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 2px solid #0759b5;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 1;
+}
+.home-page .swiper-pagination .swiper-pagination-bullet-active {
+  width: 32px;
+  background: #0759b5;
+}
+.home-page .swiper-pagination .swiper-pagination-bullet-active::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: auto;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+.home-page .page-spinner {
+  animation: spinner .75s linear 6;
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-page .page-spinner {
+    animation: none;
+  }
+  .home-page .swiper-wrapper,
+  .home-page .swiper-pagination-bullet {
+    transition: none !important;
+  }
+}
+@media (forced-colors: active) {
+  .home-page a:focus-visible,
+  .home-page button:focus-visible,
+  .home-page [tabindex]:focus-visible {
+    outline-color: Highlight !important;
+  }
+  .home-page .swiper-pagination .swiper-pagination-bullet {
+    border-color: ButtonText;
+    background: Canvas;
+  }
+  .home-page .swiper-pagination .swiper-pagination-bullet-active {
+    border: 4px solid Highlight;
+  }
+  .home-page .swiper-pagination .swiper-pagination-bullet-active::after {
+    border-color: Highlight;
+  }
+}

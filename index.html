@@ -92,8 +92,8 @@
         border: .15em solid #b4b7c9;
         border-right-color: transparent;
         border-radius: 50%;
-        -webkit-animation: spinner .75s linear infinite;
-        animation: spinner .75s linear infinite;
+
+
       }
       .dark-mode .page-spinner {
         border-color: rgba(255,255,255,.4);
@@ -176,7 +176,7 @@
 
 
   <!-- Body -->
-  <body>
+  <body class="home-page">
 
     <!-- Page loading spinner -->
     <div class="page-loading active">
@@ -590,7 +590,8 @@
                 "loop": true,
                 "pagination": {
                   "el": ".swiper-pagination",
-                  "clickable": true
+                  "clickable": true,
+                  "bulletElement": "button"
                 },
                 "navigation": {
                   "prevEl": "#testimonials-prev1",
@@ -766,7 +767,8 @@
                 "loop": true,
                 "pagination": {
                   "el": ".swiper-pagination",
-                  "clickable": true
+                  "clickable": true,
+                  "bulletElement": "button"
                 },
                 "navigation": {
                   "prevEl": "#testimonials-prev",
