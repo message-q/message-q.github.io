@@ -263,3 +263,96 @@ section.hero-meditrack:before {
     border-color: Highlight;
   }
 }
+/* Identify inline field safety links without relying on color. */
+.field-safety-page main a.internal-link,
+.field-safety-page main a.internal-link:hover,
+.field-safety-page main a.internal-link:focus {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+/* Inline links must remain recognizable without color alone. */
+.mobile-developer-page main a.internal-link,
+.mobile-developer-page main a.internal-link:hover,
+.mobile-developer-page main a.internal-link:focus,
+.project-management-page main a.internal-link,
+.project-management-page main a.internal-link:hover,
+.project-management-page main a.internal-link:focus {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+/* Accessible text and action colors for the advanced safety article. */
+.advanced-safety-page .btn-primary {
+  --si-btn-color: #fff;
+  --si-btn-bg: #0759b5;
+  --si-btn-border-color: #0759b5;
+  --si-btn-hover-color: #fff;
+  --si-btn-hover-bg: #06488f;
+  --si-btn-hover-border-color: #06488f;
+  --si-btn-active-color: #fff;
+  --si-btn-active-bg: #06488f;
+  --si-btn-active-border-color: #06488f;
+}
+.advanced-safety-page .breadcrumb {
+  --si-breadcrumb-item-active-color: #4b5563;
+  --si-breadcrumb-divider-color: #4b5563;
+}
+.advanced-safety-page .breadcrumb a,
+.advanced-safety-page main a.internal-link {
+  color: #0759b5;
+}
+.advanced-safety-page .breadcrumb a:hover,
+.advanced-safety-page .breadcrumb a:focus,
+.advanced-safety-page main a.internal-link:hover,
+.advanced-safety-page main a.internal-link:focus {
+  color: #06488f;
+}
+/* Contrast corrections for the six audited service, contact, and article pages. */
+.contrast-accessible-page .btn-primary {
+  --si-btn-color: #fff;
+  --si-btn-bg: #0759b5;
+  --si-btn-border-color: #0759b5;
+  --si-btn-hover-color: #fff;
+  --si-btn-hover-bg: #06488f;
+  --si-btn-hover-border-color: #06488f;
+  --si-btn-active-color: #fff;
+  --si-btn-active-bg: #06488f;
+  --si-btn-active-border-color: #06488f;
+}
+.contrast-accessible-page .breadcrumb {
+  --si-breadcrumb-item-active-color: #4b5563;
+  --si-breadcrumb-divider-color: #4b5563;
+}
+.contrast-accessible-page .breadcrumb a,
+.contrast-accessible-page main a.internal-link,
+.contrast-accessible-page main a[href^="mailto:"] {
+  color: #0759b5;
+}
+.contrast-accessible-page .breadcrumb a:hover,
+.contrast-accessible-page .breadcrumb a:focus,
+.contrast-accessible-page main a.internal-link:hover,
+.contrast-accessible-page main a.internal-link:focus,
+.contrast-accessible-page main a[href^="mailto:"]:hover,
+.contrast-accessible-page main a[href^="mailto:"]:focus {
+  color: #06488f;
+}
+.contrast-accessible-page .btn-link {
+  --si-btn-color: #0759b5;
+  --si-btn-hover-color: #06488f;
+  --si-btn-active-color: #06488f;
+}
+.contrast-accessible-page .text-muted {
+  color: #4b5563 !important;
+}
+.contrast-accessible-page .nav-tabs .nav-link {
+  color: #0759b5;
+}
+.contrast-accessible-page .nav-tabs .nav-link.active {
+  color: #fff;
+  background-color: #0759b5;
+  border-color: #0759b5;
+}
+.contrast-accessible-page .invalid-feedback,
+.contrast-accessible-page .error-message {
+  color: #b42318;
+}
