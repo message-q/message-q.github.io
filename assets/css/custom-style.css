@@ -377,3 +377,23 @@ section.hero-meditrack:before {
     outline-color: Highlight !important;
   }
 }
+/* Include form fields and keep the back-to-top control visible when focused. */
+.keyboard-focus-page input:focus-visible,
+.keyboard-focus-page select:focus-visible,
+.keyboard-focus-page textarea:focus-visible {
+  outline: 3px solid #111827 !important;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px #fff !important;
+}
+.keyboard-focus-page .btn-scroll-top:focus-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+@media (forced-colors: active) {
+  .keyboard-focus-page input:focus-visible,
+  .keyboard-focus-page select:focus-visible,
+  .keyboard-focus-page textarea:focus-visible {
+    outline-color: Highlight !important;
+  }
+}
